@@ -1,0 +1,669 @@
+﻿@{
+    ViewBag.Title = "Nosso Grupos de WhatsApp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1{
+        font-size: 37px;
+    }
+
+
+    .disableLink {
+        color: #666;
+        text-decoration: none;
+    }
+
+    
+</style>
+<div class="myaccount">
+
+    <div class="container-fluid myaccount-header">
+
+        <div class="container-flex">
+
+            <div class="row">
+
+                <div class="col-md-4 hidden-xs hidden-sm">
+
+                    <h2>WhatsApp</h2>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-flex">
+
+        <div class="row ng-scope">
+
+
+            <div class="non-subscribers-main">
+
+                <div class="row">
+ 
+                   
+                    <div class="col-md-7">
+                        <div subscribe-injected="" remove-fix-screen="xl hd">
+                            <div class="sl-modal sl-subscription-modal  undefined injected ng-scope">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header ng-scope">
+                                            <button type="button" class="sl-close" data-dismiss="modal" ng-click="closeSubscribe()">×</button>
+
+                                            <h4 class="modal-title ng-binding large primary text-center">
+                                                Nossos grupos de WhatsApp
+                                            </h4>
+                                        </div>
+
+                                        <div class="modal-header ng-scope">
+                                            <b>Para usar os grupos você precisa cadastrar um telefone válido</b>
+                                            <p>Ele não será mostrado em nenhum lugar para nenhum usuário do site. Coloque o seu numero de telefone corretamente pois ele que dirá quais grupos você tem acesso.</p>
+                                            <p>* VOCÊ NÃO PODERÁ ALTERAR ISSO DEPOIS.</p>
+                                            <p>** Se por algum motivo você já tenha sido removido de algum desses grupos, você não poderá entrar através do site. Entre em contato os administradores.</p>
+
+                                            @using (Html.BeginForm("SalvarTelefone", "Dating", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+
+                                                <div class="modal-body"  style="align-content: center;">
+
+                                                    <input type="text" name="telefone" id="telefone" disabled="@ViewBag.HabilitaCampo" maxlength="15" value="@ViewBag.NumeroTelefone" class="form-control txtTelefone" style="width: 250px;"><br>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" disabled="@ViewBag.HabilitaCampo" onclick="confirm("Você não poderá trocar depois, confirme se está tudo correto.");" class="btn btn-primary btn-salvar-numero-js">Salvar Celular</button>
+                                                </div>
+                                            }
+                                            
+                                        </div>
+                                        
+                                        <div class="modal-body  no-padding">
+                                            @if (ViewBag.KinkeeSelect != null)
+                                            {
+                                                <!-- Tabs -->
+                                                if (ViewBag.KinkeeSelect)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+
+                                                        <li>
+                                                            <a href="" target="_blank" class="btn-whatsapp-select" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Select</b><br /><br />
+                                                                
+                                                                    <b>Pré-requisito</b><br />
+                                                                    * Ser Assinate Gold<br />
+                                                                    * Estar em Top Perfis<br />
+                                                                    * Ter o Perfil Verificado<br />
+                                                                
+                                                                <br />
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+
+                                                        <li>
+                                                            <a href="#" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Select</b><br /><br />
+
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold<br />
+                                                                * Estar em Top Perfis<br />
+                                                                * Ter o Perfil Verificado<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                                            </a>
+
+                                                        </li>
+                                                    </ul>
+                                                }
+
+
+                                                if (ViewBag.KinkeeSP)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-SP disableLink" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee São Paulo</b><br /><br />
+
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número da Cidade de São Paulo e Grande São Paulo<br />
+                                                                
+                                                                <br />
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#"  style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee São Paulo</b><br /><br />
+
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número da Cidade de São Paulo e Grande São Paulo<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+
+                                                if (ViewBag.KinkeeInteriorSP)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-InteriorSP disableLink" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Interior de São Paulo</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número de Cidades do Interior de São Paulo<br />
+
+                                                                <br />
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Interior de São Paulo</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número de Cidades do Interior de São Paulo<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                                            </a>
+
+                                                            
+                                                        </li>
+                                                    </ul>
+                                                }
+
+
+                                                if (ViewBag.KinkeeBH)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-BH" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Minas Gerais</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número do Estado de Minas Gerais<br />
+
+                                                                <br />
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Minas Gerais</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número do Estado de Minas Gerais<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+
+                                                            </a>
+
+                                                            
+                                                        </li>
+                                                    </ul>
+                                                }
+
+
+                                                if (ViewBag.KinkeeRJ)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-RJ" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Rio de Janeiro</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número do Estado do Rio de Janeiro<br />
+
+                                                                <br />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Rio de Janeiro</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número do Estado do Rio de Janeiro<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                                            </a>
+                                                            
+                                                        </li>
+                                                    </ul>
+                                                }
+
+                                                if (ViewBag.KinkeeBabies)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-Babies" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Babies</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Sugar Baby<br />
+
+                                                                <br />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#"  style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Babies</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Sugar Baby<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso)</b><br />
+                                                                
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+
+                                                if (ViewBag.NorteNordeste)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-NorteNordeste" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Norte e Nordeste</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número das regiões Norte ou Nordeste do Brasil<br />
+
+                                                                <br />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#"  style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Norte e Nordeste</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número do Estado do Norte ou Nordeste do Brasil<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+
+                                                if (ViewBag.CentroOeste)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-CentroOeste" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Centro-Oeste do Brasil</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número da região Centro-Oeste do Brasil<br />
+
+                                                                <br />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#"  style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Centro-Oeste</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número da região Centro-Oeste do Brasil<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+
+                                                if (ViewBag.Sul)
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="" target="_blank" class="btn-whatsapp-Sul" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Sul</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número da região Sul do Brasil<br />
+
+                                                                <br />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <ul class="nav nav-pills nav-justified">
+                                                        <!-- Dados do usuario -->
+                                                        <li class="">
+                                                            <a href="#" style="background-color: #FFF;">
+                                                                Grupo <b>Kinkee Sul</b><br /><br />
+                                                                <b>Pré-requisito</b><br />
+                                                                * Ser Assinate Gold (Apenas para os Daddies)<br />
+                                                                * Ter um número da região Sul do Brasil<br />
+
+                                                                <br />
+                                                                <b>(Você não tem acesso, mas pode comprá-lo)</b><br />
+                                                                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                                                                <div class="navbar-actions ng-scope" button-subscribe="" style="margin-left:20px;" edata-action="NAVBAR-SUBSCRIBE">
+                                                                    <a href="/MinhaConta/Assinatura/" class="sl-btn btn-primary-inverse text-uppercase" title="Assine para acessar">Clique aqui para virar Gold e acessar</a>
+                                                                </div>
+
+                                                                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                            }
+
+                                        </div>
+
+                                        <!-- ngIf: testimonials.length -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7">
+
+                        <!-- Presentes enviados -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="container-flex">
+
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/modules/js/jquery.maskedinput.min.js"></script>
+<script>
+
+
+    $("input.txtTelefone")
+        .mask("(99) 9999-9999?9")
+        .focusout(function (event) {
+            var target, phone, element;
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+            phone = target.value.replace(/\D/g, ''); //Remove tudo o que não é dígito
+            element = $(target);
+            element.unmask();
+            if (phone.length > 10) {
+                element.mask("(99) 99999-999?9");
+            } else {
+                element.mask("(99) 9999-9999?9");
+            }
+        });
+
+
+    function validation() {
+        var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+            IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+            IS_IOS = IS_IPAD || IS_IPHONE,
+            IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+            IS_MOBILE = IS_IOS || IS_ANDROID;
+
+
+        if (IS_MOBILE) {
+            //window.location = "Kinkee://magiclink/" + userEmail + "/" + profileId
+            //window.location = "https://kinkeesugar.com";
+
+            return IS_MOBILE;
+        }
+        else {
+
+            //window.location = "https://kinkeesugar.com";
+
+            alert('Você precisa entrar no site da Kinkee através do navegador do celular para conseguir acessar os grupos.');
+        }
+    }
+
+
+    $('.btn-whatsapp-select').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/LEhE3x";
+        }
+
+        e.preventDefault();
+    });
+
+    $('.btn-whatsapp-SP').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/HBCTDb";
+        }
+
+        e.preventDefault();
+    });
+
+    $('.btn-whatsapp-BH').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/hGKssL";
+        }
+
+        e.preventDefault();
+    });
+
+    $('.btn-whatsapp-RJ').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/FxNSKz";
+        }
+
+        e.preventDefault();
+    });
+
+
+
+    $('.btn-whatsapp-Babies').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/avYhEk";
+        }
+
+        e.preventDefault();
+    });
+
+
+    $('.btn-whatsapp-InteriorSP').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/kQ6XZv";
+        }
+
+        e.preventDefault();
+    });
+
+
+    $('.btn-whatsapp-NorteNordeste').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/DNd2gL";
+        }
+
+        e.preventDefault();
+    });
+
+    $('.btn-whatsapp-CentroOeste').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/rmD3Ge";
+        }
+
+        e.preventDefault();
+    });
+
+    $('.btn-whatsapp-Sul').click(function (e) {
+
+        var IS_MOBILE = validation();
+        if (IS_MOBILE) {
+            window.location = "https://goo.gl/yDmp1g";
+        }
+
+        e.preventDefault();
+    });
+
+
+
+
+
+
+
+
+
+    function drawInlineSVG(svgElement, ctx, callback) {
+        var svgURL = new XMLSerializer().serializeToString(svgElement);
+        var img = new Image();
+        img.onload = function () {
+            ctx.drawImage(this, 0, 0);
+            callback();
+        }
+        img.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
+    }
+
+
+    drawInlineSVG(document.querySelector('svg'), ctxt, function () { console.log(canvas.toDataURL()) })
+
+
+</script>
+
+<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>

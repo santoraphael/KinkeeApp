@@ -1,0 +1,185 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@if (!ViewBag.ContaGold)
+{
+    <div class="modal-backdrop in " ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}" modal-backdrop="" style="z-index: 1051;"></div>
+
+
+    <div tabindex="-1"  class="modal ng-isolate-scope sl-modal sl-subscription-modal has-carousel background-on-button" index="1" style="z-index: 1060; display: block;">
+        <div class="modal-dialog modal-lg" >
+            <div class="modal-content">
+
+                <div class="modal-header ng-scope" >
+                    <button type="button" class="sl-close js-close-button-assinatura">×</button>
+                    <h4 class="modal-title ng-binding large primary text-center">
+                        Tenha acesso a Kinkee sem limites
+                        <small  class="ng-binding ng-scope">
+                            Faça a sua assinatura e publique novidades para todos.
+                        </small>
+                    </h4>
+                </div>
+                
+                <div class="modal-body  ng-scope no-padding">
+
+                    <div class="tab-content">
+
+
+                        <div class="container-flex">
+
+                            <div class="row ng-scope">
+
+
+                                <div class="non-subscribers-main">
+
+                                    <div class="row">
+
+                                        <div class="col-md-7">
+                                            <div subscribe-injected="" remove-fix-screen="xl hd">
+                                                <div class="sl-modal sl-subscription-modal  undefined injected ng-scope">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+
+                                                            <div class="modal-header ng-scope">
+                                                                <button type="button" class="sl-close" data-dismiss="modal">×</button>
+
+                                                                <h4 class="modal-title ng-binding large primary text-center">
+                                                                    Atualize sua Conta.
+                                                                    <small class="ng-binding ng-scope">
+                                                                        E destaque-se mais que todo mundo!
+                                                                    </small>
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="modal-body  no-padding">
+
+                                                                <!-- Tabs -->
+                                                                <ul class="nav nav-pills nav-justified visible-lg visible-md">
+                                                                    <!-- Dados do usuario -->
+                                                                    <li class="active">
+                                                                        <a>
+                                                                            Atualizações com desconto <i class="icon"></i>
+                                                                        </a>
+                                                                    </li>
+
+                                                                    @*<li ng-class="{ active: $subscribe.isActiveTab('payment'), disabled: !$subscribe.subscribe.valid, 'tab-complete': $subscribe.payment.valid }" class="disabled">
+                                                                            <a ng-click="$subscribe.changeTabs($subscribe.TABS.PLANS, $subscribe.TABS.PAYMENT)">
+                                                                                Escolha a forma de pagamento                                <i class="icon"></i>
+                                                                            </a>
+                                                                        </li>*@
+                                                                </ul>
+
+                                                                <!-- Tab panes -->
+                                                                <div class="tab-content">
+
+                                                                    <!-- Planos -->
+                                                                    <div class="tab-pane ng-fade">
+
+                                                                        <div class="sl-subscription small-discount">
+
+                                                                            <h3 class="hidden-md hidden-lg text-center choose-plan">Clique no plano para escolher:</h3>
+
+                                                                            <ul class="plans-list">
+
+                                                                                @if (ViewBag.ContaGold == false)
+                                                                                {
+
+                                                                                    @*<li class="col-md-3 col-sm-6 col-xs-3 plan-col">
+
+                                                                                        <div class="plan">
+                                                                                            <div class="plan-info">
+                                                                                                <div class="title">
+                                                                                                    <h3 class="ng-binding text-left">1 Mês</h3>
+                                                                                                    <span class="benefits ng-scope">
+                                                                                                        <span class="ng-scope">
+                                                                                                            <p class="ng-scope ng-binding" style="font-size: 10px;">7 Dias Grátis. Renova mensalmente.</p>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                </div>
+
+
+                                                                                                <h1>
+                                                                                                    <span class="price">
+                                                                                                        <span class="currency" bo-text="plan.currency">R$</span>
+                                                                                                        <strong>29</strong>
+                                                                                                    </span>
+
+                                                                                                    <span class="decimal">90</span>
+                                                                                                    <span class="periodicy">/mês</span>
+                                                                                                </h1>
+                                                                                            </div>
+                                                                                            <div class="plan-action">
+                                                                                                <form action="https://pagseguro.uol.com.br/pre-approvals/request.html" method="post">
+                                                                                                    <input type="hidden" name="code" value="74B7903F4A4A882004B50F837F5E4248" />
+                                                                                                    <input type="hidden" name="iot" value="button" />
+                                                                                                    <input class="sl-btn btn-default" type="image" name="submit" value="Assine" />
+                                                                                                </form>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </li>*@
+
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <div class="highlight ng-scope">
+                                                                                        PARABÉNS VOCÊ É Kinkee GOLD. APROVEITE PARA PULSAR!
+                                                                                    </div>
+                                                                                }
+
+                                                                            </ul>
+
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                                <!-- Antifraude -->
+                                                            </div>
+
+                                                            <!-- ngIf: testimonials.length -->
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-7">
+
+                                            <!-- Presentes enviados -->
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+   
+}
+

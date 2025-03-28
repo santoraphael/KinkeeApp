@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Conta não ativa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="ExploreController" class="ng-scope">
+
+    <!-- Filter -->
+    <div class="container-fluid explore-filter" >
+        <div class="container-flex">
+            <div class="row">
+                <div class="col-xs-10 col-sm-4 col-md-6">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-flex gutter-small">
+
+        <section sl-online="" class="ng-scope online">
+
+
+            <div class="online-row-new">
+                <h5>Conta não ativada</h5>
+            </div>
+
+        </section>
+
+        <hr class="" auto-visible="">
+        <p>Enviamos uma email para <strong>@ViewBag.Email</strong>. Verfifique seu email e siga as insturções para validar sua conta</p>
+        
+
+    </div>
+
+
+    <!-- End -->
+    <div class="container-flex">
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+    </div>
+
+</div>
+

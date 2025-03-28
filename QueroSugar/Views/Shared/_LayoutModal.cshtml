@@ -1,0 +1,98 @@
+﻿
+    
+<div class="modal-zoom-in StretchedBox CenterAlign Z(1)">
+    <div class="Bdrs(8px) Ov(h) Ta(c) Bgc(#fff) M(10px) P(24px) P(12px)--s W(440px) H(a) Pos(r) Ov(v) Ovy(s) panel_modal" role="dialog">
+        <div class="Pos(a) T(0) P(20px) P(12px)--xs End(0) D(b)" style="z-index:9999999;">
+            <button aria-hidden="false" aria-label="Fechar" class="btn_fechar C($c-divider) Bdc($c-divider) Bdc($c-gray):h C($c-gray):h Bdrs(50%) Bds(s) Bdw(3px) Trsdu($fast) Trsp($transform) Rotate(-90deg):h--ml close P(0) Lh(1) Cur(p) focus-button-style">
+                <svg class="Sq(24px) P(4px)" viewBox="0 0 24 24" width="24px" height="24px" focusable="false" aria-hidden="true" role="presentation">
+                    <path class="" d="M14.926 12.56v-1.14l5.282 5.288c1.056.977 1.056 2.441 0 3.499-.813 1.057-2.438 1.057-3.413 0L11.512 15h1.138l-5.363 5.125c-.975 1.058-2.438 1.058-3.495 0-1.056-.813-1.056-2.44 0-3.417l5.201-5.288v1.14L3.873 7.27c-1.137-.976-1.137-2.44 0-3.417a1.973 1.973 0 0 1 3.251 0l5.282 5.207H11.27l5.444-5.207c.975-1.139 2.438-1.139 3.413 0 1.057.814 1.057 2.44 0 3.417l-5.2 5.288z"></path>
+                </svg>
+            </button>
+        </div>
+
+        @RenderBody()
+    </div>
+    <span class="StretchedBox Pe(n) noBg+D(n) Z(-1) Bgc(#000.68)"></span>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("input.telefone")
+            .mask("(99) 9999-9999?9")
+            .focusout(function (event) {
+                var target, phone, element;
+                target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+                phone = target.value.replace(/\D/g, '');
+                element = $(target);
+                element.unmask();
+                if (phone.length > 10) {
+                    element.mask("(99) 99999-999?9");
+                } else {
+                    element.mask("(99) 9999-9999?9");
+                }
+            });
+
+        $("input.telefone").keypress(function (event) {
+
+            var ele = $('input.telefone').val().replace(/\D/g, '');
+            
+            if(ele.length > 9){
+              
+                    $('.btnCadastrarEmail').removeAttr('disabled');
+                    $('.btnCadastrarEmail').css('background', 'linear-gradient(262deg, #e4214f, #e4214f)');
+                    $('.labelBtnNumeroTelefone').html('Continue'); 
+            }
+            else {
+
+                $('.btnCadastrarEmail').attr('disabled', 'disabled');
+                $('.btnCadastrarEmail').addClass('Bg\(\$c-gray\)');
+                $('.btnCadastrarEmail').css('background', '#e0e4e9');
+
+                $('.labelBtnNumeroTelefone').html('Insira o numero de telefone');
+            }
+        });
+
+
+        $("input.Email").keypress(function (event) {
+
+            var ele = $('input.Email').val();
+
+            //atribuindo o valor do campo
+            var sEmail = ele;
+            // filtros
+            var emailFilter = /^.+@@.+\..{2,}$/;
+            var illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/
+            // condição
+
+            console.log(sEmail);
+            if (!(emailFilter.test(sEmail)) || sEmail.match(illegalChars)) {
+                
+                $("#phoneErrorMessage").show().removeClass("ok").addClass("erro").text('Por favor, informe um email válido.');
+
+                $('.btnCadastrarInformacoes').attr('disabled', 'disabled');
+                $('.btnCadastrarInformacoes').addClass('Bg\(\$c-gray\)');
+                $('.btnCadastrarInformacoes').css('background', '#e0e4e9');
+
+                $('.labelBtnEmail').html('Insira seu melhor email');
+            }
+            else {
+                console.log('CERTO');
+                $("#phoneErrorMessage").show().removeClass("erro").addClass("ok").text('Certo!');
+
+                $('.btnCadastrarInformacoes').removeAttr('disabled');
+                $('.btnCadastrarInformacoes').css('background', 'linear-gradient(262deg, #e4214f, #e4214f)');
+                $('.labelBtnEmail').html('Continue'); 
+            }
+           
+        });
+
+
+        $('#phoneErrorMessage').focus(function () {
+            $("p.erro").hide();
+        });
+
+
+    });
+</script>

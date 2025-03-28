@@ -1,0 +1,240 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/modules/css/index.css" rel="stylesheet" />
+
+
+<div class="ng-scope">
+
+    <!-- Filter -->
+    <div class="container-fluid explore-filter">
+
+        <div class="container-flex">
+            <div class="row">
+                <div class="col-xs-10 col-sm-4 col-md-6 js-aviso">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-flex gutter-small">
+
+
+
+        @*<section sl-online="" class="ng-scope online">
+
+            <div class="row">
+                <div class="col-xs-7 col-sm-8 col-md-8">
+                    <div class="online-title">
+                        <h3 class="text-uppercase">
+                            <span class="online-title-info">Pessoas</span>
+                            <strong>Online</strong>
+                            ( <span class="online-count">0</span> )
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+        <br />
+        @*@if (ViewBag.Aviso == true)
+        {
+            <span class="online-title-info"><strong>AVISO: </strong>Uaau! Você esta aparecendo agora no "EM ALTA". Quanto mais você acessar a Kinkee mais você aparece!</span>
+        }
+        else
+        {
+            <span class="online-title-info"><strong>AVISO: </strong>Poxa você ainda não tem o perfil bom o suficiente para aparecer no "EM ALTA".</span>
+        }*@
+        <span class="online-title-info">
+            <strong>AVISO: </strong>
+            @ViewBag.Aviso
+        </span>
+
+        @*<script src="~/modules/js/notify.js"></script>
+
+        <script>
+        $(document).ready(function () {
+            //programmatically trigger propogating hide event
+            $(".js-aviso").notify(@ViewBag.Aviso);
+        });
+        </script>*@
+
+        
+
+        @Html.Action("_DestaquesPartial", "Dating")
+        @Html.Action("_SugestaoPartial", "Dating")
+
+
+
+        @if (ViewBag.Destaques != null)
+        {
+            if (ViewBag.Destaques)
+            {
+
+            }
+            else if (ViewBag.Title != "Novos Perfis")
+            {
+
+            }
+        }
+
+        <div class="container-flex gutter-small">
+
+            <section class="last-photos  " auto-visible="">
+
+                <!-- Ultimas Fotos Title -->
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-10">
+                        <div class="last-photos-title">
+                            <h3 class="text-uppercase">
+                                <span>TOP Perfis</span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List -->
+                <div class="last-photos-list ">
+
+
+                    <div class="bootstrap snippet">
+
+
+                        <div id="container"></div>
+
+
+
+                    </div>
+
+                </div>
+
+                <hr class="ng-scope">
+                <div id="progress" style="display:none">
+                    <a class="sl-btn btn-primary-inverse text-uppercase" id="btnCarregando" title="Assine">CARREGANDO...</a>
+                </div>
+                <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn" title="Assine">CLIQUE AQUI PARA CARREGAR MAIS</a>
+
+
+                <br />
+                <br />
+
+
+            </section>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+<input type="hidden" class="js-input-cidade-location-hidden">
+<input type="hidden" class="js-input-estado-location-hidden">
+<input type="hidden" class="js-input-pais-location-hidden">
+<input type="hidden" class="js-input-latitude-location-hidden">
+<input type="hidden" class="js-input-longitude-location-hidden">
+<input type="hidden" class="js-input-ipv4-location-hidden">
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+@*@Scripts.Render("~/index/css")*@
+
+<script>
+    $(document).ready(function () {
+
+        GetUsuariosOnline();
+        GetLocation();
+
+        $('.js-carregar-btn').unbind("click").click(function (e) {
+            if ($('#identSearch').val() === undefined) {
+                GetData();
+            }
+            else {
+                GetDataSearch();
+            }
+            e.preventDefault();
+        });
+    });
+
+    function GetLocation() {
+        $.ajax({
+            url: "https://geoip-db.com/jsonp",
+            jsonpCallback: "callback",
+            dataType: "jsonp",
+            success: function (location) {
+
+                $('.js-input-pais-location-hidden').val(location.country_name);
+                $('.js-input-estado-location-hidden').val(location.state);
+                $('.js-input-cidade-location-hidden').val(location.city);
+                $('.js-input-latitude-location-hidden').val(location.latitude);
+                $('.js-input-longitude-location-hidden').val(location.longitude);
+                $('.js-input-ipv4-location-hidden').val(location.IPv4);
+
+                var localizacao = {
+
+                    pais: $('.js-input-pais-location-hidden').val(),
+                    estado: $('.js-input-estado-location-hidden').val(),
+                    cidade: $('.js-input-cidade-location-hidden').val(),
+                    latitude: $('.js-input-latitude-location-hidden').val(),
+                    longitude: $('.js-input-longitude-location-hidden').val(),
+                    ipv4: $('.js-input-ipv4-location-hidden').val()
+                };
+
+                SalvarLocationUsuario(localizacao);
+            }
+        });
+    }
+
+
+    function SalvarLocationUsuario(localizacao) {
+        $.ajax({
+            url: "../MinhaConta/SalvarLocationDefault",
+            async: false,
+            data: {
+                'Pais': localizacao.pais,
+                'Estado': localizacao.estado,
+                'Cidade': localizacao.cidade,
+                'Latitude': localizacao.latitude,
+                'Longitude': localizacao.longitude,
+                'IPv4': localizacao.ipv4
+            },
+            dataType: "json",
+            type: 'POST',
+            success: function () {
+
+            },
+            done: function () {
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+</script>
+
+<div class="fb-customerchat"
+     page_id="1105956872821807">
+</div>
+
+@*<script>
+        // Use the variables below to include the name and email address of the user who is currently logged in.
+        window.scupSettings = {
+            channelAccount: "LVC_813cbb10-19eb-11e8-a2af-3549d24b25e4",
+            userName: "@HttpContext.Current.User.Identity.Name",
+            userEmail: ""
+        }
+</script>
+<script>!function (t) { var e = t.createElement("script"); e.src = "https://api-live-chat.care.scup.com/widget", t.body.appendChild(e) }(document);</script>*@
+
+
+
+
+

@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/modules/css/certification-modal-intro");
+
+
+
+<div class="modal-backdrop in" modal-backdrop="" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal slmodal undefined" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content" modal-transclude="">
+            <div class="slmodal__content ng-scope">
+                <div class="certification-modal__intro--green ng-scope">
+                    <slmodal-close class="ng-isolate-scope"><div id="js-action-close-modal" class="slmodal__close js-action-close-modal">×</div></slmodal-close>
+                    <div class="slmodal__body slmodal__body--center" ng-transclude="" center="">
+                        <img src='~/modules/img/verificado.svg' class="certification-modal__thumb" alt='Verificado'>
+                        <h2 class="ng-binding ng-scope">Esse é um perfil certificado!</h2>
+                        <p class="ng-scope">Esse selo garante que sua identidade é verdadeira e confiável.</p>
+
+                        @if (!ViewBag.Assinatura)
+                        {
+                            <button class="slmodal__btn ng-scope ng-isolate-scope js-assinatura-partial">
+                                Quero me certificar também!
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.js-assinatura-partial').click(function () {
+
+
+        $('#mensagemModal').empty();
+        $('#preLoadModal').css('display', 'block');
+
+        $.get('@Url.Action("_ModalPremiumPartial", "MinhaConta")', function (data) {
+
+
+            $('#preLoadModal').css('display', 'none');
+
+            $('#ShareModal').append(data);
+        });
+    });
+</script>

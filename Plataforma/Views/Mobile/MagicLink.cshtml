@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "";
+    Layout = null;
+}
+
+
+<script>
+
+    window.onload = function () {
+        RedirectPage();
+    };
+
+
+    function RedirectPage()
+    {
+        var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+            IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+            IS_IOS = IS_IPAD || IS_IPHONE,
+            IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+            IS_MOBILE = IS_IOS || IS_ANDROID;
+
+
+        //Pega a URL Atual
+        var url_atual = window.location.href;
+
+        //Separa a URL pelo "/"
+        var url = url_atual.split('/');
+
+        //Pega o userEmail
+        var userEmail = url[url.length - 2];
+
+        //Pega o profileId
+        var profileId = url[url.length - 1];
+        
+
+        if (IS_MOBILE) {
+            //window.location = "Kinkee://magiclink/" + userEmail + "/" + profileId
+            window.location = "https://kinkeesugar.com";
+        }
+        else {
+
+            alert('Abra esse link pelo seu celular com o Sugar App Kinkee instalado.');
+               window.location = "https://kinkeesugar.com";
+            }
+    }
+</script>

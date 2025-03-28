@@ -1,0 +1,434 @@
+﻿
+@{
+    Layout = null;
+}
+
+@*<div class="modal-backdrop in " ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}" modal-backdrop="" style="z-index: 1040;"></div>*@
+
+
+
+<div class="modal-main softhome">
+    <div class="modal-header text-center">
+        <button type="button" class="sl-close" data-dismiss="modal" ng-click="close()">×</button>
+        <h4 class="modal-title ng-binding">
+            Cadastre-se grátis
+        </h4>
+    </div>
+    <div class="modal-body">
+
+        <form name="signupForm" class="sl-form ng-pristine ng-invalid ng-invalid-required" data-errors="signup" novalidate="" autocomplete="off">
+
+            <!-- Email -->
+            <div class="form-group email has-feedback">
+                <input type="email" class="cm-email-pn form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" ng-model="newAccount.email" name="email" required="" signup-validator="" method="checkEmail" maxlength="100" placeholder="Meu e-mail" autocomplete="off" focus-on="email">
+
+                <label for="login" class="help-hint">
+                    <span class="forSpanError hint-error"></span>
+                    <span class="hint-header ng-binding">Informe um e-mail válido</span>
+                    <span class="hint-body ng-binding">Essa é uma informação sigilosa. Ele será utilizado apenas para nos comunicarmos com você.</span>
+                </label>
+                <span class="email-private">.</span>
+
+                <span class="help-block"></span>
+            </div>
+
+            <!-- Usuário -->
+            <div class="form-group input-group-lg login has-feedback">
+                <div class="input-group">
+                    <span class="input-group-addon">Kinkee.me/</span>
+                    <input id="login" type="text" class="cm-user-pn form-control ng-pristine ng-invalid ng-invalid-required text-normal" name="login" required="" method="checkLogin" maxlength="17" placeholder="Meu usuário" autocomplete="off" focus-on="loginSignup">
+
+                    <label for="login" class="help-hint">
+                        <span class="hint-error ng-binding">Usuário inválido ou já existente.</span>
+                        <span class="hint-header ng-binding">Comece escolhendo um bom nome de usuário</span>
+                        <span class="hint-body ng-binding">É preferível começar com uma letra e não são aceitos caracteres especiais nem espaços. Escolha um nome que diga o que você procura ou quem você é.</span>
+                        <span class="hint-footer ng-binding">
+                            Dicas:
+                            <ul>
+                                <li class="ng-binding">nafernandes</li>
+                                <li class="ng-binding">daddypaulo</li>
+                                <li class="ng-binding">lauraazevedo</li>
+                            </ul>
+                        </span>
+                    </label>
+                </div>
+
+                <span class="help-block"></span>
+            </div>
+
+            <!-- Gênero -->
+            <div class="form-group gender has-feedback">
+                <select class="cm-gen-pn form-control ng-pristine ng-invalid ng-invalid-required make-placeholder" ng-model="newAccount.gender" ng-class="{ 'make-placeholder': !newAccount.gender }" name="gender" signup-validator="" required="" focus-on="gender">
+                    <option value="">Eu Sou</option>
+                    <option value="1">Sugar Daddy</option>
+                    <option value="2">Sugar Baby</option>
+                </select>
+                <span class="arrow"></span>
+                <span class="help-block">Daddy ou Baby?</span>
+            </div>
+
+            <!-- Senha -->
+            <div class="form-group password has-feedback">
+                <input type="password" class="cm-senha-pn form-control ng-pristine ng-invalid ng-invalid-required" ng-model="newAccount.password" name="password" required="" signup-validator="" method="checkPassword" maxlength="30" placeholder="Minha senha" autocomplete="off" focus-on="password">
+
+                <label for="login" class="help-hint hint-password">
+                    <span class="hint-error">Para a sua segurança, defina uma senha maior.</span>
+                    <span class="hint-header ng-binding">Sua senha deve conter no mínimo 6 caracteres.</span>
+                </label>
+
+                <span class="help-block"></span>
+            </div>
+
+            <!-- Recaptcha -->
+            <div class="checkbox has-feedback" ng-class="{'has-error': signupForm.$submited &amp;&amp; signupForm.terms.$invalid}" tabindex="-1" focus-on="terms">
+                <div class="input-group" tabindex="-1">
+                    <label class="ng-binding">
+                        <input type="checkbox" checked="checked" ng-model="newAccount.terms" name="terms" required="" class="ng-pristine ng-invalid ng-invalid-required">
+                        <!-- ngIf: signupForm.$submited && signupForm.terms.$invalid -->
+                        Aceito os  <a href="sobre/termos.html" class="ng-binding">termos de uso e declaro ser maior de 18 anos.</a>
+                    </label>
+                </div>
+                <i></i>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <div class="footer-content">
+
+            <button type="button" class="js-envia-btn-pn sl-btn btn-primary ng-binding" onclick="valida()">
+                Fazer Cadastro
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Loader -->
+<div class="modal-loading">
+    <span class="loading-header ng-binding">Realizando Cadastro</span>
+    <span class="loading-body ng-binding">Aguarde! Estamos deixando tudo perfeito pra você!</span>
+    <div class="spinner" spinner=""><div class="one"></div><div class="two"></div><div class="three"></div></div>
+</div>
+
+
+<script>
+    $('.sl-close').click(function (event) {
+        //alert('teste');
+        $('#html_injetado').empty();
+        event.preventDefault();
+    });
+
+    $('.btn-signin').click(function (event) {
+        $('#html_injetado').empty();
+
+        $.get('Home/LoginModal', function (data) {
+
+            $('#html_injetado').append(data);
+        });
+
+
+        event.preventDefault();
+    });
+
+    $('.maiuscula').keyup(function () {
+        this.value = this.value.toUpperCase();
+    });
+
+    $('.js-envia-btn-pp').click(function () {
+
+
+        validaForm();
+
+    });
+
+
+    function validaForm() {
+        var valida = false;
+
+        var Email = $('.cm-email-pp').val();
+        var Usuario = $('.cm-user-pp').val();
+        var Genero = $('.cm-gen-pp option:selected').val();
+        var Senha = $('.cm-senha-pp').val();
+
+        ValidaEmailRegex(Email);
+        ValidaUsuarioRegex(Usuario);
+
+        setTimeout(function () {
+
+            //alert('Cadastrado. Verifique seu email com a confirmação');
+            //window.location.replace("https://kinkeesugar.com");
+        }, 2000);
+
+
+        if (!$('.form-group.email.has-feedback').hasClass("has-error")
+            && !$('.form-group.input-group-lg.login.has-feedback').hasClass("has-error")
+            && !$('.form-group.gender.has-feedback').hasClass("has-error")
+            && !$('.form-group.password.has-feedback').hasClass("has-error")) {
+
+            valida = true;
+        }
+
+        if (valida) {
+
+            var tamanho = $('.modal-body').height();
+            $('.modal-loading').css("display", "block");
+
+            $('.modal-body').css("height", tamanho);
+            $('.sl-form').css("display", "none");
+            $('.js-envia-btn-pn').css("display", "none");
+
+
+
+
+            GetForm(Email, Usuario, Genero, Senha);
+
+            setTimeout(function (e) {
+                alert('Prontinho. Você já pode acessar a sua conta.');
+                window.location.replace("https://kinkeesugar.com");
+            }, 2000);
+
+            e.stopPropagation();
+        }
+        else {
+            alert('complete o cadastro');
+        }
+
+    }
+
+
+
+
+    function GetForm(Email, Usuario, Genero, Senha) {
+        $.ajax({
+            url: "Home/GetForm",
+            data: {
+                'EmailUsuario': Email,
+                'Usuario': Usuario,
+                'Genero': Genero,
+                'Senha': Senha,
+                'Invite': getUrlParameter('Invite')
+            },
+            dataType: "json",
+            type: 'POST',
+            success: function (data) {
+                //alert(data);
+                //$('.loading-header').text(data);
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+
+    $('.cm-email-pp').focusout(function (e) {
+
+
+        var Email = $('.cm-email-pp').val();
+
+        ValidaEmailRegex(Email);
+
+        e.stopPropagation();
+
+    });
+
+
+    $('.cm-user-pp').focusout(function (e) {
+
+
+        var Usuario = $('.cm-user-pp').val();
+
+
+        ValidaUsuarioRegex(Usuario);
+        e.stopPropagation();
+
+    });
+
+    $('.cm-gen-pp').focusout(function (e) {
+
+        var valor = $('.cm-gen-pp option:selected').val()
+
+        if (valor == 0) {
+            $('.forSpanError').text('Selecione uma opção.');
+            $('.form-group.gender.has-feedback').addClass('has-error');
+        }
+        else {
+            $('.form-group.gender.has-feedback').removeClass('has-error');
+
+        }
+
+        e.stopPropagation();
+
+    });
+
+
+
+
+
+    $('.cm-senha-pp').focusout(function (e) {
+        var tamanho = $('.cm-senha-pp').val().length;
+
+        if (tamanho < 6) {
+
+            $('.form-group.password.has-feedback').addClass('has-error');
+        }
+        else {
+            $('.form-group.password.has-feedback').removeClass('has-error');
+        }
+
+
+        e.stopPropagation();
+
+    });
+
+
+
+    function ValidaUsuario(Usuario) {
+        $.ajax({
+            url: "Home/ValidaUsuario",
+            data: {
+                'Usuario': Usuario,
+            },
+            dataType: "json",
+            type: 'POST',
+            success: function (data) {
+
+                var retorno = data;
+
+                if (retorno == 0) {
+
+                    $('.form-group.input-group-lg.login.has-feedback').addClass('has-error');
+                }
+                else {
+                    $('.form-group.input-group-lg.login.has-feedback').removeClass('has-error');
+                }
+
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+
+
+
+
+
+
+
+    function ValidaEmailRegex(Email) {
+
+        $.ajax({
+            url: "Home/ValidaEmailRegex",
+            data: {
+                'Email': Email,
+            },
+            dataType: "json",
+            type: 'POST',
+            success: function (data) {
+
+                var retorno = data;
+
+                if (retorno == 0) {
+                    $('.forSpanError').text('Email inválido.');
+                    $('.form-group.email.has-feedback').addClass('has-error');
+                    //return false;
+                }
+                else {
+                    $('.form-group.email.has-feedback').removeClass('has-error');
+                    ValidaEmail(Email);
+                }
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+
+
+    function ValidaUsuarioRegex(Usuario) {
+
+        $.ajax({
+            url: "Home/ValidaUsuarioRegex",
+            data: {
+                'Usuario': Usuario,
+            },
+            dataType: "json",
+            type: 'POST',
+            success: function (data) {
+
+                var retorno = data;
+
+                if (retorno == 0) {
+                    $('.forSpanError').text('Email inválido.');
+                    $('.form-group.input-group-lg.login.has-feedback').addClass('has-error');
+                    //return false;
+                }
+                else {
+                    $('.form-group.input-group-lg.login.has-feedback').removeClass('has-error');
+                    ValidaUsuario(Usuario);
+                }
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+
+    function ValidaEmail(Email) {
+
+        $.ajax({
+            url: "Home/ValidaEmail",
+            data: {
+                'Email': Email,
+            },
+            dataType: "json",
+            type: 'POST',
+            success: function (data) {
+
+                var retorno = data;
+
+                if (retorno == 0) {
+                    $('.forSpanError').text('Email já cadastrado');
+                    $('.form-group.email.has-feedback').addClass('has-error');
+                }
+                else {
+                    $('.form-group.email.has-feedback').removeClass('has-error');
+
+                }
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+
+</script>
+

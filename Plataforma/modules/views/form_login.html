@@ -1,0 +1,94 @@
+﻿<div class="modal-backdrop in " ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}" modal-backdrop="" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal signup" ng-style="{'z-index': 1050 + index*10, display: 'block'}" modal-window="" window-class="sl-modal signup" index="0" style="z-index: 1050; display: block;">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content" modal-transclude="">
+            <div class="modal-header ng-scope" ng-hide="$login.isConfirmPassword()">
+
+                <button type="button" class="sl-close">×</button>
+
+                <h4 class="modal-title large primary">
+                    <!-- ngIf: $login.isLogin() --><span ng-if="$login.isLogin()" class="ng-scope">Acesse sua conta</span><!-- end ngIf: $login.isLogin() -->
+                    <!-- ngIf: $login.isPassword() -->
+                </h4>
+            </div>
+
+            <div class="modal-body ng-scope">
+
+                <!-- Login -->
+                <div ng-show="$login.isLogin()" class="text-center">
+
+                    <!-- Erros -->
+                    <!-- ngIf: loginValidationMessage -->
+
+                    <form class="sl-form ng-pristine ng-invalid ng-invalid-required" name="signinForm" novalidate="" ng-submit="doLogin($event)">
+                        <input type="text" class="form-control input-lg ng-pristine ng-invalid ng-invalid-required" ng-model="login.login" placeholder="E-mail ou login" required="" autofocus="" focus-on="login" name="login" ng-disabled="loading" maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                        <input type="password" class="form-control input-lg ng-pristine ng-invalid ng-invalid-required" ng-model="login.password" placeholder="Senha" required="" focus-on="password" name="password" ng-disabled="loading">
+
+                        <p class="forget-password">
+                            <a ng-click="$login.goToPassword()">Esqueceu sua senha?</a>
+                        </p>
+
+                        <!-- Recaptcha -->
+                        <!-- Entrar -->
+                        <!-- ngIf: !loading --><button type="submit" class="sl-btn btn-primary btn-lg btn-block ng-scope" ng-disabled="loading" ng-if="!loading">
+                            Entrar
+                        </button><!-- end ngIf: !loading -->
+                        <!-- Loading -->
+                        <!-- ngIf: loading -->
+
+                        <p class="signup-call" ng-hide="modal.hideSignUp">
+                            Ainda não está no Sexlog? <a ng-click="signup()">Cadastre-se agora mesmo!</a>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Reenvio de  -->
+                <div ng-show="$login.isPassword()" class="text-center ng-hide">
+
+                    <form name="forgetForm" class="sl-form ng-pristine ng-invalid ng-invalid-required" novalidate="" ng-submit="doForgetPassword()">
+
+                        <input type="text" class="form-control input-lg ng-pristine ng-invalid ng-invalid-required" ng-model="login.login" placeholder="Digite seu e-mail" required="" focus-on="username" name="username" ng-disabled="loading" maxlength="100">
+
+                        <p class="forget-password">
+                            Enviaremos para seu e-mail um link com as instruções para redefinir a senha.
+                        </p>
+
+                        <!-- Enviar -->
+                        <button type="submit" class="sl-btn btn-primary btn-lg btn-block" ng-disabled="loading">
+                            Enviar
+                        </button>
+
+                        <p class="signup-call">
+                            Ou retorne para <a ng-click="$login.goToLogin()">tela de login</a>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Confirmação de envio -->
+                <div ng-show="$login.isConfirmPassword()" class="email-confirmation-sent ng-hide">
+                    <h3>Caso esse e-mail conste em nosso banco de dados, você receberá instruções para redefinir a sua senha.</h3>
+                    <p>
+                        Se você não receber o email dentro de alguns minutos, verifique a caixa de spam ou lixo eletrônico de seu email, ou tente <a ng-click="$login.goToPassword()">reenviar sua solicitação.</a>.
+                    </p>
+                    <p>Se ainda precisar de ajuda, contate <a href="https://www.sexlog.com/accounts/zendesk_login?">nossa central de ajuda.</a></p>
+                    <button type="button" class="sl-btn btn-default" ng-click="$login.goToLogin()">Voltar para o login</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script>
+    $('.sl-close').click(function (event) {
+        $('#html_injetado').empty();
+        event.preventDefault();
+    });
+</script>

@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<link href="~/modules/css/FanClubSubscribe.css" rel="stylesheet" />
+
+
+
+@foreach (var item in ViewBag.ListaUsuarios)
+{
+
+    <h2 class="section-header">
+        <i class="icon" style=" padding-left: 6px; padding-top: 3px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 17 14">
+                <path fill="#FFF" fill-rule="evenodd" d="M2.643 3.806l9.486-2.684a.407.407 0 0 1 .371.077.453.453 0 0 1 .169.355v8.498c0 .14-.062.271-.169.356a.42.42 0 0 1-.37.076L7.061 9.051c.164.817.273 1.75.273 2.811 0 .812-.631 1.471-1.407 1.471s-1.408-.66-1.408-1.47c0-1.673-.309-2.887-.634-3.71L2.643 7.8a.443.443 0 0 1-.317-.431V4.238c0-.203.13-.38.317-.432zM14.157 0c.465 0 .843.274.843.613v10.38c0 .34-.378.614-.843.614-.466 0-.843-.275-.843-.614V.613c0-.339.377-.613.843-.613zM0 5.833c0-.965.748-1.746 1.67-1.746.051 0 .1.01.15.016v3.46c-.05.006-.099.016-.15.016C.748 7.58 0 6.798 0 5.833z"></path>
+            </svg>
+
+        </i>
+        Fan Club Sugerido
+    </h2>
+
+    <div class="swiper-slide swiper-slide-next" style="margin-top: 0px; width: 100%; background-color: #fff;">
+        <div class="b-recommended__item">
+            <a href="/fanclub/profile/@item.Usuario" target="_blank" class="">
+                <div class="b-recommended__item__cover__wrapper">
+                    <img src="https://app.kinkeesugar.com/@item.imagemPerfil" alt="Maliah Michel" class="b-recommended__item__cover">
+                </div>
+                <span class="b-avatar online_status_class m-w150">
+                    <img src="https://app.kinkeesugar.com/@item.imagemPerfil" alt="Maliah Michel">
+                </span>
+                <div class="b-recommended__item__name">
+                    <span class="g-user-name">
+                        @item.Usuario
+                        <svg class="g-icon" aria-hidden="true">
+                            <img src="~/modules/img/perfil_verificado.png" style="width: 30px;" />
+                        </svg>
+                    </span><div class="g-user-username">
+                        @@@item.Usuario
+                    </div>
+                </div>
+            </a>
+
+            <div class="dropdown b-dropdown b-profile__user__settings b-post__tools__more btn-group" id="__BVID__117">
+                <button aria-haspopup="true" aria-expanded="false" type="button" class="btn dropdown-toggle btn-link" id="__BVID__117__BV_toggle_">
+                    <svg class="g-icon has-tooltip" aria-hidden="true" data-original-title="null">
+                        <use xlink:href="#icon-more" href="#icon-more">
+                            <path d="M6 10a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm12 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm-6 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2z"></path>
+                        </use>
+                    </svg>
+                </button>
+                <ul role="menu" tabindex="-1" class="dropdown-menu dropdown-menu-right" aria-labelledby="__BVID__117__BV_toggle_">
+                    <ul>
+                        <li>
+                            <button type="button">
+                                Save for later
+                            </button>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+

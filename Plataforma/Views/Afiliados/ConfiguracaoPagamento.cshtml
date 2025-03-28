@@ -1,0 +1,301 @@
+﻿@using Plataforma.Models
+@model ConfiguracaoPagamentoViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutAfiliados.cshtml";
+}
+<h2 class="titleCommon titleSpacer">Configuração de Pagamento</h2>
+<div class="itemSetting">
+    <h3 class="subtitleSettings">Opção de pagamento</h3>
+    <ul class="filterRadio radioSetting" group="settingPayment" id="ulSettingPayment">
+
+        <li id="itemPix" class="itemRadioSetting select">
+            <label class="labelRadioSetting">
+                @Html.RadioButtonFor(m => m.TipoOpcaoPagamento, TipoOpcaoPagamento.PIX, new { @Id = "rdoPIX" })PIX<br>
+                <span>pagamento mínimo <strong>R$ 10,00</strong></span>
+            </label>
+        </li>
+        @*<li id="itemPaypal" class="itemRadioSetting">
+            <label class="labelRadioSetting">
+                @Html.RadioButtonFor(m => m.TipoOpcaoPagamento, TipoOpcaoPagamento.ContaCorrente, new { @Id = "rdoContaCorrente" })Conta Corrente<br>
+                <span>pagamento mínimo <strong>R$ 50,00</strong></span>
+            </label>
+        </li>
+        <li id="itemCurrent" class="itemRadioSetting">
+            <label class="labelRadioSetting">
+                @Html.RadioButtonFor(m => m.TipoOpcaoPagamento, TipoOpcaoPagamento.ContaPoupanca, new { @Id = "rdoPaupanca" })Conta Poupança<br>
+                <span>pagamento mínimo <strong>R$ 100,00</strong></span>
+            </label>
+        </li>*@
+
+    </ul>
+    <div class="fancysl-loading">
+        <div></div>
+    </div>
+</div>
+
+<div id="settingPix" style="display: block;">
+
+
+    @using (Html.BeginForm("Form2", "Afiliados", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Id);
+        @Html.HiddenFor(m => m.UsuarioId)
+        <div class="itemSetting last">
+            <h3 class="subtitleSettings">Dados para pagamento por PIX</h3>
+            <div class="itemFormSetting">
+                <label for="pixKeyType" class="labelFormSetting">Tipo de Chave</label>
+
+                @Html.EnumDropDownListFor(m => m.TipoChavePix, "Selecione", new { @class = "selectbox dropLeft" })
+
+            </div>
+            <div class="itemFormSetting">
+                <label for="pixKey" class="labelFormSetting">Chave PIX</label>
+                @Html.TextBoxFor(m => m.ChavePix, new { @class = "inputFormSetting", @id = "pixKey", @name = "pixKey", @value = "", @maxlength = "40" })
+            </div>
+        </div>
+        <br /><br />
+        <p>Para <strong>CPF</strong> ou <strong>CNPJ </strong> digite apenas os numeros.</p><br />
+        <p>Para <strong>Chave Aleatória</strong> copie e cole exatamente como o banco te forneceu com letras numeros e traços.</p>
+        <br /><br />
+        <input type="submit" value="Salvar alterações" />
+
+    }
+
+</div>
+
+
+
+@*<div id="settingCurrent" style="display: none;">
+        <div class="itemSetting last">
+            <h3 class="subtitleSettings">Dados para pagamento por Conta Corrente</h3>
+            <ul class="filterRadio radioSetting" group="settingAccountPayment" id="ulSettingPayment">
+                <li id="itemSavingPF" class="itemRadioSetting">
+                    <div class="checked" value="1"></div>
+                    <label class="labelRadioSetting">
+                        Pessoa física
+                    </label>
+                </li>
+                <li id="itemSavingPJ" class="itemRadioSetting">
+                    <div value="2"></div>
+                    <label class="labelRadioSetting">
+                        Pessoa jurídica
+                    </label>
+                </li>
+            </ul>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Titular</label>
+                <input type="text" id="txtNameCC" name="txtName" class="inputFormSetting" value="">
+            </div>
+            <div class="itemFormSetting" id="accountPF">
+                <label for="" class="labelFormSetting">CPF</label>
+                <input type="text" class="inputFormSetting inputCPF" id="txtCPF1CC" name="txtCPF1" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCPF2CC').focus();}" value="">
+                <input type="text" class="inputFormSetting inputCPF" id="txtCPF2CC" name="txtCPF2" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCPF3CC').focus();}" value="">
+                <input type="text" class="inputFormSetting inputCPF" id="txtCPF3CC" name="txtCPF3" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCPF4CC').focus();}" value="">
+                <input type="text" class="inputFormSetting inputDigit" id="txtCPF4CC" name="txtCPF4" maxlength="2" value="">
+            </div>
+            <div class="itemFormSetting" id="accountPJ">
+                <label for="" class="labelFormSetting">CNPJ</label>
+                <input type="text" class="inputFormSetting inputCPF" id="txtCNPJ1CC" name="txtCNPJ1" maxlength="2" onkeyup="javascript:if ((this.value.length==2) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCNPJ2CC').focus();}" value="">
+                <input type="text" class="inputFormSetting inputCPF" id="txtCNPJ2CC" name="txtCNPJ2" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCNPJ3CC').focus();}" value="">
+                <input type="text" class="inputFormSetting inputCPF" id="txtCNPJ3CC" name="txtCNPJ3" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCNPJ4CC').focus();}" value="">
+                <input type="text" class="inputFormSetting inputDigit" id="txtCNPJ4CC" name="txtCNPJ4" maxlength="4" onkeyup="javascript:if ((this.value.length==4) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCNPJ5CC').focus();}" value="">
+                <input type="text" class="inputFormSetting inputDigit" id="txtCNPJ5CC" name="txtCNPJ5" maxlength="2" value="">
+            </div>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Banco</label>
+                <div id="boxDropBank" class="btn dfl drop dropLeft dropSetting">
+                    <span>
+                        Selecione um banco
+                    </span>
+                    <div class="boxDrop boxScroll">
+                        <ul class="ulDrop">
+                            <li class="itemDrop" number="38"><a class="linkDrop" href="#">641 - Banco Alvorada S.A.</a></li>
+                            <li class="itemDrop" number="17"><a class="linkDrop" href="#">318 - Banco BMG S.A.</a></li>
+                            <li class="itemDrop" number="15"><a class="linkDrop" href="#">237 - Banco Bradesco S.A.</a></li>
+                            <li class="itemDrop" number="23"><a class="linkDrop" href="#">263 - Banco Cacique S.A.</a></li>
+                            <li class="itemDrop" number="34"><a class="linkDrop" href="#">745 - Banco Citibank S.A.</a></li>
+                            <li class="itemDrop" number="36"><a class="linkDrop" href="#">756 - Banco Cooperativo do Brasil S.A.</a></li>
+                            <li class="itemDrop" number="35"><a class="linkDrop" href="#">748 - Banco Cooperativo Sicredi S.A.</a></li>
+                            <li class="itemDrop" number="29"><a class="linkDrop" href="#">229 - Banco Cruzeiro do Sul S.A.</a></li>
+                            <li class="itemDrop" number="18"><a class="linkDrop" href="#">003 - Banco da Amazônia S.A.</a></li>
+                            <li class="itemDrop" number="24"><a class="linkDrop" href="#">707 - Banco Daycoval</a></li>
+                            <li class="itemDrop" number="22"><a class="linkDrop" href="#">070 - Banco de Brasília S.A.</a></li>
+                            <li class="itemDrop" number="25"><a class="linkDrop" href="#">024 - Banco de Pernambuco S.A.</a></li>
+                            <li class="itemDrop" number="32"><a class="linkDrop" href="#">456 - Banco de Tokyo Mitsubishi BR S.A.</a></li>
+                            <li class="itemDrop" number="37"><a class="linkDrop" href="#">214 - Banco Dibens S.A.</a></li>
+                            <li class="itemDrop" number="13"><a class="linkDrop" href="#">001 - Banco do Brasil S.A. </a></li>
+                            <li class="itemDrop" number="26"><a class="linkDrop" href="#">047 - Banco do Estado de Sergipe S.A.</a></li>
+                            <li class="itemDrop" number="27"><a class="linkDrop" href="#">037 - Banco do Estado do Pará S.A.</a></li>
+                            <li class="itemDrop" number="20"><a class="linkDrop" href="#">041 - Banco do Estado do Rio Grande do Sul S.A.</a></li>
+                            <li class="itemDrop" number="19"><a class="linkDrop" href="#">004 - Banco do Nordeste do Brasil S.A.</a></li>
+                            <li class="itemDrop" number="28"><a class="linkDrop" href="#">224 - Banco Fibra S.A.</a></li>
+                            <li class="itemDrop" number="45"><a class="linkDrop" href="#">77 - Banco Inter(Intermedium) S.A</a></li>
+                            <li class="itemDrop" number="21"><a class="linkDrop" href="#">074 - Banco J. Safra S.A.</a></li>
+                            <li class="itemDrop" number="43"><a class="linkDrop" href="#">389 - Banco Mercantil do Brasil S.A.</a></li>
+                            <li class="itemDrop" number="47"><a class="linkDrop" href="#">212 - Banco Original S.A.</a></li>
+                            <li class="itemDrop" number="33"><a class="linkDrop" href="#">623 - Banco Panamericano S.A.</a></li>
+                            <li class="itemDrop" number="31"><a class="linkDrop" href="#">422 - Banco Safra S.A.</a></li>
+                            <li class="itemDrop" number="14"><a class="linkDrop" href="#">033 - Banco Santander (Brasil) S.A.</a></li>
+                            <li class="itemDrop" number="30"><a class="linkDrop" href="#">655 - Banco Votorantim S.A.</a></li>
+                            <li class="itemDrop" number="39"><a class="linkDrop" href="#">073 - BB Banco Popular do Brasil</a></li>
+                            <li class="itemDrop" number="41"><a class="linkDrop" href="#">104 - Caixa Econômica Federal</a></li>
+                            <li class="itemDrop" number="42"><a class="linkDrop" href="#">062 - Hipercard Banco Múltiplo S.A.</a></li>
+                            <li class="itemDrop" number="44"><a class="linkDrop" href="#">399 - HSBC Bank Brasil S.A. Banco Múltiplo</a></li>
+                            <li class="itemDrop" number="40"><a class="linkDrop" href="#">063 - Ibibank S.A. Banco Múltiplo</a></li>
+                            <li class="itemDrop" number="16"><a class="linkDrop" href="#">341 - Itaú Unibanco S.A.</a></li>
+                            <li class="itemDrop" number="46"><a class="linkDrop" href="#">260 - Nu Pagamentos S.A.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Agência</label>
+                <input type="text" class="inputFormSetting inputAccount" id="txtAgency1CC" name="txtAgency1" onkeyup="javascript:if ((this.value.length==8) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtAgency2CC').focus();}" value="" maxlength="8">
+                <input type="text" class="inputFormSetting inputDigit" id="txtAgency2CC" name="txtAgency2" onkeyup="javascript:if ((this.value.length==1) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtAccount1CC').focus();}" value="" maxlength="1">
+            </div>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Conta</label>
+                <input type="text" class="inputFormSetting inputAccount" id="txtAccount1CC" name="txtAccount1" onkeyup="javascript:if ((this.value.length==15) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtAccount2CC').focus();}" value="" maxlength="15">
+                <input type="text" class="inputFormSetting inputDigit" id="txtAccount2CC" name="txtAccount2" value="" maxlength="1">
+            </div>
+        </div>
+        <div class="btn big btnSetting" id="btnSaveSettingAccount" action="https://affiliates.sexlog.com/setting-payment/save">
+            <span>Salvar alterações</span>
+        </div>
+    </div>
+    <div id="settingSaving" style="display: none;">
+        <div class="itemSetting last">
+            <h3 class="subtitleSettings">Dados para pagamento por Conta Poupança</h3>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Titular</label>
+                <input type="text" id="txtNamePP" name="txtName" class="inputFormSetting" value="">
+            </div>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">CPF</label>
+                <input type="text" class="inputFormSetting inputCPF" id="txtCPF1PP" name="txtCPF1" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCPF2PP').focus();}" value="">
+                <input type="text" class="inputFormSetting inputCPF" id="txtCPF2PP" name="txtCPF2" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCPF3PP').focus();}" value="">
+                <input type="text" class="inputFormSetting inputCPF" id="txtCPF3PP" name="txtCPF3" maxlength="3" onkeyup="javascript:if ((this.value.length==3) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtCPF4PP').focus();}" value="">
+                <input type="text" class="inputFormSetting inputDigit" id="txtCPF4PP" name="txtCPF4" maxlength="2" value="">
+            </div>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Banco</label>
+                <div id="boxDropBank2" class="btn dfl drop dropLeft dropSetting">
+                    <span>
+                        Selecione um banco
+                    </span>
+                    <div class="boxDrop boxScroll">
+                        <ul class="ulDrop">
+                            <li class="itemDrop" number="38"><a class="linkDrop" href="#">641 - Banco Alvorada S.A.</a></li>
+                            <li class="itemDrop" number="17"><a class="linkDrop" href="#">318 - Banco BMG S.A.</a></li>
+                            <li class="itemDrop" number="15"><a class="linkDrop" href="#">237 - Banco Bradesco S.A.</a></li>
+                            <li class="itemDrop" number="23"><a class="linkDrop" href="#">263 - Banco Cacique S.A.</a></li>
+                            <li class="itemDrop" number="34"><a class="linkDrop" href="#">745 - Banco Citibank S.A.</a></li>
+                            <li class="itemDrop" number="36"><a class="linkDrop" href="#">756 - Banco Cooperativo do Brasil S.A.</a></li>
+                            <li class="itemDrop" number="35"><a class="linkDrop" href="#">748 - Banco Cooperativo Sicredi S.A.</a></li>
+                            <li class="itemDrop" number="29"><a class="linkDrop" href="#">229 - Banco Cruzeiro do Sul S.A.</a></li>
+                            <li class="itemDrop" number="18"><a class="linkDrop" href="#">003 - Banco da Amazônia S.A.</a></li>
+                            <li class="itemDrop" number="24"><a class="linkDrop" href="#">707 - Banco Daycoval</a></li>
+                            <li class="itemDrop" number="22"><a class="linkDrop" href="#">070 - Banco de Brasília S.A.</a></li>
+                            <li class="itemDrop" number="25"><a class="linkDrop" href="#">024 - Banco de Pernambuco S.A.</a></li>
+                            <li class="itemDrop" number="32"><a class="linkDrop" href="#">456 - Banco de Tokyo Mitsubishi BR S.A.</a></li>
+                            <li class="itemDrop" number="37"><a class="linkDrop" href="#">214 - Banco Dibens S.A.</a></li>
+                            <li class="itemDrop" number="13"><a class="linkDrop" href="#">001 - Banco do Brasil S.A. </a></li>
+                            <li class="itemDrop" number="26"><a class="linkDrop" href="#">047 - Banco do Estado de Sergipe S.A.</a></li>
+                            <li class="itemDrop" number="27"><a class="linkDrop" href="#">037 - Banco do Estado do Pará S.A.</a></li>
+                            <li class="itemDrop" number="20"><a class="linkDrop" href="#">041 - Banco do Estado do Rio Grande do Sul S.A.</a></li>
+                            <li class="itemDrop" number="19"><a class="linkDrop" href="#">004 - Banco do Nordeste do Brasil S.A.</a></li>
+                            <li class="itemDrop" number="28"><a class="linkDrop" href="#">224 - Banco Fibra S.A.</a></li>
+                            <li class="itemDrop" number="45"><a class="linkDrop" href="#">77 - Banco Inter(Intermedium) S.A</a></li>
+                            <li class="itemDrop" number="21"><a class="linkDrop" href="#">074 - Banco J. Safra S.A.</a></li>
+                            <li class="itemDrop" number="43"><a class="linkDrop" href="#">389 - Banco Mercantil do Brasil S.A.</a></li>
+                            <li class="itemDrop" number="47"><a class="linkDrop" href="#">212 - Banco Original S.A.</a></li>
+                            <li class="itemDrop" number="33"><a class="linkDrop" href="#">623 - Banco Panamericano S.A.</a></li>
+                            <li class="itemDrop" number="31"><a class="linkDrop" href="#">422 - Banco Safra S.A.</a></li>
+                            <li class="itemDrop" number="14"><a class="linkDrop" href="#">033 - Banco Santander (Brasil) S.A.</a></li>
+                            <li class="itemDrop" number="30"><a class="linkDrop" href="#">655 - Banco Votorantim S.A.</a></li>
+                            <li class="itemDrop" number="39"><a class="linkDrop" href="#">073 - BB Banco Popular do Brasil</a></li>
+                            <li class="itemDrop" number="41"><a class="linkDrop" href="#">104 - Caixa Econômica Federal</a></li>
+                            <li class="itemDrop" number="42"><a class="linkDrop" href="#">062 - Hipercard Banco Múltiplo S.A.</a></li>
+                            <li class="itemDrop" number="44"><a class="linkDrop" href="#">399 - HSBC Bank Brasil S.A. Banco Múltiplo</a></li>
+                            <li class="itemDrop" number="40"><a class="linkDrop" href="#">063 - Ibibank S.A. Banco Múltiplo</a></li>
+                            <li class="itemDrop" number="16"><a class="linkDrop" href="#">341 - Itaú Unibanco S.A.</a></li>
+                            <li class="itemDrop" number="46"><a class="linkDrop" href="#">260 - Nu Pagamentos S.A.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Agência</label>
+                <input type="text" class="inputFormSetting inputAccount" id="txtAgency1PP" name="txtAgency1" onkeyup="javascript:if ((this.value.length==8) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtAgency2PP').focus();}" value="" maxlength="8">
+                <input type="text" class="inputFormSetting inputDigit" id="txtAgency2PP" name="txtAgency2" onkeyup="javascript:if ((this.value.length==1) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtAccount1PP').focus();}" value="" maxlength="1">
+            </div>
+            <div class="itemFormSetting">
+                <label for="" class="labelFormSetting">Conta</label>
+                <input type="text" class="inputFormSetting inputAccount" id="txtAccount1PP" name="txtAccount1" onkeyup="javascript:if ((this.value.length==15) &amp;&amp; (event.keyCode != 9)){document.getElementById('txtAccount2PP').focus();}" value="" maxlength="15">
+                <input type="text" class="inputFormSetting inputDigit" id="txtAccount2PP" name="txtAccount2" value="" maxlength="1">
+            </div>
+        </div>
+        <div class="btn big btnSetting" id="btnSaveSettingSaving" action="https://affiliates.sexlog.com/setting-payment/save">
+            <span>Salvar alterações</span>
+        </div>
+    </div>*@
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#rdoPIX").click(function (e) {
+            EscondeOpcoes();
+            $('#settingPix').css('display', 'block');
+        });
+
+        $("#rdoContaCorrente").click(function (e) {
+            EscondeOpcoes();
+            $('#settingCurrent').css('display', 'block');
+        });
+
+        $("#rdoPaupanca").click(function (e) {
+            EscondeOpcoes();
+            $('#settingSaving').css('display', 'block');
+        });
+
+        function EscondeOpcoes() {
+            $('#settingCurrent').css('display', 'none');
+            $('#settingSaving').css('display', 'none');
+            $('#settingPix').css('display', 'none');
+        }
+
+        //$('#pixKey').blur(function (e) {
+        //    formatarCampo(this);
+        //});
+
+        //$('#pixKey').focus(function (e) {
+        //    retirarFormatacao(this);
+        //});
+
+        function formatarCampo(campoTexto) {
+            if (campoTexto.value.length <= 11) {
+                campoTexto.value = mascaraCpf(campoTexto.value);
+            } else if (campoTexto.value.length > 11 && campoTexto.value.length <= 15) {
+                campoTexto.value = mascaraCnpj(campoTexto.value);
+            }
+            else {
+
+            }
+        }
+
+        function retirarFormatacao(campoTexto) {
+            campoTexto.value = campoTexto.value.replace(/(\.|\/|\-)/g, "");
+        }
+
+        function mascaraCpf(valor) {
+            return valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "\$1.\$2.\$3\-\$4");
+        }
+
+        function mascaraCnpj(valor) {
+            return valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g, "\$1.\$2.\$3\/\$4\-\$5");
+        }
+    });
+
+</script>

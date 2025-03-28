@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plataforma", "Plataforma\Plataforma.csproj", "{11BA61BE-7434-4EE6-B08B-7369E9932B5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongo", "Mongo\Mongo.csproj", "{5A81A1DC-95FA-44B3-B983-6676B5D4214C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arquivos", "Arquivos", "{44B4A4DA-B9BD-451F-B872-A1A2070FEEAE}"
+	ProjectSection(SolutionItems) = preProject
+		Referencias.txt = Referencias.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{2E93ACB7-057E-496C-9EBD-7C02144FF82C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miscellaneous", "Miscellaneous\Miscellaneous.csproj", "{F15CA941-A3D8-4513-A552-2A6779B0A1AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueroSugar", "QueroSugar\QueroSugar.csproj", "{8E7811D2-2C90-4EA3-BE89-26D752AECBF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinkee Sugar", "Kinkee Sugar\Kinkee Sugar.csproj", "{BECAB34C-1E73-47DD-A2D1-00179BDA7842}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5FC08599-60C5-4A80-BB40-D144201BB1AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11BA61BE-7434-4EE6-B08B-7369E9932B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11BA61BE-7434-4EE6-B08B-7369E9932B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11BA61BE-7434-4EE6-B08B-7369E9932B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11BA61BE-7434-4EE6-B08B-7369E9932B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A81A1DC-95FA-44B3-B983-6676B5D4214C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A81A1DC-95FA-44B3-B983-6676B5D4214C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A81A1DC-95FA-44B3-B983-6676B5D4214C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A81A1DC-95FA-44B3-B983-6676B5D4214C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E93ACB7-057E-496C-9EBD-7C02144FF82C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E93ACB7-057E-496C-9EBD-7C02144FF82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E93ACB7-057E-496C-9EBD-7C02144FF82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E93ACB7-057E-496C-9EBD-7C02144FF82C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15CA941-A3D8-4513-A552-2A6779B0A1AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15CA941-A3D8-4513-A552-2A6779B0A1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15CA941-A3D8-4513-A552-2A6779B0A1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15CA941-A3D8-4513-A552-2A6779B0A1AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E7811D2-2C90-4EA3-BE89-26D752AECBF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7811D2-2C90-4EA3-BE89-26D752AECBF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7811D2-2C90-4EA3-BE89-26D752AECBF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7811D2-2C90-4EA3-BE89-26D752AECBF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECAB34C-1E73-47DD-A2D1-00179BDA7842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECAB34C-1E73-47DD-A2D1-00179BDA7842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECAB34C-1E73-47DD-A2D1-00179BDA7842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECAB34C-1E73-47DD-A2D1-00179BDA7842}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E91B212-7D17-4918-8504-537964CD10B6}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://w-hub.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Plataforma\\Plataforma.csproj
+		SccProjectName1 = Plataforma
+		SccLocalPath1 = Plataforma
+		SccProjectUniqueName2 = Mongo\\Mongo.csproj
+		SccProjectName2 = Mongo
+		SccLocalPath2 = Mongo
+		SccProjectUniqueName3 = TestConsole\\TestConsole.csproj
+		SccProjectName3 = TestConsole
+		SccLocalPath3 = TestConsole
+		SccProjectUniqueName4 = Miscellaneous\\Miscellaneous.csproj
+		SccProjectName4 = Miscellaneous
+		SccLocalPath4 = Miscellaneous
+		SccProjectUniqueName5 = QueroSugar\\QueroSugar.csproj
+		SccProjectName5 = QueroSugar
+		SccLocalPath5 = QueroSugar
+		SccProjectUniqueName6 = Kinkee\u0020Sugar\\Kinkee\u0020Sugar.csproj
+		SccProjectName6 = Kinkee\u0020Sugar
+		SccLocalPath6 = Kinkee\u0020Sugar
+	EndGlobalSection
+EndGlobal

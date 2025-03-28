@@ -1,0 +1,132 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ng-scope">
+
+    <!-- Filter -->
+    <div class="container-fluid explore-filter">
+
+        <div class="container-flex">
+            <div class="row">
+                <div class="col-xs-10 col-sm-4 col-md-6">
+                    <h1>Todos os amigos @ViewBag.FriendsCount</h1>
+                </div>
+            </div>
+            <div class="row">
+                <style>
+                    .nav__sign-btn {
+                        background-color: #682C82;
+                        border-width: 0;
+                        color: #fff;
+                        font-size: 13px;
+                        padding: 5px 10px;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        letter-spacing: .5px;
+                        margin-bottom: 7px;
+                    }
+
+                        .nav__sign-btn:hover {
+                            color: #fff;
+                        }
+
+                        .nav__sign-btn::after {
+                            color: #fff;
+                        }
+                </style>
+                @*<div class="nav__sign ng-scope">
+                    <a href="/Friends/Find" class="sl-btn nav__sign-btn" title="Conheça novas pessoas">
+                        Conheça novas pessoas
+                    </a>
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-flex gutter-small" style="margin-top:10px;">
+
+        <div class="container-flex gutter-small">
+
+            <section class="last-photos  " auto-visible="">
+                <!-- List -->
+                <div class="last-photos-list ">
+
+                    <div class="bootstrap snippet">
+
+                        <div id="container" style="height:auto;">
+
+                            @{
+                                if (ViewBag.LastsNotifications != null)
+                                {
+                                    foreach (var item in ViewBag.LastsNotifications)
+                                    {
+                                        <div class="col-sm-5" style="background-color:#FFF; border-bottom:1px solid #dddfe2; margin-left:10px; margin-bottom:10px; height: 100px;">
+
+                                            <a href="/Dating/Perfil/@item["NOME_USUARIO"]" class="clearfix line" target="_self" style="margin-top:1px; text-decoration:none;">
+
+                                                <div class="avatar overlayContentCard" style="float:left;">
+                                                    <img alt="." class="img-circle" width="90" height="90" src="@item["URL_IMAGEM_PERFIL"]" style="margin-top: 5px;">
+                                                </div>
+
+                                                <div class="about" style="padding-left: 120px; padding-top:25px;">
+                                                    <div class="about-section">
+                                                        <span class="title date ng-binding"><b>@item["NOME_USUARIO"]</b></span><br />
+                                                        <span class="subtitle date ng-binding">@Html.Raw(Server.HtmlDecode(item["CIDADE"]))</span>
+                                                    </div>
+                                                    <div class="about-section">
+                                                        <p>
+                                                            
+                                                            <span class="ng-binding" style="font-size:smaller;">@item["AMIZADE"] </span>
+                                                            
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr class="ng-scope">
+                <div id="progress" style="display:none">
+                    <a class="sl-btn btn-primary-inverse text-uppercase" id="btnCarregando" title="Assine">CARREGANDO...</a>
+                </div>
+                <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn" title="Assine">CLIQUE AQUI PARA CARREGAR MAIS</a>
+                <br />
+                <br />
+
+
+
+            </section>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link href="~/modules/css/index.css" rel="stylesheet" />
+@*@Scripts.Render("~/index/css")*@
+
+
+
+
+
+<div class="fb-customerchat"
+     page_id="1105956872821807">
+</div>
+

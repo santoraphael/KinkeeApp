@@ -1,0 +1,41 @@
+﻿@using Plataforma.Models
+@model RetornoPagamentoBoleto
+
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-body">
+    <div class="alert-copy" sl-message-fixed="">
+        <span class="ng-binding"></span>
+    </div>
+    <div class="billet-price">
+        <div class="value">
+            <span class="currency ng-binding">R$</span>
+            <span class="integer ng-binding">@Model.valor_reais</span>
+            <span class="decimal ng-binding">@Model.valor_centavos</span>
+        </div>
+        <div class="billet-date">
+            Vencimento <span class="ng-binding">@Model.dia_vencimento/@Model.mes_vencimento</span>
+        </div>
+    </div>
+    <div class="billet-code">
+        <div class="title">
+            O número do seu boleto é:
+        </div>
+        <div class="number ng-binding">@Model.codigo_barra_boleto</div>
+    </div>
+    <div class="billet-actions">
+
+        @*<a class="billet-btn ng-isolate-scope" on-error="onCopy(ALERT_COPY.ERROR)" on-copy="onCopy(ALERT_COPY.SUCCESS)" sl-clipboard="rawCode" ng-click="copyNumber()">Copiar número do Boleto</a>*@
+
+        @*<form name="billetForm" class="billet-form ng-pristine ng-valid" action="billet" target="_blank" method="post">
+            <input class="hidden" name="transactionId" id="transactionId" value="7247140">
+        </form>*@
+        <a href="@Model.url_boleto" target="_blank" class="billet-btn" >Abrir no PDF </a>
+
+        @*<a class="billet-btn" ng-click="sentToEmail(invoiceId)" target="_blank"> Enviar por email </a>*@
+    </div>
+</div>

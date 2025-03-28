@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAfiliados.cshtml";
+}
+
+<h2 class="titleCommon">Pagamentos</h2>
+@*<div class="payment paymentGray">
+    <div class="type">
+        <h3 class="subTitle">
+            Forma de pagamento <div class="btn dfl pointHelp" original-title="Conta bancária ou conta do paypal para pagamento.">?</div>
+        </h3>
+        <h2 class="title">
+            Não definida <div class="btn dfl small" onclick="javascript:document.location.href='https://affiliates.sexlog.com/setting-payment'">definir</div>
+        </h2>
+    </div>
+    <div class="balance">
+        <h3 class="subTitle">
+            Saldo atual <div class="btn dfl pointHelp" original-title="Saldo até o momento, excluindo pagamentos realizados ou agendados.">?</div>
+        </h3>
+        <h2 class="title green"><span class="current">US$</span>0,00</h2>
+        <p class="info"></p>
+    </div>
+
+    <div class="nextPayment">
+        <h3 class="subTitle">
+            Próximo pagamento <div class="btn dfl pointHelp" original-title="Próximo pagamento agendado.">?</div>
+        </h3>
+        <h2 class="title green"> 30 abr 2021 </h2>
+        <p class="info">aguardando fechamento...</p>
+    </div>
+
+    <div class="lastPayment">
+        <h3 class="subTitle">Não há pagamentos efetuados</h3>
+        <h2 class="title">&nbsp;</h2>
+        <p class="info">&nbsp;</p>
+    </div>
+    <div class="complementaryInfo">
+        Os pagamentos são realizados automaticamente nos dias 15 e 30 de cada mês, sendo o fechamento realizado 5 dias antes destas datas.
+    </div>
+</div>
+<div class="filters">
+    <div class="itemFilter">
+        <label class="labelFilter">Visualizar</label>
+        <div id="boxDropPaymentPeriod" class="btn dfl drop dropLeft">
+            <span>Últimos 6 meses</span>
+            <div class="boxDrop">
+                <ul class="ulDrop">
+                    <li class="itemDrop" startdate="14/04/2020" enddate="14/04/2021"><a class="linkDrop" href="#">Últimos 12 meses</a></li>
+                    <li class="itemDrop select" startdate="14/10/2020" enddate="14/04/2021"><a class="linkDrop" href="#">Últimos 6 meses</a></li>
+                    <li class="itemDrop" startdate="14/01/2021" enddate="14/04/2021"><a class="linkDrop" href="#">Últimos 3 meses</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="itemFilter">
+        <label class="labelFilter">Início do período</label>
+        <input id="startOfPeriod" type="text" class="dateFilter hasDatepicker" value="14/10/2020">
+    </div>
+    <div class="itemFilter">
+        <label class="labelFilter">Fim do período</label>
+        <input id="endOfPeriod" type="text" class="dateFilter hasDatepicker" value="14/04/2021">
+    </div>
+    <div id="btnSearch" class="btn dfl btnFilter" action="https://affiliates.sexlog.com/payment/find">
+        <span>Buscar</span>
+    </div>
+</div>*@
+<table class="report-table">
+    <tbody class="no-payments">
+        <tr>
+            <td>Não há pagamentos efetuados</td>
+        </tr>
+    </tbody>
+</table>

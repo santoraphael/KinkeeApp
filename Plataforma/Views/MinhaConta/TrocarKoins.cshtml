@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "Batimentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1 {
+        font-size: 37px;
+    }
+</style>
+<div class="myaccount">
+
+    <div class="container-fluid myaccount-header">
+
+        <div class="container-flex">
+
+            <div class="row">
+
+                <div class="col-md-4 hidden-xs hidden-sm">
+
+                    <h2>Trocar Koins</h2>
+
+                </div>
+
+                @*<div class="col-md-8">
+
+                    <div class="myaccount-options dropdown">
+
+                        <button class="sl-btn btn-link myaccount-button-options" data-toggle="dropdown">
+                            Assinatura<i></i>
+                        </button>
+
+                        <ul class="myaccount-nav dropdown-menu">
+
+                            <li class="">
+                                <a href="#">
+                                    Configurações<i></i>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#">
+                                    Assinatura<i></i>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="#">
+                                    Segurança e privacidade<i></i>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>*@
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-flex">
+
+        <div class="row ng-scope">
+
+            <div class="non-subscribers-main">
+
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <div subscribe-injected="" remove-fix-screen="xl hd">
+                            <div class="sl-modal sl-subscription-modal  undefined injected ng-scope">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header ng-scope">
+                                            <button type="button" class="sl-close" data-dismiss="modal" >×</button>
+
+                                            <h4 class="modal-title ng-binding large primary text-center">
+                                               Trocar Koins pela conta Premium
+                                                <small class="ng-binding ng-scope">
+                                                    Com Premium você faz muito mais na Kinkee
+                                                </small>
+                                            </h4>
+                                        </div>
+
+                                        <div class="modal-body  no-padding">
+
+                                            <!-- Tabs -->
+                                            <ul class="nav nav-pills nav-justified visible-lg visible-md">
+                                                <!-- Dados do usuario -->
+                                                <li class="active">
+                                                    <a>
+                                                        TROCAR <i class="icon"></i>
+                                                    </a>
+                                                </li>
+
+                                                @*<li ng-class="{ active: $subscribe.isActiveTab('payment'), disabled: !$subscribe.subscribe.valid, 'tab-complete': $subscribe.payment.valid }" class="disabled">
+                                                        <a ng-click="$subscribe.changeTabs($subscribe.TABS.PLANS, $subscribe.TABS.PAYMENT)">
+                                                            Escolha a forma de pagamento                                <i class="icon"></i>
+                                                        </a>
+                                                    </li>*@
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+
+                                                <!-- Planos -->
+                                                <div class="tab-pane ng-fade">
+
+                                                    <div class="sl-subscription small-discount">
+
+                                                        <h3 class="hidden-md hidden-lg text-center choose-plan">Clique no plano para escolher:</h3>
+
+                                                        <ul class="plans-list">
+                                                            <li>
+                                                                <div class="highlight ng-scope">
+                                                                    <style>
+                                                                        .sl-modal.sl-subscription-modal.injected a
+                                                                        {
+                                                                            color: #fff !important;
+                                                                        }
+                                                                        .nav__sign-btn {
+                                                                            background-color: #682C82;
+                                                                            border-width: 0;
+                                                                            color: #fff;
+                                                                            font-size: 13px;
+                                                                            padding: 5px 10px;
+                                                                            font-weight: 400;
+                                                                            text-transform: uppercase;
+                                                                            letter-spacing: .5px;
+                                                                            margin-bottom: 7px;
+                                                                            color: #fff !important;
+                                                                        }
+
+                                                                            .nav__sign-btn:hover {
+                                                                                color: #fff;
+                                                                            }
+
+                                                                            .nav__sign-btn::after {
+                                                                                color: #fff;
+                                                                            }
+                                                                    </style>
+                                                                    @if (ViewBag.Saldo >= 2136)
+                                                                    {
+
+                                                                        <div class="nav__sign ng-scope">
+                                                                            <a href="" class="sl-btn nav__sign-btn" title="Trocar">
+                                                                                Trocar
+                                                                            </a>
+                                                                        </div>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <div class="nav__sign ng-scope">
+                                                                            <a href="" class="sl-btn nav__sign-btn js-comprar-koins-btn" title="Trocar">
+                                                                                Faltam @{var valor = 2136 - ViewBag.Saldo;} <b>@valor</b> para poder trocar. Compre Koins clicando aqui
+                                                                            </a>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+
+                                            <!-- Antifraude -->
+                                        </div>
+
+                                        <!-- ngIf: testimonials.length -->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7">
+
+                        <!-- Presentes enviados -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="container-flex">
+
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+    </div>
+
+</div>s
+

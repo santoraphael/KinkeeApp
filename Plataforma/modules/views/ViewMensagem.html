@@ -1,0 +1,54 @@
+﻿<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal send-message" ng-style="{'z-index': 1050 + index*10, display: 'block'}" modal-window="" window-class="sl-modal send-message" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog" ng-class="{'modal-sm': size == 'sm', 'modal-lg': size == 'lg'}">
+        <div class="modal-content" modal-transclude="">
+            <div class="modal-header ng-scope">
+                <button type="button" class="sl-close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
+                <h4 class="modal-title">Envie sua mensagem</h4>
+            </div>
+
+            <div class="modal-body ng-scope">
+
+
+                <form name="privateMessageForm" class="formMessage ng-pristine ng-valid" role="form">
+
+                    <!-- Sucesso -->
+                    <div class="alert alert-success ng-hide" ng-show="sent.success">Mensagem enviada com sucesso!</div>
+
+
+                    <!-- Login predefinido -->
+                    <div class="form-group">
+                        <label>
+                            Para:
+                        </label>
+                        <span ng-init="newMessage.tologin = 'esposaexibidape'" class="has-user">esposaexibidape</span>
+                    </div>
+
+
+                    <div class="form-group has-feedback">
+                        <label for="cmpMensagem">Mensagem: <span>*</span></label>
+                        <textarea name="cmpMensagem" id="cmpMensagem" cols="30" rows="10" ng-model="newMessage.message" class="form-control ng-pristine ng-valid" maxlength="512"></textarea>
+                    </div>
+
+                    <!-- Campo obrigatório -->
+                    <span class="required">* Campo obrigatório</span>
+
+                </form>
+
+                <div class="clear"></div>
+
+                <!-- Erros -->
+                <span class="help-block ng-binding ng-hide" ng-show="sent.error" bind-html="sent.message"></span>
+
+                <div class="clear"></div>
+
+
+            </div>
+
+            <div class="modal-footer ng-scope">
+                <button type="button" class="btn btn-primary btn-sm ng-binding" ng-click="send()" ng-disabled="busy" ng-init="setLangs({&quot;title&quot;:&quot;Tenha acesso ao Sexlog sem limites&quot;,&quot;subtitle&quot;:&quot;Assine e envie mensagens privadas a {0}.&quot;,&quot;subtitlenologin&quot;:&quot;Assine e envie mensagens privadas.&quot;,&quot;titlesend&quot;:&quot;Prazer sem limites&quot;,&quot;subtitlesend&quot;:&quot;Assine agora mesmo e envie quantas mensagens quiser!&quot;,&quot;sending&quot;:&quot;Enviando mensagem&quot;})">
+                    Enviar mensagem
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

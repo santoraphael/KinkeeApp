@@ -1,0 +1,574 @@
+﻿@using Plataforma.Models
+@model PaymentStoreViewModel
+
+@{
+    Layout = null;
+}
+
+<style>
+
+    .kinkee-codigo-seguranca {
+        padding-top: 0 !important;
+        width: 33% !important;
+    }
+
+    @@media (max-width: 600px) {
+        .kinkee-codigo-seguranca {
+
+            width: 100% !important;
+        }
+    }
+
+
+    .sl-subscription-modal.subscribe-new-modal .modal-header.advantages-header {
+        background-image: -webkit-gradient(linear,left top,right top,from(#009ddf),to(#b7dff7));
+    }
+
+    .advantages-header__title {
+        color: #202124;
+    }
+
+    .advantages-header__subtitle {
+        color: #202124;
+    }
+
+    .sl-subscription-modal.subscribe-new-modal .modal-dialog .modal-content .modal-header .sl-close.subscribe-new-modal__close {
+        color: #202124;
+    }
+
+    .advantages-header__table {
+        color: #202124;
+    }
+    
+</style>
+
+<div class="modal-backdrop in " style="z-index: 1040;"></div>
+
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal sl-subscription-modal subscribe-new-modal js-modal-vantagens" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body new-modal-body modal-clean  ng-scope">
+                <div class="js-modal-premium-valor">
+
+                    <div class="modal-header advantages-header">
+                        <span id="" class="sl-close subscribe-new-modal__close material-icons js-action-close-modal">
+                            close
+                        </span>
+                        <div class="advantages-header__text">
+                            <div class="advantages-header__title">
+                               Kinkee Points
+                            </div>
+                            <div class="advantages-header__subtitle">
+                                Os Points te dão uma série de vantagens
+                            </div>
+                        </div>
+                        <div class="advantages-header__table">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="advantages-header__table-advantage advantages-header__table-advantage--bold">
+                                            - Desbloqueie Premium
+                                            <p class="advantages-header__table-subtitle">
+                                                (Compre assinatura Premium ou as funcionalidades Premium separadamente)
+                                            </p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="advantages-header__table-advantage advantages-header__table-advantage--bold">
+                                            - Destaque seu perfil
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="advantages-header__table-advantage advantages-header__table-advantage--bold">
+                                            - Suba seu Sugar Score
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="advantages-header__table-advantage advantages-header__table-advantage--bold">
+                                            - Envie Kinkee Points para outros usuários
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="modal-body advantages-body">
+                        <button class="new-modal__button advantages-body__button js-button-get-plan">
+                            <div class="advantages-body__button-title">
+                                Escolher pacote
+                            </div>
+                        </button>
+                        <div class="advantages-body__cancelation-label">
+                            Resgate seus Kinkee Points trocando por dinheiro.
+                            <div class="advantages-body__label">Você poderá trocar seus Kinkee Points por dinheiro e sacar pela area de afiliados (assim que disponível)</div>
+                        </div>
+                        @*<a class="advantages-body__link">
+                                Outras formas de pagamento (sem desconto especial)
+                            </a>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal sl-subscription-modal js-modal-premium-plan-change" index="0" style="z-index: 1050; display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" modal-transclude="">
+
+            <div class="modal-header ng-scope">
+                <button type="button" class="sl-back ng-hide js-back-subscribe-new-modal" data-backpage="">
+                    <svg width="11" height="18" viewBox="0 0 11 18" xmlns="http://www.w3.org/2000/svg">
+                        <title>Rectangle 900</title>
+                        <path d="M1.494 8.02L.514 9 9 17.485l1.958-1.958L4.431 9l6.527-6.527L9 .515 1.494 8.02z" fill="#666" fill-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <h4 class="modal-title ng-binding large primary text-center">
+                    Seja Premium no site no serviço mais exclusivo de todos
+                    <small class="ng-binding ng-scope">
+                        São apenas duas etapas. Assine e aproveite as vantagens!
+                    </small>
+                </h4>
+                <button type="button" class="sl-close js-action-close-modal">×</button>
+            </div>
+
+            <div class="modal-body modal-clean  ng-scope no-padding">
+
+                <ul class="nav nav-pills nav-justified visible-lg visible-md">
+                    <li class="js-nav-escolha-plano active">
+                        <a href="#">
+                            Escolha o plano ideal pra você <i class="icon"></i>
+                        </a>
+                    </li>
+                    <li class="js-nav-escolha-pagamento disabled">
+                        <a href="#">
+                            Escolha a forma de pagamento <i class="icon"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane ng-fade js-tab-escolha-plano">
+                        <div class="token-plans-modal" plans="">
+                            <h3 class="token-plans-modal__header">
+                                Escolha o pacote ideal para você
+                            </h3>
+                            <div class="token-plans-modal__options">
+
+                                @{var first = true;}
+                                @foreach (var item in Model.listaItens.ToList())
+                                {
+                                    if (first)
+                                    {
+                                        <div class="token-plans-modal__option plan ng-scope special-offer first">
+                                            <div class="token-plans-modal__option-body">
+                                                <div class="token-plans-modal__option-header ng-scope">
+                                                    <span class="ng-binding">Melhor Oferta</span>
+                                                </div>
+                                                <div class="token-plans-modal__quantity-container">
+                                                    @*<i ></i>*@
+                                                    <img src="~/modules/img/kinkee_points_compra_1.svg" class="token-plans-modal__icon one" />
+                                                    <div class="token-plans-modal__token-quantity">
+                                                        <h3 class="token-plans-modal__primary-text ng-binding">@item.quantity</h3>
+                                                        <span class="token-plans-modal__secondary-text">points</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="token-plans-modal__price-block">
+                                                    @*<div class="token-plans-modal__discount ng-scope">
+                                                        <span>
+                                                            de
+                                                        </span>
+                                                        <u class="token-plans-modal__default-price ng-binding">14,90</u>
+                                                        <span class="token-plans-modal__to">
+                                                            por
+                                                        </span>
+                                                    </div>*@
+                                                    <div class="token-plans-modal__price">
+                                                        <div class="token-plans-modal__price-info">
+                                                            <span class="token-plans-modal__currency ng-binding">R$</span>
+                                                        </div>
+                                                        <span class="token-plans-modal__int ng-binding">@item.valor_reais</span>
+                                                        <strong class="token-plans-modal__decimal ng-binding">,</strong>
+                                                        <strong class="token-plans-modal__decimal ng-binding">@item.valor_centavos</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="token-plans-modal__footer plan-footer">
+                                                    <div class="token-plans-modal__buy-btn plan-btn ng-binding js-action-forma-pagamento" data-pacote-id="@item.id" text="Comprar pacote" hover-text="Quero esse">Comprar pacote</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        first = false;
+                                    }
+                                    else
+                                    {
+                                        <div class="token-plans-modal__option plan ng-scope">
+                                            <div class="token-plans-modal__option-body">
+
+                                                <div class="token-plans-modal__quantity-container">
+                                                    <img src="~/modules/img/kinkee_points_compra_1.svg" class="token-plans-modal__icon one" />
+                                                    <div class="token-plans-modal__token-quantity">
+                                                        <h3 class="token-plans-modal__primary-text ng-binding">@item.quantity</h3>
+                                                        <span class="token-plans-modal__secondary-text">points</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="token-plans-modal__price-block">
+                                                    <div class="token-plans-modal__discount ng-scope">
+                                                        <span>
+                                                            de
+                                                        </span>
+                                                        <u class="token-plans-modal__default-price ng-binding">@item.valor_original</u>
+                                                        <span class="token-plans-modal__to">
+                                                            por
+                                                        </span>
+                                                    </div>
+                                                    <div class="token-plans-modal__price">
+                                                        <div class="token-plans-modal__price-info">
+                                                            <span class="token-plans-modal__currency ng-binding">R$</span>
+                                                        </div>
+                                                        <span class="token-plans-modal__int ng-binding">@item.valor_reais</span>
+                                                        <strong class="token-plans-modal__decimal ng-binding">,</strong>
+                                                        <strong class="token-plans-modal__decimal ng-binding">@item.valor_centavos</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="token-plans-modal__footer plan-footer">
+                                                    <div class="token-plans-modal__buy-btn plan-btn ng-binding js-action-forma-pagamento" data-pacote-id="@item.id">Comprar pacote</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane ng-fade ng-hide js-tab-forma-pagamento" style="display:none;">
+                        <div class="sl-subscription-payment">
+                            <div class="row">
+                                <!--<div class="col-md-3" ng-hide="$subscribe.hasPayment() &amp;&amp; $screen.isMobile()">
+                                    <ul class="nav nav-tabs nav-stacked">-->
+                                        <!-- ngIf: $subscribe.showCredit() -->
+                                        <!--<li ng-class="{ active: $subscribe.isCredit() }" ng-if="$subscribe.showCredit()" class="ng-scope">
+                                            <a class="sl-btn btn-ghost" ng-click="$subscribe.setActivePayment('credit', $event)">
+                                                <svg>
+                                                    <use xlink:href="assets/icons/_common/_common.svg?#common-card"></use>
+                                                </svg>
+                                                Cartão de crédito
+                                            </a>
+                                        </li>--><!-- end ngIf: $subscribe.showCredit() -->
+                                        <!-- ngIf: $subscribe.showDebit() -->
+                                        <!-- ngIf: $subscribe.showBankTransfer() -->
+                                        <!-- ngIf: $subscribe.showPix() -->
+                                        <!--<li ng-class="{ active: $subscribe.isPix() }" ng-if="$subscribe.showPix()" class="ng-scope">
+                                            <a class="sl-btn btn-ghost" ng-click="$subscribe.setActivePayment('pix', $event); ">
+                                                <svg>
+                                                    <use xlink:href="assets/icons/_common/_common.svg?#common-pix"></use>
+                                                </svg>
+                                                Pix
+                                            </a>
+                                        </li>--><!-- end ngIf: $subscribe.showPix() -->
+                                        <!-- ngIf: $subscribe.showInvoice() -->
+                                        <!--<li ng-class="{ active: $subscribe.isInvoice() }" ng-if="$subscribe.showInvoice()" class="ng-scope">
+                                            <a class="sl-btn btn-ghost" ng-click="$subscribe.setActivePayment('invoice', $event)">
+                                                <svg>
+                                                    <use xlink:href="assets/icons/_common/_common.svg?#common-boleto"></use>
+                                                </svg>
+                                                Boleto bancário
+                                            </a>
+                                        </li>--><!-- end ngIf: $subscribe.showInvoice() -->
+                                        <!-- ngIf: $subscribe.showDebitOnline() -->
+                                        <!-- ngIf: $subscribe.showVerotel() -->
+                                        <!--<li ng-class="{ active: $subscribe.isTokens() }" ng-show="$subscribe.showTokens()" class="">
+                                            <a class="sl-btn btn-ghost btn-tokens" ng-click="$subscribe.setActivePayment('tokens', $event)">
+                                                <svg class="payment_tokens__icon">
+                                                    <use xlink:href="assets/icons/_common/_common.svg?#common-payment-tokens"></use>
+                                                </svg>
+                                                Usar Tokens
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div ng-hide="$screen.isMobile()" class="gs ng-hide">
+                                        <table width="125" border="0" cellspacing="0" cellpadding="0" title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information."><tbody><tr><td>
+                                        <script src="//ssif1.globalsign.com/SiteSeal/siteSeal/siteSeal/siteSeal.do?p1=www.sexlog.com&amp;p2=SZ125-50&amp;p3=image&amp;p4=en&amp;p5=V0021&amp;p6=S001&amp;p7=https"></script><span> <a id="aa" href="javascript:ss_open_sub()"><img name="ss_imgTag" border="0" src="//seal.alphassl.com/SiteSeal/siteSeal/siteSeal/siteSealImage.do?p1=www.sexlog.com&amp;p2=SZ125-50&amp;p3=image&amp;p4=en&amp;p5=V0021&amp;p6=S001&amp;p7=https&amp;deterDn=" alt="Clique para ver o perfil." oncontextmenu="return false;" galleryimg="no" style="width:125px"></a></span><span id="ss_siteSeal_fin_SZ125-50_image_en_V0021_S001"></span></td></tr></tbody></table>
+                                    </div>
+                                </div>-->
+
+                                <div class="col-md-3 js-action-meio-pagamento">
+                                    <ul class="nav nav-tabs nav-stacked">
+
+                                        <li class="ng-scope js-action-select-pagamento-cartao-credito active">
+                                            <a class="sl-btn btn-ghost">
+                                                <svg>
+                                                    <use xlink:href="assets/icons/_common/_common.svg?#common-card"></use>
+                                                </svg>
+                                                Cartão de crédito
+                                            </a>
+                                        </li>
+
+                                        <li class="ng-scope js-action-select-pagamento-boleto">
+                                            <a class="sl-btn btn-ghost ">
+                                                <svg>
+                                                    <use xlink:href="assets/icons/_common/_common.svg?#common-boleto"></use>
+                                                </svg>
+                                                Boleto bancário
+                                            </a>
+                                        </li>
+
+                                        @*<li class="ng-scope">
+                                        <a class="sl-btn btn-ghost">
+                                            <svg>
+                                                <use xlink:href="assets/icons/_common/_common.svg?#common-pix"></use>
+                                            </svg>
+                                            Pix <span class="subscribe-label-new label-new">
+                                                Novo
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                    <li  class="">
+                                        <a class="sl-btn btn-ghost btn-tokens" >
+                                            <svg class="payment_tokens__icon">
+                                                <use xlink:href="assets/icons/_common/_common.svg?#common-payment-tokens"></use>
+                                            </svg>
+                                            Usar Tokens
+                                        </a>
+                                    </li>*@
+                                    </ul>
+                                    <div class="gs">
+                                        <div class="security">
+                                            <span>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M12 13.2a1.836 1.836 0 0 0-1.041.309 1.793 1.793 0 0 0-.676.84 1.763 1.763 0 0 0 .498 1.983V18c0 .318.129.623.357.849a1.228 1.228 0 0 0 1.724 0 1.19 1.19 0 0 0 .357-.849v-1.668c.279-.24.476-.56.565-.915a1.763 1.763 0 0 0-.067-1.069 1.793 1.793 0 0 0-.676-.84A1.836 1.836 0 0 0 12 13.2zm6.094-4.8V6a5.954 5.954 0 0 0-1.785-4.243A6.142 6.142 0 0 0 12 0a6.142 6.142 0 0 0-4.309 1.757A5.954 5.954 0 0 0 5.906 6v2.4c-.97 0-1.9.38-2.585 1.054A3.572 3.572 0 0 0 2.25 12v8.4c0 .955.385 1.87 1.07 2.546A3.686 3.686 0 0 0 5.907 24h12.188c.97 0 1.9-.38 2.585-1.054A3.572 3.572 0 0 0 21.75 20.4V12c0-.955-.385-1.87-1.07-2.546A3.685 3.685 0 0 0 18.093 8.4zM8.344 6c0-.955.385-1.87 1.07-2.546A3.685 3.685 0 0 1 12 2.4c.97 0 1.9.38 2.585 1.054A3.572 3.572 0 0 1 15.656 6v2.4H8.344V6zm10.969 14.4c0 .318-.129.623-.357.849a1.228 1.228 0 0 1-.862.351H5.906c-.323 0-.633-.126-.862-.352a1.19 1.19 0 0 1-.356-.848V12c0-.318.128-.623.356-.848.229-.226.539-.352.862-.352h12.188c.323 0 .633.126.861.351.23.226.358.53.358.849v8.4z" fill="currentColor"></path>
+                                                </svg>
+                                                AMBIENTE SEGURO
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="tab-content payment-methods">
+
+                                        <div id="MainPagamentoMetodo">
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <button class="sl-btn btn-primary btn-lg sl-sign fixed ng-scope js-button-submit-subscription">
+                                        <span class="ng-binding">Comprar Points</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        var dataplanid = "";
+        var idPacaoteScope = "";
+
+
+        $('.js-action-close-modal').click(function () {
+            $('#ShareModal').empty();
+        });
+
+        $('.js-button-get-plan').click(function () {
+            $('.js-modal-vantagens').css('display', 'none');
+            $('.js-modal-premium-plan-change').css('display', 'block');
+
+            $('.js-tab-escolha-plano').css('display', 'block');
+            $('.js-tab-forma-pagamento').css('display', 'none');
+
+            $('.js-nav-escolha-plano').removeClass('disabled');
+            $('.js-nav-escolha-pagamento').removeClass('active');
+
+            $('.js-nav-escolha-plano').addClass('active');
+            $('.js-nav-escolha-pagamento').addClass('disabled');
+
+            $('.js-back-subscribe-new-modal').attr('data-backpage', 'voltar-vantagens');
+        });
+
+        $('.js-back-subscribe-new-modal').click(function () {
+
+            var voltar = $(this).attr('data-backpage');
+
+            if (voltar === "voltar-vantagens") {
+                $('.js-modal-premium-plan-change').css('display', 'none');
+                $('.js-modal-vantagens').css('display', 'block');
+            }
+            else if (voltar === 'voltar-plano') {
+                $('.js-tab-escolha-plano').css('display', 'block');
+                $('.js-tab-forma-pagamento').css('display', 'none');
+
+                $('.js-nav-escolha-plano').removeClass('disabled');
+                $('.js-nav-escolha-pagamento').removeClass('active');
+
+                $('.js-nav-escolha-plano').addClass('active');
+                $('.js-nav-escolha-pagamento').addClass('disabled');
+
+                $('.js-back-subscribe-new-modal').attr('data-backpage', 'voltar-vantagens');
+            }
+
+        });
+
+
+        $('.js-action-forma-pagamento').click(function () {
+            $('.js-tab-escolha-plano').css('display', 'none');
+            $('.js-tab-forma-pagamento').css('display', 'block');
+
+            $('.js-nav-escolha-plano').removeClass('active');
+            $('.js-nav-escolha-pagamento').removeClass('disabled');
+
+            $('.js-nav-escolha-plano').addClass('disabled');
+            $('.js-nav-escolha-pagamento').addClass('active');
+
+            var idPacaote = $(this).attr('data-pacote-id');
+            idPacaoteScope = idPacaote;
+
+            carregaTabPagamento(idPacaote);
+        });
+
+
+
+        $('.js-action-select-pagamento-cartao-credito').click(function () {
+
+            removeTabActiveClass();
+            $(this).addClass('active');
+            carregaTabPagamento(idPacaoteScope);
+
+        });
+
+        $('.js-action-select-pagamento-boleto').click(function () {
+
+            removeTabActiveClass();
+            $(this).addClass('active');
+            carregaTabPagamentoBoleto(idPacaoteScope);
+
+        });
+
+        function removeTabActiveClass() {
+            $('.js-action-select-pagamento-boleto').removeClass('active');
+            $('.js-action-select-pagamento-cartao-credito').removeClass('active');
+        }
+
+        function carregaTabPagamentoBoleto(idPacaoteScope) {
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("_TabPagamentoCompraBoletoCreditoPartial", "MinhaConta")',
+                data: { "idPacote": idPacaoteScope},
+                dataType: 'html',
+                success: function (data) {
+
+                    if (data != null) {
+
+                        $("#MainPagamentoMetodo").empty();
+                        $("#MainPagamentoMetodo").append(data);
+
+                        $('.js-action-select-pagamento-cartao-credito').addClass('active');
+                    }
+
+                },
+                beforeSend: function () {
+
+                },
+                complete: function (data) {
+
+                },
+                error: function () {
+                    $('#MainPagamentoMetodo').append('Ops! Ocorreu um erro durante o carregamento.');
+                }
+            });
+        }
+
+
+        function carregaTabPagamento(idPacaote) {
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("_TabPagamentoCompraCartaoCreditoPartial", "MinhaConta")',
+                data: { "idPacote": idPacaote},
+                dataType: 'html',
+                success: function (data) {
+
+                    if (data != null) {
+
+                        $("#MainPagamentoMetodo").empty();
+                        $("#MainPagamentoMetodo").append(data);
+                    }
+
+                },
+                beforeSend: function () {
+
+                },
+                complete: function (data) {
+
+                },
+                error: function () {
+                    $('#MainPagamentoMetodo').append('Ops! Ocorreu um erro durante o carregamento.');
+                }
+            });
+        }
+
+
+        $('.token-plans-modal__option.plan.ng-scope').mouseover(function () {
+
+            $('.token-plans-modal__option.plan.ng-scope').addClass('fade');
+            $('.token-plans-modal__option.plan.ng-scope').addClass('hover');
+
+            $(this).removeClass('fade');
+            $(this).removeClass('hover');
+
+        });
+
+        $('.token-plans-modal__option.plan.ng-scope').mouseout(function () {
+
+            $('.token-plans-modal__option.plan.ng-scope').removeClass('fade');
+            $('.token-plans-modal__option.plan.ng-scope').removeClass('hover');
+        });
+
+        //$('.plans-body__plan.plans-body__plan--d.ng-scope').click(function () {
+        //    $('.plans-body__plan.plans-body__plan--d.ng-scope').removeClass('plans-body__plan--selected');
+        //    $(this).addClass('plans-body__plan--selected');
+        //    $('.plans-body__button').removeClass('plans-body__button--disabled');
+        //});
+
+        //$('.js-action-payment').click(function () {
+        //    $('.js-modal-premium-plan-change').css('display', 'none');
+        //    $('.js-modal-premium-formulario').css('display', 'block');
+
+        //});
+
+        //$('.js-back-subscribe-new-modal').click(function () {
+        //    $('.js-modal-premium-formulario').css('display', 'none');
+        //    $('.js-modal-premium-plan-change').css('display', 'block');
+
+        //});
+    });
+
+</script>

@@ -1,0 +1,35 @@
+
+//PWA
+EXELCENTE SITE PARA FAZER PWA
+https://www.pwabuilder.com/
+
+
+https://medium.com/tableless/como-criar-seu-primeiro-progressive-web-app-do-zero-a7e6ca5fb21e
+
+https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installable_PWAs
+
+
+
+TINDER
+https://github.com/do-web/jTinder/
+
+
+APP
+https://gonative.io/
+
+
+REFERENCIA DE COR
+https://www.orlandocitysc.com/
+
+
+
+Algoritmo Gale-Shapley
+(formerly elo-, or desirability-) score
+Para qualquer número de entidades de dois conjuntos separados (com número igual de elementos), não importa como eles se classificam, sempre existe pelo menos uma correspondência estável
+
+
+
+A visibilidade pode ser algo muito menos permanente que a sua pontuação e é principalmente influenciada por quão recentemente você esteve ativo no aplicativo. Se você ficar off-line por algum tempo, digamos uma semana, seu perfil será empurrado
+cada vez mais para as filas das pessoas por mais tempo que você ficar longe, mas voltará à sua posição normal assim que voltar a ficar on-line.
+
+

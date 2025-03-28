@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Kinkee | Loja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+<link href="~/modules/css/Loja.css" rel="stylesheet" />
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1 {
+        font-size: 37px;
+    }
+</style>
+<div class="myaccount">
+
+    <div class="store ng-scope" >
+
+        <div class="container-fluid header-page store-header">
+            <div class="container-flex">
+                <div class="row">
+
+                    <div class="col-xs-4 col-sm-2">
+                        <h1 title="Loja">Loja</h1>
+                    </div>
+
+                    <div class="col-xs-8 col-sm-10">
+
+                        <div class="store-options">
+                            <div class="actions hidden-xs">
+                                <div class="sl-btn-group-lg" role="group">
+                                    <button type="button" class="sl-btn btn-token text-uppercase js-points-button" title="Comprar Koins">
+                                        Comprar Koins
+                                    </button>
+
+                                    <button type="button" class="sl-btn btn-default text-uppercase ng-scope" title="Meus pedidos">
+                                        Comprar Koins
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="closet-banner store-banner">
+            <div class="container-flex">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6">
+                        <div class="closet-banner-description">
+                            <p class="closet-banner-title">
+                                <small>Conheça a Kinkee Store!</small> 
+                                Troque Kinkee Points por produtos e serviços!
+                            </p>
+                            <p class="closet-banner-subtitle">
+                                Os produtos e serviços oferecidos em nossa loja são atualizados constantemente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flex store-list">
+
+            <div class="product ng-scope" >
+                <figure>
+                    <a bo-title="product.title" href="#"  class="image" bo-style="getProductBackground(product.thumb)" title="Assinatura Mensal" style="background-image: url('../../modules/img/simbolo_premium.png'); background-size: 200px;">
+                    </a>
+                    <figcaption>
+                        <h2>
+                            <a href=""  bo-title="product.mintitle" title="Assinatura Mensal">
+                                <span class="title ng-scope" bo-text="product.mintitle">Assinatura Mensal</span>
+                                <small class="details ng-scope">+ Detalhes</small>
+                            </a>
+                        </h2>
+                        <div class="info">
+                            <div class="price">
+                                <span class="old-value ng-scope" bo-text="product.oldpriceformat">0.000</span>
+                                <span class="value" title="0.000 Points">
+                                    <span bo-text="product.priceformat"></span>
+                                    <span  class="ng-scope">
+                                        <i class="token-sm"></i>
+                                        <span class="token-text">Points</span>
+                                    </span>
+                                </span>
+                            </div>
+
+                            @*<button class="sl-btn btn-token text-uppercase buy-button" type="button" title="Comprar com tokens">
+                                Comprar com tokens
+                            </button>*@
+
+                            <button title="Esgotado" type="button" class="sl-btn btn-token text-uppercase buy-button sold-out ng-hide">
+                                Esgotado
+                            </button>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-flex">
+
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+    </div>
+
+</div>
+

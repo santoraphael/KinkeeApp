@@ -1,0 +1,176 @@
+﻿@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" class="no-js wf-signika-n4-active wf-signika-n3-active wf-signika-n6-active wf-active">
+<head>
+    <title>Kinkee - Afiliados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=1000, minimum-scale=0.25, maximum-scale=1.6">
+    <link id="dynamic-favicon" rel="shortcut icon" type="image/x-icon" href="https://kinkeesugar.com/Content/images/fav-ico.png" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" type="text/javascript" async=""></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/modules/afiliados/css/allsites.css">
+    <link rel="stylesheet" href="~/modules/afiliados/css/common.css">
+    <link rel="stylesheet" href="~/modules/afiliados/css/allplugins.css?v=4.5">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika:400,300,600&amp;subset=latin" media="all">
+</head>
+<body>
+
+    <div id="container">
+        <div id="header">
+            <div class="backSL">
+                <div class="center">
+                    <a href="/"> &lt; Voltar para a kinkee</a>
+                </div>
+            </div>
+            <div class="center">
+                <a class="logo-header" href="/afiliados">
+                    <h1 class="pt-br">
+                        Kinkee Afiliados
+                    </h1>
+                </a>
+                <div class="right-header">
+                    <p class="textCommission">
+                        Aguardando Liberação:
+                        <strong>
+                            R$ @ViewBag.valorTotal.ToString("C")
+                        </strong>
+                    </p>
+                    <p class="textBalance">
+                        Saldo atual:
+                        <strong>R$ @ViewBag.saldoLiberado.ToString("C")</strong>
+                    </p>
+                    <div class="btn dfl drop js-menu-open">
+                        <span>@HttpContext.Current.User.Identity.Name</span>
+                        <div class="boxDrop">
+                            <ul class="ulDrop">
+                                <li class="itemDrop"><a class="linkDrop" href="~/MinhaConta/ConfiguracoesAvancadas/?domain=afiliados">Dados pessoais</a></li>
+                                <li class="itemDrop">
+                                    @Html.ActionLink("Configurações de pagamento", "ConfiguracaoPagamento", "Afiliados", null, new { @class = "TabConfiguracaoPagamento linkDrop" })
+                                </li>
+                                <li class="spacer"></li>
+                                <li class="itemDrop">
+                                    @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @method = "post", @id = "form_login_header" }))
+                                    {
+                                        <a href="#" class="linkDrop" onclick="$(this).parents('form').submit();" target="_self">Sair</a>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="nav">
+            <div class="center">
+                <ul class="nav-ul">
+                    <li id="TabResumo" class="TabResumo nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink("Resumo", "Index", "Afiliados")</li>
+                    <li id="TabMaterial" class="TabMaterial nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "MaterialApoio" ? "active" : "")">@Html.ActionLink("Apoio", "MaterialApoio", "Afiliados")</li>
+                    <li id="TabRelatorios" class="TabRelatorios nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "Relatorios" ? "active" : "")">@Html.ActionLink("Relatórios", "Relatorios", "Afiliados")</li>
+                    <li id="TabReferencias" class="TabReferencias nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "Referencias" ? "active" : "")">@Html.ActionLink("Referências", "Referencias", "Afiliados")</li>
+                    <li id="TabPagamentos" class="TabPagamentos nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "Pagamentos" ? "active" : "")">@Html.ActionLink("Pagamentos", "Pagamentos", "Afiliados")</li>
+                    <li id="TabAjuda" class="TabAjuda nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "Ajuda" ? "active" : "")">@Html.ActionLink("Ajuda", "Ajuda", "Afiliados")</li>
+                    @*<li id="TabConfiguracaoPagamento" class="TabConfiguracaoPagamento nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "ConfiguracaoPagamento" ? "active" : "")">@Html.ActionLink("Configurações", "ConfiguracaoPagamento", "Afiliados")</li>*@
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div id="main" class="settings">
+
+            @RenderBody()
+
+
+        </div>
+
+
+        <div class="push"></div>
+    </div>
+
+
+
+    <div id="footer">
+        <div class="center" style="height:auto;">
+            <p>© @Html.Raw(DateTime.Now.Year) <strong>Kinkee Afiliados</strong></p>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $(".js-menu-open").click(function (e) {
+                $(".boxDrop").show();
+                e.stopPropagation();
+            });
+
+            $(".boxDrop").click(function (e) {
+                e.stopPropagation();
+            });
+
+            $(document).click(function () {
+                $(".boxDrop").hide();
+            });
+
+            $('#boxDropReportPeriod').hover(function (e) {
+                $(this).addClass("dropSelect");
+
+                e.stopPropagation();
+            });
+
+
+
+
+            $('#boxDropReportPeriod').hover(function () {
+                $('.boxDrop').css('display', 'block');
+            });
+
+            $("body").click(function (e) {
+                if (e.target.className !== "boxDrop") {
+                    $(".boxDrop").css('display', 'none');
+                }
+            });
+
+        });
+
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155191071-2"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-155191071-2']);
+        _gaq.push(['_setDomainName', 'app.kinkeesugar.com/Afiliados']);
+        _gaq.push(['_trackPageview']);
+
+        _gaq.push(['_setCustomVar', 1, 'member_type', 'common_user', 1]);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155191071-2');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155191071-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155191071-2');
+    </script>
+</body>
+</html>

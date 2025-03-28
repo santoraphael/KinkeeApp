@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Assinatura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+
+
+    $(document).on("click", ".js-salvar-informacoes", function (e) {
+
+
+        var Genero = $('.js-complemente-genero option:selected').val();
+        var TipoSugar = $('.js-complemente-tipoSugar option:selected').val();
+        var TenhoInteresse = $('.js-complemente-tenhointeresse option:selected').val();
+
+
+
+
+        validarInformacoes(Genero, TipoSugar, TenhoInteresse);
+
+
+
+        ///alert("Genero: " + Genero + "/ Tipo Sugar" + TipoSugar + "/ Tenho Interesse" + TenhoInteresse);
+
+
+
+        //e.preventDefault();
+
+
+
+        function validarInformacoes(Genero, TipoSugar, TenhoInteresse) {
+            var preencher = "Preencha ";
+
+            if (Genero == "0") {
+                preencher = preencher + "Genero ";
+            }
+
+            if (TipoSugar == "0") {
+
+                preencher = preencher + "TipoSugar ";
+            }
+
+            if (TenhoInteresse == "0") {
+
+                preencher = preencher + "TenhoInteresse ";
+            }
+
+            if (preencher == "Preencha ") {
+
+                var r = confirm("Confirme se as informações estão corretas");
+                if (r == true) {
+                    CadastrarInformacoes(Genero, TipoSugar, TenhoInteresse);
+                }
+            }
+            else {
+                alert(preencher);
+            }
+        }
+
+
+        function CadastrarInformacoes(Genero, TipoSugar, TenhoInteresse) {
+
+            $.ajax({
+                type: 'POST',
+                url: '/Dating/CadastrarInformacoes',
+                data: { "Genero": Genero, "TipoSugar": TipoSugar, "TenhoInteresse": TenhoInteresse },
+                dataType: 'json',
+
+                beforeSend: function () {
+                    $('.lblRetorno').empty();
+                    $('.lblRetorno').append('Salvando...');
+
+                },
+                success: function (data) {
+
+                    if (data == false) {
+                        $('.lblRetorno').empty();
+                        $('.lblRetorno').append("Ops! Ocorreu um erro durante o salvamento. Tente novamente.");
+                    }
+                    else {
+                        $('.lblRetorno').empty();
+                        $('.lblRetorno').append("Os dados foram salvos com sucesso.");
+
+                        location.reload();
+                    }
+                },
+
+            });
+
+        }
+
+    });
+
+</script>
+
+<div class="modal-backdrop in" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal sl-featured modal-highlight undefined js-destaque-complemento" style="z-index: 1050; display: block;">
+    <div class="modal-dialog modal-sm" ng-class="{'modal-sm': size == 'sm', 'modal-lg': size == 'lg'}">
+        <div class="modal-content" modal-transclude="">
+            <div class="ng-scope">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Complete o Cadastro
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-info">
+                        <div class="ng-scope">
+                            <h5>Complete seu cadastro para continuar usando a Kinkee</h5><br />
+
+                            <div class="form-group gender has-feedback">
+                                <p style="margin-bottom:2px;"><strong>Seu sexo é</strong></p>
+                                <select class="js-complemente-genero cm-gen-pn form-control ng-pristine ng-invalid ng-invalid-required make-placeholder">
+                                    <option value="0">Eu Sou</option>
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Feminino</option>
+                                </select>
+                                <span class="arrow"></span>
+                            </div>
+
+                            <div class="form-group gender has-feedback">
+                                <p style="margin-bottom:2px;"><strong>Você é</strong></p>
+                                <select class="js-complemente-tipoSugar cm-gen-pn form-control ng-pristine ng-invalid ng-invalid-required make-placeholder">
+                                    <option value="0">Eu Sou</option>
+                                    <option value="1">Sugar Daddy (Homem)</option>
+                                    <option value="2">Sugar Baby (Homem / Mulher)</option>
+                                    <option value="3">Sugar Mommy (Mulher)</option>
+                                </select>
+                                <span class="arrow"></span>
+                            </div>
+
+                            <div class="form-group gender has-feedback">
+                                <p style="margin-bottom:2px;"><strong>Você tem interesse em</strong></p>
+                                <select class="js-complemente-tenhointeresse cm-gen-pn form-control ng-pristine ng-invalid ng-invalid-required make-placeholder">
+                                    <option value="0">Tenho interesse em</option>
+                                    <option value="1">Só Homens</option>
+                                    <option value="2">Só Mulheres</option>
+                                    <option value="3">Homens e Mulheres</option>
+                                </select>
+                                <span class="arrow"></span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <div class="ng-scope">
+                        <p class="lblRetorno"></p>
+
+                        <button type="button" class="js-salvar-informacoes sl-btn btn-primary ng-binding">
+                            Salvar Informações
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="js-panel-compra-destaque">
+
+</div>

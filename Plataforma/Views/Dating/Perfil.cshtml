@@ -1,0 +1,1185 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = @Html.DisplayFor(m => m.PerfilViewModel.Usuario);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/profile.css" rel="stylesheet" />
+<link href="~/pulsar/Kinkee/assets/css/sl/comum.css" rel="stylesheet" />
+<link href="~/modules/css/blueimp-gallery.min.css" rel="stylesheet" />
+<link href="~/modules/css/bundle.css" rel="stylesheet" media="screen" />
+
+<script src="~/modules/js/jquery.stickyalert.js"></script>
+
+@*<script type="text/javascript">
+    GetGenero();
+</script>*@
+
+<style>
+
+
+
+    img {
+        border: 0;
+        vertical-align: middle;
+    }
+
+    .aside.sidebar .sidebar-header input.fake-search {
+        width: calc(100% - 45px) !important;
+    }
+</style>
+
+
+<div class="profile-page">
+    <div>
+
+        <!--Imagem de CAPA-->
+
+        @if (ViewBag.habilitaEdicao)
+        {
+
+        }
+        <div class="profile-cover-container ng-scope">
+            <style>
+                .profile-cover:before {
+                    background: linear-gradient(#000 0,#000 0,#000 70%) !important;
+                }
+
+                .profile-cover.owner {
+                    z-index: 0;
+                }
+            </style>
+            <div class="profile-cover " style="background: url(https://app.kinkeesugar.com/@Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString()); background-repeat: no-repeat; background-size: 100% auto; background-position: center top; background-attachment: fixed; z-index:0;"></div>
+
+
+            <div class="profile-cover owner z-index: -999999999999;">
+
+
+                   @if (ViewBag.habilitaEdicao)
+                    {
+                        @*<div class="profile-cover-add-container container-flex justify-content-center">
+                            <div class="profile-cover-change ng-scope">
+                                <a sl-file-upload-select="cover-upload-input" class="btn-add-cover">
+                                    <i class="icon icon-profile-cover-camera"></i>
+                                    Adicionar imagem de capa
+                                </a>
+                            </div> 
+                        </div>*@
+                    }
+
+                </div>
+        </div>
+
+        <div class="container-flex content-container">
+            
+            <div class="profile-navigation">
+
+                @if (ViewBag.habilitaEdicao)
+                {
+                    <div class="profile-avatar ng-scope" login="@Html.DisplayFor(m => m.PerfilViewModel.Usuario).ToString()" style="z-index: 5;">
+                        <div class="avatar-content">
+                            <img src="https://app.kinkeesugar.com/@Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString()" alt="@Html.DisplayFor(m => m.PerfilViewModel.Usuario).ToString()" style="border-radius: 3%;" class="sl-safe" sl-safe="">
+                            <div class="sl-safe-glass ng-scope"></div>
+
+
+                            <div class="avatar-edit ng-isolate-scope profile-edit-avatar" for="fileUploadAvatar">
+                                <div class="edit-content">
+                                    <svg width="32" height="23" viewBox="0 0 32 23" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 6.224a3.998 3.998 0 0 1 4.007-4h3.497C8.23 2.223 8.955 0 9.681 0h12.804c.737 0 1.473 2.223 2.21 2.223h3.295A4.003 4.003 0 0 1 32 6.224v12.75a4 4 0 0 1-4.004 4H4.004a4 4 0 0 1-4.004-4V6.223zM16.372 20.01c4.11 0 7.442-3.318 7.442-7.411s-3.332-7.411-7.442-7.411-7.442 3.318-7.442 7.41c0 4.094 3.332 7.412 7.442 7.412zm0-1.482c-3.288 0-5.953-2.655-5.953-5.93 0-3.274 2.665-5.928 5.953-5.928 3.288 0 5.954 2.654 5.954 5.929 0 3.274-2.666 5.929-5.954 5.929z" fill="#FFF" fill-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="edit-label">Trocar foto</span>
+                                </div>
+
+                            </div>
+
+                            @*<div class="spinner ng-hide" spinner="">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>*@
+                            <script>
+                                $(document).ready(function () {
+                                    var mostrar_confirm = true;
+
+                                    $('.profile-avatar.ng-scope').on('click', function (e) {
+
+                                        if (mostrar_confirm) {
+                                            var confirmar = confirm('Sua foto será analisada pela nossa equipe antes de aparecer no seu perfil. Deseja atualizar sua foto de perfil?');
+                                            mostrar_confirm = false;
+
+                                            if (confirmar === true) {
+                                                $('#fileUploadAvatar')[0].click();
+                                            }
+                                        }
+                                        else {
+                                            $('#fileUploadAvatar')[0].click();
+                                        }
+
+                                        
+                                        
+                                        
+                                        //e.preventDefault();
+                                    });
+
+                                    $("#fileUploadAvatar").change(function (e) {
+
+                                        var urlFoto = $("#form0").submit();
+
+                                        e.preventDefault();
+                                    });
+                                });
+
+                            </script>
+
+                            @using (Ajax.BeginForm("AtualizaFotoPerfil", "FileUpload", null, new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                OnSuccess = "OnSuccess",
+                                OnFailure = "OnFailure"
+                            }, new { enctype = "multipart/form-data" }))
+                            {
+                                <input id="fileUploadAvatar" type="file" name="file" class="" style="display:none;" accept="image/jpg,image/jpeg,image/gif,image/png">
+
+
+                            }
+                        </div>
+                        @*<div class="online online_messenger profile-status ng-isolate-scope owner"></div>*@
+                    </div>
+
+                    <div class="profile-avatar ng-scope" login="@Html.DisplayFor(m => m.PerfilViewModel.Usuario).ToString()">
+                        <div class="avatar-content">
+                            <img src="https://app.kinkeesugar.com/@Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString()" alt="@Html.DisplayFor(m => m.PerfilViewModel.Usuario).ToString()" style="border-radius: 3%;" class="sl-safe" sl-safe="">
+                            <div class="sl-safe-glass ng-scope"></div>
+                        </div>
+                        @*<div class="online online_messenger profile-status ng-isolate-scope owner"></div>*@
+                    </div>
+                }
+                else
+                {
+                    <div id="fotoPerfil">
+                        <a href="https://app.kinkeesugar.com/@Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString()">
+                            <div class="profile-avatar ng-scope" login="@Html.DisplayFor(m => m.PerfilViewModel.Usuario).ToString()">
+                                <div class="avatar-content">
+                                    <img src="https://app.kinkeesugar.com/@Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString()" alt="@Html.DisplayFor(m => m.PerfilViewModel.Usuario).ToString()" style="border-radius: 3%;" class="sl-safe" sl-safe="">
+                                    <div class="sl-safe-glass ng-scope"></div>
+                                </div>
+                                @*<div class="online online_messenger profile-status ng-isolate-scope owner"></div>*@
+                            </div>
+                        </a>
+                    </div>
+                }
+
+
+
+
+
+                        <div class="profile-header-space"></div>
+
+                        <div class="profile-header ng-scope">
+
+                            <h1 class="profile-username">
+                                @Html.DisplayFor(m => m.PerfilViewModel.Usuario).ToString()
+                            </h1>
+
+
+
+                            <h2 class="profile-gender">
+
+                                @if (Model != null)
+                                {
+                                    if (Model.PerfilViewModel.Genero == "Mulher")
+                                    {
+                                        <span class="profile-gender-type"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="profile-gender-type"></span>
+                                    }
+                                }
+
+
+                            </h2>
+                            <div class="profile-tags__tag profile-tags__background profile-tags__background--city ng-scope">
+                                <img class="profile-tags__icon ng-scope" src="~/modules/img/iconfinder_ic_location_on_48px_352521.png">
+                                <div class="profile-tags__text profile-tags__text--city ng-binding">@Html.Raw(Model.PerfilViewModel.Localizacao_Cidade), @Html.Raw(Model.PerfilViewModel.Localizacao_Estado).ToString()</div>
+                            </div>
+
+
+                            @if (Model.PerfilViewModel.PerfilVerificado)
+                            {
+                                <profile-certificate text="Perfil certificado" class="profile-info__certificate-seal ng-isolate-scope js-profile-certificate-modal" color="#661577">
+                                    <div class="profile-certificate">
+                                        <div class="profile-certificate__btn " style="justify-content: center; z-index: 4;">
+                                            <img src='~/modules/img/verificado.svg' class="profile-certificate__icon" alt='Verificado'>
+                                            <span class="profile-certificate__text ng-binding" style="color: rgb(102, 21, 119);">Perfil verificado</span>
+                                        </div>
+                                    </div>
+                                </profile-certificate>
+                            }
+
+                        <profile-certificate text="Perfil certificado" class="profile-info__certificate-seal ng-isolate-scope js-profile-elo-modal Homem" style="cursor:pointer;" color="#661577">
+
+                            <img src="~/modules/img/@Model.PerfilViewModel.url_image_score" />
+
+
+                        <span class="profile-certificate__text ng-binding" style="margin-left: 15%;">@Model.PerfilViewModel.name_sugar_score</span>
+                            <div class="profile-certificate">
+                                <span class="ng-binding" style="color: #000;">SUGAR SCORE: <b>@String.Format(@"{0:0,0}", Model.PerfilViewModel.sugar_score)</b></span>
+                            </div>
+                        </profile-certificate>
+
+                            @*<div class="profile-info__tooltip-area profile-certificate-identifier"></div>*@
+                        </div>
+
+                        <profile-actions class="profile-actions ng-scope ng-isolate-scope">
+
+                            @*@if (!ViewBag.UsuarioLogadoContaGold && ViewBag.Genero != "Mulher")
+        {
+            if (!ViewBag.habilitaEdicao)
+            {
+                <div id="btn-mensagem-semgold" class="action-container container-message" role="button">
+                    <div class="action">
+
+                        <span class="material-icons">
+                            message
+                        </span>
+                    </div>
+                    Mensagem
+                </div>
+            }
+
+            <script>
+                $(document).on("click", "#btn-mensagem-semgold", function (e) {
+
+                    $.get('@Url.Action("_AssinaturaPartial", "MinhaConta")', function (data) {
+                        $('#mensagemModal').append("<div class='modal-backdrop in' ng-style='{'z-index': 1040 + (index & amp;&amp; 1 || 0) + index * 10}' modal-backdrop='' style='z- index: 1051;'></div>");
+                        $('#mensagemModal').append(data);
+                    });
+                    e.preventDefault();
+                });
+
+                $(document).on("click", ".js-close-button-assinatura", function (e) {
+
+                    $('#mensagemModal').empty();
+
+                    e.preventDefault();
+                });
+
+
+            </script>
+        }
+        else
+        {
+
+            if (!ViewBag.habilitaEdicao)
+            {
+                <div id="btn-mensagem" class="action-container container-message" role="button">
+                    <div class="action">
+
+                        <span class="material-icons">
+                            message
+                        </span>
+                    </div>
+                    Mensagem
+                </div>
+            }
+        }*@
+
+                            @if (!ViewBag.habilitaEdicao)
+                            {
+
+                                <div id="btn-mensagem" user-modal-message="@Model.PerfilViewModel.Usuario" class="action-container container-message" role="button">
+                                    <div class="action">
+                                        <span class="material-icons">
+                                            message
+                                        </span>
+                                    </div>
+                                    Mensagem
+                                </div>
+
+                                if (Model.PerfilViewModel.Genero == "Mulher")
+                                {
+
+                                    if(Model.PerfilViewModel.MostraBotaoEnviaPix)
+                                    {
+                                        <div id="btn-pix" user-modal-pix="@Model.PerfilViewModel.Usuario" class="action-container js-btn-envia-pix" role="button">
+                                            <div class="action">
+                                                <span class="material-icons">
+
+                                                    <img src="~/modules/img/imagem_pix.png" style="width: 30px;" />
+                                                </span>
+                                            </div>
+                                            Enviar um Pix de Presente
+                                        </div>
+                                    }
+                                    
+                                }
+                            }
+                            else
+                            {
+                                <a href="#" id="" class="action-container container-message js-editar-perfil" style="text-decoration:none;">
+                                    <div class="action">
+                                        <span class="material-icons">
+                                            edit
+                                        </span>
+                                    </div>
+                                    Editar Perfil
+                                </a>
+                            }
+
+
+
+
+
+                            @*<div class="action-container">
+            <div class="action-container__dropdown-wrapper" role="button" data-toggle="dropdown" data-target="sl-dropdown">
+                <div class="container-more">
+                    <div class="action">
+
+                        <svg class="profile-actions__svg-icon profile-actions__icon-more">
+                            <use xlink:href="https://www.sexlog.com/assets/icons/profile/profile.svg?v=4#more"></use>
+                        </svg>
+                    </div>
+                    Mais opções
+                </div>
+            </div>
+
+            <ul class="dropdown-menu sl-dropdown profile-dropdown dropdown-more" sl-set-height="" style="height: 200px;">
+
+                <li class="item menu-action-favorite" style="">
+                    <a ng-click="$ctrl.favorite()" ng-class="$ctrl.cssStatusFavorite">
+                        <i class="icon">
+
+                            <svg width="13" height="14" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M.999 0A1 1 0 0 0 0 1.002v12.927l6.5-3.096L13 13.93V1.002A1 1 0 0 0 12.001 0H1zM6.5 8.125L3.771 9.416l.521-2.735-2.208-1.937 3.051-.399L6.5 1.857l1.365 2.488 3.05.4L8.709 6.68l.521 2.735L6.5 8.125z" fill-rule="evenodd"></path>
+                            </svg>
+                        </i>
+                        <span class="add-favorite">
+                            Adicionar aos favoritos
+                        </span>
+                        <span class="remove-favorite">
+                            Remover dos favoritos
+                        </span>
+                    </a>
+                </li>
+
+
+
+                <li class="item menu-action-certification">
+                    <a ng-click="$ctrl.openTestimonialModal()">
+                        <i class="icon">
+                            <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="#666" fill-rule="evenodd"><path d="M8.93 11.284A3.07 3.07 0 0 0 9.513 5.2c-.366-2.329 1.26-3.514 1.26-3.514a.2.2 0 0 0 .093-.122.2.2 0 0 0-.02-.152l-.253-.438a.201.201 0 0 0-.274-.073s-4.58 1.358-4.657 6.556c-.042 2.838 1.64 3.827 3.27 3.827M4.638 9.462c-.213-.61-.315-1.31-.304-2.08a8.473 8.473 0 0 1 .457-2.677 3.048 3.048 0 0 0-.94-.348C3.488 2.027 5.112.843 5.112.843a.2.2 0 0 0 .094-.122.2.2 0 0 0-.02-.152L4.933.13a.201.201 0 0 0-.275-.073S.078 1.416.001 6.614c-.042 2.838 1.64 3.826 3.27 3.826.583 0 1.128-.162 1.593-.445a4.438 4.438 0 0 1-.226-.533"></path></g></svg>
+                        </i>
+
+                        Enviar Depoimento Real
+                        <span class="new">Novo</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+
+                <li class="item menu-action-block">
+                    <a ng-click="$ctrl.block()">
+                        <i class="icon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                <g fill-rule="evenodd">
+                                    <path d="M13.266 10.829A6.658 6.658 0 1 0 1.734 4.17a6.658 6.658 0 0 0 11.532 6.658zm-.866-.5A5.658 5.658 0 1 1 2.6 4.67a5.658 5.658 0 0 1 9.8 5.658z"></path>
+                                    <path d="M1.93 4.831l.474-.82 10.665 6.158-.473.82z"></path>
+                                </g>
+                            </svg>
+                        </i>
+                        Bloquear
+                    </a>
+                </li>
+
+                <li class="item menu-action-report">
+
+                    <a ng-click="$ctrl.report()">
+                        <i class="icon">
+                            <svg class="profile__report-icon">
+                                <use xlink:href="assets/icons/report/report.svg#report-warning"></use>
+                            </svg>
+                        </i>
+                        Denunciar
+                    </a>
+                </li>
+            </ul>
+        </div>*@
+                        </profile-actions>
+
+                        <div class="profile-info">
+                            <p class="profile-description">
+                                @Html.Raw(Model.PerfilViewModel.Descricao_Curta)
+                            </p>
+                            @*<ul class="profile-badges badges">
+                        <li>
+                            <a class="profile-badge" href="#" title="" sl-tooltip="" data-container="body" data-original-title="Premium">
+                                <img src="~/modules/img/gema_Diamante.png" class="icon icon-premium"  width="30"/>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="profile-badge" href="#" title="" sl-tooltip="" data-container="body" data-original-title="Premium">
+                                <img src="~/modules/img/verificado.svg" class="icon icon-premium"  width="45" />
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="profile-badge" href="#" title="" sl-tooltip="" data-container="body" data-original-title="Premium">
+                                <img src="~/modules/img/novo.svg" lass="icon icon-premium"  width="45" />
+                            </a>
+                        </li>
+                    </ul>*@
+                            <dl class="profile-other-info">
+                                @*<dt>Membro há</dt>
+                        <dd>7 meses</dd>
+                        <dt>Último acesso</dt>
+                        <dd>45 minutos atrás</dd>*@
+                                <dt>Visitas recebidas</dt>
+                                <dd>@Html.Raw(Model.PerfilViewModel.visitasPerfil)</dd>
+                            </dl>
+                        </div>
+
+
+                        @*<div class="profile-info-friends" sl-profile-info-friends="" sl-profile-sticky="" data-offset="54">
+                    <div class="info-header">
+                        <div class="header-title">
+                            <i class="icon icon-info-friend"></i>
+                            <h2>
+                                <span ng-bind="::profile.profileData.statistics.totalfriends" class="ng-binding">875</span>
+                                <span class="info-friends-text">amigos</span>
+                            </h2>
+                        </div>
+                        <div class="header-actions">
+                            <a href="https://www.sexlog.com/u/paulinha2682/amigos" class="sl-btn btn-default">
+                                Ver todos
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="friends-container">
+
+                        <a class="info-friend" style="background-image: url(https://fullfront.fcdn.io/crop_260x175/data/l/1/ronaldocosta_325169574.jpg)" href="https://www.sexlog.com/u/ronaldocosta/fotos/110879710" rel="nofollow">
+                            <div class="info-container" sl-card="" login="ronaldocosta">
+
+                                <div class="info-avatar ">
+                                    <img class="img-circle sl-safe" src="https://fullfront.fcdn.io/crop_30x30/data/l/ronaldocosta_6_avatar_.jpg" alt="ronaldocosta" sl-safe=""><div class="sl-safe-glass ng-scope"></div>
+                                    <span class="online"></span>
+                                </div>
+
+                                <h4 class="info-username subscriber">
+                                    <span>
+                                        ronaldocosta
+                                    </span>
+                                    <small>Homem</small>
+                                </h4>
+                            </div>
+                        </a>
+                        <a class="info-friend" style="background-image: url(https://fullfront.fcdn.io/crop_260x175/data/t/3/romez_523366118.jpg)" href="https://www.sexlog.com/u/romez/fotos/110707664" rel="nofollow">
+                            <div class="info-container" sl-card="" login="romez">
+
+                                <div class="info-avatar ">
+                                    <img class="img-circle sl-safe" src="https://fullfront.fcdn.io/crop_30x30/data/t/romez_3_avatar_.jpg" alt="romez" sl-safe=""><div class="sl-safe-glass ng-scope"></div>
+                                    <span class="online"></span>
+                                </div>
+
+                                <h4 class="info-username subscriber">
+                                    <span>
+                                        romez
+                                    </span>
+                                    <small>Homem</small>
+                                </h4>
+                            </div>
+                        </a>
+                        <a class="info-friend" style="background-image: url(https://fullfront.fcdn.io/crop_260x175/data/f/28/kasalpocosdcaldas_787974616.jpg)" href="https://www.sexlog.com/u/kasalpocosdcaldas/fotos/110279475" rel="nofollow">
+                            <div class="info-container" sl-card="" login="kasalpocosdcaldas">
+
+                                <div class="info-avatar ">
+                                    <img class="img-circle sl-safe" src="https://fullfront.fcdn.io/crop_30x30/data/f/kasalpocosdcaldas_4_avatar_.jpg" alt="kasalpocosdcaldas" sl-safe=""><div class="sl-safe-glass ng-scope"></div>
+                                    <span class="online"></span>
+                                </div>
+
+                                <h4 class="info-username subscriber">
+                                    <span>
+                                        kasalpocosdcaldas
+                                    </span>
+                                    <small>Homem</small>
+                                </h4>
+                            </div>
+                        </a>
+                        <a class="info-friend" style="background-image: url(&quot;https://fullfront.fcdn.io/crop_260x175/data/c/39/casaldeskolado_830873032.jpg&quot;); display: none;" href="https://www.sexlog.com/u/casaldeskolado/fotos/110688360" rel="nofollow">
+                            <div class="info-container" sl-card="" login="casaldeskolado">
+
+                                <div class="info-avatar ">
+                                    <img class="img-circle sl-safe" src="https://fullfront.fcdn.io/crop_30x30/data/c/casaldeskolado_9_avatar_.jpg" alt="casaldeskolado" sl-safe=""><div class="sl-safe-glass ng-scope"></div>
+                                    <span class="online"></span>
+                                </div>
+
+                                <h4 class="info-username subscriber">
+                                    <span>
+                                        casaldeskolado
+                                    </span>
+                                    <small>Casal Ele/Ela</small>
+                                </h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>*@
+
+                        @*<div class="profile-info-header">
+                            <div class="avatar">
+                                <img src="https://fullfront.fcdn.io/crop_200x200/data/c/paulinha2682_7_avatar.hd.jpg" alt="paulinha2682" class="img-circle">
+                            </div>
+                            <div class="info">
+                                <span class="info-login premium">paulinha2682</span>
+                                <span class="info-about">
+                                    Casal Ele/Ela - Belo Horizonte, MG
+                                </span>
+                            </div>
+                        </div>*@
+
+                    </div>
+
+                    <!--Conteúdo-->
+                    <div class="profile-content">
+
+                        <nav class="profile-nav ng-scope">
+                            <ul>
+                                <li class="nav-about ng-isolate-scope active" signup-disabled="true">
+                                    <a class="nav-item" href="#">
+                                        RESUMO
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="profile-premium">
+                                Premium
+                            </div>
+                        </nav>
+
+                        <div id="Main-Content-Profile">
+                            <div class="profile-container profile-about">
+
+
+                                <div class="about-summary">
+                                    <h2 class="section-header">
+                                        <i class="icon icon-profile-home-about"></i>
+                                        Sobre
+                                    </h2>
+                                    <div class="profile-box">
+                                        <p>@Html.Raw(Model.PerfilViewModel.Descricao_Longa)</p>
+                                    </div>
+                                </div>
+
+                                @if (Model.PerfilViewModel.Genero == "Homem")
+                                {
+                                    <h2 class="section-header">
+                                        <i class="icon icon-profile-home-about"></i>
+                                        PIXs Enviados
+                                    </h2>
+                                    <div class="about-summary">
+
+                                        @foreach (var item in Model.PerfilViewModel.ListaPix)
+                                        {
+                                            <div class="col-xl-2 col-md-4 col-sm-6">
+                                                <div class="card text-center" style="box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%); position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; min-width: 0; background-color: #FFF; background-clip: border-box; border: 0 solid rgba(34,41,47,.125); border-radius: .428rem; margin: 10px; ">
+                                                    <div class="card-body">
+                                                        <div class="avatar bg-light-primary p-50 mb-1">
+                                                            <div class="avatar-content" style="margin-top:10px">
+                                                                <img src="~/modules/img/imagem_pix.png" class="feather feather-heart font-medium-5" style="width: 30px;" />
+
+                                                            </div>
+                                                        </div>
+                                                        <h2 class="fw-bolder">@Html.Raw(item.valor.ToString("C"))</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+
+
+
+
+
+                                <div class="about-info">
+                                    <h2 class="section-header">
+                                        <i class="icon icon-profile-home-about"></i>
+                                        Informações pessoais
+                                    </h2>
+                                    <div class="profile-box no-padding couple">
+                                        <table class="profile-table">
+                                            @*<thead>
+                            <tr>
+                                <th class="">Nome</th>
+                                <th class="divider right">@Html.Raw(Model.PerfilViewModel.NomeCompleto)</th>
+                            </tr>
+                        </thead>*@
+                                            <tbody>
+                                                <tr>
+                                                    <td class="label">
+                                                        Idade
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Idade)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Orientação Sexual
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.OrientacaoSexual)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Profissão
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Profissao)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Estado civil
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.EstadoCivil)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Signo
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Signo)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Etnia
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Etnia)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Cabelos
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Cabelos) <small>@Html.Raw(Model.PerfilViewModel.TipoCabelos)</small>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Olhos
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Olhos)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Altura
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Altura)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Corpo
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Peso) kg <small>@Html.Raw(Model.PerfilViewModel.Corpo)</small>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Fuma
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Fuma)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="label">
+                                                        Bebe
+                                                    </td>
+                                                    <td class="divider right">
+                                                        @Html.Raw(Model.PerfilViewModel.Bebe)
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                @*<div class="about-interests">
+                                    <h2 class="section-header">
+                                        <i class="icon icon-profile-home-about"></i>
+                                        Interesses
+                                    </h2>
+                                    <div class="profile-box no-padding">
+                                        <table class="profile-table">
+                                            <tbody class="break-line">
+
+                                                <tr>
+                                                    <td class="label">Procurando por</td>
+                                                    <td>
+                                                        Mulher
+                                                        Casal Ele/Ela
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="label">Objetivos</td>
+                                                    <td>
+                                                        Troca de casal
+                                                        Ménage masculino sem bi
+                                                        Sexo no mesmo ambiente
+                                                        Ménage feminino sem bi
+                                                        Ménage feminino com bi
+                                                        Exibicionismo
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="label">Fetiches</td>
+                                                    <td>-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>*@
+
+                            </div>
+
+                            <div class="profile-gallery ng-scope">
+
+                                <!--<div class="gallery-processing-container ng-hide" ng-show="profileGallery.pendingVideos.length">
+        <h4 class="gallery-title">
+            Vídeos em processamento <span class="tip" sl-tooltip="" title="" data-placement="top" data-original-title="Em poucos minutos será possível visualizá-lo na página de Vídeos em seu perfil. Você pode continuar navegando enquanto isso.">?</span>
+        </h4>
+        <div class="gallery-list" ng-init="profileGallery.initPendingVideos(false)">-->
+                                <!-- ngRepeat: media in profileGallery.pendingVideos track by media.contentid -->
+                                <!--</div>
+        </div>-->
+                                <h4 class="gallery-title">
+                                    Fotos
+                                </h4>
+                                <div class="gallery-list" style="flex-basis: calc(25% - 10px);">
+
+
+                                    @if (ViewBag.habilitaEdicao)
+                                    {
+
+                                        <script>
+                                            $(document).ready(function () {
+
+                                                $(document).on("click", ".js-modal-add-galeria", function (e) {
+
+                                                    $('#myModalEnviaFotoPerfil').css('display', 'block');
+                                                    $('.modal-backdrop').css('display', 'block');
+
+                                                    $('#output').css('max-width', $(".modal-body").width());
+
+                                                    e.preventDefault();
+                                                });
+
+                                                $(document).on("click", ".btn.btn-default", function (e) {
+
+                                                    $('#myModalEnviaFotoPerfil').css('display', 'none');
+                                                    $('.modal-backdrop').css('display', 'none');
+
+                                                    e.preventDefault();
+                                                });
+
+                                            });
+
+
+                                        </script>
+
+                                        <!-- FOTO -->
+                                        <div class="modal-backdrop in" style="z-index: 1040; display:none;"></div>
+                                        <div class="modal" id="myModalEnviaFotoPerfil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel">Selecionar Imagem</h4>
+                                                    </div>
+
+                                                    <script>
+                                                        var loadFile = function (event) {
+                                                            var output = document.getElementById('output');
+                                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                                        };
+                                                    </script>
+                                                    @using (Html.BeginForm("SalvaFotoGaleria", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                                    {
+                                                        <div class="modal-body">
+
+                                                            <input type="file" accept="image/*" onchange="loadFile(event)" name="file" id="file" /><br><br>
+
+                                                            <br><br>
+                                                            <img id="output" />
+                                                            <br><br>
+                                                            @ViewBag.Message
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div style="float: left;">
+                                                                <input type="checkbox" id="isSelectedPrivate" name="isSelectedPrivate" /> FOTO PRIVADA<br />
+                                                            </div>
+
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                                            <button type="submit" class="btn btn-primary">Salvar foto</button>
+
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <p>*Ao adicionar uma <b>foto privada</b> apenas pessoas que você permitir poderão ver.</p>
+                                                            <p>**Todas as fotos são avaliadas antes de aparecerem no seu perfil. Isso pode demorar até 48 horas.</p>
+
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="figure figure-news js-modal-add-galeria">
+                                            <span class="icon">
+                                                <span style="margin-top: -10px;">+</span>
+                                            </span>
+                                            <span class="title">
+                                                Enviar nova foto
+                                            </span>
+                                        </div>
+                                    }
+
+
+                                    @if (Model.PerfilViewModel.GaleriaFotos != null && Model.PerfilViewModel.GaleriaFotos.Count > 0)
+                                    {
+
+                                        <div id="links">
+
+                                            @foreach (var item in Model.PerfilViewModel.GaleriaFotos)
+                                            {
+                                                if (!item.isPrivate && item.isApproved)
+                                                {
+
+                                                    <div class="js-div-img" style="float: left; margin-left: 5px; margin-bottom: 5px; width: 175px;">
+
+                                                        <figure class="figure ">
+                                                            <a href="https://app.kinkeesugar.com/@item.UrlFoto">
+                                                                <picture sl-safe="" class="sl-safe">
+                                                                    <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 1615px)">
+                                                                    <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 1415px)">
+                                                                    <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 1200px)">
+                                                                    <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 992px)">
+                                                                    <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 600px)">
+                                                                    <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 480px)">
+                                                                    <img srcset="https://app.kinkeesugar.com/@item.UrlFoto" style="border-radius: 3%;" alt="">
+                                                                </picture><div class="sl-safe-glass ng-scope"></div>
+                                                            </a>
+                                                            @*<figcaption>
+                                                                <span>
+                                                                    <span class="likes">258</span>
+                                                                    <span class="comments">28</span>
+                                                                </span>
+                                                            </figcaption>*@
+                                                        </figure>
+
+
+                                                        @if (ViewBag.habilitaEdicao)
+                                                        {
+                                                            @*<div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" data-id-action="@item.UrlFoto" class="js-privada-foto">
+                                                                <p style="background-color:#2E112D; color:#FFF;">
+                                                                    TORNAR FOTO PRIVADA
+                                                                </p>
+                                                            </div>*@
+
+                                                            <div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" class="js-exclui-foto">
+                                                                <p style="background-color:#B8273B; color:#FFF;">
+                                                                    <img src="~/modules/img/trash.png" width="20" class="js-click-exclui-foto" data-id-action="@item.UrlFoto" height="20" /> EXCLUIR FOTO
+                                                                </p>
+                                                            </div>
+                                                        }
+                                                    </div>
+
+                                                }
+                                            }
+
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <h2 class="msgNoFile">Perfil ainda não enviou<br> nenhuma foto.</h2>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="profile-gallery ng-scope">
+
+                                <h4 class="gallery-title">
+                                    Fotos Privadas
+                                </h4>
+                                <div class="gallery-list" style="flex-basis: calc(25% - 10px);">
+
+                                    @if (Model.PerfilViewModel.GaleriaFotos != null && Model.PerfilViewModel.GaleriaFotos.Count > 0)
+                                    {
+                                        if (Model.PerfilViewModel.UsuarioLogadoFotoPrivada || ViewBag.Adm || ViewBag.habilitaEdicao)
+                                        {
+                                            <div id="fotosPrivadas">
+                                                @foreach (var item in Model.PerfilViewModel.GaleriaFotos)
+                                                {
+                                                    if (item.isPrivate && item.isApproved)
+                                                    {
+                                                        <div class="js-div-img" style="float: left; margin-left: 5px; margin-bottom: 5px; width: 175px;">
+
+                                                            <figure class="figure ">
+                                                                <a href="https://app.kinkeesugar.com/@item.UrlFoto">
+                                                                    <picture sl-safe="" class="sl-safe">
+                                                                        <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 1615px)">
+                                                                        <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 1415px)">
+                                                                        <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 1200px)">
+                                                                        <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 992px)">
+                                                                        <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 600px)">
+                                                                        <source srcset="https://app.kinkeesugar.com/@item.UrlFoto" media="(min-width: 480px)">
+                                                                        <img srcset="https://app.kinkeesugar.com/@item.UrlFoto" style="border-radius: 3%;" alt="">
+                                                                    </picture><div class="sl-safe-glass ng-scope"></div>
+                                                                </a>
+                                                                @*<figcaption>
+                                                                    <span>
+                                                                        <span class="likes">258</span>
+                                                                        <span class="comments">28</span>
+                                                                    </span>
+                                                                </figcaption>*@
+                                                            </figure>
+
+
+                                                            @if (ViewBag.habilitaEdicao)
+                                                            {
+                                                                <div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" class="js-exclui-foto">
+                                                                    <p style="background-color:#B8273B; color:#FFF;">
+                                                                        <img src="~/modules/img/trash.png" width="20" class="js-click-exclui-foto" data-id-action="@item.UrlFoto" height="20" /> EXCLUIR FOTO
+                                                                    </p>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <h2 class="msgNoFile">Perfil ainda não enviou<br> nenhuma foto.</h2>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <h2 class="msgNoFile">Perfil ainda não enviou<br> nenhuma foto.</h2>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+
+<div class="text-center">
+
+    <div class="endpage" style="margin: 30px 0 0px;">
+        <i></i>
+        <div></div>
+    </div>
+    <br /><br />
+</div>
+
+
+
+<div id="mensagemModal">
+
+</div>
+
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-svgasimg blueimp-gallery-smil" aria-label="image gallery" aria-modal="true" role="dialog" style="display: none;">
+    <div class="slides" aria-live="polite" style="width: 192000px;"></div>
+    <h3 class="title">les 3 belles</h3>
+    <a class="prev" aria-controls="blueimp-gallery" aria-label="previous slide" aria-keyshortcuts="ArrowLeft"></a>
+    <a class="next" aria-controls="blueimp-gallery" aria-label="next slide" aria-keyshortcuts="ArrowRight"></a>
+    <a class="close" aria-controls="blueimp-gallery" aria-label="close" aria-keyshortcuts="Escape"></a>
+    <a class="play-pause" aria-controls="blueimp-gallery" aria-label="play slideshow" aria-keyshortcuts="Space" aria-pressed="false" role="button"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="~/modules/js/perfil.js"></script>
+
+<script src="~/modules/js/blueimp-gallery.min.js"></script>
+<script>
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event },
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+
+    document.getElementById('fotoPerfil').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event },
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+
+    document.getElementById('fotosPrivadas').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event },
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+
+</script>
+
+<script type="text/javascript">
+
+    var ordenacao = 0;
+    var pageSize = 10;
+    var pageIndex = 0;
+    var pageIndexSearch = 0;
+    var lastInteractionSearch = 0;
+    var lastInteraction = 0;
+
+
+    $(document).ready(function () {
+
+
+
+        $(document).on("click", ".js-btn-envia-pix", function (e) {
+            $('#ShareModal').empty();
+            $('#preLoadModal').css('display', 'block');
+
+            nomeUsuarioRecebedor = $('.js-btn-envia-pix').attr('user-modal-pix');
+
+            $.ajax({
+                url: "@Url.Action("_ProfileModalPix","Dating")",
+                data: {
+                    'nomeUsuarioRecebedor': nomeUsuarioRecebedor,
+                },
+                dataType: "html",
+                type: 'POST',
+                success: function (data) {
+                    $('#preLoadModal').css('display', 'none');
+                    $('#ShareModal').append(data);
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+
+            e.preventDefault();
+        });
+
+
+        $(document).on("click", ".js-profile-certificate-modal", function (e) {
+            $('#preLoadModal').css('display', 'block');
+            $.get('@Url.Action("_ProfileModalCertificado","Dating")', function (data) {
+                $('#preLoadModal').css('display', 'none');
+                $('#ShareModal').append(data);
+            });
+            e.preventDefault();
+        });
+
+        $(document).on("click", ".js-profile-elo-modal.Homem", function (e) {
+            $('#preLoadModal').css('display', 'block');
+            $.get('@Url.Action("_ProfileModalClassificacaoHomem", "Dating")', function (data) {
+                $('#preLoadModal').css('display', 'none');
+                $('#ShareModal').append(data);
+            });
+            e.preventDefault();
+        });
+
+        $(document).on("click", ".js-profile-elo-modal.Mulher", function (e) {
+            $('#preLoadModal').css('display', 'block');
+            $.get('@Url.Action("_ProfileModalClassificacaoMulher", "Dating")', function (data) {
+
+                $('#preLoadModal').css('display', 'none');
+                $('#ShareModal').append(data);
+            });
+            e.preventDefault();
+        });
+
+        $(document).on("click", "#js-action-close-modal", function (e) {
+            $('#ShareModal').empty();
+            e.preventDefault();
+        });
+
+
+
+        $(document).on("click", ".btn-visualizar-foto-privada", function (e) {
+
+            nomeUsuarioFotos = $('.btn-visualizar-foto-privada').attr('js-usuario');
+
+            SolicitarVisualizarFotoPrivada(nomeUsuarioFotos);
+
+            e.preventDefault();
+        });
+
+        function SolicitarVisualizarFotoPrivada(nomeUsuarioSolicitado) {
+            $.ajax({
+                url: "/Dating/SolicitarVisualizarFotoPrivada",
+                data: {
+                    'nomeUsuarioSolicitado': nomeUsuarioSolicitado,
+                },
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+                    //alert("Successfully Inserted!");
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+        }
+
+
+
+
+        //TodasAsPublicacoesAtivas();
+
+        //$('.js-carregar-btn').unbind("click").click(function (e) {
+
+        //    TodasAsPublicacoesAtivas();
+
+        //    e.preventDefault();
+        //});
+
+
+        //$(window).scroll(function () {
+
+        //    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        //        TodasAsPublicacoesAtivas();
+        //    }
+        //});
+
+    });
+
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+
+</script>

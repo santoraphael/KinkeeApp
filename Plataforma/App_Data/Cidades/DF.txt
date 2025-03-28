@@ -1,0 +1,5 @@
+﻿[
+  "Brasília",
+  "Gama",
+  "Taguatinga"
+]

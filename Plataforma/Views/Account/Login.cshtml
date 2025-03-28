@@ -1,0 +1,176 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee - A Rede Social Sugar Baby e Sugar Daddy";
+    Layout = "~/Views/Shared/_LayoutDeslogado.cshtml";
+}
+
+<style>
+    .container-flex.authentication {
+        -webkit-transform: translateY(10%);
+        -ms-transform: translateY(10%);
+        transform: translateY(10%);
+    }
+
+    @@media (min-width:600px) {
+        .container-flex.authentication {
+            -webkit-transform: translateY(calc(20% - 48px));
+            -ms-transform: translateY(calc(20% - 48px));
+            transform: translateY(calc(20% - 48px));
+        }
+    }
+
+    .sl-modal.login.injected, .sl-modal.signup.injected, .panel.confirm-email {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    @@media (min-width:600px) {
+        .sl-modal.login.injected, .sl-modal.signup.injected, .panel.confirm-email {
+            width: 500px;
+        }
+    }
+
+    .panel.confirm-email {
+        border: 1px solid #d4d4d4;
+    }
+
+    @@media (min-width:992px) {
+        .panel.confirm-email {
+            width: 700px;
+        }
+    }
+
+    .panel.confirm-email .alert {
+        margin: -41px -20px 20px;
+    }
+
+    .panel.confirm-email .mobile-validation .alert {
+        margin: -20px -20px -5px;
+    }
+
+    .panel.confirm-email .mobile-validation + .hide-resend-email {
+        margin-top: 30px;
+    }
+
+    @@media (min-width:600px) {
+        .panel.confirm-email .mobile-validation + .hide-resend-email {
+            margin-top: 0;
+        }
+    }
+
+    .panel.confirm-email .panel-heading {
+        padding: 20px;
+    }
+
+        .panel.confirm-email .panel-heading h3 {
+            margin: 0;
+            color: #661577;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+    .panel.confirm-email .panel-body {
+        padding: 50px 20px 0;
+        border-top: 1px solid #d4d4d4;
+        font-size: 14px;
+    }
+
+        .panel.confirm-email .panel-body p {
+            font-size: 16px;
+        }
+
+            .panel.confirm-email .panel-body p.small {
+                font-size: 13px;
+                margin-top: 50px;
+            }
+
+        .panel.confirm-email .panel-body .text-or {
+            margin-left: 12px;
+        }
+
+        .panel.confirm-email .panel-body .btn-link {
+            font-size: 14px;
+        }
+
+        .panel.confirm-email .panel-body .keep-browsing {
+            margin: 10px 0;
+        }
+
+    .panel.change-password .panel-body {
+        padding: 40px;
+    }
+
+        .panel.change-password .panel-body .alert.alert-danger {
+            margin: -41px -41px 20px;
+        }
+
+    form.change-email {
+        background-color: #f5f5f5;
+        padding: 20px;
+        margin: 5px -20px;
+    }
+
+    form.change-password .form-control.input-lg {
+        margin-bottom: 20px;
+        border-radius: 3px;
+    }
+</style>
+
+
+
+<div ng-controller="AuthenticationController" class="container-flex authentication ng-scope">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="bordered sl-modal login injected" login-injected="" data-resend-password="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header" >
+                            <h4 class="modal-title large primary" style="color:#B8273B;">
+                                <span class="ng-scope">Acesse sua conta</span>
+                            </h4>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <!-- Login -->
+                            <div class="text-center">
+
+
+
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "sl-form ng-pristine ng-invalid ng-invalid-required", @name = "signinForm", @novalidate = "" }))
+                                {
+
+                                    @Html.TextBoxFor(m => m.LoginViewModel.Email, new { @type = "text", @class = "form-control input-lg ng-pristine ng-invalid ng-invalid-required", @placeholder = "E-mail ou login", @required = "", @autofocus = "", @name = "login", @maxlength = "100", @autocomplete = "off", @autocorrect = "off", @autocapitalize = "off", @spellcheck = "false" })
+                                    @Html.TextBoxFor(m => m.LoginViewModel.Password, new { @type = "password", @class = "form-control input-lg ng-pristine ng-invalid ng-invalid-required", @placeholder = "Senha", @required = "", @name = "password" })
+
+                                    <p class="forget-password">
+                                        <a href="/Account/ForgotPassword/">Esqueceu sua senha?</a>
+                                    </p>
+
+                                    <button type="submit" class="sl-btn btn-primary btn-lg btn-block ng-scope">
+                                        Entrar
+                                    </button>
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <p class="signup-call" ng-hide="modal.hideSignUp">
+                                        Ainda não está na Kinkee? <a href="https://kinkeesugar.com/#news">Cadastre-se agora mesmo!</a>
+                                    </p>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <a href="https://drive.google.com/file/d/1J52MwitRbveFfQOhg120m6Y3nhhBSF8z/view?usp=sharing" target="_blank">
+                        <img src="~/modules/img/1519541328276.png" style="width:100%;" />
+                    </a>
+
+                </div>
+            </div>
+            <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,453 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "EditarPerfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/modules/css/EditarPerfil.css" rel="stylesheet" />
+<link href="~/modules/css/conta.css" rel="stylesheet" />
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#cep").change(function () {
+            var cep_code = $(this).val();
+            if (cep_code.length <= 0) return;
+            $.get("http://apps.widenet.com.br/busca-cep/api/cep.json", { code: cep_code },
+                function (result) {
+                    if (result.status != 1) {
+                        alert(result.message || "Houve um erro desconhecido");
+                        return;
+                    }
+                    $("input#cep").val(result.code);
+                    $("input#estado").val(result.state); $('#lblEstado').html(result.state);
+                    $("input#cidade").val(result.city); $('#lblCidade').html(result.city);
+                    $("input#bairro").val(result.district);
+                    $("input#endereco").val(result.address);
+                    $("input#estado").val(result.state);
+                });
+        });
+    });
+
+</script>
+
+
+@*@if (ViewBag.InserirImagemPerfil)
+    {
+        <script>
+            alert("Para continuar insira uma foto de perfil");
+        </script>
+    }*@
+
+
+<div ng-controller="ExploreController" class="ng-scope">
+
+    <div class="container-flex gutter-small">
+        <style>
+            .form-group.row.localizacao {
+                background-color: aliceblue;
+            }
+        </style>
+
+        <div class="profile-container">
+
+            <div id="content">
+                <div id="contentProfile">
+
+                    <div class="container">
+                        <legend class="col-form-legend">Editar Perfil</legend>
+
+
+
+                        @using (Html.BeginForm("EditarPerfil", "MinhaConta", FormMethod.Post))
+                        {
+                            @*NOME E SOBRENOME*@
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">NOME:</label>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.PerfilViewModel.Name, new { @type = "text", @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location", @id = "inputEmail3", @placeholder = "Nome" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">SOBRENOME:</label>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.PerfilViewModel.Lastname, new { @type = "text", @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location", @placeholder = "Sobrenome" })
+                                </div>
+                            </div>
+                            <p class="location-info">Precisamos de mais algumas informações.</p>
+                            <ul class="interests-list">
+                                <li id="CategoriaRelacionamentSugar" class="interest ng-scope">
+                                    <div class="toggleable">
+                                        <span class="check"></span>
+                                        <span class="description" bo-text="interest.name">Eu tenho total disponibilidade para viajar e encontrar com meu daddy</span>
+                                    </div>
+                                    @Html.CheckBoxFor(m => m.PerfilViewModel.createProfileModel.DisponibilidadeViagens, new { id = "CheckCategoriaRelacionamentSugar" })
+                                </li>
+                            </ul>
+
+                            <hr style="width:100%;" />
+
+                            @*LOCALIZAÇÃO*@
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">LOCALIZAÇÃO:</label>
+                                <div class="col-sm-10">
+                                    <div class="location-search">
+                                        @*<input id="txtAddress" type="text" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location" placeholder="Cidade" autocomplete="new-password">*@
+
+                                        @Html.DropDownListFor(m => m.PerfilViewModel.createProfileModel.Country_str_code, ViewData["Countries"] as SelectList, "-- Escolha um País --", new { @id = "Country_str_code", @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location" })
+                                        <br />
+                                        <select id="Estados" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                            <option selected="selected" value="">-- Estados --</option>
+                                        </select>
+                                        @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.Admin1_str_code)
+                                        @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.Admin1_str_name)
+                                        <br />
+
+                                        <select id="Cidades" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                            <option selected="selected" value="">-- Cidades --</option>
+                                        </select>
+                                        @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.Feature_int_id)
+                                        @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.Feature_str_name)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="width:100%;" />
+
+                            @*ESTADO CIVIL*@
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">ESTADO CIVIL:</label>
+                                <div class="col-sm-10">
+                                    <div class="location-search">
+
+                                        <select id="EstadoCivil" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                            <option selected="selected" value="">-- Estado Civil --</option>
+                                            <option value="1">Solteiro(a)</option>
+                                            <option value="2">Numa Relação</option>
+                                            <option value="3">Noivo(a)</option>
+                                            <option value="4">Casado(a)</option>
+                                            <option value="5">Numa Relação Aberta</option>
+                                        </select>
+                                        @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.StatusRelacionamento)
+                                        @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.NomeStatusRelacionamento)
+                                        <br />
+                                        <p class="location-info lbl-descricao" style="display:none;">Descreva como ter uma relação sugar sigilosa com você.</p>
+                                        @*<textarea id="txtDescricaoRelacionamento" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength" style="height:200px; display:none;" placeholder="" autocomplete="new-password"></textarea>*@
+                                        @Html.TextAreaFor(m => m.PerfilViewModel.createProfileModel.DescricaoRelacionamento, new { @id = "DescricaoRelacionamento", @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength", @style = "height:200px; display:none;", @placeholder = "" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="width:100%;" />
+
+                            @*PROFISSÃO*@
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">PROFISSÃO:</label>
+                                <div class="col-sm-10">
+                                    <div class="step-ssss wizard-step cad-validate" style="width: 100%;">
+
+                                        <div class="onboarding-container">
+
+                                            <div class="location-search-container">
+                                                <div class="location-search">
+
+                                                    <select id="ProfissoesCategoria" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Profissão --</option>
+                                                        <option value="1">Administração, Negócios e Serviços</option>
+                                                        <option value="2">Artes e Design</option>
+                                                        <option value="3">Ciências Biológicas e da Terra</option>
+                                                        <option value="4">Ciências e Tecnologia</option>
+                                                        <option value="5">Ciências Sociais e Humanas</option>
+                                                        <option value="6">Comunicação e Informação</option>
+                                                        <option value="7">Engenharia e Produção</option>
+                                                        <option value="8">Saúde e Bem-estar</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.IdGrupoProfissao)
+                                                    @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.NomeGrupoProfissao)
+                                                    <br />
+                                                    <select id="ProfissoesSubcategorias" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Ecolha --</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.IdProfissao)
+                                                    @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.NomeProfissao)
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="width:100%;" />
+
+                            @*RENDA E PATRIMÔNIO*@
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">RENDA E PATRIMÔNIO:</label>
+                                <div class="col-sm-10">
+                                    @if (Model.PerfilViewModel.Genero == "Homem")
+                                    {
+                                        <div class="location-search">
+
+                                            <select id="RendaMensal" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                <option selected="selected" value="">-- Qual sua renda mensal --</option>
+                                                <option value="1">Até R$ 10 mil</option>
+                                                <option value="2">De R$ 10 mil a R$ 20 mil</option>
+                                                <option value="3">De R$ 20 mil a R$ 30 mil</option>
+                                                <option value="4">De R$ 30 mil a R$ 40 mil</option>
+                                                <option value="5">De R$ 40 mil a R$ 50 mil</option>
+                                                <option value="6">De R$ 50 mil a R$ 100 mil</option>
+                                                <option value="7">De R$ 100 mil a R$ 500 mil</option>
+                                                <option value="8">Acima de R$500 mil</option>
+                                            </select>
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.IdRenaMensal)
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.DescricaoRenaMensal)
+                                            <br />
+                                            <select id="Patrimonio" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                <option selected="selected" value="">-- Seu patrimômio pessoal declarado --</option>
+                                                <option value="1">Menos de R$ 100 mil</option>
+                                                <option value="2">De R$ 100 mil a R$ 250 mil</option>
+                                                <option value="3">De R$ 250 mil a R$ 500 mil</option>
+                                                <option value="4">De R$ 500 mil a R$ 750 mil</option>
+                                                <option value="5">De R$ 750 mil a R$ 1 milhão</option>
+                                                <option value="6">De R$ 1 milhão a R$ 2 mihões</option>
+                                                <option value="7">De R$ 2 mihões a R$ 5 mihões</option>
+                                                <option value="8">De R$ 5 mihões a R$ 10 mihões</option>
+                                                <option value="9">De R$ 10 mihões a R$ 50 mihões</option>
+                                                <option value="9">De R$ 50 mihões a R$ 100 mihões</option>
+                                                <option value="9">Mais de R$ 100 mihões</option>
+                                            </select>
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.IdPatrimonio)
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.DescricaoPatrimonio)
+
+
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="onboarding-container">
+                                            <p class="location-info">Precisamos de mais algumas informações.</p>
+                                            <ul class="interests-list">
+                                                <li id="CategoriaRelacionamentSugar" class="interest ng-scope">
+                                                    <div class="toggleable">
+                                                        <span class="check"></span>
+                                                        <span class="description" bo-text="interest.name">Eu tenho total disponibilidade para viajar e encontrar com meu daddy</span>
+                                                    </div>
+                                                    @Html.CheckBoxFor(m => m.PerfilViewModel.createProfileModel.DisponibilidadeViagens, new { id = "CheckCategoriaRelacionamentSugar" })
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <hr style="width:100%;" />
+
+                            @*ESTILO SUGAR*@
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">ESTILO SUGAR:</label>
+                                <div class="col-sm-10">
+                                    @if (Model.PerfilViewModel.Genero == "Homem")
+                                    {
+                                        <div class="location-search">
+
+                                            <select id="Generosidade" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                <option selected="selected" value="">-- Você acha que é... --</option>
+                                                <option value="1">Eu sou pouco generoso</option>
+                                                <option value="2">Para eu ser generoso, preciso receber algo em troca</option>
+                                                <option value="3">Eu sou generoso, mas com cautela</option>
+                                                <option value="4">Eu sou muito generoso</option>
+                                            </select>
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.IdGenerosidade)
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.DescricaoGenerosidade)
+                                            <br />
+
+                                            <div class="location-search">
+                                                @Html.TextAreaFor(m => m.PerfilViewModel.createProfileModel.DetalheGenerosidade, new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength", @style = "height:200px;", @placeholder = "Fale um pouco como quer sua relação sugar" })
+                                                @*<textarea id="txtDescricao" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength" style="height:200px" placeholder="Fale um pouco como quer sua relação sugar" autocomplete="new-password"></textarea>*@
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="location-search">
+
+                                            <select id="MotivoBaby" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                <option selected="selected" value="">-- Você é baby porque.. --</option>
+                                                <option value="1">Socorro! Contas atrasadas</option>
+                                                <option value="2">Quero viver o Estilo de vida Sugar</option>
+                                                <option value="3">Quero alguém para ajudar na minha evolução</option>
+                                            </select>
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.IdMotivoBaby)
+                                            @Html.HiddenFor(m => m.PerfilViewModel.createProfileModel.DescricaoMotivoBaby)
+                                            <br />
+
+                                            <div class="location-search">
+                                                @Html.TextAreaFor(m => m.PerfilViewModel.createProfileModel.DetalheMotivoBaby, new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength", @style = "height:200px;", @placeholder = "Fale um pouco como quer sua relação sugar" })
+                                                @*<textarea id="txtDescricao" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength" style="height:200px" placeholder="Fale um pouco como quer sua relação sugar" autocomplete="new-password"></textarea>*@
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Nome:</label>
+                                <div class="col-sm-10">
+
+                                </div>
+                            </div>
+
+
+                            <br />
+                            <br />
+                            <fieldset class="form-group row">
+                                <legend class="col-form-legend col-sm-2">Descrição Curta</legend>
+                                <div class="col-sm-10">
+                                    @Html.TextAreaFor(m => m.PerfilViewModel.Descricao_Curta, new { @class = "form-control", @id = "exampleTextarea", @rows = "3", @maxlength = "150", @placeholder = "Diga algo objetivo e direto sobre você." })
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="form-group row">
+                                <legend class="col-form-legend col-sm-2">Descrição Longa</legend>
+                                <div class="col-sm-10">
+                                    @Html.TextAreaFor(m => m.PerfilViewModel.Descricao_Longa, new { @class = "form-control", @id = "exampleTextarea", @rows = "10", @placeholder = "Fale um pouco mais sobre você, o que gosta de fazer e o espera do seu sugar perfeito." })
+                                </div>
+                            </fieldset>
+
+                            <div class="form-group row">
+                                <div>
+                                    <div class="nav__sign ng-scope">
+                                        <button type="submit" class="sl-btn nav__sign-btn js-salvarPerfil" style="width: 110px; float: right; background-color: #B8273B; border-width: 0; color: #fff; font-size: 13px; padding: 5px 10px; font-weight: 400; text-transform: uppercase; letter-spacing: .5px;">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Selecionar Imagem</h4>
+            </div>
+            @using (Html.BeginForm("FileSobe", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <script>
+                    var loadFile = function (event) {
+                        var output = document.getElementById('output');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                    };
+                </script>
+                <div class="modal-body">
+
+                    <input type="file" accept="image/*" onchange="loadFile(event)" name="file" id="file" /><br><br>
+                    <img id="output" style="max-width: 100%;" />
+                    <br><br>
+                    @ViewBag.Message
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar foto</button>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/modules/js/wizard");
+<script>
+
+
+    $(document).ready(function () {
+
+
+
+        $("#Country_str_code").change(function () {
+
+            listaEstados($(this).val());
+        });
+
+
+        $("#Estados").change(function () {
+
+            $('#Admin1_str_code').val($(this).val());
+            $('#Admin1_str_name').val($('#Estados option:selected').text());
+
+            listaCidades($(this).val());
+        });
+
+
+        $("#ProfissoesCategoria").change(function () {
+
+            $('#IdGrupoProfissao').val($(this).val());
+            $('#NomeGrupoProfissao').val($('#ProfissoesCategoria option:selected').text());
+
+            listaProfissoes($(this).val());
+        });
+
+    });
+    //chamada ajax para a Action ListaCidade
+    //passando como parâmetro a Estado selecionado
+    function listaEstados(pais) {
+
+        $.getJSON('@Url.Action("ListaEstados", "Wizard")/' + pais, listaEstadosCallBack);
+    }
+    //função que irá ser chamada quando terminar
+    //a chamada ajax
+    function listaEstadosCallBack(json) {
+        //Limpar os itens que são maiores que 0
+        //Ou seja: não retirar o primeiro item
+        $("#Estados :gt(0)").remove();
+        $(json).each(function () {
+            //adicionando as opções de acordo com o retorno
+            $("#Estados").append("<option value='" + this.Admin1_str_code + "'>" + this.Admin1_str_name + "</option>");
+        });
+    }
+
+    function listaCidades(estado) {
+
+        $.getJSON('@Url.Action("ListaCidades", "Wizard")/' + estado, listaCidadesCallBack);
+    }
+
+    function listaCidadesCallBack(json) {
+
+        $("#Cidades :gt(0)").remove();
+        $(json).each(function () {
+
+            $("#Cidades").append("<option value='" + this.Feature_int_id + "'>" + this.Feature_str_name + "</option>");
+        });
+        }
+
+
+
+    function listaProfissoes(profissoes) {
+
+        $.getJSON('@Url.Action("ListaProfissoes", "Wizard")/' + profissoes, listaProfissoesCallBack);
+    }
+
+    function listaProfissoesCallBack(json) {
+
+        $("#ProfissoesSubcategorias :gt(0)").remove();
+        $(json).each(function () {
+
+            $("#ProfissoesSubcategorias").append("<option value='" + this.group + "'>" + this.name + "</option>");
+        });
+    }
+</script>

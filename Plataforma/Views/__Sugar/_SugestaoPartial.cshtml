@@ -1,0 +1,336 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@*<div class="share-body" style="background-color:white; padding:10px; border-color:black; border:1px dashed ">
+
+    <script>
+
+        var copy = function (elementId) {
+
+            var input = document.getElementById(elementId);
+            var isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
+
+            if (isiOSDevice) {
+
+                var editable = input.contentEditable;
+                var readOnly = input.readOnly;
+
+                input.contentEditable = true;
+                input.readOnly = false;
+
+                var range = document.createRange();
+                range.selectNodeContents(input);
+
+                var selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+
+                input.setSelectionRange(0, 999999);
+                input.contentEditable = editable;
+                input.readOnly = readOnly;
+
+            } else {
+                input.select();
+            }
+
+            document.execCommand('copy');
+        }
+
+
+
+        function copyToClipboard(elementId) {
+
+
+            // Create a "hidden" input
+            var aux = document.createElement("input");
+
+            // Assign it the value of the specified element
+            aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+            // Append it to the body
+            document.body.appendChild(aux);
+
+            // Highlight its content
+            aux.select();
+
+            // Copy the highlighted text
+            document.execCommand("copy");
+
+            // Remove it from the body
+            document.body.removeChild(aux);
+        }
+    </script>
+
+
+    
+    <br />
+    <input type="text" id="foo" style="width:300px" value="Kinkee.me/Home?Invite=@ViewBag.PromotionalCode" />
+    <button onclick="copy('foo')" style="float:right;">Copiar</button>
+    <br />
+    <h5>Sempre que alguém se cadastrar com o seu link, você e ela ficam com o perfil em Destaque. Copie o link e envie para quem quiser!</h5>
+</div>*@
+@*<section sl-online="" class="ng-scope online">
+    <div class="row">
+        <div class="col-xs-7 col-sm-8 col-md-8">
+            <div class="online-title">
+                <h5>Convide seus amigos e tenha seu perfil segerido gratuitamente. Pegue seu código promocional <a href="/Dating/Perfil/" style="font-size: 15px;">aqui</a> e envie para eles.</h5>
+
+            </div>
+        </div>
+    </div>
+</section>*@
+
+<section sl-online="" class="ng-scope online">
+    
+    <div class="row">
+        <div class="col-xs-7 col-sm-8 col-md-8">
+            <div class="online-title">
+                <h3 class="text-uppercase">
+                    <strong>@ViewBag.Subtitulo</strong>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="online-row-new">
+        <p>Arraste para o lado e veja mais verificados</p>
+        <ul class="online-list-new" auto-remove="false">
+
+            <li>
+                <svg class="sl-highlight ng-hide" width="100%" height="100%" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" stroke="rgba(133, 6, 123, 0.58)">
+                    <g fill="none" fill-rule="evenodd" stroke-width="3">
+                        <circle cx="15" cy="15" r="13.7728">
+                            <animate attributeName="r" begin="0" dur="1.6s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-opacity" begin="0" dur="1.6s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate>
+                        </circle>
+                        <circle cx="15" cy="15" r="19.999">
+                            <animate attributeName="r" begin="0.4s" dur="1.6s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-opacity" begin="0.4s" dur="1.6s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate>
+                        </circle>
+                    </g>
+                </svg>
+                <div class="user-highlight">
+
+                    <div class="header-avatar ng-isolate-scope" time="featured.last.seconds" duration="900">
+                        <a href="/MinhaConta/Assinatura/">
+                            @*<img itemprop="image" class="img-circle avatar js-img-destaque">*@
+                            <img itemprop="image" src="https://kinkeesugar.com/modules/img/perfil_verificado.png" class="img-circle avatar js-img-destaque">
+                        </a>
+                        <div class="ng-scope">
+                            <div class="online-highlight">
+                                <a href="">
+                                    <i class="plus-highlight"></i>
+                                </a>
+                            </div>
+                            <div class="online online_messenger">
+                                Online
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-avatar">
+                        <div class="ng-scope">
+                            <h4 class="online-user js-label-sugerido">Seja</h4>
+                            <span class="js-label-sugerido-complemento">Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            @if (ViewBag.Destaques != null)
+            {
+                @*<li>
+                    <div>
+                        <div class="header-avatar">
+                            <a href="/Dating/Perfil/@item.Usuario" alt="@item.Usuario" target="_blank">
+                                <img itemprop="image" src="@item.imagemPerfil" alt="@item.Usuario" class="img-circle avatar">
+                            </a>
+                            <div class="online online_messenger">
+                                Online
+                            </div>
+                        </div>
+                        <div class="content-avatar">
+                            <h4 class="online-user">
+                                <a href="/Dating/Perfil/@item.Usuario" class="overlayContentCard" target="_blank" login="@item.Usuario">
+                                    @item.Usuario
+                                </a>
+                            </h4>
+                            <span class="online-city">
+                                @if (@item.Endereco != null)
+                                {
+                                    <span>@item.Endereco.Cidade</span>
+                                        <span>-</span>
+                                        <span>@item.Endereco.Estado</span>
+                                }
+
+                            </span>
+                        </div>
+                    </div>
+                </li>*@
+
+                foreach (var item in ViewBag.Destaques)
+                {
+                    <li>
+                        <div>
+                            <div class="header-avatar">
+                                <a href="/Dating/Perfil/@item.Usuario" alt="@item.Usuario" target="_blank">
+                                    <img itemprop="image" src="@item.imagemPerfil" alt="@item.Usuario" class="img-circle avatar">
+                                </a>
+
+                                @try
+                                {
+                                    if (item.Connections != null)
+                                    {
+                                        if (item.Connections[0].Connected == true)
+                                        {
+                                            <div class="online online_messenger">
+                                                Online
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="offline online_messenger">
+                                                
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        
+                                    }
+                                }
+                                catch
+                                {
+                                    <div class="offline online_messenger">
+                                        
+                                    </div>
+                                }
+                                
+                            </div>
+                            <div class="content-avatar">
+                                <h4 class="online-user">
+                                    <a href="/Dating/Perfil/@item.Usuario" class="overlayContentCard" target="_blank" login="@item.Usuario">
+                                        @item.Usuario
+                                    </a>
+                                </h4>
+                                <span class="online-city">
+                                    @if (@item.Endereco != null)
+                                    {
+                                        <span>@item.Endereco.Cidade</span>
+                                        <span>-</span>
+                                        <span>@item.Endereco.Estado</span>
+                                    }
+
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+
+        </ul>
+        
+    </div>
+</section>
+
+
+
+<script>
+
+
+    $(document).on("click", "user-highlight", function (e) {
+
+        var sugeridoAtivo = $('.js-label-sugerido').html();
+        if (sugeridoAtivo != "PERFIL VERIFICADO")
+        {
+            $('.modal-backdrop').css("display", "block");
+            $('.js-destaque-compra').css("display", "block");
+        }
+
+        
+        e.preventDefault();
+    });
+
+    $(document).on("click", ".modal-backdrop", function (e) {
+        $('.modal-backdrop').css('display', 'none');
+        $('.js-destaque-compra').css("display", "none");
+
+        e.preventDefault();
+    });
+
+    $(document).on("click", ".panel-compra-destaque-close", function (e) {
+        $('.modal-backdrop').css('display', 'none');
+        $('.js-destaque-compra').css("display", "none");
+
+        e.preventDefault();
+    });
+</script>
+
+<div class="modal-backdrop in" style="z-index: 1040; display:none;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal sl-featured modal-highlight undefined js-destaque-compra" style="z-index: 1050; display: none;">
+    <div class="modal-dialog modal-sm" ng-class="{'modal-sm': size == 'sm', 'modal-lg': size == 'lg'}">
+        <div class="modal-content" modal-transclude="">
+            <div class="ng-scope">
+                <div class="modal-header">
+                    <button type="button" class="sl-close panel-compra-destaque-close" ng-click="close()">
+                        ×
+                    </button>
+                    <h4 class="modal-title">
+                        COMPRA DE PERFIL VERIFICADO
+                    </h4>
+                </div>
+
+                <div class="modal-body" ng-init="init()">
+                    
+                    <div class="text-info">
+                        <div class="ng-scope">
+                            <h5>COMO VERIFICAR O SEU PERFIL?</h5><br />
+                            <p>Faça o pedido clicando no botão logo abaixo e realize o pagamento único da verificação de perfil (a compra da verificação é vitalícia)</p>
+                            <br />
+                            <p><strong>Se quiser agilizar o processo, adicione em sua Galeria uma foto mostrando seu rosto que comprove que é um perfil oficial. As fotos podem ser:</strong></p>
+                            <ul>
+                                <li>Segurando uma plaquinha feita em papel com o nome Kinkee</li>
+                                <li>Em frente ao computador com o site da Kinkee aberto</li>
+                                <li>Com o celular na mão e com o site da Kinkee aberto</li>
+                            </ul>
+                            
+                            <br />
+                            <p><strong>Fique tranquila(o) entraremos em contato para ajudar no processo.</strong></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <div class="ng-scope">
+
+                        <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                        <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
+                            <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                            <input type="hidden" name="code" value="EDEAF9E5CBCBB82004533FB7D3F47557" />
+                            <input type="hidden" name="iot" value="button" />
+                            <input class="sl-btn btn-lg buy-tokens-lg" type="image"  name="submit" alt="Pagamento único de 19,90" />
+                        </form>
+                        <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+                        <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="js-panel-compra-destaque">
+    
+</div>
+
+

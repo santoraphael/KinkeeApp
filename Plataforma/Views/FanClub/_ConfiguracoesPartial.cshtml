@@ -1,0 +1,698 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<style>
+    .input-helper {
+        position: relative;
+        display: inline-block;
+        vertical-align: 1px;
+        border: 1px solid #CCC;
+        border-right: none;
+        padding: 8px 10px;
+        background: #eee;
+    }
+</style>
+
+<div class="container-flex" style="width: 100%;">
+    <div class="row ng-scope">
+        <div class="col-xs-12">
+            <div class="profile-actions ng-scope" style="cursor: initial; color:#fff; background-color: #682C82; height: 50px;">
+
+                <div class="action-container container-message">
+                    <div class="action">
+                        <span class="text" style="cursor: initial; color:#fff; font-size:14px;">
+                            <b>Essa é uma versão beta</b>
+                        </span>
+                        <br />
+                        <span class="text" style="cursor: initial; color:#fff;">
+                            <b>Estamos constantemente atualizando e melhorando o Fan Club para resolver possíveis problemas</b>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="panel myaccount-panel">
+                        <div class="panel-heading">
+                            <h3>Compartilhe seu link</h3>
+                        </div>
+                        <div class="panel-body account-info">
+
+                            <div role="form" class="myaccount-edit myaccount-username">
+                                <div class="form-group">
+                                    <div class="myaccount-edit-body js-edit-username">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h4 id="jsclipboardlink" class="js-fanclub-username" style="cursor:pointer;">https://kinkeesugar.com/fanclub/u/@System.Web.HttpContext.Current.User.Identity.Name.ToLower()</h4>
+                                                <button onclick="copyToClipboard('#jsclipboardlink')">Copiar Link</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="alert alert-info js-alert-username" role="alert">
+                                                    Compartilhe seu link de <b>Fan Club</b> para que seus fans assinem e vejam suas atualizações. <a href="">Clique aqui e leia nosso artigo</a> que fala as melhores formas de compartilhar seu link e obter melhores resultados.
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12">
+                                            <script src="~/modules/js/simple.money.format.js"></script>
+                                            <script>
+                                                $(document).delegate('.ui-page', 'touchmove', false);
+                                                var qtdFas = 1000;
+                                                var valorPlan = 4.99;
+                                                var percentualAssinantes = 5;
+
+
+                                                $(function () {
+                                                    calculaValor();
+
+                                                    $("#slider").slider(
+                                                        {
+                                                            value: 1000,
+                                                            min: 1000,
+                                                            max: 1000000,
+                                                            step: 50,
+                                                            slide: function (event, ui) {
+
+
+                                                                qtdFas = ui.value;
+                                                                //$('#qtdFas').html(qtdFas);
+                                                                calculaValor();
+                                                                $('#qtdFas').number(qtdFas, 0);
+                                                            }
+                                                        });
+
+
+
+                                                    $("#sliderValue").slider(
+                                                        {
+                                                            value: 4.99,
+                                                            min: 4.99,
+                                                            max: 299.99,
+                                                            step: 1,
+                                                            slide: function (event, ui) {
+
+
+                                                                valorPlan = ui.value;
+                                                                calculaValor();
+                                                                $('#txtValPlano').html("R$ " + $.number(valorPlan, 2));
+                                                            }
+                                                        });
+
+
+                                                    function calculaValor() {
+
+
+                                                        if (valorPlan < 6) {
+                                                            percentualAssinantes = 3;
+                                                        }
+                                                        else if (valorPlan < 7) {
+                                                            percentualAssinantes = 2.5;
+                                                        }
+                                                        else if (valorPlan < 8) {
+                                                            percentualAssinantes = 2;
+                                                        }
+                                                        else if (valorPlan < 9) {
+                                                            percentualAssinantes = 1.5;
+                                                        }
+                                                        else if (valorPlan < 10) {
+                                                            percentualAssinantes = 1;
+                                                        }
+                                                        else if (valorPlan < 11) {
+                                                            percentualAssinantes = 0.9;
+                                                        }
+                                                        else if (valorPlan < 12) {
+                                                            percentualAssinantes = 0.8;
+                                                        }
+                                                        else if (valorPlan < 13) {
+                                                            percentualAssinantes = 0.7;
+                                                        }
+                                                        else if (valorPlan < 14) {
+                                                            percentualAssinantes = 0.6;
+                                                        }
+                                                        else if (valorPlan < 15) {
+                                                            percentualAssinantes = 0.5;
+                                                        }
+                                                        else if (valorPlan < 16) {
+                                                            percentualAssinantes = 0.4;
+                                                        }
+                                                        else if (valorPlan < 17) {
+                                                            percentualAssinantes = 0.3;
+                                                        }
+                                                        else if (valorPlan < 18) {
+                                                            percentualAssinantes = 0.2;
+                                                        }
+                                                        else if (valorPlan < 19) {
+                                                            percentualAssinantes = 0.1;
+                                                        }
+                                                        else if (valorPlan < 20) {
+                                                            percentualAssinantes = 0.09;
+                                                        }
+                                                        else if (valorPlan < 30) {
+                                                            percentualAssinantes = 0.08;
+                                                        }
+                                                        else if (valorPlan < 40) {
+                                                            percentualAssinantes = 0.07;
+                                                        }
+                                                        else if (valorPlan < 50) {
+                                                            percentualAssinantes = 0.06;
+                                                        }
+                                                        else if (valorPlan < 100) {
+                                                            percentualAssinantes = 0.05;
+                                                        }
+                                                        else if (valorPlan < 200) {
+                                                            percentualAssinantes = 0.04;
+                                                        }
+                                                        else if (valorPlan < 300) {
+                                                            percentualAssinantes = 0.03;
+                                                        }
+
+
+
+
+                                                        console.log(qtdFas / 1000000);
+
+                                                        percentualAssinantes = percentualAssinantes + ((qtdFas / 1000000) / 2);
+                                                        var qtdFasCalculado = (percentualAssinantes * qtdFas) / 100;
+                                                        var txtPercentual = "";
+
+                                                        if ($.number(percentualAssinantes, 0) < 1) {
+                                                            txtPercentual = "menos do que 1";
+                                                        }
+                                                        else {
+                                                            txtPercentual = $.number(percentualAssinantes, 0);
+                                                        }
+
+                                                        if (qtdFasCalculado < 1) {
+                                                            qtdFasCalculado = 1;
+                                                        }
+
+                                                        $('#qtnAssinaturas').html("*Estimamos que " + txtPercentual + "% do seu público tornem-se seus fãs assinantes: Quantidade " + $.number(qtdFasCalculado, 0) + " pessoas.");
+
+                                                        $('#valFinal').html("R$ " + $.number(qtdFasCalculado * valorPlan, 2));
+                                                    }
+
+                                                });
+                                            </script>
+
+                                            <h3 placeholder="Valor da Cobrança" style="border-radius: 3px; text-align:center; font-size: 20px; ">Quantos seguidores e amigos você tem no facebook, twitter, instagram e outros?</h3>
+                                            <div id="slider"></div>
+                                            @*<p style="text-align:left; width:20px;">1.000</p><p style="text-align:right; margin-top: -29px;">1.000.000</p>*@
+                                            <br />
+                                            <h5 style="text-align: center;font-size: 15px;">Quantidade de fãs, seguidores e amigos.</h5>
+                                            <h4 id="qtdFas" style="border-radius: 3px; text-align: center; font-size: 40px;">1.000</h4>
+
+                                            <hr />
+                                            <br />
+                                            <br />
+                                            <br />
+
+                                            <h3 style="border-radius: 3px; text-align:center; font-size: 20px; ">Quanto você quer cobrar para que as pessoas vejam seu conteúdo privado?</h3>
+                                            <div id="sliderValue"></div>
+                                            @*<p style="text-align:left; width:20px;">4,99</p><p style="text-align:right; margin-top: -29px;">299,99</p>*@
+                                            <br />
+                                            <h5 style="text-align:center; font-size: 15px; ">Valor cobrado de cada fã</h5>
+                                            <h4 id="txtValPlano" placeholder="Valor da Cobrança" style="border-radius: 3px; text-align:center; font-size: 40px; ">R$ 4,99</h4>
+
+                                            <hr />
+                                            <h5 style="border-radius: 3px; text-align:right; font-size: 20px; ">Estimativa</h5>
+                                            <h4 id="valFinal" style="border-radius: 3px; text-align:right; font-size: 40px; ">R$ 4,99</h4>
+                                            <p id="qtnAssinaturas" style="border-radius: 3px; text-align:right; font-size: 11px; ">*Estimativa de que menos de um % dos seus fãs torne-se seu fãs assinante: Quantidade 1</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel myaccount-panel">
+                        <div class="panel-heading">
+                            <h3>Crie um plano de assinatura para os seus fãs</h3>
+                        </div>
+                        <div class="panel-body account-info">
+
+                            <div role="form" class="myaccount-edit myaccount-username">
+                                <div class="form-group">
+                                    <div class="myaccount-edit-body js-edit-username">
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="form-email ng-hide">
+                                                    <form name="form" class="css-form ng-pristine ng-valid ng-valid-email ng-valid-maxlength" novalidate="">
+                                                        <div class="row">
+
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="alert alert-info js-alert-username" role="alert">
+                                                                        Informe o valor que seus fãs pagarão para verem seu perfil privado. Essa cobrança será feita sempre no período em que você selecionar (por exemplo, uma vez por mês se selecionar cobraçna mensal), e enquanto eles estiverem com o pagamento recorrente ativo.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6" style="position: relative;">
+                                                                <span class="input-helper" style="border: none; position: absolute; left: 12px; top: 1px; border-right: none; border-top-right-radius: 0; border-bottom-right-radius: 0; background: #e8e8e8; color: #a7a7a7; padding-left: 15px; padding-right: 15px; ">R$</span>
+                                                                <input id="valorPlano" type="text" maxlength="180" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" placeholder="Valor da Cobrança" style="border-radius: 3px; text-align: right; font-size: 20px;" />
+
+                                                                <span class="form__text--detail-inline">
+                                                                    Cobrada no início de cada ciclo de recorrência. Adicione vigula (,) para colocar centavos.
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <select id="TipoCobranca" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength">
+                                                                    <option>Frequência das cobranças</option>
+                                                                    <option value="0">Semanal</option>
+                                                                    <option value="1">Mensal</option>
+                                                                    <option value="2">Bimestral</option>
+                                                                    <option value="3">Trimestral</option>
+                                                                    <option value="4">Semestral</option>
+                                                                    <option value="5">Anual</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <br /><br /><br />
+
+
+                                                            <div class="col-xs-12">
+
+                                                                <button id="btnSalvaNovoPlano" class="sl-btn btn-primary js-btn-salvar-plano" type="button" style="float:right;">
+                                                                    Salvar
+                                                                </button>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <p placeholder="Valor da Cobrança" style="border-radius: 3px; text-align:center; font-size: 20px; ">Seus de assinatura planos</p>
+
+
+
+                                                <p style="text-align:center; font-size: 15px; ">Planos de assinatura.</p>
+
+                                                <div class="js-append-new-plan"></div>
+
+                                                @if (ViewBag.ProductList != null)
+                                                {
+                                                    foreach (var item in ViewBag.ProductList)
+                                                    {
+                                                        int status = (int)item.Status;
+                                                        var corDestaque = "";
+                                                        var textoStatus = "";
+
+
+                                                        if (status == 0)
+                                                        {
+                                                            corDestaque = "yellow";
+                                                            textoStatus = "Em Aprovação";
+
+
+                                                        }
+                                                        else if (status == 1)
+                                                        {
+                                                            corDestaque = "green";
+                                                            textoStatus = "Aprovado";
+                                                        }
+                                                        else if (status == 3)
+                                                        {
+                                                            corDestaque = "red; color:#FFF";
+                                                            textoStatus = "Reprovado ou Cancelado";
+                                                        }
+
+                                                        <div>
+                                                            <div style="float:left; margin-right:40px;">
+                                                                Cobrança:<p style="font-size: 40px; ">@item.Type</p>
+                                                            </div>
+
+                                                            <div style="float:left; margin-right:40px;">
+                                                                Valor:<p style="font-size: 40px; ">R$ @item.Amount</p>
+                                                            </div>
+
+                                                            <div>
+                                                                Status:<p style="font-size: 35px; background-color:@corDestaque;">@textoStatus</p>
+                                                            </div>
+                                                            <div>
+                                                                <p style="font-size: 15px; background-color:@corDestaque; float:left;">@item.StatusComentary</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr />
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p style="font-size: 40px; ">Você ainda não enviou nenhum plano de assinatura</p>
+                                                }
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel myaccount-panel">
+                        <div class="panel-heading">
+                            <h3>Perfil</h3>
+                        </div>
+                        <div class="panel-body account-info">
+
+                            <div role="form" class="myaccount-edit myaccount-username">
+                                <div class="form-group">
+                                    <div class="myaccount-edit-body js-edit-username">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="form-email ng-hide">
+                                                    <form name="form" class="css-form ng-pristine ng-valid ng-valid-email ng-valid-maxlength" novalidate="">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <textarea id="jsDescricaoCurta" maxlength="180" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="Escreva uma curta mensagem">@ViewBag.DescricaoPerfilPrivado</textarea>
+                                                                <br />
+                                                                <button class="sl-btn btn-primary js-btn-salvar-descricao-privada" style="float:right;" type="button" tabindex="2">
+                                                                    Salvar
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel myaccount-panel">
+                        <div class="panel-heading">
+                            <h3>Seu banco</h3>
+                        </div>
+                        <div class="panel-body account-info">
+
+                            <div role="form" class="myaccount-edit myaccount-username">
+                                <div class="form-group">
+                                    <div class="myaccount-edit-body js-edit-username">
+
+                                        @*<div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="alert alert-info js-alert-username" role="alert">
+                                                Informe os dados bancários da conta que será depositado os valores referentes as assinaturas dos eus fans. <br />
+                                                <b>OBS: Se optar por usar o <i>PagSeguro</i> não será cobrado a taxa de transferência de R$10.</b>
+                                            </div>
+                                        </div>
+                                    </div>*@
+
+                                        @*<div class="component-switch">
+                                        <label class="switch switch-default">
+                                            <input type="checkbox" class="ng-pristine ng-untouched ng-valid ng-not-empty js-checkbox-divulgacao">
+                                            <span></span>
+                                        </label>
+                                        <span class="text-success text-uppercase js-divulgacao-ativada" style="display: block;">
+                                            Usar PagSeguro
+                                        </span>
+                                        <span class="text-muted text-uppercase ng-hide js-divulgacao-desativada" style="display: none;">
+                                            Usar Conta Bancária
+                                        </span>
+                                    </div>
+                                    <br />*@
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="form-email ng-hide">
+                                                    <form name="form" class="css-form ng-pristine ng-valid ng-valid-email ng-valid-maxlength" novalidate="">
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <div class="alert alert-info js-alert-username" role="alert">
+                                                                    Informe seus dados reais. Eles serão usados apenas para a transferência de valores.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-xs-12">
+                                                                <input type="text" id="dadosBancoNomeCompleto" maxlength="180" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="Nome Completo" value="@ViewBag.NomeCompleto">
+                                                            </div>
+                                                            <br /><br /><br />
+                                                            <div class="col-xs-12">
+                                                                <input type="text" id="cpfUsuario" maxlength="180" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="CPF" value="@ViewBag.CPF">
+                                                            </div>
+                                                            <br /><br /><br />
+                                                            <div class="col-md-6">
+                                                                <input type="text" id="dadosBancoNomeBanco" maxlength="180" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="Qual seu banco" value="@ViewBag.NomeBanco">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <select id="dadosBancoTipoConta" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength">
+                                                                    <option>Tipo de Conta</option>
+                                                                    <option>Conta Corrente</option>
+                                                                    <option>Conta Poupança</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <br /><br /><br />
+                                                            <div class="col-md-6">
+                                                                <input type="text" id="dadosBancoNumeroAgencia" maxlength="180" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="Número da Agência:" value="@ViewBag.NumeroAgencia">
+                                                                Use 0 para dígito em branco ou letra.
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" id="dadosBancoNumeroConta" maxlength="180" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="Número da conta:" value="@ViewBag.NumeroConta">
+                                                                Use 0 para dígito em branco ou letra.
+                                                            </div>
+                                                            <br />
+                                                            <div class="col-xs-12 text-right">
+
+                                                                <button id="btnSalvarDadosBancarios" class="sl-btn btn-primary " style="float:right;" type="button" tabindex="2">
+                                                                    Salvar
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/modules/js/MaskedInput.js"></script>
+
+<script type="text/javascript">
+
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+
+        alert('Copiado!');
+    }
+
+    $(document).ready(function () {
+
+        
+
+        //DESCRIÇÃO PRIVADA
+        $('.js-btn-salvar-descricao-privada').click(function (e) {
+      
+            var txtPublicacao = $('#jsDescricaoCurta').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/FanClub/EnviarDescricaoPerfilPrivado',
+                data: { "txtPublicacao": txtPublicacao },
+                dataType: 'json',
+                success: function (data) {
+
+                    $('profile-description').html(txtPublicacao);
+
+                },
+                beforeSend: function () {
+
+                },
+                complete: function () {
+
+                },
+                error: function (data) {
+                    $('.js-error-publicar').append('Ops! Um erro ocorreu.');
+                }
+            });
+
+        });
+
+        //DADOS BANCARIOS
+        $('#btnSalvarDadosBancarios').click(function (e) {
+
+
+            var NomeCompleto = $('#dadosBancoNomeCompleto').val();
+            var CPF = $('#cpfUsuario').val();
+            var NomeBanco = $('#dadosBancoNomeBanco').val();
+            var TipoConta = $( "#dadosBancoTipoConta option:selected" ).text();;
+            var NumeroAgencia = $('#dadosBancoNumeroAgencia').val();
+            var NumeroConta = $('#dadosBancoNumeroConta').val();
+
+
+            $.ajax({
+                type: 'POST',
+                url: '/FanClub/EnviarDadosBancarios',
+                data: {
+                    "NomeCompleto": NomeCompleto,
+                    "CPF": CPF,
+                    "NomeBanco": NomeBanco,
+                    "TipoConta": TipoConta,
+                    "NumeroAgencia": NumeroAgencia,
+                    "NumeroConta": NumeroConta,
+
+                },
+                dataType: 'json',
+                success: function (data) {
+
+                    $('profile-description').html(txtPublicacao);
+
+                },
+                beforeSend: function () {
+
+                },
+                complete: function () {
+
+                },
+                error: function (data) {
+                    $('.js-error-publicar').append('Ops! Um erro ocorreu.');
+                }
+            });
+
+
+        });
+
+
+
+        
+        //ASSINATURA
+        $('#btnSalvaNovoPlano').click(function (e) {
+
+            
+            var ValorPlano = $('#valorPlano').val();
+            var TipoCobranca = $("#TipoCobranca option:selected").val();
+
+            if (TipoCobranca == "Frequência das cobranças") {
+                alert("Selecione uma forma de cobrança");
+                return false;
+            }
+
+            if (ValorPlano == "0,00") {
+                alert("O valor da cobrança precisa ser maior que zero");
+                return false;
+            }
+
+            if (ValorPlano == "") {
+                alert("Insira um valor de cobrança");
+                return false;
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/FanClub/SalvarNovoPlano',
+                data: {
+                    "ValorPlano": ValorPlano,
+                    "TipoCobranca": TipoCobranca,
+                },
+                dataType: 'json',
+                success: function (data) {
+
+                    
+                },
+                beforeSend: function () {
+
+                },
+                complete: function () {
+                    //var text = '<div><div style="float:left; margin-right:40px;">Cobrança:<p style="font-size: 40px;">' + TipoCobranca + '</p></div><div style="float:left; margin-right:40px;">Valor:<p style="font-size: 40px; ">R$ ' + ValorPlano + '</p></div><div>Status:<p style="font-size: 35px; background-color:yellow;">Em Aprovação</p></div><hr />';
+                    //$('.js-append-new-plan').append(text);
+
+                    alert("Acesse a página configurações novamente.");
+                    location.reload(true);
+                },
+                error: function (data) {
+                    $('.js-error-publicar').append('Ops! Um erro ocorreu.');
+                }
+            });
+        });
+
+
+        $('#valorPlano').focusout(function () {
+            
+
+            var valor = $('#valorPlano').val();
+
+            $('#valorPlano').val($.number(valor, 2));
+
+            console.log($.number(valor, 2));
+          
+        });
+        
+      
+    });
+
+    $(document).ready(function () {
+
+        $("#cpfUsuario").mask("999.999.999-99");
+    });
+
+</script>

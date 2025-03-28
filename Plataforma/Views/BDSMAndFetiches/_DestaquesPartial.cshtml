@@ -1,0 +1,337 @@
+﻿
+@{
+    Layout = null;
+}
+@if(ViewBag.Destaques.Count >= 10)
+{
+<section sl-top="" class="ng-scope top" auto-visible="" n>
+
+
+    <div class="promote hidden-md hidden-lg ng-scope" sl-top-promote="">
+
+
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-8 col-sm-10 col-md-12">
+            
+            <div class="top-title">
+                <h3 class="text-uppercase">
+                    <strong>@ViewBag.Subtitulo</strong>
+                </h3>
+                <a href="#" target="_self">
+                    <span class="icon-help" sl-tooltip="" title="Para aparecer no 'Em Alta' você precisa ser Gold, estar em Top Perfis e ter o perfil Verificado e tem mais de 200 visitas no perfil. Além disso ter uma boa imagem de perfil e imagens na galeria de fotos é considerado." data-original-title="Para aparecer no 'Em Alta' você precisa ser Gold, estar em Top Perfis e ter o perfil Verificado e tem mais de 200 visitas no perfil. Além disso ter uma boa imagem de perfil e imagens na galeria de fotos é considerado.">?</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-2 hidden-md hidden-lg hidden-xl">
+            <div class="top-nav">
+                Deslize para o lado
+            </div>
+        </div>
+    </div>
+
+    <div class="promote hidden-xs hidden-sm ng-scope" sl-top-promote="">
+
+
+    </div>
+
+    <div class="top-list-container">
+        @*<div class="top-nav hidden-xs hidden-sm">
+                <button class="sl-btn btn-default btn-sm top-prev" ng-click="prevTop($event)"><i></i></button>
+                <button class="sl-btn btn-default btn-sm top-next" ng-click="nextTop($event)"><i></i></button>
+            </div>*@
+        <ul class="top-list">
+
+            <li class="top-item">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <figure class="top-panel-lg" auto-remove="">
+                            <a class="top-link" ng-href="@ViewBag.Destaques[0].Usuario" target="_self" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[0].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[0].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[0].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[0].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[0].Usuario">@ViewBag.Destaques[0].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 2 horas</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i>Visitas</i>
+                                            <span>@ViewBag.Destaques[0].visitasPerfil</span>
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i>Fotos</i>
+                                                <span>@ViewBag.Destaques[0].GaleriaFotos.Count</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[0].login -->
+                    </div>
+                </div>
+            </li>
+            <li class="top-item">
+                <div class="row pd-b-xs">
+                    <div class="col-xs-12">
+                        <figure class="top-panel-md" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[1].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[1].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[1].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[1].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[1].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[1].Usuario">@ViewBag.Destaques[1].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 2 horas</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[1].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>37</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[1].login -->
+                    </div>
+                </div>
+                <div class="row pd-t-xs">
+                    <div class="col-xs-6">
+                        <figure class="top-panel-sm" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[2].Usuario" href="https://app.kinkeesugar.com.co/Dating/Perfil/@ViewBag.Destaques[2].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[2].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[2].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[2].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[2].Usuario">@ViewBag.Destaques[2].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 2 horas</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[2].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>77</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[2].login -->
+                    </div>
+                    <div class="col-xs-6">
+                        <figure class="top-panel-sm" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[3].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[3].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[3].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[3].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[3].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[3].Usuario">@ViewBag.Destaques[3].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 56 minutos</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[3].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>7</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[3].login -->
+                    </div>
+                </div>
+            </li>
+            <li class="top-item last">
+                <div class="row pd-b-xs">
+                    <div class="col-xs-6">
+                        <figure class="top-panel-xs" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[4].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[4].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[4].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[4].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[4].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[4].Usuario">@ViewBag.Destaques[4].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 2 horas</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[4].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>18</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[4].login -->
+                    </div>
+                    <div class="col-xs-6">
+                        <figure class="top-panel-xs" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[5].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[5].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[5].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[5].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[5].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[5].Usuario">@ViewBag.Destaques[5].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 1 hora</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[5].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>19</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[5].login -->
+                    </div>
+                </div>
+                <div class="row pd-t-xs pd-b-xs">
+                    <div class="col-xs-6">
+                        <figure class="top-panel-xs" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[6].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[6].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[6].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[6].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[6].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[6].Usuario">@ViewBag.Destaques[6].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 2 horas</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[6].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>48</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[6].login -->
+                    </div>
+                    <div class="col-xs-6">
+                        <figure class="top-panel-xs" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[7].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[7].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[7].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[7].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[7].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[7].Usuario">@ViewBag.Destaques[7].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 1 hora</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[7].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>13</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[7].login -->
+                    </div>
+                </div>
+                <div class="row pd-t-xs pd-b-xs">
+                    <div class="col-xs-6">
+                        <figure class="top-panel-xs" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[8].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[8].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[8].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[8].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.como/@ViewBag.Destaques[8].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[8].Usuario">@ViewBag.Destaques[8].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 1 hora</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[8].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>5</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[8].login -->
+                    </div>
+                    <div class="col-xs-6">
+                        <figure class="top-panel-xs" auto-remove="">
+                            <a class="top-link" target="_self" ng-href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[9].Usuario" href="https://app.kinkeesugar.com/Dating/Perfil/@ViewBag.Destaques[9].Usuario">
+                                <div class="top-image" style="background-image:url('https://app.kinkeesugar.com/@ViewBag.Destaques[9].imagemPerfil');"></div>
+                                <figcaption>
+                                    <div class="top-avatar overlayContentCard" login="@ViewBag.Destaques[9].Usuario">
+                                        <img itemprop="image" src="https://app.kinkeesugar.com/@ViewBag.Destaques[9].imagemPerfil">
+                                    </div>
+                                    <div class="top-info">
+                                        <h5 class="overlayContentCard" login="@ViewBag.Destaques[9].Usuario">@ViewBag.Destaques[9].Usuario</h5>
+                                        @*<time datetime="06/07/2017">há 1 hora</time>*@
+                                    </div>
+                                    <div class="top-statistic">
+                                        <div class="top-like">
+                                            <i></i>
+                                            <span>@ViewBag.Destaques[9].visitasPerfil</span> Visita(s)
+                                        </div>
+                                        @*<div class="top-comments">
+                                                <i></i>
+                                                <span>12</span>
+                                            </div>*@
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                        <!-- ngIf: filter.top[9].login -->
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+}

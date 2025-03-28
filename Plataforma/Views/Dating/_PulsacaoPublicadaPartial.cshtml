@@ -1,0 +1,336 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<input type="hidden" id="InpuptKinkeeGold" data-value="@ViewBag.KinkeeGold" />
+<div class="card-item show"  style="margin-top: 10px; ">
+    <div class="card-news">
+        <div class="card-header">
+            <a bo-href="item.profile" class="img-login overlayContentCard" style="float:left;" target="_self" login="@ViewBag.Usuario" href="/Dating/Perfil/@ViewBag.Usuario">
+                <img bo-src="item.avatar" width="40" height="40" class="img-circle" src="@ViewBag.imagemPerfil">
+            </a>
+            
+
+            <div class="news-info">
+                <p>
+                    @*<i class="ico-subscriber ng-scope" bo-if="item.subscriber" title="Assinante"></i>*@
+                    <a vcard="" login="" bo-href="item.profile" bo-text="item.login" target="_self" href="/Dating/Perfil/@ViewBag.Usuario" class="overlayContentCard">@ViewBag.Usuario</a>
+                    @if (ViewBag.PostType == 1)
+                    {
+                        <b style="font-weight: 600; color: #616770;">Trocou a foto de perfil</b>
+                    }
+                    else if (ViewBag.PostType == 2)
+                    {
+                        <b style="font-weight: 600; color: #616770;">Adicionou uma foto na galeria</b>
+                    }
+
+                </p>
+                <time bo-attr="" >@ViewBag.TempodePublicacao</time>
+                <!-- boIf: item.privacyDescription -->
+            </div>
+
+            @if (ViewBag.HabilitaEdicaoExclusao)
+            {
+                <button type="button" style="float: right; margin-top: -45px;" class="sl-close js-exluir-publicacao" id="@ViewBag.IdPublicacao">
+                    ×
+                </button>
+                @*<p style="float: right; margin-top: -45px;" class="js-exluir-publicacao @ViewBag.IdPublicacao" id="@ViewBag.IdPublicacao">X</p>*@
+            }
+        </div>
+        <div class="card-body">
+            <p class="text-card">
+                <strong bo-text="item.media.title"></strong>
+                @if (ViewBag.Publicacao.Length - 56 >= 100 || ViewBag.Publicacao.Contains("src=/"))
+                {
+                    <span bo-html="item.media.description" style="font-size: 14px;font-weight: normal; line-height: 1.38;">@Html.Raw(ViewBag.Publicacao)</span>
+                }
+                else
+                {
+                    <span bo-html="item.media.description" style="font-size: 24px;font-weight: normal; line-height: 28px;">@Html.Raw(ViewBag.Publicacao)</span>
+                }
+            </p>
+
+
+            <div class="img-card-container">
+
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="sl-btn btn-default btn-like active" id-like="@ViewBag.IdPublicacao">
+                <i></i>
+                <span class="count ng-binding" count="@ViewBag.likes">@ViewBag.likes</span>
+            </button>
+
+            <button class="sl-btn btn-default btn-comment ng-scope" news-comment-btn="" >
+                <i></i>
+                <span class="count ng-binding" >@ViewBag.Comentarios.Count</span>
+            </button>
+
+
+                <ul class="more-avatars">
+                    @if (ViewBag.usuarioCurtiuPublicacao != null)
+                    {
+                        var count = 0;
+                        foreach (var item in ViewBag.usuarioCurtiuPublicacao)
+                        {
+                            if (count < 3)
+                            {
+                                <li class="ng-scope">
+                                    <a href="/Dating/Perfil/@item.NomeUsuarioLike" target="_self">
+                                        <img class="img-circle" width="25" height="25" src="@item.imagensPerfilUsuarioLike">
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                break;
+                            }
+
+                            count++;
+                        }
+                    }
+                </ul>
+        </div>
+
+        <div class="card-comments ng-scope" >
+            <ul class="list-unstyled">
+
+                @if (ViewBag.Comentarios != null)
+                {
+
+                    foreach (var item in ViewBag.Comentarios)
+                    {
+
+                        <li class="ng-scope">
+                            <div>
+                                <div class="comment-msg">
+                                    <a class="img-login overlayContentCard" href="/Dating/Perfil/@item.NomeUsuarioComentario">
+                                        <img width="30" height="30" class="img-circle" src="@item.imagemPerfilUsuarioComentario">
+                                    </a>
+
+                                    <div class="comment-info">
+                                        <p class="login">
+                                            <a  href="/Dating/Perfil/@item.NomeUsuarioComentario"  class="overlayContentCard">@item.NomeUsuarioComentario</a>
+                                        </p>
+                                        @*<time bo-attr="" bo-attr-datetime="comment.dtcomment" bo-text="comment.dtcomment | moment" bo-title="comment.dtcomment | formatDate" title="4 de agosto de 2017 às 10:04" datetime="2017-08-04 10:04:22">6 dias atrás</time>*@
+                                        
+                                        <p class="msg ng-binding" >@item.Comentario</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+                }
+            </ul>
+            @*<div class="more-comments ng-scope less" >
+                <a  class="toggle-comment">
+                    <span class="ng-binding">Esconder comentários</span>
+                    <i></i>
+                </a>
+            </div>*@
+        </div>
+
+        <div class="card-do-comment" news-comment="">
+            <div class="input-real" style="display:block;">
+               
+
+                    @*<div class="alert alert-warning alert-dismissible ng-scope">
+                        <button type="button" class="sl-close" data-dismiss="alert">
+                            ×
+                        </button>
+                        <strong bo-text="item.login">@ViewBag.Usuario</strong> é uma assinante Kinkee Gold e tem acesso a todo o site. <a href="/MinhaConta/Assinatura/"> Seja Gold você também!</ a >
+                    </div>*@
+                
+                
+
+                <textarea cols="40" onkeyup="countTextArea(this)" id-textarea-comentario="@ViewBag.IdPublicacao" placeholder="Escreva um comentário" maxlength="512" class="ng-pristine ng-valid js-textarea-comentario" style="width: 100%; padding: 10px; resize: none; font-size: 13px; font-weight: 300; margin-bottom: 5px; transition: .1s; height: 58px;"></textarea>
+                <button class="sl-btn btn-primary js-btn-envia-comentario" id-btn-comentario="@ViewBag.IdPublicacao" disabled="disabled" style="background-color: #661577; border-color: #540764; color: #fff;">
+                    Publicar
+                </button>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal-backdrop in js-modal-backdrop" style="z-index: 1040; display:none;"></div>
+<div id="AssinaturaPartialComentario">
+
+</div>
+
+<script type="text/javascript">
+
+    function countTextArea(txtarea) {
+        var len = $(txtarea).val().length;
+        var btn = $(txtarea).parent('.input-real').children('.js-btn-envia-comentario');
+
+        if (len > 0) {
+            btn.removeAttr('disabled');
+        }
+        else {
+            btn.attr('disabled', 'disabled');
+        }
+
+    }
+
+    $(document).on("click", ".js-exluir-publicacao", function (e) {
+
+        var r = confirm("Deseja mesmo excluir a Publicação?");
+
+        if (r == true) {
+            var publicacaoID = $(this).attr('id');
+            //alert(publicacaoID);
+            $.ajax({
+                type: 'GET',
+                url: '/Dating/RemovePublicacao',
+                data: { "publicacaoID": publicacaoID },
+                dataType: 'html',
+                success: function (data) {
+                    window.location.replace("/Dating/");
+                },
+                beforeSend: function () {
+
+                },
+                complete: function () {
+
+                },
+                error: function () {
+
+                }
+            });
+        }
+
+        e.stopImmediatePropagation();
+        e.preventDefault();
+
+        return false;
+    });
+
+    $(document).on("click", ".btn-like", function (e) {
+        //alert($(this).attr('id-like'));
+        var publicacaoID = $(this).attr('id-like');
+        var btn = $(this);
+
+        //alert(publicacaoID);
+        $.ajax({
+            type: 'GET',
+            url: '/Dating/AddLike',
+            data: { "publicacaoID": publicacaoID },
+            dataType: 'html',
+            success: function (data) {
+                var count = parseInt(btn.children('span.count').attr('count'));
+                count = count + 1;
+                btn.children('span.count').empty();
+                btn.children('span.count').append(count);
+
+                var fotoUsuarioLogado = $('.js-img-perfil-circle').attr("src");
+
+
+                btn.next().next('.more-avatars').append("<li class='ng-scope'><img class='img-circle' width='25' height='25' src='" + fotoUsuarioLogado + "'></li>");
+            },
+            beforeSend: function () {
+
+            },
+            complete: function () {
+
+            },
+            error: function () {
+
+            }
+        });
+
+
+        e.stopImmediatePropagation();
+        e.preventDefault();
+
+        return false;
+    });
+
+    $(document).on("click", ".js-btn-envia-comentario", function (e) {
+        //alert($(this).attr('id-like'));
+        var publicacaoID = $(this).attr('id-btn-comentario');
+        var comentario = $(this).parent('.input-real').children('.js-textarea-comentario').val();
+
+
+        var container = $(this).parent().parent().parent().children('.card-comments').children('.list-unstyled');
+        var textArea = $(this).parent('.input-real').children('.js-textarea-comentario');
+
+        $.ajax({
+                    type: 'GET',
+                url: '/Dating/AddComentario',
+                data: { "publicacaoID": publicacaoID, "comentario": comentario },
+                dataType: 'json',
+                success: function (data) {
+
+                        var fotoUsuarioLogado = $('.js-img-perfil-circle').attr("src");
+                        var nomeUsuario = data.NomeUsuarioComentario;
+                        var comentario = data.Comentario
+
+                        container.append("<li class='ng-scope'><div><div class='comment-msg'><a class='img-login overlayContentCard' href='/Dating/Perfil/" + nomeUsuario + "'><img width='30' height='30' class='img-circle' src='" + fotoUsuarioLogado + "'></a><div class='comment-info'><p class='login'><a  href='/Dating/Perfil/" + nomeUsuario + "'  class='overlayContentCard'>" + nomeUsuario + "</a></p><time>Agora mesmo</time><p class='msg ng-binding' >" + comentario + "</p></div></div></div></li>");
+                        textArea.val('');
+
+                    },
+                beforeSend: function () {
+
+                    },
+                complete: function () {
+
+                    },
+                error: function () {
+
+                    }
+                });
+
+
+
+            e.stopImmediatePropagation();
+            e.preventDefault();
+
+            return false;
+        });
+
+
+    function validaContaGold(e)
+    {
+        var KinkeeGold = "False";
+
+        $.get('@Url.Action("_AssinaturaPartial", "MinhaConta")', function (data) {
+
+            $('#AssinaturaPartialComentario').append(data);
+
+        });
+
+
+            //if (KinkeeGold == "True") {
+            //    $('.modal-confirm-backdrop').css('display', 'block');
+            //    $('.js-modal-confirm').css('display', 'block');
+            //}
+
+            e.preventDefault();
+    }
+
+    $(document).on("click", ".js-close-button-assinatura", function (e) {
+        $('#AssinaturaPartialComentario').empty();
+        $('.js-modal-backdrop').css('display', 'none');
+        e.preventDefault();
+    });
+
+    function FotoUsuarioLogado() {
+                $.get('@Url.Action("FotoPerfil", "Dating")', function (data) {
+
+            //$('.js-img-perfil-circle').attr("src", data);
+            //$('.js-img-destaque').attr("src", data);
+
+            //$('.top-image ').attr("src", data);
+        });
+
+        return data;
+    }
+
+
+</script>

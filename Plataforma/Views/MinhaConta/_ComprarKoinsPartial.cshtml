@@ -1,0 +1,1546 @@
+﻿
+@{
+    Layout = null;
+}
+
+<style>
+    .double-token .token-plans__options {
+        background-size: contain
+    }
+
+    .double-token .token-plans__option-body {
+        border-radius: 0;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        -webkit-box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, .3);
+        box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, .3);
+        background-color: #fff
+    }
+
+    .double-token .token-plans__option.fade {
+        opacity: 1
+    }
+
+    .double-token .token-plans__circle {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        margin: 30px 0 15px
+    }
+
+    .double-token .token-plans__primary-text {
+        font-weight: 400
+    }
+
+    .double-token .token-plans__secondary-text {
+        font-weight: 400;
+        font-size: 18px
+    }
+
+    .double-token .token-plans__icon {
+        margin-top: 0
+    }
+
+    .double-token .token-plans__to {
+        font-size: 19px
+    }
+
+    .double-token .token-plans__currency {
+        font-size: 26px;
+        margin-top: 5px
+    }
+
+    .double-token .token-plans__int {
+        font-weight: 400;
+        color: #333;
+        font-size: 80px
+    }
+
+    .double-token .token-plans__decimal {
+        font-size: 22px
+    }
+
+    .double-token .token-plans__footer {
+        margin: 60px 0 20px;
+        padding: 12px 20px;
+        font-size: 14px;
+        background: #ad00ed
+    }
+
+    .double-token .token-plans__option:hover .token-plans__footer {
+        background: #ad00ed
+    }
+
+    .double-token .token-plans__buy-btn {
+        font-size: 13px
+    }
+
+    .double-token .token-plans__promo {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    .double-token .token-plans__promo-text {
+        text-align: end;
+        color: #999;
+        line-height: 2.7;
+        font-size: 15px
+    }
+
+    .double-token .token-plans__promo-price {
+        text-align: start;
+        margin-left: 5px;
+        line-height: 1.1;
+        font-size: 35px
+    }
+
+    .double-token .token-plans__promo-buy {
+        color: #3d837a
+    }
+
+    .double-token .token-plans__promo-get {
+        color: #f5a623;
+        font-weight: 700
+    }
+
+    .double-token .special-offer .token-plans__option-header {
+        background-color: #f5a623;
+        font-weight: 800;
+        line-height: 32px;
+        font-size: 16px;
+        text-transform: none
+    }
+
+    .double-token .special-offer .token-plans__footer,
+    .double-token .special-offer.token-plans__option:hover .token-plans__footer {
+        background-color: #ad00ed
+    }
+
+    .token-plans__header {
+        font-size: 20px;
+        color: #666;
+        text-align: center;
+        margin: 10px 0
+    }
+
+    @@media(min-width:600px) {
+        .token-plans__header {
+            display: none
+        }
+    }
+
+    .token-plans__options {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    @@media(min-width:600px) {
+        .token-plans__options {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap
+        }
+    }
+
+    .token-plans__option {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        margin: 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        cursor: pointer;
+        -webkit-transition: opacity linear .2s;
+        transition: opacity linear .2s
+    }
+
+    @@media(min-width:600px) {
+        .token-plans__option {
+            min-width: 200px;
+            max-width: calc(50% - 20px)
+        }
+    }
+
+    @@media(min-width:992px) {
+        .token-plans__option {
+            min-width: unset;
+            max-width: unset
+        }
+    }
+
+    @@media(min-width:600px) {
+        .token-plans__option.first {
+            min-width: 500px;
+            max-width: unset
+        }
+    }
+
+    @@media(min-width:992px) {
+        .token-plans__option.first {
+            min-width: unset
+        }
+    }
+
+    .token-plans__option.fade {
+        opacity: .3
+    }
+
+    .token-plans__option:hover .token-plans__footer {
+        background-color: #85067b
+    }
+
+    .token-plans__option-body {
+        border-radius: 6px;
+        -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-top: 0;
+        position: relative
+    }
+
+    @@media(min-width:600px) {
+        .token-plans__option-body {
+            margin-top: 30px
+        }
+    }
+
+    .token-plans__circle {
+        background: #fff;
+        margin: 15px;
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+        text-align: center;
+        -webkit-box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, .3);
+        box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, .3)
+    }
+
+    .token-plans__icon {
+        display: inline-block;
+        margin-top: 20px;
+        background-image: url(https://app.kinkeesugar.com/modules/img/logo_koins.png);
+        background-repeat: no-repeat;
+        background-position: 0 0
+    }
+
+        .token-plans__icon.one {
+            height: 50px;
+            width: 52px;
+            /*background-position: -61px -31px*/
+        }
+
+        .token-plans__icon.two {
+            height: 50px;
+            width: 78px;
+            background-position: -3px -78px
+        }
+
+        .token-plans__icon.three {
+            height: 50px;
+            width: 96px;
+            background-position: -3px -129px
+        }
+
+    .token-plans__primary-text {
+        margin: 0;
+        height: 20px;
+        font-weight: 700;
+        color: #3d837a;
+        font-size: 36px;
+        line-height: .6
+    }
+
+    .token-plans__secondary-text {
+        font-weight: 700;
+        font-size: 16px;
+        color: #999;
+        height: 18px
+    }
+
+    .token-plans__default-price {
+        text-decoration: line-through
+    }
+
+    .token-plans__price-block {
+        text-align: center;
+        height: 50px;
+        color: #999
+    }
+
+    .token-plans__discount {
+        position: absolute;
+        left: calc(50% - 25px)
+    }
+
+    .token-plans__price {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 20px
+    }
+
+    .token-plans__price-info {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    .token-plans__to {
+        height: 13px
+    }
+
+    .token-plans__currency {
+        font-size: 20px
+    }
+
+    .token-plans__int {
+        font-size: 50px;
+        line-height: .8;
+        color: #666
+    }
+
+    .token-plans__decimal {
+        font-size: 18px
+    }
+
+    .token-plans__footer {
+        margin: 20px 0;
+        background: rgba(165, 34, 118, .8);
+        padding: 5px 18px;
+        color: #fff;
+        border-radius: 3px;
+        letter-spacing: .3px
+    }
+
+    .token-plans__buy-btn {
+        text-transform: uppercase;
+        font-size: 15px
+    }
+
+    .special-offer .token-plans__option-header {
+        background-color: #68a428;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+        height: 30px;
+        font-weight: 600;
+        line-height: 30px;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px
+    }
+
+    .special-offer .token-plans__option-body {
+        margin-top: 0
+    }
+
+    .special-offer .token-plans__footer {
+        background-color: rgba(104, 164, 40, .7)
+    }
+
+    .special-offer.token-plans__option:hover .token-plans__footer {
+        background-color: #68a428
+    }
+
+    .token-plans__header {
+        font-size: 20px;
+        color: #666;
+        text-align: center;
+        margin: 10px 0
+    }
+
+    @@media(min-width:600px) {
+        .token-plans__header {
+            display: none
+        }
+    }
+
+    .double-token .token-plans__options {
+        background-size: contain
+    }
+
+    .token-plans__options {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    @@media(min-width:600px) {
+        .token-plans__options {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap
+        }
+    }
+
+    .sl-subscription-modal.sl-subscription-token .modal-dialog .modal-content .plan .plan-footer {
+        /*background-color: transparent;*/
+        padding: 5px 10px;
+    }
+    #containerboleto2{
+        padding:50px;
+    }
+</style>
+
+<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+
+<div class="modal-backdrop in " modal-backdrop="" style="z-index: 1051;"></div>
+
+<div class="modal ng-isolate-scope sl-modal sl-subscription-modal sl-subscription-token" style="display:block; z-index: 1060;">
+    <div tabindex="-1" class="modal ng-isolate-scope sl-modal sl-subscription-modal has-carousel background-on-button" index="1" style="z-index: 1060; display: block;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header ng-scope">
+                    <button type="button" class="sl-close js-close-button-assinatura">×</button>
+                    <h4 class="modal-title ng-binding large primary text-center">
+                        Aproveite tudo o que a Kinkee pode oferecer para você!
+                        <small class="ng-binding ng-scope">
+                            Com as Koins você tenha acesso a recursos ilimitados, envia Koins para as pessoas que você ama e compra produtos e serviços incríveis.
+                        </small>
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <ul class="nav nav-pills nav-justified visible-lg visible-md">
+                        <li class="active">
+                            <a>
+                                Escolha o pacote ideal para você <i class="icon"></i>
+                            </a>
+                        </li>
+                        <li class="disabled">
+                            <a>
+                                Escolha a forma de pagamento <i class="icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="tablelistproducts">
+
+                        <div class="tab-pane ng-fade">
+                            <div class="token-plans" plans="">
+                                <h3 class="token-plans__header">
+                                    Clique no plano para escolher:
+                                </h3>
+                                <div class="token-plans__options">
+
+                                    <div class="token-plans__option plan ng-scope first" style="box-shadow: none;">
+
+                                        <div class="token-plans__option-body">
+                                            <div class="token-plans__circle">
+                                                <i class="token-plans__icon one"></i>
+                                                <h3 class="token-plans__primary-text ng-binding">300</h3>
+                                                <span class="token-plans__secondary-text">koins</span>
+                                            </div>
+
+                                            <div class="token-plans__price-block">
+
+                                                <div class="token-plans__discount ng-scope">
+                                                    <span>
+                                                        de
+                                                    </span>
+                                                    <u class="token-plans__default-price ng-binding">14,90</u>
+                                                </div>
+
+                                                <div class="token-plans__price">
+                                                    <div class="token-plans__price-info">
+                                                        <span class="token-plans__to">
+                                                            por
+                                                        </span>
+                                                        <span class="token-plans__currency ng-binding">R$</span>
+                                                    </div>
+                                                    <strong class="token-plans__int ng-binding">7</strong>
+                                                    <span class="token-plans__decimal ng-binding">89</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="token-plans__footer plan-footer">
+                                                <a href="javascript:void(0)" class="btnbuykoin" data-value="7.85" data-identity="1" data-description="300 Koins" onclick="/* PagSeguroLightbox('C425E3159898F2B5544B1FA8C72D7DF5');*/ return false;">
+                                                    <div class="token-plans__buy-btn plan-btn ng-binding" text="Comprar pacote" hover-text="Quero esse" style="color:#FFF">Comprar pacote</div>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="token-plans__option plan ng-scope special-offer">
+
+                                        <div class="token-plans__option-header ng-scope">
+                                            <span class="ng-binding">Melhor Oferta</span>
+                                        </div>
+
+                                        <div class="token-plans__option-body">
+                                            <div class="token-plans__circle">
+                                                <i class="token-plans__icon one"></i>
+                                                <h3 class="token-plans__primary-text ng-binding">2.500</h3>
+                                                <span class="token-plans__secondary-text">koins</span>
+                                            </div>
+
+                                            <div class="token-plans__price-block">
+
+                                                <div class="token-plans__discount ng-scope">
+                                                    <span>
+                                                        de
+                                                    </span>
+                                                    <u class="token-plans__default-price ng-binding">95,90</u>
+                                                </div>
+
+                                                <div class="token-plans__price">
+                                                    <div class="token-plans__price-info">
+                                                        <span class="token-plans__to">
+                                                            por
+                                                        </span>
+                                                        <span class="token-plans__currency ng-binding">R$</span>
+                                                    </div>
+                                                    <strong class="token-plans__int ng-binding">65</strong>
+                                                    <span class="token-plans__decimal ng-binding">00</span>
+                                                </div>
+                                            </div>
+                                            <div class="token-plans__footer plan-footer">
+                                                <a href="javascript:void(0)" class="btnbuykoin" data-value="65.00" data-identity="2" data-description="2500 Koins" onclick="/* PagSeguroLightbox('11D5753F0808F77444609FA449350983');*/ return false;">
+                                                    <div class="token-plans__buy-btn plan-btn ng-binding" text="Comprar pacote" hover-text="Quero esse" style="color:#FFF">Comprar pacote</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="token-plans__option plan ng-scope" style="box-shadow: none;">
+
+                                        <div class="token-plans__option-body">
+                                            <div class="token-plans__circle">
+                                                <i class="token-plans__icon one"></i>
+                                                <h3 class="token-plans__primary-text ng-binding">4.000</h3>
+                                                <span class="token-plans__secondary-text">koins</span>
+                                            </div>
+
+                                            <div class="token-plans__price-block">
+
+                                                <div class="token-plans__discount ng-scope">
+                                                    <span>
+                                                        de
+                                                    </span>
+                                                    <u class="token-plans__default-price ng-binding">145,90</u>
+                                                </div>
+
+                                                <div class="token-plans__price">
+                                                    <div class="token-plans__price-info">
+                                                        <span class="token-plans__to">
+                                                            por
+                                                        </span>
+                                                        <span class="token-plans__currency ng-binding">R$</span>
+                                                    </div>
+                                                    <strong class="token-plans__int ng-binding">105</strong>
+                                                    <span class="token-plans__decimal ng-binding">00</span>
+                                                </div>
+                                            </div>
+                                            <div class="token-plans__footer plan-footer">
+                                                <a href="javascript:void(0)" class="btnbuykoin" data-value="105.00" data-identity="3" data-description="4000 Koins" onclick="/* PagSeguroLightbox('5136B3BF7C7C30FAA4293F874BEF25CE');*/ return false;">
+                                                    <div class="token-plans__buy-btn plan-btn ng-binding" text="Comprar pacote" hover-text="Quero esse" style="color:#FFF">Comprar pacote</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        @*<div class="tab-pane ng-fade ng-hide"">
+                <div class="sl-subscription-payment">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <ul class="nav nav-tabs nav-stacked">
+
+                            </ul>
+                            <div class="gs">
+                                <table width="125" border="0" cellspacing="0" cellpadding="0" title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information.">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span id="ss_img_wrapper_gmogs_image_125-50_en_black">
+                                                    <a href="https://www.globalsign.com/" target="_blank" title="GlobalSign Site Seal" rel="nofollow">
+                                                        <img alt="SSL" border="0" id="ss_img" src="//seal.globalsign.com/SiteSeal/images/gs_noscript_125-50_en.gif">
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="tab-content payment-methods">
+
+                                <div class="plan-selected-header">
+                                    <div class="plan-selected-name">
+                                        <span>
+                                            Pacote escolhido
+                                        </span>
+                                        <strong class="choosen-plan ng-binding" bind-html="$subscribe.selectedPlan.nameChosen"></strong>
+                                    </div>
+                                    <span class="change-plan">
+                                        Alterar
+                                    </span>
+                                </div>
+
+                                <hr>
+
+                                <div class="tab-pane" >
+                                    <form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-valid" data-errors="subscribeCard" name="subscribeFormCredit">
+                                        <div></div>
+                                        <div>
+
+                                            <div class="row">
+
+                                                <div class="col-xs-12 col-sm-12 col-md-7">
+                                                    <div class="form-group has-feedback">
+                                                        <label>Número do cartão</label>
+                                                        <span class="cards-position selected-card credit"></span>
+                                                        <input type="text" class="form-control ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" name="number" credit-card="" card-type="credit" autotab="19" subscribe-validator="" maxlength="28" required="" autocomplete="off">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-5">
+                                                    <label>Validade</label>
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group has-feedback">
+                                                                <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" subscribe-validator="" name="month" >
+                                                                    <option value="" class="" selected="selected">
+                                                                        Mês
+                                                                    </option>
+                                                                    <option label="01" value="01">01</option>
+                                                                    <option label="02" value="02">02</option>
+                                                                    <option label="03" value="03">03</option>
+                                                                    <option label="04" value="04">04</option>
+                                                                    <option label="05" value="05">05</option>
+                                                                    <option label="06" value="06">06</option>
+                                                                    <option label="07" value="07">07</option>
+                                                                    <option label="08" value="08">08</option>
+                                                                    <option label="09" value="09">09</option>
+                                                                    <option label="10" value="10">10</option>
+                                                                    <option label="11" value="11">11</option>
+                                                                    <option label="12" value="12">12</option>
+                                                                </select>
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group has-feedback">
+                                                                <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" subscribe-validator="" name="year">
+                                                                    <option value="" class="" selected="selected">
+                                                                        Ano
+                                                                    </option>
+                                                                    <option label="2019" value="2019">2019</option>
+                                                                    <option label="2020" value="2020">2020</option>
+                                                                    <option label="2021" value="2021">2021</option>
+                                                                    <option label="2022" value="2022">2022</option>
+                                                                    <option label="2023" value="2023">2023</option>
+                                                                    <option label="2024" value="2024">2024</option>
+                                                                    <option label="2025" value="2025">2025</option>
+                                                                    <option label="2026" value="2026">2026</option>
+                                                                    <option label="2027" value="2027">2027</option>
+                                                                    <option label="2028" value="2028">2028</option>
+                                                                    <option label="2029" value="2029">2029</option>
+                                                                    <option label="2030" value="2030">2030</option>
+                                                                </select>
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-xs-12 col-sm-12 col-md-7">
+                                                    <div class="form-group has-feedback">
+                                                        <label>Nome do Titular do cartão</label>
+                                                        <input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="name" maxlength="50" autocomplete="off">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-4 ng-scope">
+                                                    <div class="form-group has-feedback">
+                                                        <label>Código de segurança</label>
+                                                        <i class="icon-helper" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="popoverSecurity">?</i>
+                                                        <input type="text" class="form-control ng-pristine ng-untouched ng-scope ng-empty ng-invalid ng-invalid-required ng-invalid-valid" placeholder="000" required="" card-security-code="" subscribe-validator="" name="securityCode" flag="" valid="" maxlength="3">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                    <form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" data-errors="subscribeCard" name="subscribeFormCreditAntifraude">
+                                        <div class="antifraude-complete">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-3">
+                                                    <div class="form-group has-feedback">
+                                                        <label>CEP</label>
+                                                        <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 12345-123" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode" ng-mask="99999999">
+                                                        <i class="icon-loading ng-hide"></i>
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <span class="cep-help" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="'Para garantir sua <strong>segurança</strong> as operadoras de cartão solicitam endereço e dados pessoais do titular. Fique tranquilo, essas informações são sigilosas e não serão disponibilizadas para nenhum outro fim.'">
+                                                        Por que meu CEP ? <span>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="ng-hide">
+                                                <div class="address-auto">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <p class="address-ajax">
+                                                                <strong class="ng-binding"></strong>
+                                                                <span class="ng-binding"></span>
+                                                                <a>- Editar</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="bgdark">
+                                                    <div class="row">
+
+                                                        <div class="col-xs-4 col-sm-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label>Número</label>
+                                                                <input type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNumFixed" ng-mask="99999">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-8 col-sm-9">
+                                                            <div class="form-group">
+                                                                <label>Complemento</label><small> (Opcional)</small>
+                                                                <input type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label>DDD</label>
+                                                                <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-5">
+                                                            <div class="form-group has-feedback">
+                                                                <label>Telefone</label>
+                                                                <input maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ng-hide">
+
+                                            <div class="row">
+
+                                                <div class="col-xs-12 col-sm-3">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">CEP</label>
+                                                        <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 12345-123" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode" ng-mask="99999999">
+                                                        <i class="icon-loading full ng-hide"></i>
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-7">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">Cidade</label>
+                                                        <input type="text" maxlength="50" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="city">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-2">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">UF</label>
+                                                        <input type="text" maxlength="2" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="state">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-xs-12 col-sm-7">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">Endereço</label>
+                                                        <input type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="address">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-3">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">Bairro</label>
+                                                        <input maxlength="60" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="neighborhood">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-2">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">Número</label>
+                                                        <input type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNum" ng-mask="99999">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-xs-12 col-sm-7">
+                                                    <div class="form-group">
+                                                        <label for="">Complemento</label><small> (Opcional)</small>
+                                                        <input  type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-2">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">DDD</label>
+                                                        <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-3">
+                                                    <div class="form-group has-feedback">
+                                                        <label for="">Telefone</label>
+                                                        <input maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="info">
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12">
+                                                <div class="checkbox">
+                                                    <label for="indexSaveOneBuy">
+                                                        <input class="onebuy__checkbox ng-pristine ng-untouched ng-valid ng-not-empty" type="checkbox" id="indexSaveOneBuy" name="saveonebuy">
+                                                        Salvar dados para compra rápida <i class="icon-help" sl-tooltip="" title="" data-original-title="Ative a compra rápida para armazenar seus dados com segurança e garantir mais rapidez nas próximas transações, comprando com apenas um clique. Você pode desativar essa opção a qualquer momento.">?</i>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="auto-recharge" id="auto-recharge">
+                                                <label for="indexSaveRechargeToken">
+                                                    <input type="checkbox" id="indexSaveRechargeToken" name="autorecharge" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                                    <div class="auto-recharge-info">
+                                                        <span class="auto-recharge-title">
+                                                            <i class="token-sm"></i>
+                                                            <span  class="ng-binding"></span>
+                                                        </span>
+                                                        <span class="auto-recharge-resume">
+                                                            <span class="ng-binding"></span>
+                                                            <a popover-placement="auto" popover-append-to-body="true" popover-trigger="'click hover'" uib-popover-html="'Economize tempo recarregando automaticamente quando seu saldo estiver <strong>abaixo de 200 Tokens.</strong> Nós manteremos seus dados de pagamento salvos para as futuras recargas. Você pode desativar a recarga automática acessando a área Minha Conta - Tokens.'">
+                                                                Saiba mais
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="separate">
+                                    <div class="privacy__text ng-hide" >
+                                        <span>Cobrança feita em nome de <strong class="privacy-info__strong ng-binding"></strong>.</span>
+                                    </div>
+                                    <div class="renewal-text ng-hide" >
+                                        <span class="ng-binding"></span>
+                                    </div>
+
+
+                                    <div class="box-submit">
+                                        <div class="box-submit__infos">
+                                            <small class="termos-uso">
+                                                Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                                            </small>
+                                            <small class="termos-uso flag-br ng-hide">
+                                                Essa compra está sendo feita no Brasil
+                                            </small>
+                                        </div>
+                                        <div class="box-submit__btn" >
+                                            <button class="sl-btn btn-primary btn-lg  next-icon">
+                                                <span class="ng-binding"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane invoice-names__background ng-hide" >
+                                    <div class="invoice-names">
+                                        <div class="invoice-names__invoice-example">
+                                            <svg class="invoice-names__invoice-icon">
+                                                <use xlink:href="assets/icons/_common/_common.svg?#common-info-invoice"></use>
+                                            </svg>
+                                            <span class="invoice-names__invoice-text ng-binding" ></span>
+                                            <span class="invoice-names__invoice-price ng-binding" ></span>
+                                        </div>
+                                        <div class="invoice-names__name-choices ">
+                                            <span>Escolha o nome que aparecerá em sua fatura:</span>
+                                            <div class="invoice-names__name-selects">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-submit">
+                                        <div class="box-submit__infos">
+                                            <small class="termos-uso">
+                                                Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                                            </small>
+                                            <small class="termos-uso flag-br ng-hide" >
+                                                Essa compra está sendo feita no Brasil
+                                            </small>
+                                        </div>
+                                        <div class="box-submit__btn" >
+                                            <button class="sl-btn btn-primary btn-lg  next-icon">
+                                                <span class="ng-binding"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane ng-hide" >
+                                    <form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-valid" data-errors="subscribeCard" name="subscribeFormDebit" novalidate="">
+
+                                        <label>Bandeiras aceitas</label>
+                                        <div class="cards debit">
+                                            <div class="btn-group">
+                                                <label for="visa" class="btn visa noclick"></label>
+                                                <label for="master" class="btn master noclick"></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-7">
+                                                <div class="form-group has-feedback">
+                                                    <label>Número do cartão</label>
+                                                    <span class="cards-position selected-card debit" ></span>
+                                                    <input  type="text" class="form-control ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" autotab="19" name="number" credit-card="" required="" card-type="debit" subscribe-validator="" maxlength="28" autocomplete="off">
+                                                    <span class="help-block"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-5">
+                                                <label>Validade</label>
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group has-feedback">
+                                                            <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" subscribe-validator="" name="month" ><option value="" class="" selected="selected">Mês</option><option label="01" value="01">01</option><option label="02" value="02">02</option><option label="03" value="03">03</option><option label="04" value="04">04</option><option label="05" value="05">05</option><option label="06" value="06">06</option><option label="07" value="07">07</option><option label="08" value="08">08</option><option label="09" value="09">09</option><option label="10" value="10">10</option><option label="11" value="11">11</option><option label="12" value="12">12</option></select>
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group has-feedback">
+                                                            <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"  required="" subscribe-validator="" name="year"><option value="" class="" selected="selected">Ano</option><option label="2019" value="2019">2019</option><option label="2020" value="2020">2020</option><option label="2021" value="2021">2021</option><option label="2022" value="2022">2022</option><option label="2023" value="2023">2023</option><option label="2024" value="2024">2024</option><option label="2025" value="2025">2025</option><option label="2026" value="2026">2026</option><option label="2027" value="2027">2027</option><option label="2028" value="2028">2028</option><option label="2029" value="2029">2029</option><option label="2030" value="2030">2030</option></select>
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-7">
+                                                <div class="form-group has-feedback">
+                                                    <label>Nome do Titular do cartão</label>
+                                                    <input  type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="name" maxlength="50" autocomplete="off">
+                                                    <span class="help-block"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-4">
+                                                <div class="form-group has-feedback">
+                                                    <label>Código de segurança</label>
+                                                    <i class="icon-helper" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="popoverSecurity">?</i>
+                                                    <input  type="text" class="form-control ng-pristine ng-untouched ng-scope ng-empty ng-invalid ng-invalid-required ng-invalid-valid" subscribe-validator="" name="securityCode" placeholder="000" required="" ng-mask="999" clear-if-not-match="true" card-security-code="" flag="" valid="" maxlength="3">
+                                                    <span class="help-block"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="separate">
+
+
+                                        <div class="renewal-text renewal-text--debit">
+                                            A cobrança será feita em nome de <strong>"eSapiens Internet"</strong>.
+                                        </div>
+                                        <div class="liberation-time">
+                                            Liberação de assinatura em até 24h
+                                        </div>
+
+                                        <div class="box-submit">
+                                            <div class="box-submit__infos">
+                                                <small class="termos-uso">
+                                                    Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                                                </small>
+                                                <small class="termos-uso flag-br ng-hide" >
+                                                    Essa compra está sendo feita no Brasil
+                                                </small>
+                                            </div>
+                                            <div class="box-submit__btn" >
+                                                <button class="sl-btn btn-primary btn-lg  next-icon" >
+                                                    <span class="ng-binding"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane tab-pane-boleto ng-hide" >
+                                    <div  class="ng-hide">
+                                        <form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" data-errors="subscribeCard" name="subscribeFormInvoice" novalidate="">
+                                            <div>
+                                                <div class="boleto-info" bindonce="">
+                                                    <div class="boleto-info__subtitle">
+                                                        <p>
+                                                            Informe seus dados:
+                                                            <i class="icon-help" popover-placement="bottom"  popover-trigger="'mouseenter outsideClick'" uib-popover-html="'<b>Por que estamos pedindo seu CPF?</b><br>Novas regras foram estabelecidas para a geração de boletos no Brasil e a partir de agora todo boleto deve incluir o CPF dos clientes como forma de evitar fraudes. Não se preocupe, esse dado é sigiloso e não será salvo no site.'">?</i>
+                                                        </p>
+                                                    </div>
+                                                    <div class="boleto-info__cpf form-group has-feedback">
+                                                        <label>CPF</label>
+                                                        <input  type="text"  class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 123.123.123-12" cpf="" subscribe-validator="" name="cpf" maxlength="14" autocomplete="off" ng-mask="999.999.999-99">
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                    <div class="boleto-info__tip">
+
+                                                        <small  class="ng-scope">A liberação dos tokens leva até 72h após o pagamento do boleto.</small>
+                                                    </div>
+                                                    <div class="boleto-info__box ng-hide" >
+                                                        <div class="boleto-info__icon">
+                                                            <svg class="boleto-info__svg">
+                                                                <use xlink:href="assets/icons/_common/_common.svg?#common-open-lock"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="boleto-info__box-description">
+                                                            Libere sua assinatura mais rápido enviando uma foto nítida do comprovante de pagamento para o email: <a href="mailto:contato@sexlog.com.br">contato@sexlog.com.br</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="box-submit">
+                                                    <div class="box-submit__infos">
+                                                        <small class="termos-uso">
+                                                            Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                                                        </small>
+                                                        <small class="termos-uso flag-br ng-hide" >
+                                                            Essa compra está sendo feita no Brasil
+                                                        </small>
+                                                    </div>
+                                                    <div class="box-submit__btn" >
+                                                        <button class="sl-btn btn-primary btn-lg  next-icon" >
+                                                            <span  class="ng-binding"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane ng-hide" >
+                                    <div  class="ng-hide">
+                                        <form class="sl-form ng-pristine ng-valid-email ng-valid-maxlength ng-invalid ng-invalid-required" data-errors="subscribeCard" name="subscribeFormDebitOnline" novalidate="">
+                                            <div>
+
+                                                <div class="row form-inline ng-hide" >
+                                                    <div class="col-md-12">
+                                                        <label>Verificando bancos disponíveis</label>
+                                                        <div class="form-group">
+                                                            <span class="sl-loading sl-svg-inline" svg-icon="loading-inline" width="60" height="60" data-fill="#CC6FC5">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="60" height="60" fill="#CC6FC5">
+                                                                    <circle transform="translate(8 0)" cx="0" cy="16" r="0.295453">
+                                                                        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                    </circle>
+                                                                    <circle transform="translate(16 0)" cx="0" cy="16" r="1.62679">
+                                                                        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                    </circle>
+                                                                    <circle transform="translate(24 0)" cx="0" cy="16" r="2.68579">
+                                                                        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                    </circle>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cards online" >
+                                                    <label>Selecione um banco:</label>
+                                                    <div class="cards online">
+                                                        <div class="btn-group">
+                                                            <label for="bancodobrasil" class="btn bancodobrasil ng-hide" >
+                                                                <input type="radio" name="card" id="bancodobrasil" value="bancodobrasil"  class="ng-pristine ng-untouched ng-valid ng-empty">
+                                                            </label>
+                                                            <label for="banrisul" class="btn banrisul ng-hide">
+                                                                <input type="radio" name="card" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                                            </label>
+                                                            <label for="bradesco" class="btn bradesco ng-hide">
+                                                                <input type="radio" name="card"  id="bradesco" value="bradesco" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                                            </label>
+                                                            <label for="itau" class="btn itau ng-hide">
+                                                                <input type="radio" name="card"  id="itau" value="itau"  class="ng-pristine ng-untouched ng-valid ng-empty">
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-12">
+                                                        <div class="form-group has-feedback">
+                                                            <label>E-mail</label>
+                                                            <input  type="email" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-email ng-valid-required ng-valid-maxlength" required="" subscribe-validator="" name="email" maxlength="60" autocomplete="off">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-8">
+                                                        <div class="form-group has-feedback">
+                                                            <label>Nome completo</label>
+                                                            <input  type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" fullname="" subscribe-validator="" name="nome" maxlength="50" autocomplete="off">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-4">
+                                                        <div class="form-group has-feedback">
+                                                            <label>CPF</label>
+                                                            <input  type="text" ng-mask="999.999.999-99" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" cpf="" subscribe-validator="" name="cpf" maxlength="14" autocomplete="off" placeholder="Ex: 123.123.123-12">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="antifraude-complete">
+
+                                                    <div class="row" >
+                                                        <div class="col-xs-12 col-sm-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label>CEP</label>
+                                                                <input  type="text"  ng-mask="99999999" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode" placeholder="Ex: 12345-123">
+                                                                <i class="icon-loading ng-hide"></i>
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-8">
+                                                            <span class="cep-help" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="'Dados pessoais do titular e endereço são solicitados para garantir a segurança da sua transação.&nbsp;Fique tranquilo, essas informações são sigilosas e não serão disponibilizadas para nenhum outro fim.'">
+                                                                Por que meu CEP ? <span>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div  class="ng-hide">
+                                                        <div class="address-auto">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <p class="address-ajax">
+                                                                        <strong  class="ng-binding"></strong>
+                                                                        <span  class="ng-binding"></span>
+                                                                        <a>- Editar</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="bgdark">
+                                                            <div class="row">
+
+                                                                <div class="col-xs-4 col-sm-3">
+                                                                    <div class="form-group has-feedback">
+                                                                        <label>Número</label>
+                                                                        <input type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNumFixed" ng-mask="99999">
+                                                                        <span class="help-block"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-xs-8 col-sm-9">
+                                                                    <div class="form-group">
+                                                                        <label>Complemento</label><small> (Opcional)</small>
+                                                                        <input  type="text" maxlength="40" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-3">
+                                                                    <div class="form-group has-feedback">
+                                                                        <label>DDD</label>
+                                                                        <input  type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                                                                        <span class="help-block"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-xs-12 col-sm-5">
+                                                                    <div class="form-group has-feedback">
+                                                                        <label>Telefone</label>
+                                                                        <input  maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                                                                        <span class="help-block"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div  class="ng-hide">
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">CEP</label>
+                                                                <input  type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength"  autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode" ng-mask="99999999">
+                                                                <i class="icon-loading full ng-hide"></i>
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-7">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">Cidade</label>
+                                                                <input type="text" maxlength="50" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="city">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-2">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">UF</label>
+                                                                <input type="text" maxlength="2" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" state="" subscribe-validator="" name="state">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-7">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">Endereço</label>
+                                                                <input  type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="address">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">Bairro</label>
+                                                                <input  maxlength="60" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="neighborhood">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-2">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">Número</label>
+                                                                <input  type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNum" ng-mask="99999">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                        <div class="col-xs-12 col-sm-7">
+                                                            <div class="form-group">
+                                                                <label for="">Complemento</label><small> (Opcional)</small>
+                                                                <input  type="text" maxlength="40" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-2">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">DDD</label>
+                                                                <input  type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-sm-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label for="">Telefone</label>
+                                                                <input  maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr class="separate">
+
+                                                <div class="privacy__text privacy__text--pagseguro">
+                                                    Pagamento e cobrança processados em nome de <label class="flags pagseguro"></label>
+                                                </div>
+
+                                                <div class="box-submit">
+                                                    <div class="box-submit__infos">
+                                                        <small class="termos-uso">
+                                                            Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                                                        </small>
+                                                        <small class="termos-uso flag-br ng-hide" >
+                                                            Essa compra está sendo feita no Brasil
+                                                        </small>
+                                                    </div>
+                                                    <div class="box-submit__btn" >
+                                                        <button class="sl-btn btn-primary btn-lg  next-icon">
+                                                            <span  class="ng-binding"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane ng-hide" >
+                                    <div  class="ng-hide">
+                                        <form class="sl-form ng-pristine ng-valid">
+
+                                            <div class="privacy__text privacy__text--verotel">
+                                                Pagamento processado pela <label class="flags verotel"></label>
+                                            </div>
+                                            <div class="renewal-text">
+                                                <span>Cobrança feita em nome de <strong>vtsup.com*Klantenbeh</strong>.</span>
+                                            </div>
+
+                                            <div class="box-submit">
+                                                <div class="box-submit__infos">
+                                                    <small class="termos-uso">
+                                                        Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                                                    </small>
+                                                    <small class="termos-uso flag-br ng-hide" >
+                                                        Essa compra está sendo feita no Brasil
+                                                    </small>
+                                                </div>
+                                                <div class="box-submit__btn" >
+                                                    <button class="sl-btn btn-primary btn-lg  next-icon">
+                                                        <span  class="ng-binding"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="sl-btn btn-primary btn-lg sl-sign fixed  ng-scope next-icon" >
+                                <span  class="ng-binding"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+                    </div>
+                    <button type="button" id="btnpagseguro" class="hidden"></button>
+                   
+                    <div id='tabelapagamentos' class='row col-lg-12  hidden' style='background:white;margin-top:20px;'>
+                        <div id='listaformasdepagamento2' class='row'>
+                            <div class="clearfix col-lg-12">
+                                <h4><i class="fa fa-bank"></i>  Escolha a forma de pagamento abaixo: </h4>
+                            </div>
+                            <div class="clearfix col-lg-12"></div>
+                            <br />
+                            <div id="divpagamentoboleto2" class="hidden d-none col-lg-4">
+                                <input type="radio" name="tipopagamento" id="btnboleto" class="tipopagamento2" value="1"><b>Boleto</b>
+                            </div>
+                            <div id="divpagamentocartao2" class="hidden d-none col-lg-4">
+                                <input type="radio" name="tipopagamento" class="tipopagamento2" value="2"><b>Cartão de Crédito</b>
+                            </div>
+                            <div id="divpagamentodebito2" class="hidden d-none col-lg-4">
+                                <input type="radio" name="tipopagamento" class="tipopagamento2" value="3"><b>Débito Online</b>
+                            </div>
+                        </div>
+                        <div class='col-lg-12 d-none hidden row' id='containerboleto2'><a class="btn btn-success" id="btnboleto2">Gerar Boleto</a></div>
+                        <div class='col-lg-12 d-none hidden row' id='containercartaodecredito2'></div>
+                        <div class='col-lg-12 d-none hidden row' id='containerdebitoonline2'></div>
+                        <div class='col-lg-12 d-none hidden row' id='containerlistaparcelas2'></div>
+                        <div class="col-lg-12 d-none hidden row" id="containerparcelascartao2"></div>
+                        <div id="containerdadoscartao2" class="hidden col-lg-12 d-none hidden row">
+                            
+                            <form action="" id="formcartao" method="post" class=" col-lg-12 bg-white">
+                                <div class="col-lg-8 form-group">
+                                    <label>Número do Cartão</label>
+                                    <input type="text" name="numerodocartao" value='' class="form-control validate[required]" id="numerodocartao2">
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <label>Código CVV   </label>
+                                    <input type="text" name="cvv" id="cvv2" value='' class="form-control validate[required]">
+                                </div>
+                                <br />
+                                <br />
+                                <div class="col-lg-12"></div>
+                                <br />
+                                <br />
+                                <div class="col-lg-4 form-group">
+                                    <label>Mês de Expiração   </label>
+                                    <input type="number" min="1" max="12" name="mesexpiracartao" value='12' id="mesexpiracartao2" class="form-control validate[required]">
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <label>Ano de Expiração   </label>
+                                    <select name='anoexpiracartao' id='anoexpiracartao2' class="form-control validate[required]">
+                                        <option value=''>Selecione</option>
+                                        <option value='2030' selected="selected">2020</option>
+                                        <option value='2021'>2021</option>
+                                        <option value='2022'>2022</option>
+                                        <option value='2023'>2023</option>
+                                        <option value='2024'>2024</option>
+                                        <option value='2025'>2025</option>
+                                        <option value='2026'>2026</option>
+                                        <option value='2027'>2027</option>
+                                    </select>
+                                </div>
+                                <a href="javascript:;" class="btn btn-success" id="btnescolhecartao2"><i class="fa fa-paper-plane-o"></i> Enviar</a>
+                                </form>
+                        </div>
+                        <div class='col-lg-12 d-none hidden row' id='dadosusuario'>
+                            <form action="" id="form" method="post" class=" col-lg-12 bg-white">
+                                <div class='row'><div class='col-lg-12'><h4><i class="fa fa-credit-card"></i> Preencha os dados:</h4></div></div>
+                                <div class='row'>
+
+                                    <div class="col-lg-12"></div>
+                                    <div class="col-lg-6 form-group">
+                                        <label>Nome Completo</label>
+                                        <input type="text" name="sendername" value='' class="form-control validate[required]" id="sendername">
+                                    </div>
+                                    <div class="col-lg-6 form-group">
+                                        <label>Email</label>
+                                        <input type="text" name="email" value='' class="form-control validate[required,custom[email]]" id="email">
+                                    </div>
+                                    <div class="col-lg-2 form-group">
+                                        <label>DDD</label>
+                                        <input type="number" name="phoneareaCode" value='' class="form-control validate[required,minSize[2],maxSize[2],number]" id="phoneareaCode">
+                                    </div>
+                                    <div class="col-lg-5 form-group">
+                                        <label>Telefone</label>
+                                        <input type="number" name="phonenumber" value='' class="form-control validate[required,minSize[9],maxSize[9],number]" id="phonenumber">
+                                    </div>
+                                    <div class='col-lg-12'></div>
+
+                                    <div class="col-lg-4 form-group">
+                                        <label>Endereço</label>
+                                        <input type="text" name="addressstreet" value='' class="form-control validate[required]" id="addressstreet">
+                                    </div>
+                                    <div class="col-lg-3 form-group">
+                                        <label>Número</label>
+                                        <input type="number" name="addressnumber" value='' class="form-control validate[required,number]" id="addressnumber">
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label>Bairro</label>
+                                        <input type="text" name="addressdistrict" value='' class="form-control validate[required]" id="addressdistrict">
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label>Cidade</label>
+                                        <input type="text" name="addresscity" value='' class="form-control validate[required]" id="addresscity">
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label>Estado</label>
+                                        <input type="text" name="addressstate" value='' class="form-control validate[required,minSize[2],maxSize[2]]" id="addressstate">
+                                    </div>
+                                    <div class="col-lg-4 form-group hidden">
+                                        <label>País</label>
+                                        <input type="text" name="addresscountry" value='BRA' class="form-control validate[required]" id="addresscountry">
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label>CEP</label>
+                                        <input type="number" name="addresspostalCode" value='' class="form-control validate[required,minSize[8],maxSize[8],number]" id="addresspostalCode">
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label>CPF</label>
+                                        <input type="number" name="documentsvalue" value='' class="form-control validate[required,minSize[11],maxSize[11],number]" id="documentsvalue">
+                                    </div>
+                                    <div class="col-lg-4 form-group">
+                                        <label>Data de Nascimento</label>
+                                        <input type="text" name="datadenascimento" value='' class="form-control calendario validate[required]" id="datadenascimento">
+                                    </div>
+                                    <input type='hidden' name='tokencreditcard' id='tokencreditcard'>
+
+                                    <div class="clearfix"></div>
+                                    <div class="col-lg-12">
+                                        <br />
+                                        <a href="javascript:;" class="btn btn-success pull-right" id="enviadadosusuario"><i class="fa fa-plane-o"></i> Enviar</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class='col-lg-12 d-none hidden' id='containerdebito'></div>
+                        <div class='col-lg-12 d-none hidden row' id='containerparcelascartao'></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

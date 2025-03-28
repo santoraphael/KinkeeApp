@@ -1,0 +1,755 @@
+﻿.certification-modal__intro--white {
+    background-image: radial-gradient(circle at 51% 32%, #fff, #eee);
+    max-width: 660px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--white {
+        display: block
+    }
+}
+
+.certification-modal__intro--white .certification-modal__thumb--small {
+    background-color: #ccc;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #999;
+    width: 70px;
+    height: 70px;
+    margin: 10px auto
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--white .certification-modal__thumb--small {
+        width: 80px;
+        height: 80px
+    }
+}
+
+.certification-modal__intro--white .certification-modal__intro-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333
+}
+
+.certification-modal__intro--white .certification-modal__intro-advantages {
+    width: fit-content;
+    margin: 30px auto;
+    text-align: justify
+}
+
+.certification-modal__intro--white .certification-modal__intro-advantage {
+    margin: 10px 0;
+    font-size: 15px;
+    line-height: 1.94;
+    display: flex;
+    flex-direction: row
+}
+
+.certification-modal__intro--white .certification-modal__intro-advantage-image {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: purple
+}
+
+.certification-modal__intro--white .certification-modal__intro-avantage-text {
+    margin-top: 5px;
+    color: #666
+}
+
+
+.certification-modal__intro-button {
+    margin-top: 0;
+    background-color: #d5186a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 12px 68px;
+    border-radius: 30px;
+    box-sizing: border-box
+}
+
+    .certification-modal__intro-button[disabled] {
+        opacity: .3;
+        pointer-events: none
+    }
+
+    .certification-modal__intro-button:hover {
+        background-color: #a71353
+    }
+
+    .certification-modal__intro-button:active {
+        box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .4)
+    }
+
+
+
+.certification-modal__intro--green {
+    height: 100%;
+    background-image: radial-gradient(circle at 51% 32%, #45c5ba, #008890);
+    z-index: 1050;
+    text-align: center;
+    max-width: 660px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--green {
+        display: block;
+        margin: 0 auto;
+        border-radius: 6px
+    }
+}
+
+.certification-modal__intro--green h2 {
+    color: #fff;
+    padding: 0 35px
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--green h2 {
+        padding: 0
+    }
+}
+
+.certification-modal__intro--green p {
+    color: #fff;
+    padding: 0 25px
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--green p {
+        padding: 0
+    }
+}
+
+.certification-modal__intro--green .slmodal__btn {
+    background-color: #fff;
+    color: #661577;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 50px
+}
+
+.certification-modal__intro--green .slmodal__close {
+    color: #fff
+}
+
+.certification-modal__intro--green .certification-modal__thumb {
+    margin: 60px auto 25px
+}
+
+.certification-modal__thumb {
+    width: 100px;
+    height: 100px
+}
+
+
+
+
+
+
+.certification-modal__intro--mulher {
+    height: 100%;
+    background-image: radial-gradient(circle at 51% 32%, #371d41, #622742);
+    z-index: 1050;
+    text-align: center;
+    max-width: 660px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--mulher {
+        display: block;
+        margin: 0 auto;
+        border-radius: 6px
+    }
+}
+
+.certification-modal__intro--mulher h2 {
+    color: #fff !important;
+    padding: 0 35px
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--mulher h2 {
+        padding: 0
+    }
+}
+
+.certification-modal__intro--mulher p {
+    color: #fff;
+    padding: 0 25px
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--mulher p {
+        padding: 0
+    }
+}
+
+.certification-modal__intro--mulher .slmodal__btn {
+    background-color: #fff;
+    color: #661577;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 50px
+}
+
+.certification-modal__intro--mulher .slmodal__close {
+    color: #fff
+}
+
+.certification-modal__intro--mulher .certification-modal__thumb {
+    margin: 0px auto 50px;
+    /*0px 0px 0px 50px;*/
+    float: left;
+}
+
+.certification-modal__intro--mulher label {
+    color: #fff
+}
+
+
+
+
+
+
+
+
+certification-modal__intro--homem {
+    height: 100%;
+    background-image: radial-gradient(circle at 51% 32%, #fafafa, #f2f2f2);
+    z-index: 1050;
+    text-align: center;
+    max-width: 660px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--homem {
+        display: block;
+        margin: 0 auto;
+        border-radius: 6px
+    }
+}
+
+.certification-modal__intro--homem h2 {
+    color: #000 !important;
+    padding: 0 35px
+}
+
+.certification-modal__intro--homem hr {
+    color: #000 !important;
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--homem h2 {
+        padding: 0
+    }
+}
+
+.certification-modal__intro--homem p {
+    color: #000;
+    padding: 0 25px
+}
+
+@media(min-width:600px) {
+    .certification-modal__intro--homem p {
+        padding: 0
+    }
+}
+
+.certification-modal__intro--homem .slmodal__btn {
+    background-color: #fff;
+    color: #661577;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 50px
+}
+
+.certification-modal__intro--homem .slmodal__close {
+    color: #000
+}
+
+.certification-modal__intro--homem .certification-modal__thumb {
+    margin: 0px auto 50px;
+    /*0px 0px 0px 50px;*/
+    float: left;
+}
+
+.certification-modal__intro--homem label {
+    color: #000
+}
+
+
+
+
+
+.certification-modal__thumb {
+    width: 100px;
+    height: 100px
+}
+
+
+
+
+
+
+@media(min-width:600px) {
+    .certification-modal__thumb {
+        margin: 80px auto auto
+    }
+}
+
+.certification-modal__finish .slmodal__body {
+    padding-top: 100px
+}
+
+.certification-modal__rejected-text {
+    text-align: left;
+    margin: 0 15px 20px
+}
+
+
+
+
+
+/*========= MODAL ===============*/
+
+.slmodal {
+    display: block;
+    font-family: source sans pro, helvetica neue, Arial, Helvetica, sans-serif;
+}
+
+.slmodal__content {
+    position: relative;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #e8e8e8
+}
+
+.slmodal__scrollable {
+    overflow-y: auto;
+    width: 100%
+}
+
+@media(min-width:600px) {
+    .slmodal__content {
+        border-radius: 6px;
+        -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
+        overflow: hidden;
+    }
+
+    .slmodal__scrollable {
+        max-height: 100%
+    }
+}
+
+.slmodal .modal-dialog {
+    margin: 0;
+    width: 100%;
+    height: 100%
+}
+
+    .slmodal .modal-dialog .modal-content {
+        border-radius: 0;
+        border: none;
+        height: 100%;
+        background-color: transparent;
+        overflow: visible
+    }
+
+@media(min-width:600px) {
+    .slmodal .modal-dialog {
+        margin: 60px auto;
+        max-width: 660px;
+        width: 100%;
+        height: auto
+    }
+
+    .slmodal .modal-content,
+    .slmodal .slmodal__content {
+        height: auto;
+    }
+}
+
+.slmodal__header {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 20px 15px 30px;
+    background-color: #fff
+}
+
+    .slmodal__header h2 {
+        font-size: 20px;
+        line-height: 1.2;
+        color: #661577;
+        padding-right: 25px;
+        margin: 0
+    }
+
+    .slmodal__header p {
+        font-size: 15px;
+        margin-bottom: 0;
+        line-height: 1.27;
+        color: #666
+    }
+
+    .slmodal__header h2 + p {
+        margin-top: 8px
+    }
+
+.slmodal__header-content {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2
+}
+
+.slmodal__back {
+    display: block;
+    padding-bottom: 15px;
+    cursor: pointer;
+    background-color: #fff;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1
+}
+
+    .slmodal__back svg {
+        width: 18px;
+        height: 18px
+    }
+
+@media(min-width:600px) {
+    .slmodal__header {
+        text-align: center;
+        padding: 30px 50px
+    }
+
+        .slmodal__header h2 {
+            font-size: 22px;
+            text-align: left
+        }
+
+        .slmodal__header p {
+            text-align: left
+        }
+
+    .slmodal__back {
+        position: absolute;
+        top: 35px;
+        left: 18px
+    }
+}
+
+.slmodal__body {
+    position: relative;
+    text-align: center;
+    padding: 25px 10px 90px
+}
+
+    .slmodal__body h2 {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #661577;
+        margin: 0 0 14px
+    }
+
+    .slmodal__body p {
+        font-size: 15px;
+        line-height: 1.3
+    }
+
+    .slmodal__body .slmodal__btn {
+        margin-top: 50px
+    }
+
+    .slmodal__body .slmodal__btn--white {
+        background: #fff;
+        color: #661577
+    }
+
+        .slmodal__body .slmodal__btn--white:hover {
+            background: #fff;
+            color: #661577
+        }
+
+    .slmodal__body .certification-modal__error-separator {
+        padding: 50px 0
+    }
+
+@media(min-width:600px) {
+    .slmodal__body {
+        padding: 40px 40px 90px;
+        text-align: left
+    }
+
+        .slmodal__body .slmodal__btn {
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+    .slmodal__body--center {
+        text-align: center
+    }
+}
+
+.slmodal__btn {
+    background-color: #d5186a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 12px 68px;
+    border-radius: 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+    .slmodal__btn[disabled] {
+        opacity: .3;
+        pointer-events: none
+    }
+
+    .slmodal__btn:hover {
+        background-color: #a71353
+    }
+
+    .slmodal__btn:active {
+        -webkit-box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .4);
+        box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .4)
+    }
+
+.slmodal__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    background-color: #fff;
+    padding: 0 15px;
+    border-top: 1px solid #e3e3e3;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+    .slmodal__footer .slmodal__btn {
+        padding: 12px 30px
+    }
+
+@media(min-width:600px) {
+    .slmodal__footer {
+        position: absolute
+    }
+}
+
+.slmodal__step {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    position: relative;
+    display: block;
+    height: 100%
+}
+
+.slmodal__step--hide {
+    -webkit-animation: hideVisiblity;
+    animation: hideVisiblity;
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+}
+
+.slmodal__step-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 100%;
+    left: 0;
+    -webkit-transition: height .4s .5s ease-out, -webkit-transform .4s ease-out;
+    transition: height .4s .5s ease-out, -webkit-transform .4s ease-out;
+    transition: transform .4s ease-out, height .4s .5s ease-out;
+    transition: transform .4s ease-out, height .4s .5s ease-out, -webkit-transform .4s ease-out
+}
+
+    .slmodal__step-wrapper > div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex
+    }
+
+.slmodal__step-wrapper--moving {
+    pointer-events: none
+}
+
+@media(max-width:599px) {
+    .slmodal__step-wrapper {
+        height: 100% !important
+    }
+}
+
+@media(min-width:600px) {
+    .slmodal__step-wrapper {
+        height: 520px
+    }
+}
+
+@-webkit-keyframes hideVisiblity {
+    from {
+        visibility: visible
+    }
+
+    to {
+        visibility: hidden
+    }
+}
+
+@keyframes hideVisiblity {
+    from {
+        visibility: visible
+    }
+
+    to {
+        visibility: hidden
+    }
+}
+
+.slmodal__checkbox {
+    width: 110px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #666;
+    font-size: 18px;
+    padding: 14px 0 14px 20px;
+    border-radius: 8px;
+    border: none
+}
+
+    .slmodal__checkbox:before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 12px);
+        left: 14px;
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 2px solid #d8d8d8
+    }
+
+    .slmodal__checkbox:after {
+        display: none;
+        content: "";
+        position: absolute;
+        top: calc(50% - 6px);
+        left: 20px;
+        width: 12px;
+        height: 12px;
+        background-color: #fff;
+        border-radius: 50%
+    }
+
+    .slmodal__checkbox.slmodal__checkbox--active {
+        background-color: #661577;
+        color: #fff
+    }
+
+        .slmodal__checkbox.slmodal__checkbox--active:after {
+            display: block
+        }
+
+        .slmodal__checkbox.slmodal__checkbox--active:before {
+            background-color: #661577;
+            border: 2px solid #fff
+        }
+
+    .slmodal__checkbox:not(:last-child) {
+        margin-right: 18px
+    }
+
+textarea.slmodal__textarea {
+    height: 130px;
+    border-radius: 8px;
+    padding: 15px
+}
+
+@media(min-width:600px) {
+    textarea.slmodal__textarea {
+        font-size: 15px
+    }
+}
+
+.slmodal__close {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 10px;
+    font-size: 40px;
+    line-height: 20px;
+    cursor: pointer;
+    opacity: .8;
+    z-index: 1
+}
+
+    .slmodal__close:hover {
+        opacity: 1
+    }
+
+.slmodal__messages {
+    margin: 0;
+    padding: 10px 40px
+}
+
+.slmodal__condition {
+    display: none !important
+}
+
+
+.modal {
+    overflow-y: visible;
+}

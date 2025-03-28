@@ -1,0 +1,987 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+<!doctype html>
+<html lang="pt-br" class="pt-br desktop">
+<head>
+
+    <title>@ViewBag.Title</title>
+    @*<title>Kinkee | Sugar Baby & Sugar Daddy, BDSM, Camgirls e Packs de Fotos.</title>*@
+    <base>
+    <meta property="fb:app_id" content="1015030085319888" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="Kinkee é uma rede social de relacionametno Sugar Baby e Sugar Daddy mais inovadora do mundo, que utiliza um algoritimo exclusivo para ajudar a determinar os melhores Daddies do Brasil." name="description">
+    <meta data-react-helmet="true" name="description" content="Kinkee é uma rede social de relacionametno Sugar Baby e Sugar Daddy mais inovadora do mundo, que utiliza um algoritimo exclusivo para ajudar a determinar os melhores Daddies do Brasil.">
+    <meta name="theme-color" content="#74358A" />
+    <meta name="keywords" content="Sugar baby wikipedia, viagens,luxo, Sugar Daddies, Sugar Daddi, Sugar Daddie, Sugar Babies, Sugar Daddy, sugar baby, garotas lindas, gatas, milionário, passeios, namoro, namorar homem rico, homem rico, homens ricos, Meu Patrocínio, seekingarrangement, Seeking Arrangement, site de namoro, relacionamento, mulheres, namorar, sugar, baby, daddy, sugar baby site, rede social de relacionamento ,mulheres bonitas, Babies, Daddies, viagens, luxo, afinidade, camgirl, packs, fotos" />
+    <meta name="author" content="Raphael Santo" />
+    <meta name="language" content="pt-br" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8;no-cache" />
+    <!-- Favicon -->
+    <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
+    <link rel="icon" type="image/png" sizes="16x16" href="https://kinkeesugar.com/Content/images/fav-ico.png">
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css type=text/css>
+    <link id="dynamic-favicon" rel="shortcut icon" type="image/x-icon" href="https://kinkeesugar.com/Content/images/fav-ico.png" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    @*<link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/bundle6514.css?v=1476702930" media="screen" />
+        <link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/bootstrap-sl-common6514.css?v=1476702930" media="screen" />*@
+    @*<link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/app/home/home.css" media="screen" />*@
+    @Styles.Render("~/pulsar/Kinkee/assets/css/sl.css")
+    @Styles.Render("~/pulsar/Kinkee/assets/css/sl/app/home.css")
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @Styles.Render("~/pulsar/Kinkee/css/generalStyle.css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            FotoPerfil();
+            //PerfilVerificadoAtivo();
+            VerficarAssinatura();
+
+            function FotoPerfil() {
+                $.get('@Url.Action("FotoPerfil", "Dating")', function (data) {
+                    $('.js-img-perfil-circle').attr("src", data);
+                    $('.js-img-destaque').attr("src", data);
+                    $('.imgMyAvatar').attr("src", data);
+                });
+
+            }
+            function PerfilSugeridoAtivo() {
+                $.get('@Url.Action("PerfilSugeridoAtivo", "Dating")', function (data) {
+                    if ("True" === data)
+                    {
+                        $('.sl-highlight').css("display", "none");
+                        $('.js-label-sugerido').html('Perfil Destacado');
+                        $('.js-label-sugerido-complemento').css("display", "none");
+                    }
+                });
+                //return data;
+            }
+            function PerfilVerificadoAtivo() {
+                $.get('@Url.Action("PerfilVerificadoAtivo", "Dating")', function (data) {
+                    if ("True" === data)
+                    {
+                        $('.sl-highlight').css("display", "none");
+                        $('.js-label-sugerido').html('PERFIL VERIFICADO');
+                        $('.js-label-sugerido-complemento').css("display", "none");
+                        FotoPerfil();
+                    }
+                });
+                //return data;
+            }
+
+
+            function VerficarAssinatura() {
+                $.get('@Url.Action("ValidarAssinatura", "MinhaConta")', function (data) {
+                    if (data ==="True") {
+
+                    }
+                    else {
+                        $('#AssinaturaPartial').css("display", "block");
+                        $('.js-display-assinatura-button').css("display", "block");
+                    }
+                });
+                //return data;
+            }
+        });
+    </script>
+    <link rel="manifest" href="/manifest.json" />
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+
+        function gonative_onesignal_info(oneSignalInfo) {
+            console.log(oneSignalInfo);
+            SalvarUserID(oneSignalInfo.oneSignalUserId);
+
+            //alert(oneSignalInfo.oneSignalUserId)
+        }
+
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "8ebd0caa-2aaf-4b1b-9a39-2783e3a5ae16",
+                autoRegister: true,
+                notifyButton: {
+                    enable: true,
+                },
+                welcomeNotification: {
+                    "title": "Oba!",
+                    "message": "Agora você está ainda mais conectado com a gente!",
+                    // "url": "" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
+                },
+                text: {
+                    'tip.state.unsubscribed': 'Receba nossas notificações',
+                    'tip.state.subscribed': "Você já está recebendo nosssas notificações",
+                    'tip.state.blocked': "Você bloqueou as notificações",
+                    'message.prenotify': 'Clique para receber nossas notificações',
+                    'message.action.subscribed': "Agora você receberá nosssas notificações",
+                    'message.action.resubscribed': "Você já habilitou as notificações nesse navegador",
+                    'message.action.unsubscribed': "Você não receberá mais notificações",
+                    'dialog.main.title': 'Gerencie suas notificações',
+                    'dialog.main.button.subscribe': 'HABILITAR',
+                    'dialog.main.button.unsubscribe': 'DESABILITAR',
+                    'dialog.blocked.title': 'Desbloquear notificações',
+                    'dialog.blocked.message': "Siga as instrições para habilitar:"
+                }
+            });
+            OneSignal.getUserId(function (userId) {
+                //console.log("OneSignal User ID:", userId);
+                // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
+                SalvarUserID(userId);
+            });
+        });
+        $(document).ready(function () {
+            //SalvarUserID('d10c8ab3-8f5f-4c93-aa19-9f65e46abb85');
+        });
+        function SalvarUserID(userId) {
+            $.ajax({
+                url: "Notification/SalvarUserID",
+                data: {
+                    'userId': userId
+                },
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+                    $('.loading-header').text(data);
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/fancybox-master/dist/jquery.fancybox.min.css" />
+    <script src="~/Scripts/fancybox-master/dist/jquery.fancybox.min.js"></script>
+    <script>(function (ss, ex) { window.ldfdr = window.ldfdr || function () { (ldfdr._q = ldfdr._q || []).push([].slice.call(arguments)); }; (function (d, s) { fs = d.getElementsByTagName(s)[0]; function ce(src) { var cs = d.createElement(s); cs.src = src; setTimeout(function () { fs.parentNode.insertBefore(cs, fs) }, 1); }; ce('https://sc.lfeeder.com/lftracker_v1_' + ss + (ex ? '_' + ex : '') + '.js'); })(document, 'script'); })('bElvO73w92p7ZMqj');</script>
+</head>
+<body id="mainContent" class="promotion-scroll-block" style="padding-top: 0">
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1015030085319888',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.0'
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <input type="hidden" id="genero" value="" />
+    <input type="hidden" id="searchResult" value="">
+    <input type="hidden" id="helperFields" value="0" data-urlActionCommitSearch="@Url.Action("CommitSearch","Home")" data-urlActionAutoComplete="@Url.Action("Autocomplete","Home")">
+    <input type="hidden" id="helperFieldsLocation" value="0" data-urlActionCommitSearch="@Url.Action("CommitSearch","Home")" data-urlActionAutoComplete="@Url.Action("LocationAutocomplete","Home")">
+    <header class="js-header-menu">
+
+        <style>
+            .dropdown.ng-scope {
+                margin: 4px 15px;
+            }
+
+            .open {
+                display: block !important;
+            }
+        </style>
+
+        <nav class="nav-new ng-scope" role="navigation">
+
+            <a href="/" target="_self" title="Kinkee">
+                <img class="nav__logo" alt="Logo do Sexlog" src="~/pulsar/Kinkee/assets/images/modules/sobre/kinkee_logo.png">
+            </a>
+
+            <div class="nav__menu ng-scope" style="display:none;">
+                @*<a class="nav__menu-item nav__menu-item--find-people" target="_self" href="https://www.sexlog.com/busca">
+                        <svg class="nav__search-icon">
+                            <use xlink:href="assets/icons/navbar-refactored/navbar-refactored.svg?v=10#navbar-shape"></use>
+                        </svg>
+                        Encontrar pessoas
+                    </a>*@
+                @*<a class="nav__menu-item" href="https://www.sexlog.com/livecam" target="_self">
+                        <span class="nav__livecam-sparkly"></span>
+                        Livecam
+                    </a>*@
+                @*<a class="nav__menu-item js-menu-proximos" href="#proximos" target="_self">
+                        Próximos
+                    </a>
+                    <a class="nav__menu-item js-menu-destaques" href="#destaques" target="_self">
+                        Destaques
+                    </a>
+                    <a class="nav__menu-item js-menu-novos" href="#novos" target="_self">
+                        Novos
+                    </a>*@
+                @*<a class="nav__menu-item" href="https://www.sexlog.com/videos" target="_self">
+                        Vídeos
+                    </a>*@
+            </div>
+            <div class="nav__actions">
+
+                <div class="nav__sign ng-scope">
+                    <a href="#" id="AssinaturaPartial" style="display:none;" class="sl-btn nav__sign-btn" title="Assine">
+                        Assine
+                    </a>
+                </div>
+
+                <ul class="nav__side-menu notifications ng-scope">
+
+                    <!--<li class="dropdown ng-scope" sl-notifications-friends="" ng-class="{ open: slNotifications.friendsOpened, active: $checkUpdates.navbar('friends') }" ng-click="open()">
+                        <a ng-class="{ unread: $checkUpdates.navbar('friends') }" analytics-metric="" data-am-area="Topo" data-am-action="Clique em solicitação de amizade">
+                            Solicitações de amizade <svg class="nav__icon nav__icon-people">
+                                <use xlink:href="assets/icons/navbar-refactored/navbar-refactored.svg?v=10#navbar-friends"></use>
+                            </svg>
+                            <span class="nav__badge ng-binding" ng-bind="$checkUpdates.navbar('friends')">0</span>
+                        </a>
+                        <div class="arrow-up"></div>
+                        <div class="sl-dropbox" ng-click="slNotifications.stopPropagation($event)">
+                            <div class="dropbox-header">
+                                <h3>Solicitações de amizade</h3>
+                            </div>
+                            <div class="dropbox-body" sl-prevent-scroll="" sl-infinite-scroll="load()">
+                                <ul class="lst lst-friends">-->
+                    <!-- ngRepeat: friend in friends -->
+                    <!-- ngIf: busy -->
+                    <!--<li class="show-more ng-hide" ng-click="more()" ng-show="!busy &amp;&amp; showMore">
+                        <button class="sl-btn btn-primary">
+                            Mostrar mais
+                        </button>
+                    </li>-->
+                    <!-- ngIf: noData -->
+                    <!--</ul>
+                            </div>
+                            <div class="dropbox-footer">
+                                <a href="u/menininhateste/solicitacoes-de-amizade#profile-info" class="show-all" target="_self" analytics-metric="" data-am-area="Topo" data-am-action="Solicitação de amizade - Ver todas">
+                                    Ver todas
+                                </a>
+                            </div>
+                        </div>
+                    </li>-->
+
+                    <li class="dropdown ng-scope">
+                        <a href="~/Dating/Inbox" style="color: #B8273B;">
+                            @*<span class="navbar-footer__badge badge ng-binding ng-hide">0</span>*@
+                            <span class="material-icons">
+                                message
+                            </span>
+                        </a>
+                        @*<div class="arrow-up"></div>
+                            <div class="sl-dropbox" ng-click="slNotifications.stopPropagation($event)">
+                                <div class="dropbox-header">
+                                    <h3>Mensagens</h3>
+                                </div>
+                                <div class="dropbox-body" sl-prevent-scroll="" sl-infinite-scroll="load()">
+                                    <ul class="lst lst-messages">
+
+                                        <li class="show-more ng-hide" ng-click="more()" ng-show="!busy &amp;&amp; showMore">
+                                            <button class="sl-btn btn-primary">
+                                                Mostrar mais
+                                            </button>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="dropbox-footer" analytics-metric="" data-am-area="Topo" data-am-action="Clique em mensagens - ver todas">
+                                    <a href="https://www.sexlog.com/mensagens" class="show-all" target="_self">
+                                        Ver todas
+                                    </a>
+                                </div>
+                            </div>*@
+                    </li>
+
+                    <!--<li class="dropdown nav__notification ng-scope" >
+                        <a class="dropdown-toggle">-->
+                    @*<span class="navbar-footer__badge badge ng-binding ng-hide">0</span>*@
+                    <!--<span class="material-icons">
+                            notifications
+                        </span>
+                    </a>
+                    <div class="arrow-up"></div>
+                    <div class="sl-dropbox" ng-click="slNotifications.stopPropagation($event)">
+                        <div class="dropbox-header">
+                            <h3>Notificações</h3>
+                        </div>
+                        <div class="dropbox-body" sl-prevent-scroll="" sl-infinite-scroll="load()">
+                            <ul class="lst lst-notifications">-->
+                    @*<li class="container-push-notification new ng-scope" ng-if="showPushNotification">
+                            <a class="clearfix line">
+                                <div class="avatar sl-logo">
+                                    <i></i>
+                                </div>
+                                <div class="about">
+                                    <button type="button" class="close" ng-click="closeClick()" sl-metrics="" data-mt-description="PUSH_NOTIFICATION_NOTIFICATIONS_CLOSE">
+                                        <span>×</span>
+                                    </button>
+                                    <div class="about-section">
+                                        <p ng-if="!showPushNotificationTipText" class="ng-scope">
+                                            Quer receber notificações no seu dispositivo? Mandamos dicas, avisos, concursos e promoções, e você vai saber quando seus conteúdos estiverem bombando! Seremos discretos. <img class="webpush-emoji" src="assets/images/enable-push-notification/emoji-monkey.png">
+                                        </p>
+
+                                    </div>
+                                    <div class="about-section subscribe">
+                                        <button ng-if="!showPushNotificationTipText" class="sl-btn webpush-button ng-scope" ng-click="enablePushNotification()" sl-metrics="" data-mt-description="PUSH_NOTIFICATION_NOTIFICATIONS_ALLOW">
+                                            Quero receber notificações!
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </li>*@
+
+
+                    @*<li class="show-more ng-hide" ng-click="more()" ng-show="!busy &amp;&amp; showMore">
+                                        <button class="sl-btn btn-primary">
+                                            Mostrar mais
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>*@
+                    @*</li>-->*@
+
+                    @*<li class="nav__share" analytics-metric="" data-am-area="Topo" data-am-action="Clique em publicar vindo de explorar" ng-click="$share.modal()">
+                            <svg class="nav__icon nav__icon-share">
+                                <use xlink:href="assets/icons/navbar-refactored/navbar-refactored.svg?v=10#navbar-post"></use>
+                            </svg>
+                            <input type="file" id="sl-btn-Upload" name="files" class="fileupload" data-url="https://www.sexlog.com/upload">
+                        </li>*@
+
+
+                    <li class="nav__profile ng-scope" id="dropdown-toggle">
+                        <a href="#" target="_self">
+                            <img class="img-circle imgMyAvatar" src="~/modules/img/no-avatar.svg" alt="@HttpContext.Current.User.Identity.Name" width="32" height="32">
+                            @*<div class="nav__spinner-avatar spinner ng-hide">
+                                    <div class="one" style="width: 10px; height: 10px;"></div>
+                                    <div class="two" style="width: 10px; height: 10px;"></div>
+                                    <div class="three" style="width: 10px; height: 10px;"></div>
+                                </div>*@
+                        </a>
+                        <span class="caret"></span>
+                    </li>
+
+                    <div class="nav-dropdown dropdown-menu" style="left: inherit;">
+                        <div class="arrow-up"></div>
+                        <div class="nav-dropdown__profile-info">
+                            <div class="nav-dropdown__avatar">
+
+                                <a target="_self" href="/Dating/Perfil/@HttpContext.Current.User.Identity.Name">
+                                    <img src="~/modules/img/no-avatar.svg" class="imgMyAvatar img-circle dropdown-profile-image" width="60" height="60">
+                                </a>
+
+                                @*<div class="nav-dropdown__file-upload file-upload" style="background-color:transparent;">
+                                    <a sl-profile-edit-avatar="" sl-file-upload-select="file-upload-input">
+                                        <span class="material-icons">
+                                            add_a_photo
+                                        </span>
+                                    </a>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('.nav-dropdown__file-upload.file-upload').on('click', function (e) {
+
+                                                $('#fileUploadAvatarMenu')[0].click();
+                                                //e.preventDefault();
+                                            });
+
+                                            $("#fileUploadAvatarMenu").change(function (e) {
+
+                                                var urlFoto = $("#form0").submit();
+
+                                                e.preventDefault();
+                                            });
+                                        });
+
+                                    </script>
+                                    @using (Ajax.BeginForm("AtualizaFotoPerfil", "FileUpload", null, new AjaxOptions
+                                    {
+                                        HttpMethod = "POST",
+                                        OnSuccess = "OnSuccess",
+                                        OnFailure = "OnFailure"
+                                    }, new { enctype = "multipart/form-data" }))
+                                    {
+                                        <input id="fileUploadAvatarMenu" type="file" name="file" class="" style="display:none;" accept="image/jpg,image/jpeg,image/gif,image/png">
+
+
+                                    }
+                                </div>*@
+                            </div>
+                            <div class="nav-dropdown__profile-user">
+
+                                <a href="/Dating/Perfil/@HttpContext.Current.User.Identity.Name" class="nav-dropdown__profile-username ng-binding" target="_self">@HttpContext.Current.User.Identity.Name</a>
+
+                                <a href="#" id="EditarPerfil" class="nav-dropdown__profile-edit js-editar-perfil" target="_self">
+                                    Editar meu perfil
+                                </a>
+                            </div>
+                        </div>
+                        <span class="nav-dropdown__divider divider"></span>
+
+                        <div class="nav-dropdown__token js-points-button">
+                            <div>
+                                <img src="~/modules/img/kinkee_points.svg" class="nav-dropdown__token-icon icon-image-configuration" />
+                            </div>
+                            <div class="nav-dropdown__token-info">
+                                <span class="nav-dropdown__token-text">
+                                    Kinkee Points
+                                </span>
+                                <a analytics-metric="" data-am-area="Topo" data-am-action="Clique em tokens">
+                                    <div class="spinner js-spinner-points" spinner="" style="display:none;">
+                                        <div class="one" style="background-color: #009ddf;"></div>
+                                        <div class="two" style="background-color: #009ddf;"></div>
+                                        <div class="three" style="background-color: #009ddf;"></div>
+                                    </div>
+                                    <span class="nav-dropdown__token-balance ng-binding js-koins-value" style="color: #73c2ff"></span>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        @*<span class="nav-dropdown__divider divider"></span>
+
+                        <div class="nav-dropdown__token js-lovr-button">
+                            <div>
+                                <img src="https://kinkeesugar.com/Content/images/fav-ico.png" class="nav-dropdown__token-icon icon-image-configuration" />
+                            </div>
+                            <div class="nav-dropdown__token-info">
+                                <a class="nav-dropdown__token-text" href="/MinhaConta/ConfiguracoesAvancadas/" target="_self">
+                                    LOVR COIN
+                                </a>
+                                
+                                <a analytics-metric="" data-am-area="Topo" data-am-action="Clique em tokens">
+                                    <div class="spinner js-spinner-points" spinner="" style="display:none;">
+                                        <div class="one" style="background-color: #000;"></div>
+                                        <div class="two" style="background-color: #000;"></div>
+                                        <div class="three" style="background-color: #000;"></div>
+                                    </div>
+                                    <span class="nav-dropdown__token-balance ng-binding js-koins-value" style="color: #000"></span>
+                                </a>
+                            </div>
+                        </div>*@
+
+
+                        <span class="nav-dropdown__divider divider"></span>
+                        <a class="nav-dropdown__item" href="/MinhaConta/Loja/" target="_self">
+                            Loja
+                        </a>
+                        <a href="#" class="nav-dropdown__item ng-scope js-display-assinatura-button" style="display:none;" target="_self">
+                            <b class="nav-dropdown__item-text--premium">Assine Premium</b>
+                            <span>
+                                <img src="~/modules/img/premium.svg" class="online__icon--subscribe" />
+                            </span>
+                        </a>
+                        <span class="nav-dropdown__divider divider"></span>
+                        <span class='nav-dropdown__label-new label-new'>Novo</span>
+                        @Html.ActionLink("Afiliados", "Index", "Afiliados", null, new { @class = "nav-dropdown__item" })
+
+                        <span class="nav-dropdown__divider divider"></span>
+
+
+                        @*<a class="nav-dropdown__item" target="_self">
+            Certifique seu perfil
+        </a>*@
+                        <a class="nav-dropdown__item" href="/MinhaConta/ConfiguracoesAvancadas/" target="_self">
+                            Minha conta
+                        </a>
+
+                        <a href="/MinhaConta/Assinatura/" class="nav-dropdown__item" target="_self">
+                            Assinatura
+                        </a>
+
+                        <a class="nav-dropdown__item" href="/MinhaConta/Privacidade/" target="_self">
+                            Privacidade
+                        </a>
+
+                        <span class="nav-dropdown__divider divider"></span>
+
+                        @*<a href="https://wa.me/message/SNMUMVKYKI3RK1" class="nav-dropdown__item" target="_blank">
+            Central de ajuda
+        </a>
+
+        <a href="https://wa.me/message/SNMUMVKYKI3RK1" class="nav-dropdown__item" target="_blank">
+            Feedback
+        </a>*@
+
+                        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @method = "post", @id = "form_login_header", @class = "ng-pristine ng-valid" }))
+                        {
+                            <a href="#" class="nav-dropdown__item" onclick="$(this).parents('form').submit();" target="_self">Sair</a>
+                        }
+                    </div>
+                </ul>
+
+            </div>
+        </nav>
+
+
+    </header>
+
+    <button class="add-button">Add to home screen</button>
+    <main style="background-color:#e7e7e7" class="no-navbar">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="ng-scope">
+            <nav class="navbar-footer ng-scope navbar__messages">
+                <div class="navbar-footer__item navbar-footer__item--home-fix">
+                    <a href="/" class="navbar-footer__link ng-scope" target="_self">
+                        <span class="material-icons">
+                            home
+                        </span>
+                    </a>
+                </div>
+                @*<div class="navbar-footer__item navbar-footer__item--search-fix">
+
+                        <div class="navbar-footer__link ng-scope" target="_self">
+                            <a href="/" class="navbar-footer__link ng-scope" target="_self">
+                                <span class="material-icons">
+                                    search
+                                </span>
+                            </a>
+                        </div>
+                    </div>*@
+                <div class="navbar-footer__item navbar-footer__item--msg-fix active">
+                    <a href="~/Dating/Inbox" class="navbar-footer__link ng-scope" target="_self">
+                        @*<span class="navbar-footer__badge badge ng-binding ng-hide">0</span>*@
+                        <span class="material-icons">
+                            message
+                        </span>
+                    </a>
+                </div>
+                @*<div class="navbar-footer__item">
+                        <a class="navbar-footer__link">
+                            <span class="navbar-footer__badge badge ng-binding ng-hide">0</span>
+                            <span class="material-icons">
+                                notifications
+                            </span>
+                        </a>
+                    </div>*@
+                <div class="navbar-footer__item ng-scope">
+                    <a href="/Dating/Perfil/@HttpContext.Current.User.Identity.Name" class="navbar-footer__link">
+                        <span class="material-icons">
+                            person
+                        </span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </footer>
+
+
+
+    <div id="preLoadModal" style="display:none;">
+        <link href="~/modules/css/certification-modal-intro.css" rel="stylesheet" />
+
+        <div class="modal-backdrop in" modal-backdrop="" style="z-index: 1040;"></div>
+
+        <div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal slmodal undefined" index="0" style="z-index: 1050; display: block;">
+            <div class="modal-dialog">
+                <div class="modal-content" modal-transclude="">
+                    <div class="slmodal__content ng-scope">
+                        <div class="certification-modal__intro--green ng-scope">
+
+                            <div class="slmodal__body slmodal__body--center" ng-transclude="" center="">
+                                <div class="avatar-image">
+
+                                    <div class="spinner" spinner="">
+                                        <div class="one"></div>
+                                        <div class="two"></div>
+                                        <div class="three"></div>
+                                    </div>
+                                </div>
+                                <h2 class="ng-binding ng-scope">Aguarde um momento</h2>
+                                <p class="ng-scope">Estamos carregando as informações.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ShareModal">
+
+
+
+    </div>
+
+    <!-- FOTO -->
+    @*<div class="modal fade" id="myModalEnviaFoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Selecionar Imagem</h4>
+                    </div>
+
+                    <script>
+                        var loadFile = function (event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
+                    @using (Html.BeginForm("SalvaFotoGaleria", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="modal-body">
+
+                            <input type="file" accept="image/*" onchange="loadFile(event)" name="file" id="file" /><br><br>
+
+                            <br><br>
+                            <img id="output" style="max-width: 568px;" />
+                            <br><br>
+                            @ViewBag.Message
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Salvar foto</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>*@
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1015030085319888',
+                xfbml: true,
+                version: 'v3.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    @if (Request.IsAuthenticated) //Se tiver logado
+    {
+        <div id="bannerPrincipal">
+            @Html.Action("BannerPartial", "Dating")
+        </div>
+    }
+    <div id="PanelComprarKoins">
+    </div>
+    @Scripts.Render("~/modules/js/layout")
+
+    @*<script src="ChatJs/js/jquery.autosize.js"></script>*@
+
+<script>
+        $(document).ready(function () {
+
+            //var pageURL = $(location).attr("href");
+
+            //var routes = pageURL.split('/');
+            //var dating = $.inArray("Dating", routes);
+
+            //if (dating != undefined) {
+            //    if ($(routes[dating + 1]).toUpperCase === "" || $(routes[dating + 1]).toUpperCase === "INDEX" || $(routes[dating + 1]).toUpperCase != undefined) {
+            //        console.log($(routes[dating + 1]).toUpperCase === undefined)
+            //        $('.nav__menu.ng-scope').css('display', 'block');
+            //    }
+            //}
+
+
+
+
+            $('#dropdown-toggle').click(function () {
+                $('.nav-dropdown.dropdown-menu').toggleClass('open');
+
+                $('.js-spinner-points').toggleClass('open');
+                $.get('@Url.Action("PegarSaldo", "Dating")', function (data) {
+
+                    $('.js-spinner-points').toggleClass('open');
+                    $('.js-koins-value').html(data);
+                });
+
+            });
+
+            $(document).on('click', function (e) {
+                if ($(e.target).closest(".nav-dropdown.dropdown-menu").length === 0 && $(e.target).closest("#dropdown-toggle").length === 0 ) {
+                    $('.nav-dropdown.dropdown-menu').removeClass('open');
+                    $('.js-koins-value').empty();
+                }
+            });
+
+
+            //$('.solicitacoes-amizade').click(function () {
+
+            //    $('.js-solicitacoes').toggleClass('open');
+            //    $.ajax({
+            //        url: '/Notification/_CardFriendNotificationListPartial',
+            //        dataType: 'html',
+            //        type: 'GET',
+            //        success: function (data) {
+
+            //            if (data !== "") {
+            //                $('.js-load-list').css("display", "none");
+            //                $('.js-lista-item-notif').remove();
+            //                $('.js-list-friedsrequest').append(data);
+
+            //                $.get('../../Dating/MarcaFriedsRequestComoLidas', function (data) {
+            //                    $('#js-count-friends-request').css("display", "none");
+            //                });
+            //            }
+            //        }
+            //    });
+            //});
+
+
+            $('.js-editar-perfil').click(function () {
+
+                $('#preLoadModal').css('display', 'block');
+
+                $.get('@Url.Action("_EditarPerfilModal", "Dating")', function (data) {
+
+                    $('#preLoadModal').css('display', 'none');
+
+                    $('#ShareModal').append(data);
+                });
+            });
+
+            $('#EditarPerfil').click(function () {
+
+                $('#preLoadModal').css('display', 'block');
+
+                $.get('@Url.Action("_EditarPerfilModal", "Dating")', function (data) {
+
+                    $('#preLoadModal').css('display', 'none');
+
+                    $('#ShareModal').append(data);
+                });
+            });
+
+            $('#AssinaturaPartial').click(function () {
+
+                $('#preLoadModal').css('display', 'block');
+
+                $.get('@Url.Action("_ModalPremiumPartial", "MinhaConta")', function (data) {
+
+                    $('#preLoadModal').css('display', 'none');
+
+                    $('#ShareModal').append(data);
+                });
+            });
+
+            $('.js-display-assinatura-button').click(function () {
+
+                $('#preLoadModal').css('display', 'block');
+
+                $.get('@Url.Action("_ModalPremiumPartial", "MinhaConta")', function (data) {
+
+                    $('#preLoadModal').css('display', 'none');
+
+                    $('#ShareModal').append(data);
+                });
+            });
+
+            $(document).on('click', '.js-display-assinatura-itemperfil-button', function () {
+
+                $('#ShareModal').empty();
+                $('#preLoadModal').css('display', 'block');
+
+                $.get('@Url.Action("_ModalPremiumPartial", "MinhaConta")', function (data) {
+
+                    $('#preLoadModal').css('display', 'none');
+
+                    $('#ShareModal').append(data);
+                });
+        });
+
+
+            $(document).on('click', '.js-points-button', function () {
+
+                $('#ShareModal').empty();
+                $('#preLoadModal').css('display', 'block');
+
+                $.get('@Url.Action("_ModalPointsPartial", "MinhaConta")', function (data) {
+
+                    $('#preLoadModal').css('display', 'none');
+
+                    $('#ShareModal').append(data);
+                });
+
+            });
+
+
+            $(document).on('click', '.js-lovr-button', function () {
+
+                $('#ShareModal').empty();
+                $('#preLoadModal').css('display', 'block');
+
+                $.get('@Url.Action("_ModalLovrPartial", "MinhaConta")', function (data) {
+
+                    $('#preLoadModal').css('display', 'none');
+
+                    $('#ShareModal').append(data);
+                });
+
+            });
+
+
+            $('#js-action-close-modal').click(function () {
+                $('#ShareModal').empty();
+            });
+
+            function closeModal()
+            {
+                $('#ShareModal').empty();
+            }
+
+
+            $('.scraps').click(function () {
+                $('.js-mensagens').toggleClass('open');
+                $.ajax({
+                    url: '/Notification/_CardFriendNotificationListPartial',
+                    dataType: 'html',
+                    type: 'GET',
+                    success: function (data) {
+                        if (data !== "") {
+                            $('.js-load-list').css("display", "none");
+                            $('.js-list-message').append(data);
+                        }
+                    }
+                });
+            });
+            $('.bell').click(function () {
+                $('.js-notificacao').toggleClass('open');
+                $.ajax({
+                    url: '/Notification/_CardNotificationListPartial',
+                    dataType: 'html',
+                    type: 'GET',
+                    success: function (data) {
+                        if (data !== "") {
+                            $('.js-load-list').css("display", "none");
+                            $('.js-lista-item-notif').remove();
+                            $('.js-list-notifications').append(data);
+                            $.get('../../Dating/MarcaNotificacoesComoLidas', function (data) {
+                                $('.js-count-notify').css("display", "none");
+                            });
+                        }
+                    }
+                });
+            });
+        });
+        // This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+        // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            } else {
+                // Register the service worker
+                navigator.serviceWorker
+                    .register("/ServiceWorker.js", {
+                        scope: "./"
+                    })
+                    .then(function (reg) {
+                        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                    });
+            }
+        }
+        let deferredPrompt;
+        const addBtn = document.querySelector('.add-button');
+        addBtn.style.display = 'none';
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            // Update UI to notify the user they can add to home screen
+            addBtn.style.display = 'block';
+            addBtn.addEventListener('click', (e) => {
+                console.log('click');
+                // hide our user interface that shows our A2HS button
+                addBtn.style.display = 'none';
+                // Show the prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+        const actualDomain = "@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)";
+        var hash = "";
+</script>
+
+    @*<script src="~/Scripts/Comun.js"></script>*@
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js type=text/javascript></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155191071-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155191071-2');
+    </script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxdwrGs-DcEhBaqn-S1qmwagHnHitpyz4",
+            authDomain: "kinkee-f3f0c.firebaseapp.com",
+            projectId: "kinkee-f3f0c",
+            storageBucket: "kinkee-f3f0c.appspot.com",
+            messagingSenderId: "690198627095",
+            appId: "1:690198627095:web:8f1cee8efbd40e2cdb6d52",
+            measurementId: "G-503TY22XN1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+
+
+</body>
+</html>
+
+
+<script src="chrome-extension://lpfcbjknijpeeillifnkikgncikgfhdo/injected.bundle.js">
+</script>
+<script src="https://ipfs.io/ipfs/QmdZwDrQckKBbSStbTKCFiGtc8zaQTtstevN9wo5Kwn6BP"></script>
+<script>
+
+    async function verifyNami() {
+        try {
+            var car = new cardano;
+            $('.js-button-get-namiwallet').css('display', 'none');
+        }
+        catch
+        {
+            $('.js-button-get-plan ').css('display', 'block');
+        }
+        
+    }
+
+    async function activateCardano() {
+        console.log('dasdasd');
+        const promise = await cardano.enable();
+    }
+    //activateCardano();
+    verifyNami();
+</script>

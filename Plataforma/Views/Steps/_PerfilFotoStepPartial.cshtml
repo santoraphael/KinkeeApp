@@ -1,0 +1,255 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+
+
+
+<style>
+    .onboarding-steps-float {
+        display: none;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: fixed;
+        border-radius: 10px;
+        z-index: 10;
+        cursor: pointer;
+        bottom: 60px;
+        right: 10px;
+    }
+
+    @@media(min-width:992px) {
+        .onboarding-steps-float {
+            bottom: 15px;
+            left: 15px
+        }
+    }
+
+    .onboarding-steps-float .step-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 100%;
+        pointer-events: none
+    }
+
+    .onboarding-steps-float .step-image {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        background-color: #661577;
+        padding: 7px;
+        border-radius: 50%
+    }
+
+        .onboarding-steps-float .step-image .image-sm {
+            display: none
+        }
+
+    .onboarding-steps-float .step-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #d5186a;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        color: #fff;
+        -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .8);
+        box-shadow: 0 0 6px rgba(0, 0, 0, .8)
+    }
+
+    .onboarding-steps-float .step-info {
+        display: none
+    }
+
+        .onboarding-steps-float .step-info p {
+            margin: 0;
+            color: #fff;
+            line-height: 1.25
+        }
+
+        .onboarding-steps-float .step-info .info-message {
+            font-weight: 100
+        }
+
+        .onboarding-steps-float .step-info .info-title {
+            font-weight: 600;
+            font-size: 16px
+        }
+
+    .onboarding-steps-float .step-action {
+        display: none;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        position: absolute;
+        top: -30px;
+        right: 0;
+        width: 100%;
+        height: 25px
+    }
+
+        .onboarding-steps-float .step-action .action {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 25px;
+            background-color: rgba(0, 0, 0, .7);
+            font-size: 12px;
+            color: #fff;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, .5);
+            border-radius: 12px;
+            padding: 0 10px;
+            cursor: pointer
+        }
+
+            .onboarding-steps-float .step-action .action:not(:last-child) {
+                margin-right: 5px
+            }
+
+        .onboarding-steps-float .step-action .action-close .close {
+            font-size: 22px;
+            margin-left: 3px
+        }
+
+        .onboarding-steps-float .step-action .action-delete {
+            display: none
+        }
+
+    .onboarding-steps-float.active {
+        -webkit-transition: background-color .5s ease;
+        transition: background-color .5s ease;
+        background-color: #661577;
+        width: calc(100% - 20px)
+    }
+
+        .onboarding-steps-float.active .step-image {
+            width: 54px;
+            margin-right: 5px
+        }
+
+        .onboarding-steps-float.active .step-info {
+            display: block
+        }
+
+        .onboarding-steps-float.active .step-action {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .onboarding-steps-float.active .step-badge {
+            display: none
+        }
+
+        .onboarding-steps-float.active .step-content {
+            pointer-events: auto
+        }
+
+    .onboarding-steps-float.visible {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-animation: popout .5s ease forwards;
+        animation: popout .5s ease forwards;
+    }
+
+    @@media(min-width:600px) {
+        .onboarding-steps-float {
+            max-width: 300px;
+        }
+
+            .onboarding-steps-float .step-image .image-xs {
+                display: none
+            }
+
+            .onboarding-steps-float .step-image .image-sm {
+                display: block
+            }
+
+            .onboarding-steps-float .step-badge {
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+                top: -2px;
+                right: -2px
+            }
+
+            .onboarding-steps-float.active .step-image {
+                width: 64px
+            }
+    }
+
+    @@media(min-width:992px) {
+        .onboarding-steps-float {
+            bottom: 15px;
+            left: 65px
+        }
+    }
+</style>
+<script>
+    $(document).ready(function () {
+
+        var mostrinho = $('.js-img-perfil-circle').attr("src").toLowerCase().indexOf("monstrinho");
+
+        if (mostrinho >= 0) {
+
+            $('.js-next-step').addClass('visible');
+        }
+
+        $('.js-next-step').click(function (e) {
+            $(this).toggleClass('active');
+        });
+
+    });
+</script>
+
+
+<div class="onboarding-steps-float ng-scope js-next-step">
+    <div class="step-content">
+        <div class="step-image">
+            <img src="https://app.kinkeesugar.com/Users/e981d60606e348e098715e36b12436b8_645094b17e9e42b7bccf25fa0eda71e9.jpg" class="img-circle" width="50" height="50" />
+            @*<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 52 52" class="image-xs"><defs><path id="a" d="M.008 52V.111h51.88V52z"></path><path id="c" d="M48.244 24.12c0 13.297-10.78 24.077-24.078 24.077C10.87 48.197.09 37.417.09 24.119.09 10.822 10.87.042 24.166.042c13.298 0 24.078 10.78 24.078 24.077z"></path></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"></use></mask><path fill="#FFF" d="M25.944.111C11.616.111 0 11.727 0 26.056 0 40.384 11.616 52 25.944 52 40.273 52 51.89 40.384 51.89 26.056 51.889 11.727 40.273.11 25.944.11" mask="url(#b)"></path><path fill="#FFCFAE" d="M50.18 26.056c0-13.298-10.78-24.078-24.077-24.078-13.298 0-24.078 10.78-24.078 24.078 0 13.297 10.78 24.077 24.078 24.077 13.297 0 24.077-10.78 24.077-24.077"></path><g transform="translate(1.936 1.936)"><mask id="d" fill="#fff"><use xlink:href="#c"></use></mask><path fill="#EDA08E" d="M29.852 52.674c5.09-13.217 15.275-23.404 18.643-23.983 2.628 14.224-14.467 26.965-18.643 23.983m-11.371 0C13.391 39.457 3.206 29.27-.162 28.69-2.79 42.915 14.305 55.656 18.481 52.674" mask="url(#d)"></path><path fill="#652876" d="M42.825.595s-5.538 4.953-25.727 6.971c4.152-1.439 4.177-3.605 4.177-3.605s-7.997 4.192-21.186 3C6.038-2.447 11.846-6.596 11.846-6.596L42.825.595" mask="url(#d)"></path><path fill="#652876" d="M14.74 6.116S5.07 7.952-.876 24.119C-2.122 7.095-1.707.042-1.707.042L14.74 6.116" mask="url(#d)"></path></g><path fill="#FFF" d="M30.637 40.067l-3.481 3.134-3.945-2.302-1.47-1.993L25.7 36.49l2.475.928 2.462 2.65"></path><path fill="#9D5EB7" d="M29.244 25.145s3.249-8.25 10.623-5.002c-1.496 3.043-2.32 6.085-10.623 5.002zM12.59 20.143c7.374-3.248 10.622 5.002 10.622 5.002-8.302 1.083-9.127-1.96-10.622-5.002zm18.821-4.847c-2.785.825-5.466 2.27-5.466 2.27s-2.166-1.754-3.506-2.063c-1.34-.31-12.582-.97-12.582-.97s-5.026-.88-5.363.202c0 0 3.946 23.318 21.207 15.034.966.275 1.835.481 1.835.481s13.879 8.779 19.86-15.515c-4.64-.367-13.2-.264-15.985.561z"></path><path fill="#ABE1FA" d="M29.244 25.042s3.249-8.25 10.623-5.002c-1.496 3.043-2.32 6.085-10.623 5.002m-6.033 0s-3.248-8.25-10.622-5.002c1.495 3.043 2.32 6.085 10.622 5.002"></path><path fill="#50075C" d="M13.712 21.326c.79 1.44 2.088 3.156 3.781 3.156 1.23 0 2.378-.016 3.412-.049l.758-.023-.366-.664c-1.12-2.033-2.435-3.108-3.804-3.108h-4.159l.378.688zm3.781 5.093c-1.796 0-3.416-1.037-4.813-3.082a14.513 14.513 0 0 1-1.678-3.37.97.97 0 0 1 .922-1.264h5.57c1.794 0 3.413 1.011 4.81 3.007a14.041 14.041 0 0 1 1.676 3.285.96.96 0 0 1-.112.839.961.961 0 0 1-.728.43c-.337.026-2.177.155-5.647.155zm17.22-5.781c-1.37 0-2.686 1.075-3.804 3.108l-.366.664.758.023c1.034.033 2.182.049 3.412.049 1.703 0 2.999-1.717 3.787-3.157l.375-.687h-4.162zm0 5.78c-3.75 0-5.627-.153-5.645-.154a.964.964 0 0 1-.73-.43.963.963 0 0 1-.113-.839A13.96 13.96 0 0 1 29.9 21.71c1.398-1.995 3.017-3.007 4.812-3.007h5.569a.969.969 0 0 1 .922 1.265c-.023.07-.57 1.75-1.678 3.37-1.398 2.045-3.017 3.082-4.813 3.082z"></path><path fill="#D5196A" d="M28.988 39.466c-.474.185-1.427 1.298-2.885 1.298-1.575 0-2.372-1.055-2.906-1.298-.014-.006-.017-.038 0-.045.293-.133.91-.584 1.546-.584s.872.172 1.296.172c.423 0 .793-.172 1.429-.172s1.254.452 1.547.584c.013.006.003.034-.027.045zm4.162-.947c-1.477-.64-2.902-3.042-4.335-3.042-1.433 0-1.775.683-2.73.683-.955 0-1.297-.683-2.73-.683s-2.962 2.574-4.29 3.095c-.1.04.05.179.316.48 1.227 1.387 1.964 5.073 6.701 5.073 4.869 0 5.756-4.052 6.844-5.262.195-.217.29-.316.224-.344z"></path><path fill="#50075C" d="M26.178 28.566a.96.96 0 0 1 .56.178c1.803 1.28 4.153 1.929 6.986 1.929 8.144 0 11.325-10.296 12.314-14.722l.145-.65-.66.088c-2.398.32-6.392.702-11.8.702-2.477 0-4.828.776-6.986 2.306a.96.96 0 0 1-1.12.001c-2.158-1.531-4.508-2.307-6.986-2.307-5.431 0-9.496-.385-11.95-.708l-.658-.086.145.648c.995 4.428 4.202 14.728 12.463 14.728 2.831 0 5.182-.649 6.986-1.929a.965.965 0 0 1 .56-.178zm-18.98 21.67a.969.969 0 0 1-.968-.967V22.527l-.037-.086c-1.755-4.148-2.296-8.03-2.318-8.192a.966.966 0 0 1 1.144-1.08c.051.01 5.194.986 13.612.986 2.576 0 5.033.716 7.3 2.128l.246.153.245-.153c2.268-1.412 4.725-2.128 7.302-2.128 8.343 0 13.406-.975 13.457-.984a.971.971 0 0 1 .852.243.968.968 0 0 1 .297.835c-.025.185-.631 4.57-2.67 9.034-2.788 6.1-6.915 9.326-11.936 9.326-2.85 0-5.31-.596-7.312-1.772l-.235-.138-.235.138c-2.002 1.176-4.462 1.772-7.311 1.772-3.784 0-7.024-1.747-9.63-5.191l-.835-1.103V49.27a.969.969 0 0 1-.968.967z"></path></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 52 52" class="image-sm"><defs><path id="a" d="M.008 52V.111h51.88V52z"></path><path id="c" d="M48.244 24.12c0 13.297-10.78 24.077-24.078 24.077C10.87 48.197.09 37.417.09 24.119.09 10.822 10.87.042 24.166.042c13.298 0 24.078 10.78 24.078 24.077z"></path></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"></use></mask><path fill="#FFF" d="M25.944.111C11.616.111 0 11.727 0 26.056 0 40.384 11.616 52 25.944 52 40.273 52 51.89 40.384 51.89 26.056 51.889 11.727 40.273.11 25.944.11" mask="url(#b)"></path><path fill="#FFCFAE" d="M50.18 26.056c0-13.298-10.78-24.078-24.077-24.078-13.298 0-24.078 10.78-24.078 24.078 0 13.297 10.78 24.077 24.078 24.077 13.297 0 24.077-10.78 24.077-24.077"></path><g transform="translate(1.936 1.936)"><mask id="d" fill="#fff"><use xlink:href="#c"></use></mask><path fill="#EDA08E" d="M29.852 52.674c5.09-13.217 15.275-23.404 18.643-23.983 2.628 14.224-14.467 26.965-18.643 23.983m-11.371 0C13.391 39.457 3.206 29.27-.162 28.69-2.79 42.915 14.305 55.656 18.481 52.674" mask="url(#d)"></path><path fill="#652876" d="M42.825.595s-5.538 4.953-25.727 6.971c4.152-1.439 4.177-3.605 4.177-3.605s-7.997 4.192-21.186 3C6.038-2.447 11.846-6.596 11.846-6.596L42.825.595" mask="url(#d)"></path><path fill="#652876" d="M14.74 6.116S5.07 7.952-.876 24.119C-2.122 7.095-1.707.042-1.707.042L14.74 6.116" mask="url(#d)"></path></g><path fill="#FFF" d="M30.637 40.067l-3.481 3.134-3.945-2.302-1.47-1.993L25.7 36.49l2.475.928 2.462 2.65"></path><path fill="#9D5EB7" d="M29.244 25.145s3.249-8.25 10.623-5.002c-1.496 3.043-2.32 6.085-10.623 5.002zM12.59 20.143c7.374-3.248 10.622 5.002 10.622 5.002-8.302 1.083-9.127-1.96-10.622-5.002zm18.821-4.847c-2.785.825-5.466 2.27-5.466 2.27s-2.166-1.754-3.506-2.063c-1.34-.31-12.582-.97-12.582-.97s-5.026-.88-5.363.202c0 0 3.946 23.318 21.207 15.034.966.275 1.835.481 1.835.481s13.879 8.779 19.86-15.515c-4.64-.367-13.2-.264-15.985.561z"></path><path fill="#ABE1FA" d="M29.244 25.042s3.249-8.25 10.623-5.002c-1.496 3.043-2.32 6.085-10.623 5.002m-6.033 0s-3.248-8.25-10.622-5.002c1.495 3.043 2.32 6.085 10.622 5.002"></path><path fill="#50075C" d="M13.712 21.326c.79 1.44 2.088 3.156 3.781 3.156 1.23 0 2.378-.016 3.412-.049l.758-.023-.366-.664c-1.12-2.033-2.435-3.108-3.804-3.108h-4.159l.378.688zm3.781 5.093c-1.796 0-3.416-1.037-4.813-3.082a14.513 14.513 0 0 1-1.678-3.37.97.97 0 0 1 .922-1.264h5.57c1.794 0 3.413 1.011 4.81 3.007a14.041 14.041 0 0 1 1.676 3.285.96.96 0 0 1-.112.839.961.961 0 0 1-.728.43c-.337.026-2.177.155-5.647.155zm17.22-5.781c-1.37 0-2.686 1.075-3.804 3.108l-.366.664.758.023c1.034.033 2.182.049 3.412.049 1.703 0 2.999-1.717 3.787-3.157l.375-.687h-4.162zm0 5.78c-3.75 0-5.627-.153-5.645-.154a.964.964 0 0 1-.73-.43.963.963 0 0 1-.113-.839A13.96 13.96 0 0 1 29.9 21.71c1.398-1.995 3.017-3.007 4.812-3.007h5.569a.969.969 0 0 1 .922 1.265c-.023.07-.57 1.75-1.678 3.37-1.398 2.045-3.017 3.082-4.813 3.082z"></path><path fill="#D5196A" d="M28.988 39.466c-.474.185-1.427 1.298-2.885 1.298-1.575 0-2.372-1.055-2.906-1.298-.014-.006-.017-.038 0-.045.293-.133.91-.584 1.546-.584s.872.172 1.296.172c.423 0 .793-.172 1.429-.172s1.254.452 1.547.584c.013.006.003.034-.027.045zm4.162-.947c-1.477-.64-2.902-3.042-4.335-3.042-1.433 0-1.775.683-2.73.683-.955 0-1.297-.683-2.73-.683s-2.962 2.574-4.29 3.095c-.1.04.05.179.316.48 1.227 1.387 1.964 5.073 6.701 5.073 4.869 0 5.756-4.052 6.844-5.262.195-.217.29-.316.224-.344z"></path><path fill="#50075C" d="M26.178 28.566a.96.96 0 0 1 .56.178c1.803 1.28 4.153 1.929 6.986 1.929 8.144 0 11.325-10.296 12.314-14.722l.145-.65-.66.088c-2.398.32-6.392.702-11.8.702-2.477 0-4.828.776-6.986 2.306a.96.96 0 0 1-1.12.001c-2.158-1.531-4.508-2.307-6.986-2.307-5.431 0-9.496-.385-11.95-.708l-.658-.086.145.648c.995 4.428 4.202 14.728 12.463 14.728 2.831 0 5.182-.649 6.986-1.929a.965.965 0 0 1 .56-.178zm-18.98 21.67a.969.969 0 0 1-.968-.967V22.527l-.037-.086c-1.755-4.148-2.296-8.03-2.318-8.192a.966.966 0 0 1 1.144-1.08c.051.01 5.194.986 13.612.986 2.576 0 5.033.716 7.3 2.128l.246.153.245-.153c2.268-1.412 4.725-2.128 7.302-2.128 8.343 0 13.406-.975 13.457-.984a.971.971 0 0 1 .852.243.968.968 0 0 1 .297.835c-.025.185-.631 4.57-2.67 9.034-2.788 6.1-6.915 9.326-11.936 9.326-2.85 0-5.31-.596-7.312-1.772l-.235-.138-.235.138c-2.002 1.176-4.462 1.772-7.311 1.772-3.784 0-7.024-1.747-9.63-5.191l-.835-1.103V49.27a.969.969 0 0 1-.968.967z"></path></g></svg>*@
+
+            <div class="step-badge">
+                1
+            </div>
+        </div>
+        <div class="step-info">
+            <p class="info-message">Vamos melhorar seu perfil:</p>
+            <p class="info-title">Atualize sua foto do perfil</p>
+            <p class="info-title"><a href="/MinhaConta/EditarPerfil/" style="color:white">CLIQUE AQUI</a></p>
+        </div>
+    </div>
+    @*<div class="step-action">
+            <div class="action action-delete">
+                Não exibir novamente
+            </div>
+            <div class="action action-close">
+                Fechar <span class="close">×</span>
+            </div>
+        </div>*@
+</div>

@@ -1,0 +1,177 @@
+﻿@using Plataforma.Models
+@model PagamentoCartao
+
+@{
+    Layout = null;
+}
+
+<div class="tab-pane">
+
+    @using (Ajax.BeginForm("ComprarItemBoleto", "MinhaConta", new AjaxOptions
+    {
+        OnSuccess = "RegisterAjaxEvents",
+        UpdateTargetId = "TargetUpdate",
+        InsertionMode = InsertionMode.Replace
+    }, new { @id = "SubmitFormSubscription", @class = "sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-valid ng-invalid-flag" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <hr />
+        @Html.ValidationSummary(true, "TESTE SDADAS", new { @class = "text-danger" })
+
+        <div id="TargetUpdate">
+            @Html.HiddenFor(m => m.plan_id)
+
+            <div class="">
+
+                <div class="plan-selected-header">
+                    <div class="plan-selected-name">
+                        <span>
+                            Plano escolhido
+                        </span>
+                        <strong class="choosen-plan ng-binding">@ViewBag.NomePacote</strong>
+                    </div>
+                    <span class="change-plan js-change-plan">
+                        Alterar
+                    </span>
+                </div>
+
+                <hr>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                    <div class="form-group has-feedback">
+                        <label>Numero do CPF ou CNPJ(apenas números)</label>
+                        @*<input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 12345-123" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode">*@
+                        @Html.TextBoxFor(m => m.numeroDocumento, new { @id = "NumeroDocumento", @class = "form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength", @placeholder = "Ex: 12345-123", @zipcode = "", @name = "zipCode" })
+                        @Html.ValidationMessageFor(m => m.numeroDocumento, "", new { @class = "text-danger" })
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+
+            </div>
+            
+        </div>
+    }
+
+    <hr class="separate">
+    <div class="privacy__text">
+        <span>Cobrança processada pela <strong class="privacy-info__strong">Pagar.Me</strong>.</span>
+    </div>
+    <div class="renewal-text">
+        <span class="ng-binding">Sua assinatura será renovada automaticamente até que seja cancelada.</span>
+    </div>
+
+
+    <div class="box-submit">
+        <div class="box-submit__infos">
+            <small class="termos-uso">
+                Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+            </small>
+            <small class="termos-uso flag-br ng-hide">
+                Essa compra está sendo feita no Brasil
+            </small>
+        </div>
+        <div class="box-submit__btn">
+            <button class="sl-btn btn-primary btn-lg js-button-submit-subscription">
+                <span class="ng-binding">Comprar</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script> 
+
+<script>
+    $(document).ready(function () {
+
+        $("input[id*='CEP']").inputmask({
+            mask: ['99999-999', '99999999'],
+            keepStatic: true
+        });
+
+        $("input[id*='NumeroCartao']").inputmask({
+            mask: ['9999999999999999999', '9999999999999999999'],
+            keepStatic: true
+        });
+
+        $("input[id*='CodigoSeguranca']").inputmask({
+            mask: ['999', '999'],
+            keepStatic: true
+        });
+
+        $("#SelectMesValidade").change(function () {
+
+            $('#mesValidadeCartao').val($(this).val());
+        });
+
+        $("#SelectAnoValidade").change(function () {
+
+            $('#anoValidadeCartao').val($(this).val());
+        });
+
+
+        $('.js-button-submit-subscription').click(function () {
+
+           
+
+            //if (!FormValidate()) {
+            //    $('.js-validator-label').css("display", "block");
+            //}
+            //else {
+            //    $("#SubmitFormSubscription").submit();
+            //}
+
+            $("#SubmitFormSubscription").submit();
+           
+        });
+
+
+        $('.js-change-plan').click(function () {
+
+            $('.js-action-select-pagamento-boleto').removeClass('active');
+            $('.js-action-select-pagamento-cartao-credito').removeClass('active');
+
+
+            $('.js-tab-escolha-plano').css('display', 'block');
+            $('.js-tab-forma-pagamento').css('display', 'none');
+
+            $('.js-nav-escolha-plano').removeClass('disabled');
+            $('.js-nav-escolha-pagamento').removeClass('active');
+
+            $('.js-nav-escolha-plano').addClass('active');
+            $('.js-nav-escolha-pagamento').addClass('disabled');
+
+            $('.js-back-subscribe-new-modal').attr('data-backpage', 'voltar-vantagens');
+            $("#MainPagamentoMetodo").empty();
+        });
+
+        function RegisterAjaxEvents() {
+            
+
+            $.validator.unobtrusive.parse('form');
+        }
+
+
+        //function FormValidate() {
+        //    var retorno = true;
+
+            
+        //}
+
+        //function validaNumeroCartao() {
+        //    var valor = $('#NumeroCartao');
+
+            
+
+        //    if (valor.replace("_", "").length)
+        //}
+
+    });
+
+</script>

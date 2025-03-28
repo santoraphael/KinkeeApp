@@ -1,0 +1,105 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+@{
+
+    if (ViewBag.LastsNotifications != null)
+    {
+        foreach (var item in ViewBag.LastsNotifications)
+        {
+            string notread = "";
+            if (!item["READ"])
+            {
+                notread = "notread";
+            }
+
+            const int SECOND = 1;
+            const int MINUTE = 60 * SECOND;
+            const int HOUR = 60 * MINUTE;
+            const int DAY = 24 * HOUR;
+            const int MONTH = 30 * DAY;
+
+            var ts = new TimeSpan(DateTime.UtcNow.Ticks - item["DATE_CREATE"].Ticks);
+            double delta = Math.Abs(ts.TotalSeconds);
+
+            string textTime = "";
+
+            if (delta < 1 * MINUTE)
+            {
+                textTime = ts.Seconds == 1 ? "um segundo atrás" : ts.Seconds + " segundos atrás";
+            }
+            else if (delta < 2 * MINUTE)
+            {
+                textTime = "um minuto atrás";
+            }
+            else if (delta < 45 * MINUTE)
+            {
+                textTime = ts.Minutes + " minutos atrás";
+            }
+            else if (delta < 90 * MINUTE)
+            {
+                textTime = "uma hora atrás";
+            }
+            else if (delta < 24 * HOUR)
+            {
+                textTime = ts.Hours + " horas atrás";
+            }
+            else if (delta < 48 * HOUR)
+            {
+                textTime = "há algum tempo";
+            }
+            else if (delta < 30 * DAY)
+            {
+                textTime = ts.Days + " dias Atrás";
+            }
+            else if (delta < 12 * MONTH)
+            {
+                int months = Convert.ToInt32(Math.Floor((double)ts.Days / 30));
+                textTime = months <= 1 ? "um mês atrás" : months + " meses atrás";
+            }
+            else
+            {
+                int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
+                textTime = years <= 1 ? "um ano atrás" : years + " anos atrás";
+            }
+
+
+
+    <li class="ng-scope js-lista-item-notif @Html.Raw(notread)">
+        <a href="/dating/perfil/@item["NOME_USUARIO"]" class="clearfix line" target="_self">
+
+            <!-- Avatar -->
+            <div class="avatar overlayContentCard">
+                <img alt="." class="img-circle" src="@item["URL_IMAGEM_PERFIL"]">
+            </div>
+
+            <!-- Nome e descrição -->
+            <div class="about">
+                <div class="about-section">
+                    <div href="#" class="title overlayContentCard" target="_self">@item["PRIMEIRO_NOME"] @item["ULTIMONOME_NOME"]</div>
+                    <span class="subtitle date ng-binding">@textTime</span>
+                </div>
+                <div class="about-section">
+                    <p>
+                        <span class="ng-binding">@Html.Raw(Server.HtmlDecode(item["NOME_USUARIO"]))</span>
+                    </p>
+                </div>
+
+            </div>
+        </a>
+        <div class="about">
+            <div class="about-section" style="float:right; margin-top:-40px; margin-right: -37px;">
+                <div class="actions actions-wrapper">
+                    <img class="loadingIndicator img js-load-img-response" src="~/modules/img/loading.gif" alt="" width="30" style="display:none;">
+                    <button id="btnAccept" value="1" uid="@item["ID_USUARIO"]" class="js-btn-accept-friend" name="actions[accept]" type="submit">Confirmar</button>
+                    <button id="btnReject" value="2" uid="@item["ID_USUARIO"]" class="js-btn-reject-friend" name="actions[reject]" type="submit">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </li>
+        }
+    }
+}

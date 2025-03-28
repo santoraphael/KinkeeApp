@@ -1,0 +1,1532 @@
+﻿.formError .formErrorContent {
+    background: #bc53b9 !important;
+}
+.formError .formErrorArrow div {
+    background: #bc53b9 !important;
+}
+.myaccount .myaccount-panel.myaccount-waiting-payment h3 i,
+.payment-table tbody tr td .clock {
+    background-position: 0 -106px;
+    background-repeat: no-repeat;
+    background-image: url(../../images/sprites/svg/common/sprite.svg)
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-edit i,
+.balance-token .method-payment .btn-edit i {
+    background-position: 0 -186px;
+    background-repeat: no-repeat;
+    background-image: url(../../images/sprites/svg/common/sprite.svg)
+}
+.payment-table tbody tr td .pay-error {
+    background-position: 0 -333px;
+    background-repeat: no-repeat;
+    background-image: url(../../images/sprites/svg/common/sprite.svg)
+}
+.payment-table tbody tr td .pay-ok {
+    background-position: 0 -349px;
+    background-repeat: no-repeat;
+    background-image: url(../../images/sprites/svg/common/sprite.svg)
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-view i {
+    background-position: 0 -407px;
+    background-repeat: no-repeat;
+    background-image: url(../../images/sprites/svg/common/sprite.svg)
+}
+.myaccount-print-billet .modal-lg {
+    width: 760px
+}
+.myaccount-print-billet .modal-content .modal-dialog {
+    width: 690px
+}
+.myaccount-print-billet .modal-header .btn-primary {
+    float: left
+}
+.myaccount-print-billet .modal-footer {
+    text-align: center
+}
+#lbList_empty {
+    padding: 10px 20px;
+    display: block
+}
+.accountModalList .media {
+    list-style: none;
+    display: list-item
+}
+.accountModalList .media .media-body {
+    display: inline-block;
+    float: left
+}
+.accountModalList .media .media-heading {
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+    width: 128px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.accountModalList .media .sl-btn-unblock {
+    float: right;
+    margin-top: 10px
+}
+.message {
+    margin-top: 0 !important;
+    height: 36px !important;
+    padding: 0 20px
+}
+.myaccount .flags.verotel {
+    background-image: url("../../../../images/icons/png/verotel-logo.png");
+    height: 28px;
+    width: 145px;
+    cursor: default
+}
+.myaccount .table-responsive {
+    border: none;
+    overflow-x: auto;
+    margin-bottom: 0
+}
+.myaccount .icon-help {
+    width: 15px;
+    height: 15px;
+    background-color: #A8A8A8
+}
+.myaccount .myaccount-header {
+    background-color: #fff;
+    height: 61px
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-button-options {
+    cursor: pointer;
+    position: relative;
+    color: #333;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 18px 18px 18px 8px
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-button-options:focus,
+.myaccount .myaccount-header .myaccount-options .myaccount-button-options:hover,
+.myaccount .myaccount-header .myaccount-options .myaccount-button-options:active {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-button-options i {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTFweCIgaGVpZ2h0PSIxMXB4IiB2aWV3Qm94PSIwIDAgMTEgMTEiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPmRyb3Bkb3duLW1pbmhhLWNvbnRhPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IldlbGNvbWUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlRhYmxldCIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEwNS4wMDAwMDAsIC05MS4wMDAwMDApIiBmaWxsPSIjREQ4NkQ1Ij4gICAgICAgICAgICA8ZyBpZD0iUHJpdmFjaWRhZGUtMyIgc2tldGNoOnR5cGU9Ik1TTGF5ZXJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDQ4LjAwMDAwMCkiPiAgICAgICAgICAgICAgICA8ZyBpZD0iU3ViLVRvcG8tMiIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+ICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTA1LDUzLjYwMDUwNTEgTDExNS42MDA1MDUsNTMuNjAwNTA1MSBMMTE1LjYwMDUwNSw0MyBMMTA1LDUzLjYwMDUwNTEgWiIgaWQ9ImRyb3Bkb3duLW1pbmhhLWNvbnRhIj48L3BhdGg+ICAgICAgICAgICAgICAgIDwvZz4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=) no-repeat;
+    bottom: 0;
+    display: inline-block;
+    height: 10px;
+    position: absolute;
+    right: -5px;
+    width: 10px
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-nav {
+    background: #fff;
+    box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.15);
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 230px
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-nav li {
+    list-style: none
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-nav li a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 18px;
+    color: #666
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-nav li a:focus,
+.myaccount .myaccount-header .myaccount-options .myaccount-nav li a:active,
+.myaccount .myaccount-header .myaccount-options .myaccount-nav li a:hover {
+    text-decoration: none;
+    background-color: transparent
+}
+.myaccount .myaccount-header .myaccount-options .myaccount-nav li.active a {
+    background-color: #F5EBF5;
+    border-left: 5px solid #661577
+}
+.myaccount .myaccount-header .myaccount-options.in .myaccount-nav {
+    display: block
+}
+.myaccount .myaccount-panel {
+    margin: 15px 0 0 0
+}
+.myaccount .myaccount-panel.warning {
+    background-color: #FDF8E4
+}
+.myaccount .myaccount-panel.warning .panel-heading {
+    border: none;
+    padding-bottom: 0
+}
+.myaccount .myaccount-panel.warning .panel-heading:after {
+    display: none
+}
+.myaccount .myaccount-panel.warning .panel-body {
+    padding-top: 10px
+}
+.myaccount .myaccount-panel .panel-heading {
+    padding: 15px;
+    border-bottom: 1px solid #ededed;
+    position: relative
+}
+.myaccount .myaccount-panel .panel-heading .loading {
+    margin-left: 15px;
+    position: absolute;
+    top: 15px
+}
+.myaccount .myaccount-panel .panel-heading h3 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0;
+    display: inline-block
+}
+.myaccount .myaccount-panel .panel-heading::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #DD86D5;
+    bottom: -1px
+}
+.myaccount .myaccount-panel .panel-body {
+    padding: 20px
+}
+.myaccount .myaccount-panel .panel-body.who-can {
+    padding-bottom: 0
+}
+.myaccount .myaccount-panel .myaccount-edit {
+    margin-bottom: 20px
+}
+.myaccount .myaccount-panel .myaccount-edit .form-group {
+    margin-bottom: 10px
+}
+.myaccount .myaccount-panel .myaccount-edit h6 {
+    color: #999;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #F0F0F0
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .countdown {
+    color: #DA0000
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .countdown .countdown-period {
+    display: none
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .myaccount-label-title {
+    display: inline-block;
+    max-width: calc(100% - 96px)
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .myaccount-label-title h4 {
+    max-width: 100%
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label h4 {
+    max-width: calc(100% - 96px);
+    display: inline-block;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 3px
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label h4 .token-sm {
+    vertical-align: baseline;
+    height: 13px
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-edit,
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-view {
+    position: relative;
+    top: -7px;
+    float: right;
+    transition: all .18s ease-in-out;
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 13px;
+    color: #666;
+    max-width: 140px;
+    height: 33px;
+    line-height: 24px
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-edit:focus,
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-view:focus,
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-edit:active,
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-view:active,
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-edit:hover,
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-view:hover {
+    text-decoration: none;
+    outline: none
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-edit i {
+    background-image: url("../../../../images/sprites/svg/common/sprite.svg");
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+    top: 2px
+}
+.myaccount .myaccount-panel .myaccount-edit .myaccount-label .btn-open-view i {
+    background-image: url("../../../../images/sprites/svg/common/sprite.svg");
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+    top: 2px
+}
+.myaccount .myaccount-panel .myaccount-edit:hover .myaccount-label .btn-open-edit,
+.myaccount .myaccount-panel .myaccount-edit:hover .myaccount-label .btn-open-view {
+    text-decoration: none;
+    box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.56) inset;
+    border-radius: 3px;
+    background-color: #fff
+}
+.myaccount .myaccount-panel .myaccount-edit:last-child {
+    margin-bottom: 0
+}
+.myaccount .myaccount-panel .myaccount-edit:last-child .myaccount-label {
+    border-bottom: none
+}
+.myaccount .myaccount-panel .myaccount-edit:last-child .form-group {
+    margin-bottom: 0
+}
+.myaccount .myaccount-panel .myaccount-edit:last-child .myaccount-edit-body {
+    margin-bottom: -1px
+}
+.myaccount .myaccount-panel .myaccount-edit.in {
+    margin-top: -21px
+}
+.myaccount .myaccount-panel .myaccount-edit.in .myaccount-edit-header {
+    display: none
+}
+.myaccount .myaccount-panel .myaccount-edit.in .myaccount-edit-body {
+    display: block
+}
+.myaccount .myaccount-panel .myaccount-edit.myaccount-block .myaccount-label,
+.myaccount .myaccount-panel .myaccount-edit.myaccount-remove .myaccount-label {
+    border-bottom: none
+}
+.myaccount .myaccount-panel .myaccount-edit-body {
+    display: none;
+    padding: 10px 21px;
+    margin: -1px -21px 0 -21px;
+    border-top: 1px solid #EFEFEF;
+    border-bottom: 1px solid #eee;
+    background-color: #F7F7F7
+}
+.myaccount .myaccount-panel .myaccount-edit-body label {
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 11px;
+    margin-bottom: 2px
+}
+.myaccount .myaccount-panel .myaccount-edit-body h6 {
+    margin: 10px 0 0 0
+}
+.myaccount .myaccount-panel .myaccount-edit-body .alert {
+    margin: 10px 0
+}
+.myaccount .myaccount-panel .myaccount-edit-body .myaccount-checkbox-list .checkbox {
+    display: block;
+    margin: 3px 0
+}
+.myaccount .myaccount-panel .myaccount-edit-body .myaccount-checkbox-list .checkbox label {
+    color: #666;
+    text-transform: none;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.myaccount .myaccount-panel .myaccount-edit-body .myaccount-checkbox-list {
+    width: 100%
+}
+.myaccount .myaccount-panel .myaccount-action {
+    margin: 15px 0 5px 0;
+    text-align: right
+}
+.myaccount .myaccount-panel .myaccount-form {
+    padding: 0
+}
+.myaccount .myaccount-panel .myaccount-form.active {
+    margin: -21px -21px 0 -21px;
+    border-top: 1px solid #EFEFEF;
+    border-bottom: 1px solid #eee;
+    background-color: #F7F7F7;
+    padding: 20px 21px
+}
+.myaccount .myaccount-panel .myaccount-form .checkbox {
+    padding-top: 0
+}
+.myaccount .myaccount-current-situation .myaccount-edit-header .component-switch {
+    width: 100%
+}
+.myaccount .myaccount-email .table {
+    margin-bottom: 0
+}
+.myaccount .myaccount-email .table thead tr th:first-child {
+    width: 95%;
+    display: table-cell;
+    text-align: left
+}
+.myaccount .myaccount-email .table thead tr th {
+    padding: 4px 8px;
+    text-align: center;
+    border: none
+}
+.myaccount .myaccount-email .table thead tr th h6 {
+    font-weight: 400
+}
+.myaccount .myaccount-email .table tbody tr {
+    background-color: #F0F0F0;
+    border-bottom: 2px solid #F7F7F7
+}
+.myaccount .myaccount-email .table tbody tr:last-child {
+    border: none
+}
+.myaccount .myaccount-email .table tbody tr.main {
+    background-color: #EAEAEA
+}
+.myaccount .myaccount-email .table tbody tr.not-confirmed td:first-child {
+    opacity: .5
+}
+.myaccount .myaccount-email .table tbody tr.excluded {
+    text-decoration: line-through;
+    opacity: .7
+}
+.myaccount .myaccount-email .table tbody tr td:first-child {
+    width: 85%;
+    display: table-cell;
+    text-align: left
+}
+.myaccount .myaccount-email .table tbody tr td {
+    padding: 4px 8px;
+    text-align: center;
+    border: none;
+    vertical-align: middle
+}
+.myaccount .myaccount-email .form-email {
+    margin-top: 2px;
+    background-color: #EAEAEA;
+    padding: 4px
+}
+.myaccount .myaccount-email .form-email input {
+    height: 32px
+}
+.myaccount .myaccount-email .form-email input:focus,
+.myaccount .myaccount-email .form-email input:active {
+    border-color: #ccc;
+    box-shadow: none
+}
+.myaccount .myaccount-email .form-email .loading {
+    width: 26px;
+    height: 26px;
+    top: 2px;
+    position: relative;
+    display: block
+}
+.myaccount .myaccount-email .myaccount-action {
+    margin-top: 0
+}
+.myaccount .myaccount-last-access .last-access-loading {
+    float: right
+}
+.myaccount .myaccount-last-access .table {
+    height: 190px;
+    display: block;
+    overflow-y: auto
+}
+.myaccount .myaccount-last-access .table thead tr th {
+    border-bottom: none
+}
+.myaccount .myaccount-last-access .table tbody tr td {
+    border-top: none;
+    padding: 4px 8px;
+    white-space: nowrap
+}
+.myaccount .myaccount-panel .myaccount-edit.myaccount-location:last-child .form-group {
+    margin-bottom: 10px
+}
+.myaccount .myaccount-panel .myaccount-edit.automatic-renewal .myaccount-label .btn-more-days {
+    float: none;
+    margin-top: 10px
+}
+.myaccount .myaccount-current-situation.waiting-token .panel-heading,
+.myaccount .myaccount-waiting-payment.waiting-token .panel-heading {
+    border-bottom: none
+}
+.myaccount .myaccount-current-situation.waiting-token .panel-heading:after,
+.myaccount .myaccount-waiting-payment.waiting-token .panel-heading:after {
+    display: none
+}
+.myaccount .myaccount-current-situation.waiting-token .panel-heading button,
+.myaccount .myaccount-waiting-payment.waiting-token .panel-heading button {
+    float: right;
+    position: relative
+}
+.myaccount .myaccount-current-situation .myaccount-method-payment h5,
+.myaccount .myaccount-waiting-payment .myaccount-method-payment h5 {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 20px
+}
+.myaccount .myaccount-current-situation .myaccount-method-payment .btn-sm.btn-default,
+.myaccount .myaccount-waiting-payment .myaccount-method-payment .btn-sm.btn-default {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 5px;
+    position: relative;
+    top: 10px;
+    margin: 0;
+    width: 100%
+}
+.myaccount .myaccount-current-situation .myaccount-method-payment .btn-open-edit,
+.myaccount .myaccount-waiting-payment .myaccount-method-payment .btn-open-edit {
+    top: 5px !important
+}
+.myaccount .myaccount-current-situation .myaccount-method-payment .icon-printer:before,
+.myaccount .myaccount-waiting-payment .myaccount-method-payment .icon-printer:before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMzBweCIgaGVpZ2h0PSIzMHB4IiB2aWV3Qm94PSIwIDAgMzAgMzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPlByaW50ZXI8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iV2VsY29tZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8ZyBpZD0iQm9sZXRvIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNTM3LjAwMDAwMCwgLTM3Ny4wMDAwMDApIj4gICAgICAgICAgICA8ZyBpZD0iUG9waW4tLS1DYXJ0YW8tZGUtQ3JlZGl0by1Qcmlvcml0YXJpby0iIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI5My4wMDAwMDAsIDEwNS4wMDAwMDApIj4gICAgICAgICAgICAgICAgPGcgaWQ9IkNhcnRhby1kZS1DcsOpZGl0byIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMuMDAwMDAwLCAxNDAuMDAwMDAwKSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+ICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29tby1wYWdvLW8tYm9sZXRvPyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjMxLjAwMDAwMCwgOTcuMDAwMDAwKSI+ICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IlByaW50ZXIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAzNS4wMDAwMDApIj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbC0xIiBmaWxsPSIjRjBGMEYwIiBjeD0iMTUiIGN5PSIxNSIgcj0iMTUiPjwvY2lyY2xlPiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iSW1wb3J0ZWQtTGF5ZXJzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2LjAwMDAwMCwgNi4wMDAwMDApIiBmaWxsPSIjNjY2NjY2Ij4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik02LjQwNDcyNzI3LDEyLjI5NTA5MDkgTDEwLjY4NTQ1NDUsMTIuMjk1MDkwOSBMMTAuNjg1NDU0NSwxMy40NzY1NDU1IEw2LjQwNDcyNzI3LDEzLjQ3NjU0NTUgTDYuNDA0NzI3MjcsMTIuMjk1MDkwOSBaIiBpZD0iRmlsbC0xIj48L3BhdGg+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTMuMjcxNDU0NSwwLjI3MjcyNzI3MyBMNC41MywwLjI3MjcyNzI3MyBDMy43Njg1NDU0NSwwLjI3MjcyNzI3MyAzLjE0OTQ1NDU1LDAuODkxODE4MTgyIDMuMTQ5NDU0NTUsMS42NTI3MjcyNyBMMy4xNDk0NTQ1NSwzLjk1MjkwOTA5IEw0Ljk4OTgxODE4LDMuOTUyOTA5MDkgTDQuOTg5ODE4MTgsMS45MjEwOTA5MSBMMTIuODExMDkwOSwxLjkyMTA5MDkxIEwxMi44MTEwOTA5LDMuOTUyOTA5MDkgTDE0LjY1MTQ1NDUsMy45NTI5MDkwOSBMMTQuNjUxNDU0NSwxLjY1MjcyNzI3IEMxNC42NTE0NTQ1LDAuODkxODE4MTgyIDE0LjAzMjM2MzYsMC4yNzI3MjcyNzMgMTMuMjcxNDU0NSwwLjI3MjcyNzI3MyIgaWQ9IkZpbGwtMiI+PC9wYXRoPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYuNDA0NzI3MjcsOS45NTY3MjcyNyBMMTEuNTQxODE4Miw5Ljk1NjcyNzI3IEwxMS41NDE4MTgyLDExLjEzODE4MTggTDYuNDA0NzI3MjcsMTEuMTM4MTgxOCBMNi40MDQ3MjcyNyw5Ljk1NjcyNzI3IFoiIGlkPSJGaWxsLTMiPjwvcGF0aD4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNi44MDc2MzY0LDUuMjE4OTA5MDkgTDEuMjA5ODE4MTgsNS4yMTg5MDkwOSBDMC43MDIsNS4yMTg5MDkwOSAwLjI5MDE4MTgxOCw1LjYzMDcyNzI3IDAuMjkwMTgxODE4LDYuMTM5MDkwOTEgTDAuMjkwMTgxODE4LDExLjY1OTA5MDkgQzAuMjkwMTgxODE4LDEyLjE2NzQ1NDUgMC43MDIsMTIuNTc5MjcyNyAxLjIwOTgxODE4LDEyLjU3OTI3MjcgTDMuMzc5NjM2MzYsMTIuNTc5MjcyNyBMMy4zNzk2MzYzNiwxNS43Mjg3MjczIEMzLjM3OTYzNjM2LDE2LjQ4OTYzNjQgMy45OTg3MjcyNywxNy4xMDg3MjczIDQuNzYwMTgxODIsMTcuMTA4NzI3MyBMMTMuMDQxMjcyNywxNy4xMDg3MjczIEMxMy44MDIxODE4LDE3LjEwODcyNzMgMTQuNDIxMjcyNywxNi40ODk2MzY0IDE0LjQyMTI3MjcsMTUuNzI4NzI3MyBMMTQuNDIxMjcyNywxMi41NzkyNzI3IEwxNi44MDc2MzY0LDEyLjU3OTI3MjcgQzE3LjMxNTQ1NDUsMTIuNTc5MjcyNyAxNy43Mjc4MTgyLDEyLjE2NzQ1NDUgMTcuNzI3ODE4MiwxMS42NTkwOTA5IEwxNy43Mjc4MTgyLDYuMTM5MDkwOTEgQzE3LjcyNzgxODIsNS42MzA3MjcyNyAxNy4zMTQ5MDkxLDUuMjE4OTA5MDkgMTYuODA3NjM2NCw1LjIxODkwOTA5IEwxNi44MDc2MzY0LDUuMjE4OTA5MDkgWiBNNS4yMiw4LjM1MjU0NTQ1IEwxMi41ODA5MDkxLDguMzUyNTQ1NDUgTDEyLjU4MDkwOTEsMTUuMzM5MjcyNyBMNS4yMiwxNS4zMzkyNzI3IEw1LjIyLDguMzUyNTQ1NDUgWiBNMTUuODg3NDU0NSw3Ljk3ODkwOTA5IEMxNS4zNzk2MzY0LDcuOTc4OTA5MDkgMTQuOTY3MjcyNyw3LjU2NzA5MDkxIDE0Ljk2NzI3MjcsNy4wNTg3MjcyNyBDMTQuOTY3MjcyNyw2LjU1MDkwOTA5IDE1LjM3OTYzNjQsNi4xMzkwOTA5MSAxNS44ODc0NTQ1LDYuMTM5MDkwOTEgQzE2LjM5NTI3MjcsNi4xMzkwOTA5MSAxNi44MDc2MzY0LDYuNTUwOTA5MDkgMTYuODA3NjM2NCw3LjA1ODcyNzI3IEMxNi44MDc2MzY0LDcuNTY3MDkwOTEgMTYuMzk0NzI3Myw3Ljk3ODkwOTA5IDE1Ljg4NzQ1NDUsNy45Nzg5MDkwOSBMMTUuODg3NDU0NSw3Ljk3ODkwOTA5IFoiIGlkPSJGaWxsLTQiPjwvcGF0aD4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4gICAgICAgICAgICAgICAgICAgIDwvZz4gICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+    display: inline-block;
+    height: 30px;
+    margin-right: 5px;
+    vertical-align: middle
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan {
+    padding-left: 0;
+    margin-top: 10px
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li {
+    list-style: none;
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, #ffffff, #f8f8f8);
+    padding: 10px 15px;
+    border: 1px solid #e8e8e8;
+    cursor: pointer;
+    color: #333
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li:first-child,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li:first-child {
+    border-bottom: none
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li:last-child,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li:last-child {
+    border-top: none
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li h3,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li h3 {
+    margin-top: 1px;
+    margin-bottom: 0
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li h6,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li h6 {
+    margin-top: 2px;
+    color: #333
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li input,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li input {
+    display: none
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li .value,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li .value {
+    font-size: 24px;
+    margin-right: 5px;
+    line-height: 27px
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li .description,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li .description {
+    display: block;
+    line-height: 15px
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li.selected,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li.selected {
+    box-shadow: 3px 0 0 #661577 inset
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li.selected h3,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li.selected h3 {
+    color: #661577
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li.disabled,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li.disabled {
+    opacity: .5;
+    cursor: default
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li:hover,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li:hover {
+    color: #333
+}
+.myaccount .myaccount-current-situation .myaccount-current-plan .choice-plan li:hover h6,
+.myaccount .myaccount-waiting-payment .myaccount-current-plan .choice-plan li:hover h6 {
+    color: #333
+}
+.myaccount .myaccount-current-situation .btn-more-days,
+.myaccount .myaccount-waiting-payment .btn-more-days {
+    width: auto !important;
+    display: inline-block
+}
+.myaccount .myaccount-panel .myaccount-gifts-sents,
+.myaccount .myaccount-panel .myaccount-gifts-received {
+    max-height: 300px;
+    overflow-y: auto
+}
+.myaccount .myaccount-panel .myaccount-gifts-sents .avatar,
+.myaccount .myaccount-panel .myaccount-gifts-received .avatar {
+    width: 100%;
+    max-width: 70px;
+    display: block;
+    margin: auto
+}
+.myaccount .myaccount-panel .myaccount-gifts-sents h4,
+.myaccount .myaccount-panel .myaccount-gifts-received h4 {
+    margin: 0
+}
+.myaccount .myaccount-panel .myaccount-gifts-sents h4 small,
+.myaccount .myaccount-panel .myaccount-gifts-received h4 small {
+    color: #666
+}
+.myaccount .myaccount-panel .myaccount-gifts-sents .info,
+.myaccount .myaccount-panel .myaccount-gifts-received .info {
+    font-size: 11px
+}
+.myaccount .myaccount-panel .myaccount-gifts-sents .myaccount-edit .myaccount-label h4,
+.myaccount .myaccount-panel .myaccount-gifts-received .myaccount-edit .myaccount-label h4 {
+    max-width: 100%
+}
+.myaccount .myaccount-panel .myaccount-gifts-sents .myaccount-edit .myaccount-label h4 a,
+.myaccount .myaccount-panel .myaccount-gifts-received .myaccount-edit .myaccount-label h4 a {
+    font-size: inherit;
+    color: inherit;
+    text-decoration: inherit
+}
+.myaccount .myaccount-panel.myaccount-waiting-payment h3 {
+    width: calc(100% - 130px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.myaccount .myaccount-panel.myaccount-waiting-payment h3 i {
+    background-image: url("../../../../images/sprites/svg/common/sprite.svg");
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+    top: 2px
+}
+.myaccount .modal-signature .modal-dialog {
+    margin-top: 15px
+}
+.myaccount .non-subscribers {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+    margin: 0 -10px
+}
+.myaccount .non-subscribers .flag-sl {
+    background-image: url("../../../../images/icons/png/non-subscriber_platinum.png");
+    width: 86px;
+    height: 99px;
+    margin: 0 auto
+}
+.myaccount .non-subscribers .banner {
+    background-image: url("../../../../images/banner/non-subscriber_header.jpg");
+    background-position: center bottom;
+    text-align: center;
+    height: 283px;
+    position: relative
+}
+.myaccount .non-subscribers .banner .flag-sl {
+    margin-bottom: 15px;
+    zoom: .7
+}
+.myaccount .non-subscribers .banner .title {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 36px;
+    color: #fff;
+    margin: 0 20px 26px
+}
+.myaccount .non-subscribers .banner .title b {
+    font-weight: 700
+}
+.myaccount .non-subscribers .banner .text {
+    display: none;
+    color: #fff;
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 25px
+}
+.myaccount .non-subscribers .banner .text.benefit-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%
+}
+.myaccount .non-subscribers .benefits ul {
+    padding: 0;
+    margin: 0;
+    list-style: none
+}
+.myaccount .non-subscribers .benefits ul li {
+    text-align: center;
+    border-bottom: #DBDBDB solid 1px;
+    padding: 30px 10px 40px
+}
+.myaccount .non-subscribers .benefits ul li img {
+    display: inline-block;
+    margin-bottom: 15px
+}
+.myaccount .non-subscribers .benefits ul li .title {
+    font-size: 26px;
+    font-weight: 300;
+    color: #666;
+    line-height: 26px
+}
+.myaccount .non-subscribers .benefits ul li .more {
+    font-size: 18px;
+    color: #666
+}
+.myaccount .non-subscribers .benefits ul li:last-child {
+    border-bottom: 0
+}
+.myaccount .non-subscribers .testimony {
+    background-image: url("../../../../images/banner/non-subscriber_testimony.jpg");
+    height: 382px
+}
+.myaccount .non-subscribers .testimony .avatar {
+    text-align: center;
+    margin: 25px auto 20px;
+    width: 100%;
+    display: inline-block
+}
+.myaccount .non-subscribers .testimony .avatar img {
+    width: 93px;
+    height: 93px;
+    border-radius: 50%;
+    border: #fff solid 10px;
+    display: inline-block
+}
+.myaccount .non-subscribers .testimony .info {
+    text-align: center
+}
+.myaccount .non-subscribers .testimony .info .rating {
+    font-size: 0
+}
+.myaccount .non-subscribers .testimony .info .rating .star {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-image: url("../../../../images/icons/png/non-subscriber_star.png")
+}
+.myaccount .non-subscribers .testimony .info .scrap {
+    font-family: georgia;
+    font-size: 20px;
+    color: #661577;
+    font-style: italic;
+    line-height: 28px;
+    margin: 10px 10px 20px
+}
+.myaccount .non-subscribers .testimony .info .name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #F573EB;
+    margin-bottom: 0
+}
+.myaccount .non-subscribers .testimony .info .city {
+    font-size: 15px;
+    font-weight: 300;
+    color: #666
+}
+.myaccount .non-subscribers .plans {
+    display: table;
+    width: 100%
+}
+.myaccount .non-subscribers .plans .title {
+    font-size: 26px;
+    font-weight: 300;
+    margin: 60px 20px 0;
+    text-align: center;
+    color: #661577
+}
+.myaccount .non-subscribers .plans .title b {
+    font-weight: 700
+}
+.myaccount .non-subscribers .plans .subtitle {
+    color: #666;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 30px
+}
+.myaccount .non-subscribers .plans .foot {
+    font-size: 20px;
+    font-weight: 300;
+    color: #666;
+    line-height: 25px;
+    text-align: center;
+    margin: 30px
+}
+.myaccount .non-subscribers .plans .foot b {
+    font-weight: 700
+}
+.myaccount .non-subscribers .plans .sl-subscription-modal .modal-dialog {
+    margin: 0
+}
+.myaccount .non-subscribers .plans .sl-subscription-modal .modal-dialog .modal-content .modal-header {
+    display: none
+}
+.myaccount .non-subscribers .plans .sl-subscription-modal .modal-dialog .modal-content .modal-body>.nav-pills {
+    display: none !important
+}
+.myaccount .non-subscribers .plans .sl-subscription-modal .modal-dialog .modal-content .modal-body .tab-content.payment-methods {
+    margin-left: 0
+}
+.myaccount .advantage {
+    padding: 0 10px 20px;
+    background: linear-gradient(to bottom, #e8e8e8 0, #e8e8e8 64%, #f4f4f4 65%, #f4f4f4 100%)
+}
+.myaccount .advantage .flag-sl {
+    zoom: .7
+}
+.myaccount .advantage .title {
+    font-size: 28px;
+    font-weight: 300;
+    text-align: center;
+    margin: 30px 0
+}
+.myaccount .advantage .title b {
+    font-weight: 700
+}
+.myaccount .advantage table {
+    border: 1px solid transparent;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: #FFF
+}
+.myaccount .advantage table thead tr th {
+    background-color: #F4F4F4;
+    border: #E9E9E9 solid 1px;
+    border-bottom-color: #D9D9D9;
+    border-collapse: collapse;
+    color: #2A0027;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px 10px
+}
+.myaccount .advantage table thead tr th.pink {
+    color: #661577;
+    font-weight: 700
+}
+.myaccount .advantage table tbody tr td {
+    font-size: 12px;
+    font-weight: 400;
+    color: #878787;
+    border: #E9E9E9 solid 1px;
+    border-collapse: collapse;
+    padding: 10px
+}
+    .myaccount .advantage table tbody tr td.pink {
+        font-size: 13px;
+        color: #c49436;
+        font-weight: 600
+    }
+.myaccount .advantage table tbody tr td .check {
+    background-image: url("../../../../images/icons/png/non-subscriber_check.png");
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    margin: 0 auto
+}
+.myaccount .non-subscribers-main .advantage {
+    margin-top: 25px;
+    background: none
+}
+.myaccount .non-subscribers-main .advantage table {
+    background: none;
+    box-shadow: none
+}
+.myaccount .non-subscribers-main .advantage table tbody {
+    background-color: #fff
+}
+.myaccount .non-subscribers-main .advantage table tbody tr.see-more td {
+    display: none
+}
+.myaccount .non-subscribers-main .advantage table.open tbody tr.see-more td {
+    display: table-cell
+}
+.myaccount .non-subscribers-main .advantage table tfoot {
+    background-color: #fff;
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: #e8e8e8
+}
+.myaccount .non-subscribers-main .advantage table tfoot .see-more {
+    padding: 10px;
+    width: 100%;
+    display: block;
+    text-align: center
+}
+.myaccount .non-subscribers-main .advantage table tfoot .see-more:focus,
+.myaccount .non-subscribers-main .advantage table tfoot .see-more:hover {
+    text-decoration: none
+}
+.myaccount .non-subscribers-main .sl-modal {
+    padding: 0 10px 20px
+}
+.myaccount .non-subscribers-main .sl-modal>.modal-dialog {
+    margin-top: 0;
+    margin-bottom: 0
+}
+.myaccount .non-subscribers-main .sl-modal>.modal-dialog .modal-content {
+    border-radius: 0
+}
+.myaccount .non-subscribers-main .myaccount-panel {
+    margin: 0 10px 20px
+}
+.myaccount .method-payment label.flags {
+    margin-right: 3px
+}
+.myaccount .method-payment label.flags>input {
+    display: none
+}
+.myaccount .method-payment .list-flags {
+    margin-bottom: 10px
+}
+.myaccount .method-payment .card-number {
+    position: relative
+}
+.myaccount .method-payment .card-number .flags {
+    margin-top: 0;
+    position: absolute;
+    left: 0
+}
+.myaccount .method-payment .card-number input {
+    display: inline-block;
+    padding-left: 72px
+}
+.myaccount .method-payment .form-group.has-error .help-block {
+    background: #a94442;
+    color: #fff;
+    float: left;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 14px
+}
+.sl-modal.sl-subscription-modal.injected .modal-dialog {
+    width: 100%;
+    margin: 10px 0 0
+}
+.sl-modal.sl-subscription-modal.injected .modal-dialog .modal-content .modal-header {
+    border-left: 0
+}
+.sl-modal.sl-subscription-modal.injected .modal-dialog .modal-content .modal-body {
+    background-color: #fff
+}
+.sl-modal.sl-subscription-modal.injected .modal-dialog .modal-content .modal-body .nav.nav-pills>li:first-child .icon {
+    right: 10px
+}
+.sl-modal.sl-subscription-modal.injected .modal-dialog .modal-content .modal-body .nav.nav-tabs>li>a {
+    padding: 14px 0 15px 10px
+}
+.sl-modal.sl-subscription-modal.injected .modal-dialog .modal-content .modal-body .tab-content.payment-methods {
+    margin-left: 0
+}
+.sl-subscription-modal.iframe-boleto .modal-body .frame {
+    text-align: center
+}
+.sl-subscription-modal.iframe-boleto .modal-body .frame iframe {
+    width: 690px;
+    margin: 0 auto
+}
+.zopim {
+    display: none !important
+}
+body .boxZopim {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 999;
+    -webkit-transform: translate(50px);
+    -ms-transform: translate(50px);
+    transform: translate(50px);
+    transition: all .4s
+}
+body.sidebar-open .boxZopim {
+    -webkit-transform: translate(235px);
+    -ms-transform: translate(235px);
+    transform: translate(235px)
+}
+.balance-token .total-tokens h2 {
+    color: #3D837A;
+    font-size: 42px;
+    position: relative;
+    margin: 0
+}
+.balance-token .total-tokens h2 span {
+    position: relative
+}
+.balance-token .total-tokens h2 i {
+    position: absolute;
+    margin-left: 12px
+}
+.balance-token .total-tokens h2 b {
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    margin-left: 10px
+}
+.balance-token hr.sl {
+    border-bottom: 1px solid #F0F0F0;
+    border-top: 0;
+    box-shadow: 0 0 0;
+    margin: 0
+}
+.balance-token h6 {
+    color: #999;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 5px
+}
+.balance-token .last-purchase,
+.balance-token .renewal,
+.balance-token .method-payment {
+    padding: 15px 0
+}
+.balance-token .last-purchase:after,
+.balance-token .renewal:after,
+.balance-token .method-payment:after {
+    display: table;
+    content: '';
+    clear: both
+}
+.balance-token .last-purchase p {
+    font-size: 18px;
+    color: #333;
+    float: left;
+    margin: 5px 0 0
+}
+.balance-token .last-purchase p time {
+    font-size: 12px;
+    color: #666
+}
+.balance-token .last-purchase button {
+    float: right
+}
+.balance-token .quick-purchase {
+    padding: 10px 0
+}
+.balance-token .renewal .component-switch {
+    display: inline
+}
+.balance-token .renewal .details {
+    display: inline;
+    margin: 0
+}
+.balance-token .renewal .details b {
+    font-weight: 700
+}
+.balance-token .method-payment h5 {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 10px
+}
+.balance-token .method-payment .number-card {
+    float: left;
+    height: 38px;
+    line-height: 38px
+}
+.balance-token .method-payment .btn-edit {
+    position: relative;
+    float: right;
+    font-size: 13px;
+    line-height: 26px;
+    color: #666;
+    transition: all .18s ease-in-out
+}
+.balance-token .method-payment .btn-edit i {
+    background-image: url("../../../../images/sprites/svg/common/sprite.svg");
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+    top: 2px
+}
+.balance-token .method-payment .btn-edit:hover {
+    text-decoration: none;
+    outline: 0
+}
+.balance-token .method-payment:hover .btn-edit {
+    text-decoration: none;
+    box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.56) inset;
+    background-color: #fff
+}
+.myaccount .myaccount-panel.balance-token .myaccount-edit {
+    margin-bottom: 0
+}
+.myaccount .myaccount-panel.balance-token .myaccount-edit.in {
+    padding-bottom: 0
+}
+.myaccount .myaccount-panel.balance-token .myaccount-edit .myaccount-label {
+    border-bottom: none;
+    padding-bottom: 0
+}
+.myaccount .myaccount-panel.balance-token .myaccount-edit .form-group {
+    margin-bottom: 0
+}
+.component-switch {
+    display: inline-block
+}
+.component-switch .switch,
+.component-switch h5 {
+    display: inline-block
+}
+.component-switch h5 {
+    margin-top: 0;
+    margin-left: 5px
+}
+.component-switch .switch {
+    margin-bottom: 0
+}
+.component-switch .label-green,
+.component-switch .label-red {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold
+}
+.component-switch .label-green {
+    color: #08864C
+}
+.component-switch .label-red {
+    color: #B00
+}
+.component-switch .label-grey {
+    color: #999;
+    text-transform: uppercase
+}
+.payment-table thead tr th {
+    color: #999;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 400;
+    padding-bottom: 10px
+}
+.payment-table tbody tr td {
+    font-size: 13px;
+    color: #666;
+    height: 47px;
+    vertical-align: middle;
+    border-top: #F0F0F0 solid 1px
+}
+.payment-table tbody tr td i.token-xs {
+    display: inline-block;
+    height: 10px
+}
+.payment-table tbody tr td i {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0 auto
+}
+.payment-table tbody tr td .clock {
+    background-image: url("../../../../images/sprites/svg/common/sprite.svg")
+}
+.payment-table tbody tr td .pay-ok {
+    background-image: url("../../../../images/sprites/svg/common/sprite.svg");
+    width: 18px;
+    height: 14px
+}
+.payment-table tbody tr td .pay-error {
+    background-image: url("../../../../images/sprites/svg/common/sprite.svg")
+}
+.payment-table tbody tr.canceled td {
+    text-decoration: line-through
+}
+.payment-table tbody tr.row-hide {
+    display: none
+}
+.payment-table tfoot tr td {
+    padding-top: 10px
+}
+.payment-table.open tbody tr.row-hide {
+    display: table-row
+}
+.remaining-days {
+    display: block
+}
+.remaining-days strong {
+    display: inline-block;
+    background-color: #661577;
+    padding: 2px
+}
+@media (min-width: 480px) {
+    .balance-token .total-tokens h2 {
+        font-size: 62px;
+        float: left
+    }
+    .balance-token .total-tokens h2 span {
+        float: left
+    }
+    .balance-token .total-tokens h2 i {
+        float: right;
+        top: 11px;
+        right: -40px
+    }
+    .balance-token .total-tokens h2 b {
+        float: right;
+        position: absolute;
+        bottom: 11px;
+        right: -42px;
+        font-size: 12px
+    }
+    .balance-token .total-tokens .sl-btn {
+        float: right;
+        margin-top: 10px
+    }
+}
+@media (min-width: 600px) {
+    .myaccount .myaccount-panel .myaccount-edit.automatic-renewal .myaccount-label .btn-more-days {
+        float: right;
+        margin-top: 0
+    }
+    .myaccount .myaccount-email .table {
+        display: block;
+        overflow: auto
+    }
+    .myaccount .myaccount-email .myaccount-action {
+        margin-top: 15px
+    }
+    .myaccount .non-subscribers .banner {
+        height: 352px;
+        padding: 0 30px
+    }
+    .myaccount .non-subscribers .banner .flag-sl {
+        margin-bottom: 15px;
+        zoom: .7
+    }
+    .myaccount .non-subscribers .banner .title {
+        margin: 0 20px 6px
+    }
+    .myaccount .non-subscribers .banner .text {
+        display: block;
+        margin-bottom: 25px
+    }
+    .myaccount .non-subscribers .benefits ul {
+        padding: 45px 30px 0
+    }
+    .myaccount .non-subscribers .benefits ul li {
+        text-align: left;
+        padding-bottom: 30px
+    }
+    .myaccount .non-subscribers .benefits ul li:after {
+        content: '';
+        display: table;
+        clear: both
+    }
+    .myaccount .non-subscribers .benefits ul li img {
+        zoom: .7
+    }
+    .myaccount .non-subscribers .benefits ul li .info {
+        width: calc(100% - 240px)
+    }
+    .myaccount .non-subscribers .benefits ul li .info .title {
+        margin-top: 20px
+    }
+    .myaccount .non-subscribers .benefits ul li.img-left img {
+        float: left;
+        margin-right: 40px
+    }
+    .myaccount .non-subscribers .benefits ul li.img-left .info {
+        float: right
+    }
+    .myaccount .non-subscribers .benefits ul li.img-right img {
+        float: right;
+        margin: 0 20px 0 40px
+    }
+    .myaccount .non-subscribers .benefits ul li.img-right .info {
+        float: left
+    }
+    .myaccount .non-subscribers .testimony {
+        height: 384px
+    }
+    .myaccount .non-subscribers .testimony .avatar {
+        text-align: center;
+        margin: 25px auto 20px;
+        width: 100%;
+        display: inline-block
+    }
+    .myaccount .non-subscribers .testimony .avatar img {
+        width: 93px;
+        height: 93px;
+        border-radius: 50%;
+        border: #fff solid 10px;
+        display: inline-block
+    }
+    .myaccount .non-subscribers .testimony .info .scrap {
+        margin: 10px 40px 20px
+    }
+    .myaccount .non-subscribers .plans .title {
+        font-size: 28px
+    }
+    .myaccount .non-subscribers .plans .foot {
+        margin: 30px 80px;
+        font-size: 28px;
+        line-height: 34px
+    }
+    .myaccount .advantage table {
+        border: 1px solid transparent;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        background-color: #FFF
+    }
+    .myaccount .advantage table thead tr th {
+        font-size: 22px;
+        font-weight: 300;
+        padding: 20px
+    }
+    .myaccount .advantage table tbody tr td {
+        font-size: 17px;
+        font-weight: 300
+    }
+        .myaccount .advantage table tbody tr td.pink {
+            font-size: 17px;
+            color: #c49436;
+            font-weight: 600
+        }
+    .myaccount .non-subscribers-main .advantage .table-body {
+        height: 298px
+    }
+    .myaccount .myaccount-current-situation .myaccount-method-payment .btn-sm.btn-default,
+    .myaccount .myaccount-waiting-payment .myaccount-method-payment .btn-sm.btn-default {
+        margin-left: 10px;
+        top: 0;
+        width: auto
+    }
+}
+@media (min-width: 992px) {
+    .message {
+        margin-top: 80px !important
+    }
+    .myaccount .myaccount-header {
+        height: 80px
+    }
+    .myaccount .myaccount-header .myaccount-options .myaccount-button-options {
+        display: none
+    }
+    .myaccount .myaccount-header .myaccount-options .myaccount-nav {
+        background-color: transparent;
+        box-shadow: none;
+        display: block;
+        position: relative;
+        float: none;
+        width: auto;
+        z-index: 9;
+        text-align: right
+    }
+    .myaccount .myaccount-header .myaccount-options .myaccount-nav li {
+        display: inline-block
+    }
+    .myaccount .myaccount-header .myaccount-options .myaccount-nav li a {
+        padding: 30px 0 23px 0;
+        font-size: 16px;
+        margin: 0 15px
+    }
+        .myaccount .myaccount-header .myaccount-options .myaccount-nav li.active a {
+            background-color: transparent;
+            border-left: none;
+            border-bottom: 5px solid #7F182A
+        }
+    .myaccount .myaccount-panel .myaccount-edit-body .myaccount-checkbox-list {
+        width: 50%;
+        float: left
+    }
+    .myaccount .table-responsive {
+        overflow-x: hidden
+    }
+    .myaccount .myaccount-email .myaccount-action {
+        margin-top: 0
+    }
+    .myaccount .non-subscribers .banner {
+        height: 477px
+    }
+    .myaccount .non-subscribers .banner .flag-sl {
+        margin-bottom: 15px;
+        zoom: .7
+    }
+    .myaccount .non-subscribers .banner .title {
+        margin: 50px 20px 20px;
+        font-size: 40px;
+        margin-bottom: 10px
+    }
+    .myaccount .non-subscribers .banner .text {
+        display: block;
+        width: 70%;
+        margin: 0 auto 25px
+    }
+    .myaccount .non-subscribers .banner button {
+        padding: 20px 48px
+    }
+    .myaccount .non-subscribers .benefits ul {
+        padding: 45px 30px 30px;
+        width: 90%;
+        margin: 0 auto
+    }
+    .myaccount .non-subscribers .benefits ul li {
+        text-align: left;
+        padding-bottom: 50px
+    }
+    .myaccount .non-subscribers .benefits ul li.img-left img {
+        float: left;
+        margin-right: 40px
+    }
+    .myaccount .non-subscribers .benefits ul li.img-left .info {
+        float: right
+    }
+    .myaccount .non-subscribers .benefits ul li.img-right img {
+        float: right;
+        margin: 0 20px 0 40px
+    }
+    .myaccount .non-subscribers .benefits ul li.img-right .info {
+        float: left
+    }
+    .myaccount .non-subscribers .testimony {
+        height: 384px
+    }
+    .myaccount .non-subscribers .testimony .avatar {
+        text-align: center;
+        margin: 25px auto 20px;
+        width: 100%;
+        display: inline-block
+    }
+    .myaccount .non-subscribers .testimony .avatar img {
+        width: 93px;
+        height: 93px;
+        border-radius: 50%;
+        border: #fff solid 10px;
+        display: inline-block
+    }
+    .myaccount .non-subscribers .testimony .info .scrap {
+        margin: 10px 80px 20px
+    }
+    .myaccount .non-subscribers .plans .title {
+        font-size: 40px;
+        margin: 80px 20px 0
+    }
+    .myaccount .non-subscribers .plans .subtitle {
+        font-size: 20px
+    }
+    .myaccount .non-subscribers .plans .foot {
+        margin: 60px auto 40px;
+        font-size: 28px;
+        line-height: 34px;
+        width: 60%
+    }
+    .myaccount .non-subscribers .plans .modals {
+        width: 80%;
+        margin: 0 auto
+    }
+    .myaccount .sl-modal.sl-subscription-modal.injected.iframe-boleto .modal-dialog,
+    .myaccount .sl-modal.sl-subscription-modal.injected.iframe-pagseguro .modal-dialog {
+        width: 100%
+    }
+    .myaccount .sl-modal.sl-subscription-modal.injected .modal-dialog .modal-content .modal-body .tab-content.payment-methods {
+        margin-left: -21px
+    }
+    .myaccount .advantage .title {
+        font-size: 28px;
+        font-weight: 300
+    }
+    .myaccount .advantage .title b {
+        font-weight: 700
+    }
+    .myaccount .advantage table {
+        border: 1px solid transparent;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        background-color: #FFF;
+        width: 70%;
+        margin: 0 auto
+    }
+    .myaccount .advantage table thead tr th {
+        font-size: 22px;
+        font-weight: 300;
+        padding: 20px
+    }
+    .myaccount .advantage table tbody tr td {
+        font-size: 17px;
+        font-weight: 300
+    }
+        .myaccount .advantage table tbody tr td.pink {
+            font-size: 17px;
+            color: #c49436;
+            font-weight: 600
+        }
+    .myaccount .non-subscribers-main .col-md-5 {
+        float: right
+    }
+    .myaccount .non-subscribers-main .col-md-7 {
+        float: left
+    }
+    .myaccount .non-subscribers-main .advantage {
+        padding: 0
+    }
+    .myaccount .non-subscribers-main .advantage table {
+        width: 100%
+    }
+    .myaccount .non-subscribers-main .advantage table tbody tr td,
+    .myaccount .non-subscribers-main .advantage table tbody tr td.pink {
+        font-size: 13px
+    }
+    .myaccount .non-subscribers-main .advantage table tbody tr.see-more td {
+        display: table-cell
+    }
+    .myaccount .non-subscribers-main .advantage table tfoot {
+        display: none
+    }
+    .myaccount .non-subscribers-main .sl-modal {
+        padding: 0
+    }
+    .myaccount .non-subscribers-main .sl-modal>.modal-dialog {
+        margin-top: 25px
+    }
+    .myaccount .non-subscribers-main .myaccount-panel {
+        margin: 15px 0 0 0
+    }
+}
+@media (min-width: 1200px) {
+    .myaccount .non-subscribers .benefits ul,
+    .myaccount .non-subscribers-main .benefits ul {
+        width: 80%
+    }
+    .myaccount .non-subscribers .plans .modals,
+    .myaccount .non-subscribers-main .plans .modals {
+        width: 70%;
+        margin: 0 auto
+    }
+}
+@media (min-width: 1615px) {
+    .myaccount .sl-modal.sl-subscription-modal.injected.iframe-boleto .modal-dialog .modal-body .frame {
+        width: 710px;
+        margin: 0 auto
+    }
+    .myaccount .non-subscribers .plans .modals,
+    .myaccount .non-subscribers-main .plans .modals {
+        width: 60%
+    }
+}
+[lang="es-es"] .myaccount-current-situation .myaccount-method-payment h5,
+[lang="es-es"] .myaccount-waiting-payment .myaccount-method-payment h5 {
+    font-size: 16px;
+    top: 5px;
+    position: relative
+}

@@ -1,0 +1,52 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee - A Rede Social Sugar Baby e Sugar Daddy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/app/myaccount/myaccount834d.css?v=262076f14fa0aa8d37cb1b48c8f2f68036" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://www.sexlog.com/assets/css/sl/app/institute/institute.css?v=301d856a5863c1ac3bce090aaf978cac" media="screen" />
+
+
+
+<style>
+    body {
+        color: #B8273B;
+    }
+
+    .ng-cloak {
+        display: block !important;
+    }
+
+    .myaccount .myaccount-header .myaccount-options .myaccount-nav li.active a {
+        border-bottom: 5px solid #B8273B;
+    }
+</style>
+
+
+<div class="myaccount institute">
+
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <div class="container-flex">
+        <div class="panel myaccount-panel about">
+            <div class="panel-heading">
+                <h3>Oops! Tivemos um problema. </h3>
+            </div>
+            <div class="panel-body account-info">
+                <button id="back_btn" onclick="goBack()" class="sl-btn btn-primary btn-lg btn-block ng-scope" name="action">
+                    Recarregar a Página anterior
+                </button>
+            </div>
+        </div>
+
+        @Html.Action("_FooterInstitucionalPartial", "Institucional")
+        
+    </div>
+</div>

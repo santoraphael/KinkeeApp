@@ -1,0 +1,180 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/perfil.css" rel="stylesheet" />
+<link href="~/pulsar/Kinkee/assets/css/sl/comum.css" rel="stylesheet" />
+<link href="~/modules/css/blueimp-gallery.min.css" rel="stylesheet" />
+<link href="~/modules/css/bundle.css" rel="stylesheet" media="screen" />
+<link href="~/modules/css/novoPerfil.css" rel="stylesheet" />
+<link href="~/modules/css/perfil_feed.css" rel="stylesheet" />
+<link href="~/modules/css/index.css" rel="stylesheet" />
+<style>
+    img {
+        border: 0;
+        vertical-align: middle;
+    }
+
+    .aside.sidebar .sidebar-header input.fake-search {
+        width: calc(100% - 45px) !important;
+    }
+</style>
+
+
+<div class="ng-scope">
+
+    <div class="profile-page" style="padding-top:0;">
+
+        <!-- Filter -->
+        <div>
+
+            <div class="container-flex content-container">
+
+                <!--Conteúdo-->
+                <div class="profile-content" style="padding-top:20px; max-width:650px; margin: 0 auto;">
+
+                    <!--Aba ativa-->
+                    <div class="profile-home profile-container">
+
+                        <div class="card-lists" style="margin-top:20px;">
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr class="ng-scope">
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="text-center">
+
+    <div class="endpage" style="margin: 30px 0 0px;">
+        <i></i>
+        <div></div>
+    </div>
+    <br /><br />
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    var ordenacao = 0;
+    var pageSize = 10;
+    var pageIndex = 0;
+    var pageIndexSearch = 0;
+    var lastInteractionSearch = 0;
+    var lastInteraction = 0;
+
+
+    $(document).ready(function () {
+
+
+        //PEGAR ID DO POST VIA URL
+        var url = window.location.pathname + '/',
+            parts = url.replace("//","/").split("/"),
+        last_part = parts[parts.length-2];
+        //console.log(lastPart);
+        //alert(lastPart);
+
+            
+
+        PegarPublicacaoPorID(last_part);
+
+
+
+        //$(window).scroll(function () {
+
+        //    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        //        TodasAsPublicacoesAtivas();
+        //    }
+        //});
+
+    });
+
+    function PegarPublicacaoPorID(id) {
+        $.ajax({
+            type: 'GET',
+            url: '/Dating/PegarPublicacaoPorID',
+            data: { "Id": id },
+            dataType: 'json',
+
+            success: function (data) {
+
+                if (data != null) {
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data);
+                        PreencheTemplatePublicacao(data[i].UsuarioPublicacaoID, data[i].Id);
+                    }
+                }
+            },
+            beforeSend: function () {
+                $("#progress").show();
+                $(".js-carregar-btn").hide();
+            },
+            complete: function () {
+                $("#progress").hide();
+                $(".js-carregar-btn").show();
+            },
+            error: function () {
+                //('').append('Ops! Ocorreu um erro durante o carregamento.');
+            }
+        });
+
+    }
+
+
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+
+    function PreencheTemplatePublicacao(UsuarioPublicacaoID, Id) {
+
+
+        $.ajax({
+            type: 'GET',
+            url: '/Dating/_PulsacaoPublicadaPartial',
+            data: { "UsuarioPublicacaoID": UsuarioPublicacaoID, "Id": Id },
+            dataType: 'html',
+            success: function (data) {
+                $(".card-lists").append(data);
+            },
+            beforeSend: function () {
+
+            },
+            complete: function () {
+
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+</script>
+
+
+@if (ViewBag.ConfiguracoesIniciais == false)
+{
+    @Html.Action("_IntroPartial", "Wizard")
+}

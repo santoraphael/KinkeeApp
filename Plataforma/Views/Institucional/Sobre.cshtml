@@ -1,0 +1,65 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee - A Rede Social Sugar Baby e Sugar Daddy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/app/myaccount/myaccount834d.css?v=262076f14fa0aa8d37cb1b48c8f2f68036" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://www.sexlog.com/assets/css/sl/app/institute/institute.css?v=301d856a5863c1ac3bce090aaf978cac" media="screen" />
+
+
+
+<style>
+    body {
+        color: #B8273B;
+    }
+
+    .ng-cloak {
+        display: block !important;
+    }
+
+    .myaccount .myaccount-header .myaccount-options .myaccount-nav li.active a {
+        border-bottom: 5px solid #B8273B;
+    }
+</style>
+
+
+<div class="myaccount institute">
+
+
+
+    @Html.Action("_SubMenuInstitucionalPartial", "Institucional")
+
+
+    <div class="container-flex">
+        <div class="panel myaccount-panel about">
+            <div class="panel-heading">
+                <h3>Kinkee - A Rede Social Sugar Baby & Sugar Daddy. </h3>
+            </div>
+            <div class="panel-body account-info">
+                <p>Bem vindo a Kinkee!</p>
+                <p>Somos a kinkee, uma rede social para quem busca um relacionamento sugar em suas várias formas, criada pelo Raphael Santo, que ajudou a difundir o conceito Sugar do Brasil, hoje tem o objetivo de fazer esse tipo de relacionamento voltar as origens.</p>
+                <p>Nosso objetivo é ter um <strong>ambiente seguro</strong> para que as pessoas busquem e vivam o seu relacionamento com a mais tranquilidade.</p>
+                <p class="no-margin"><strong>Ambiente seguro:</strong></p>
+                <p class="no-margin">Prezamos pela segurança e privacidade de todos.</p>
+                <p>Contamos com uma comunidade engajada que, preocupada com a manutenção da nossa rede, denuncia todo e qualquer conteúdo considerado suspeito e que fuja das nossas regras detalhadas nos <a href="#">termos de uso</a>. Além disso, contamos com uma equipe de suporte sempre pronta a atender a qualquer demanda e analisar denúncias com agilidade.</p>
+                <p class="no-margin"><strong>No Fake:</strong></p>
+                <p>A plataforma utiliza um avançado algoritimo(o mesmo usado no mundo dos games), para potuar e categorizar cada usuário. O objetivo da plataforma é promover encontros reais, mas trazendo total segurança para todos os usuários, por esse motivo, usuários suspeitos estão sempre sendo monitorados.</p>
+                <p>O mais importante é que cada um tenha liberdade de escolha em relação a como se divertir, desde que nenhuma prática interfira na liberdade do outro.</p>
+                <p>Para saber um pouco mais sobre a kinkee, relacionamento sugar, e o que a kinkee e seu fundador Raphael Santo acredita, visite:</p>
+                <ul class="list-unstyled">
+                    <li><a target="_blank" href="#">> Revista Kinkee</a></li>
+                    <li><a target="_blank" href="#">> Kinkee TV no Youtube</a></li>
+                    <li><a target="_blank" href="#">> Imprensa</a></li>
+                    <li><a target="_blank" href="#">> Termos de uso</a></li>
+                    <li><a target="_blank" href="#">> Segurança e Privacidade</a></li>
+                </ul>
+            </div>
+        </div>
+
+        @Html.Action("_FooterInstitucionalPartial", "Institucional")
+        
+    </div>
+</div>

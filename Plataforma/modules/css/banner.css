@@ -1,0 +1,3270 @@
+﻿
+
+.adaptive .sl-promotion.promotion-tokens,
+.adaptive .sl-modal.promotion-tokens .modal-dialog {
+    font-family: 'Signika Negative', tahoma, verdana, arial, sans-serif
+}
+.sl-promotion.promotion-tokens {
+    background: linear-gradient(to top, #E8FBFF, #fff)
+}
+.sl-promotion.promotion-tokens .promotion-header {
+    padding: 20px
+}
+.sl-promotion.promotion-tokens .promotion-header h1 {
+    font-size: 24px;
+    line-height: 28px;
+    color: #D5186A;
+    text-shadow: none;
+    text-align: center
+}
+.sl-promotion.promotion-tokens .promotion-header p {
+    font-size: 18px;
+    line-height: 22px;
+    color: #1FAE9B
+}
+.sl-promotion.promotion-tokens .promotion-header button {
+    background: none
+}
+.sl-promotion.promotion-tokens .promotion-body button {
+    background-color: #e9b63b;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background .2s linear;
+    max-width: 300px;
+    white-space: normal;
+    text-shadow: rgba(0, 0, 0, 0.35) 0 1px 2px;
+    background: #EFD94D linear-gradient(to bottom, #EFD94D 0, #D99820 100%);
+    border: 1px solid #D99820
+}
+.sl-promotion.promotion-tokens .promotion-body button:hover,
+.sl-promotion.promotion-tokens .promotion-body button:focus {
+    background: #edd436 linear-gradient(to bottom, #edd436 0, #c3881d 100%);
+    border-color: #c3881d;
+    color: #fff
+}
+.sl-promotion.promotion-tokens .promotion-body small {
+    color: #666
+}
+.sl-promotion.promotion-tokens.active .promotion-header h1 {
+    margin-top: 30px
+}
+@media (min-width: 992px) {
+    .sl-promotion-offset-desktop {
+        height: 125px
+    }
+    .sl-promotion.promotion-tokens,
+    .sl-promotion.promotion-tokens.active {
+        height: 125px
+    }
+    .sl-promotion.promotion-tokens .promotion-header,
+    .sl-promotion.promotion-tokens.active .promotion-header {
+        padding: 10px;
+        width: 72%
+    }
+    .sl-promotion.promotion-tokens .promotion-header h1,
+    .sl-promotion.promotion-tokens.active .promotion-header h1 {
+        float: right;
+        text-align: left;
+        font-size: 28px;
+        position: relative;
+        margin-top: 5px
+    }
+    .sl-promotion.promotion-tokens .promotion-header h1:before,
+    .sl-promotion.promotion-tokens.active .promotion-header h1:before {
+        display: block;
+        content: '';
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%22224%22%20height%3D%22120%22%20viewBox%3D%220%200%20224%20120%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22Imported-Layers%22%3E%3Cpath%20d%3D%22M117.05%2066.448l-1.41%201.08-1.064.816-.82.628c-.184.14-.357.274-.524.4l-.455.35-.644.493-.43.33c-.035.027-.068.052-.102.08l-.91.695c-.065.05-.12.094-.174.134l-.223.17c-.005.005-.01.01-.015.013l-.084.063c-.01.008-.018.016-.027.022l-.02.015-.05.038-.006.005%2014.547%202.906v-.002l-.004-.006-.032-.054-.012-.022c-.005-.01-.01-.02-.017-.03l-.052-.09-.01-.018-.14-.244c-.033-.057-.068-.12-.11-.19l-.57-.993-.066-.113-.27-.468-.404-.703-.286-.498-.33-.57-.514-.894-.67-1.16-.886-1.54-.445-.774-.794-1.38-1.265.97c-.243.186-.48.366-.708.542%22%20id%3D%22Fill-1%22%20fill%3D%22%2353B3B1%22/%3E%3Cpath%20d%3D%22M114.993%2085.086l9.644-10.4-14.547-2.906%204.903%2013.306%22%20id%3D%22Fill-2%22%20fill%3D%22%23489D9C%22/%3E%3Cpath%20d%3D%22M114.993%2085.086l-8.13%202.87c.354.428.704.838%201.047%201.232%201.09%201.235%202.94%203.255%205.186%205.38%202.89-1.098%205.377-2.252%206.857-2.975.47-.232.95-.476%201.44-.734l-6.4-5.774%22%20id%3D%22Fill-3%22%20fill%3D%22%232A5B5D%22/%3E%3Cpath%20d%3D%22M134.94%2080.44l-10.303-5.754-9.644%2010.4%206.4%205.773c1.372-.72%202.82-1.537%204.266-2.446%203.775-2.464%207.568-5.65%209.28-7.973%22%20id%3D%22Fill-4%22%20fill%3D%22%23347172%22/%3E%3Cpath%20d%3D%22M114.993%2085.086L110.09%2071.78l-11.725%201.357c.686%202.803%202.962%207.2%205.5%2010.925.987%201.395%202.01%202.705%202.997%203.895l8.13-2.87%22%20id%3D%22Fill-5%22%20fill%3D%22%23347172%22/%3E%3Cpath%20d%3D%22M110.09%2071.78l-.003-.01-.042-.138-.008-.028-.057-.19-.068-.227c-.036-.117-.08-.258-.13-.428l-.137-.454c-.01-.038-.02-.074-.033-.112l-.516-1.712-.343-1.136-.246-.815-.362-1.2-.372-1.235-.654-2.17-.246-.81-.485-1.61-.847-2.807c-1.284.72-2.395%201.53-3.346%202.408-.617.6-1.243%201.295-1.877%202.096-.1.127-.194.257-.288.386-.7%201.02-1.234%202.087-1.6%203.174-.577%201.696-.753%203.44-.646%205.105.075.98.244%201.965.49%202.952.03.105.058.212.09.317l11.724-1.357%22%20id%3D%22Fill-6%22%20fill%3D%22%233E8787%22/%3E%3Cpath%20d%3D%22M134.636%2062.507l-3.857%204.697-1.602%201.95-.552.673-1.403%201.71-.47.57c-.195.24-.37.453-.533.65l-.498.606c-.06.075-.118.145-.173.21l-.176.214c-.14.172-.257.313-.35.426l-.142.173-.13.16-.016.02c-.057.068-.08.098-.09.11l-.01.01%2010.303%205.755c.067-.083.135-.17.202-.258.608-.817%201.144-1.663%201.59-2.538.74-1.498%201.247-3.174%201.37-4.96.076-1.145-.006-2.335-.26-3.545-.037-.157-.073-.312-.117-.47-.278-.98-.588-1.864-.927-2.656-.54-1.174-1.253-2.35-2.162-3.507%22%20id%3D%22Fill-7%22%20fill%3D%22%233E8787%22/%3E%3Cpath%20d%3D%22M105.543%2056.698l.846%202.806.484%201.61.245.81.653%202.17.372%201.235.362%201.2c.087.287.17.56.246.816l.343%201.136.516%201.712.033.112.137.453.13.427.068.227.057.19.008.028.042.137.003.01.006-.005.05-.038.02-.015.028-.022.084-.063.015-.012.223-.17.175-.135c.216-.165.512-.39.91-.696l.104-.08c.13-.1.276-.21.43-.33l.643-.49c.144-.112.296-.23.455-.35l.524-.402.82-.628%201.063-.815%201.41-1.082.708-.543%201.265-.97s-.487-1.412-1.507-3.114c-1.3-2.028-3.367-4.376-5.967-5.404-1.693-.58-3.688-.626-6.007.282%22%20id%3D%22Fill-8%22%20fill%3D%22%23489D9C%22/%3E%3Cpath%20d%3D%22M120.262%2067.09c.318.552.615%201.065.887%201.54l.668%201.16.515.894.33.57.285.5.404.702.27.468.066.113.57.993.11.19.14.244.01.017c.022.037.04.067.053.092l.018.03.013.022.033.054c0%20.005.003.006.003.006v.002l.01-.01.09-.11c.005-.008.01-.015.017-.02l.13-.16.142-.173.35-.426.174-.213.172-.21c.146-.178.31-.38.498-.607l.534-.65c.145-.177.303-.37.47-.57l1.402-1.71.552-.673%201.6-1.95c1.086-1.32%202.357-2.87%203.858-4.697-1.79-1.728-3.65-2.453-5.436-2.566-2.797-.048-5.607%201.326-7.588%202.7-1.597%201.18-2.59%202.296-2.59%202.296.28.486.543.94.795%201.38l.445.773%22%20id%3D%22Fill-9%22%20fill%3D%22%23489D9C%22/%3E%3C/g%3E%3Cg%20id%3D%22Imported-Layers%22%3E%3Cpath%20d%3D%22M68.87%2054.368l-.59%202.436c-.158.656-.307%201.266-.445%201.835l-.343%201.414c-.077.317-.15.616-.218.902l-.192.787c-.098.405-.187.774-.27%201.11l-.18.742c-.013.062-.028.12-.04.18l-.383%201.567c-.028.114-.05.212-.073.3l-.094.387-.006.026-.035.143-.012.047-.008.035-.02.086-.003.01h-.002l18.538-9.685h-.002l-.01-.004c-.01-.005-.033-.015-.082-.033l-.033-.013-.047-.018-.138-.054c-.008-.003-.017-.005-.026-.01l-.37-.143-.29-.112-1.506-.584c-.057-.022-.112-.042-.17-.066l-.713-.275-1.065-.413-.756-.292-.867-.336-1.358-.526c-.547-.21-1.133-.438-1.762-.682l-2.338-.905c-.378-.148-.77-.3-1.174-.456l-2.093-.81-.53%202.18c-.1.422-.2.83-.296%201.224%22%20id%3D%22Fill-1%22%20fill%3D%22%2367D9BE%22/%3E%3Cpath%20d%3D%22M83.127%2076.64l1.37-19.947-18.54%209.686%2017.17%2010.26%22%20id%3D%22Fill-2%22%20fill%3D%22%235CC3A9%22/%3E%3Cpath%20d%3D%22M83.127%2076.64L76.75%2086.985c.766.155%201.514.295%202.24.424%202.288.392%206.11.97%2010.458%201.312%202.2-3.763%203.905-7.23%204.89-9.332.307-.67.62-1.364.93-2.082l-12.14-.668%22%20id%3D%22Fill-3%22%20fill%3D%22%233E816A%22/%3E%3Cpath%20d%3D%22M100.902%2053.89l-16.406%202.803-1.37%2019.947%2012.142.668c.867-2%201.732-4.178%202.515-6.455%201.96-6.048%203.3-12.9%203.12-16.963%22%20id%3D%22Fill-4%22%20fill%3D%22%2348977F%22/%3E%3Cpath%20d%3D%22M83.127%2076.64l-17.17-10.26-11.664%2011.865c3.235%202.467%209.63%205.277%2015.716%207.12%202.317.657%204.6%201.19%206.74%201.62l6.377-10.345%22%20id%3D%22Fill-5%22%20fill%3D%22%2348977F%22/%3E%3Cpath%20d%3D%22M65.958%2066.38l-.014-.01-.167-.114-.034-.023c-.06-.04-.135-.093-.23-.16l-.277-.186-.52-.356-.553-.376-.136-.093-2.083-1.42-1.383-.943-.99-.677c-.456-.31-.94-.64-1.463-.998l-1.5-1.024c-.81-.552-1.687-1.15-2.642-1.803l-.987-.674-1.96-1.336-3.414-2.33c-.773%201.926-1.27%203.8-1.54%205.604-.144%201.203-.215%202.52-.2%203.96%200%20.23.014.454.025.68.134%201.738.495%203.38%201.054%204.9.87%202.37%202.222%204.437%203.816%206.172.95%201.007%202.01%201.94%203.155%202.804.126.09.25.183.378.27L65.958%2066.38%22%20id%3D%22Fill-6%22%20fill%3D%22%2352AD94%22/%3E%3Cpath%20d%3D%22M84.68%2034.48l-.072%208.567c-.01%201.308-.02%202.488-.03%203.557l-.01%201.227-.025%203.12-.01%201.038-.008%201.187-.01%201.107c0%20.136%200%20.263-.002.384l-.003.39-.007.774-.003.317-.002.29v.036c0%20.126-.002.18-.002.203v.017l16.406-2.803c0-.153-.004-.308-.007-.463-.057-1.435-.218-2.838-.504-4.192-.515-2.298-1.443-4.588-2.892-6.654-.93-1.325-2.073-2.558-3.425-3.66-.18-.138-.355-.278-.542-.41-1.175-.833-2.298-1.526-3.37-2.095-1.635-.81-3.458-1.47-5.48-1.934%22%20id%3D%22Fill-7%22%20fill%3D%22%2352AD94%22/%3E%3Cpath%20d%3D%22M47.604%2053.854l3.415%202.33%201.958%201.337.987.675%202.64%201.803c.53.36%201.033.704%201.502%201.024l1.463.998.99.677%201.384.943c.867.592%201.55%201.058%202.083%201.42l.136.094.553.377.52.357.276.187.23.16.035.022.167.114.014.01v-.002s0-.004.003-.01l.022-.086.008-.035.012-.048.035-.144.006-.027.094-.387.072-.3.38-1.57.043-.178.18-.74.27-1.112.19-.787.22-.902.342-1.415.445-1.836c.182-.75.38-1.563.59-2.436l.298-1.223.53-2.18s-1.787-1.12-4.416-2.086c-3.224-1.075-7.572-1.824-11.337-.65-2.37.86-4.6%202.575-6.34%205.624%22%20id%3D%22Fill-8%22%20fill%3D%22%235CC3A9%22/%3E%3Cpath%20d%3D%22M72.965%2052.23l2.338.904%201.762.682%201.358.526.866.336.755.292%201.066.413.713.275.17.066%201.508.584.29.11.37.145.025.01c.056.02.1.038.138.053l.046.018.032.013.083.032c.006%200%20.008.002.01.002v-.016l.003-.203v-.037l.002-.29.003-.316.007-.775c0-.12%200-.25.003-.39l.003-.383.01-1.107.008-1.187.01-1.04.025-3.117c.002-.39.006-.8.01-1.226l.028-3.557c.02-2.408.044-5.233.07-8.566-3.496-.31-6.18.54-8.238%201.996-3.113%202.42-4.98%206.416-5.936%209.677-.708%202.706-.807%204.81-.807%204.81.737.287%201.428.554%202.094.81l1.175.456%22%20id%3D%22Fill-9%22%20fill%3D%22%235CC3A9%22/%3E%3C/g%3E%3Cg%20id%3D%22Imported-Layers%22%3E%3Cpath%20d%3D%22M45.908%2092.46l-1.364%201.005-1.027.756-.792.585-.505.372-.44.325-.623.458-.415.306-.1.074-.878.646-.168.125-.216.16-.015.01-.08.06c-.01.007-.02.013-.027.02l-.02.014-.048.035-.005.004%2013.8%203.03v-.002l-.003-.007-.03-.052-.01-.02c-.006-.01-.01-.02-.017-.03l-.048-.088-.01-.016-.128-.236c-.032-.054-.064-.114-.103-.183l-.526-.955-.06-.11-.247-.45-.372-.675-.264-.48-.303-.55-.474-.86c-.192-.347-.396-.72-.617-1.118l-.817-1.483-.41-.746-.732-1.328-1.22.9-.686.504%22%20id%3D%22Fill-1%22%20fill%3D%22%2367D9BE%22/%3E%3Cpath%20d%3D%22M43.614%20110.174l9.37-9.73-13.8-3.03%204.43%2012.76%22%20id%3D%22Fill-2%22%20fill%3D%22%235CC3A9%22/%3E%3Cpath%20d%3D%22M43.614%20110.174l-7.795%202.588c.328.412.655.81.974%201.19%201.014%201.198%202.742%203.154%204.843%205.218%202.772-.994%205.16-2.047%206.583-2.71.45-.212.914-.436%201.386-.673l-5.992-5.613%22%20id%3D%22Fill-3%22%20fill%3D%22%233E816A%22/%3E%3Cpath%20d%3D%22M62.694%20106.11l-9.71-5.667-9.37%209.73%205.992%205.614c1.32-.66%202.71-1.412%204.106-2.25%203.64-2.28%207.31-5.246%208.982-7.428%22%20id%3D%22Fill-4%22%20fill%3D%22%2348977F%22/%3E%3Cpath%20d%3D%22M43.614%20110.174l-4.43-12.76-11.192%201.08c.603%202.682%202.692%206.91%205.042%2010.505.914%201.345%201.864%202.61%202.785%203.762l7.794-2.588%22%20id%3D%22Fill-5%22%20fill%3D%22%2348977F%22/%3E%3Cpath%20d%3D%22M39.184%2097.414l-.004-.01-.036-.133-.008-.025-.05-.183-.06-.216c-.034-.113-.07-.248-.117-.41L38.786%2096l-.03-.106-.46-1.64c-.094-.327-.195-.69-.307-1.088l-.22-.78c-.1-.36-.207-.74-.323-1.15l-.33-1.183-.585-2.08-.218-.776c-.14-.49-.282-1-.434-1.542l-.755-2.687c-1.236.66-2.31%201.415-3.23%202.233-.6.56-1.207%201.212-1.825%201.963-.1.12-.19.24-.282.363-.685.958-1.212%201.965-1.583%202.994-.578%201.604-.776%203.26-.705%204.85.054.934.198%201.876.415%202.82.025.103.05.205.077.305l11.192-1.08%22%20id%3D%22Fill-6%22%20fill%3D%22%2352AD94%22/%3E%3Cpath%20d%3D%22M62.728%2089.024l-3.757%204.403-1.56%201.83-.538.63-1.368%201.602-.455.534-.522.61-.485.57-.17.196-.17.2-.34.398-.14.164-.125.148-.016.02-.09.103-.007.01%209.71%205.666c.066-.08.13-.163.196-.244.595-.767%201.12-1.563%201.562-2.39.73-1.41%201.245-3%201.392-4.698.095-1.09.038-2.224-.18-3.38-.035-.15-.065-.298-.104-.448-.247-.94-.528-1.788-.835-2.547-.495-1.128-1.152-2.26-1.997-3.38%22%20id%3D%22Fill-7%22%20fill%3D%22%2352AD94%22/%3E%3Cpath%20d%3D%22M35.125%2082.968l.755%202.687.434%201.542.218.777.584%202.08c.117.414.227.81.33%201.18l.325%201.152c.077.274.152.535.22.78l.306%201.088.46%201.64.03.107.123.436.115.41.06.216.05.183c.004.01.006.02.01.026l.035.133.004.01c.002%200%20.003%200%20.006-.004l.048-.036.02-.015.026-.02c.022-.017.05-.035.08-.06l.016-.01.216-.16.168-.124c.21-.153.494-.364.88-.646l.098-.074.415-.306.622-.458.44-.325.505-.372c.246-.18.51-.376.792-.584l1.027-.755%201.364-1.005.685-.504%201.22-.9s-.437-1.355-1.378-2.994c-1.202-1.956-3.127-4.23-5.586-5.255-1.6-.584-3.5-.663-5.725.16%22%20id%3D%22Fill-8%22%20fill%3D%22%235CC3A9%22/%3E%3Cpath%20d%3D%22M48.956%2093.13l.817%201.482.616%201.117.473.86.303.55.265.48.373.676.248.45.06.11c.232.417.403.73.527.955l.102.184.127.235.01.015.048.088.016.03.013.02.03.052c0%20.004%200%20.006.002.007l.008-.01.09-.103.015-.02.126-.148.14-.164.34-.398.17-.2.17-.197.484-.57.52-.61c.142-.164.295-.345.456-.534l1.368-1.603c.172-.2.35-.412.538-.63l1.56-1.83%203.758-4.403c-1.675-1.68-3.433-2.403-5.13-2.542-2.663-.097-5.365%201.16-7.276%202.433-1.542%201.094-2.507%202.14-2.508%202.14l.732%201.33.41.744%22%20id%3D%22Fill-9%22%20fill%3D%22%235CC3A9%22/%3E%3C/g%3E%3Cg%20id%3D%22Imported-Layers%22%3E%3Cpath%20d%3D%22M9.767%2090.757l-.514.784-.387.592-.298.456-.19.29-.167.255c-.084.13-.16.25-.233.357l-.156.24-.036.056-.332.507-.063.096-.08.123c-.004.004-.006.006-.007.01l-.03.046-.01.014-.008.01-.018.03-.003.002%207.75-1.093-.003-.004-.025-.022-.01-.008c-.004-.005-.01-.008-.014-.012l-.04-.037c-.003%200-.005-.003-.008-.006l-.113-.097-.09-.076-.456-.393-.053-.044-.215-.186c-.1-.085-.207-.178-.324-.28l-.23-.198-.262-.227-.413-.356-.536-.46-.712-.612-.357-.307-.635-.55-.46.704-.258.395%22%20id%3D%22Fill-1%22%20fill%3D%22%2367DCCD%22/%3E%3Cpath%20d%3D%22M12%20100.394l2.984-6.86-7.75%201.092L12%20100.394%22%20id%3D%22Fill-2%22%20fill%3D%22%235CC6B8%22/%3E%3Cpath%20d%3D%22M12%20100.394l-3.544%202.85c.25.15.497.292.737.43.758.424%202.033%201.106%203.523%201.772%201.247-1.052%202.283-2.06%202.893-2.678.192-.198.39-.404.588-.618L12%20100.394%22%20id%3D%22Fill-3%22%20fill%3D%22%233E8479%22/%3E%3Cpath%20d%3D%22M21.12%2094.6l-6.136-1.067-2.983%206.86%204.198%201.757c.557-.597%201.134-1.256%201.696-1.96%201.448-1.888%202.78-4.136%203.225-5.59%22%20id%3D%22Fill-4%22%20fill%3D%22%23489A8E%22/%3E%3Cpath%20d%3D%22M12%20100.394l-4.766-5.768-5.6%202.723c.832%201.275%202.734%203.066%204.65%204.477.734.523%201.472.996%202.172%201.416l3.545-2.85%22%20id%3D%22Fill-5%22%20fill%3D%22%23489A8E%22/%3E%3Cpath%20d%3D%22M7.234%2094.626l-.004-.005-.044-.06-.01-.013-.06-.084-.075-.1c-.037-.053-.082-.116-.138-.19l-.147-.204-.037-.05-.556-.763c-.11-.152-.234-.32-.37-.505l-.264-.363c-.12-.167-.25-.344-.39-.536l-.4-.55-.707-.966-.262-.36-.523-.717-.912-1.25c-.514.584-.924%201.182-1.245%201.784-.202.407-.392.863-.568%201.372-.028.08-.05.16-.075.242-.17.63-.25%201.255-.243%201.86.01.944.227%201.843.572%202.654.21.474.465.935.76%201.384l.1.143%205.6-2.724%22%20id%3D%22Fill-6%22%20fill%3D%22%2352B0A3%22/%3E%3Cpath%20d%3D%22M17.832%2085.723l-1.098%203.012-.456%201.25-.158.432-.4%201.096-.133.365-.152.418-.142.39-.05.134-.05.137-.098.272-.04.11c-.016.043-.03.076-.038.103l-.005.012-.026.072-.002.006L21.12%2094.6c.02-.055.037-.11.055-.165.16-.513.28-1.028.348-1.54.106-.876.065-1.8-.186-2.71-.162-.583-.41-1.162-.75-1.72-.045-.07-.09-.142-.14-.212-.31-.44-.618-.827-.925-1.16-.474-.49-1.035-.952-1.69-1.37%22%20id%3D%22Fill-7%22%20fill%3D%22%2352B0A3%22/%3E%3Cpath%20d%3D%22M2.333%2087.91l.912%201.25.523.717.263.36.707.968.4.55.39.534c.094.126.183.248.265.362l.37.505.556.763.037.05c.054.074.105.142.147.202l.14.19c.028.04.052.073.073.1l.062.085c.003.005.006.01.01.013l.043.06.004.006.003-.003.018-.028c.002-.004.005-.008.008-.01l.01-.016c.007-.014.018-.03.03-.048l.006-.01.08-.123.062-.097c.08-.12.187-.285.332-.507l.037-.057c.05-.074.102-.155.157-.24l.234-.357c.054-.08.11-.165.167-.254l.19-.292.3-.456.386-.59.514-.785.258-.395c.145-.223.297-.456.46-.703%200%200-.49-.62-1.296-1.288-1.003-.783-2.442-1.592-3.917-1.65-.943.007-1.945.332-2.94%201.19%22%20id%3D%22Fill-8%22%20fill%3D%22%235CC6B8%22/%3E%3Cpath%20d%3D%22M11.478%2090.515l.71.612.537.46.413.356.263.226.23.198.325.28.216.185.054.044.457.394.09.077.112.097.008.007c.017.016.03.027.04.038l.015.012.01.008.026.02.003.004.003-.005.026-.072.005-.012.037-.103.04-.11.1-.273.05-.137.05-.135.14-.39.153-.417c.04-.113.086-.235.133-.365l.4-1.096.158-.43.456-1.252c.31-.846.67-1.84%201.098-3.012-1.194-.547-2.247-.583-3.154-.327-1.402.463-2.56%201.638-3.307%202.668-.587.865-.885%201.595-.885%201.595l.636.548.358.307%22%20id%3D%22Fill-9%22%20fill%3D%22%235CC6B8%22/%3E%3C/g%3E%3Cpath%20d%3D%22M168.985%2028.824l-3.818%202.657c-1.028.717-1.985%201.382-2.877%202.003l-2.218%201.543c-.497.347-.966.674-1.415.985l-1.234.86c-.634.44-1.214.845-1.742%201.213l-1.16.808-.28.196-2.46%201.712-.473.328-.604.42-.042.03-.224.157-.075.052-.053.038c-.08.054-.117.08-.136.094l-.014.01-.003.002%2037.675%209.335v-.003l-.01-.017c-.01-.02-.032-.06-.075-.146l-.03-.06-.043-.08-.126-.244-.023-.046-.337-.655-.263-.51-1.375-2.662-.156-.303-.65-1.257-.973-1.885-.69-1.336-.79-1.532-1.24-2.4c-.5-.964-1.033-2-1.608-3.113l-2.134-4.132-1.072-2.075-1.91-3.7-3.42%202.38-1.92%201.334%22%20fill%3D%22%2367DCCD%22/%3E%3Cpath%20d%3D%22M161.373%2077.294l26.455-26.03-37.675-9.335%2011.22%2035.364%22%20fill%3D%22%235CC6B8%22/%3E%3Cpath%20d%3D%22M161.373%2077.294l-21.597%206.53c.876%201.16%201.74%202.273%202.59%203.345%202.697%203.358%207.296%208.86%2012.912%2014.683%207.688-2.525%2014.325-5.244%2018.28-6.954%201.252-.553%202.54-1.133%203.855-1.75l-16.04-15.856%22%20fill%3D%22%233E8479%22/%3E%3Cpath%20d%3D%22M214.067%2067.542l-26.24-16.277-26.454%2026.03%2016.04%2015.856c3.67-1.713%207.55-3.676%2011.44-5.877%2010.167-5.99%2020.464-13.862%2025.214-19.73M161.373%2077.294l-11.22-35.365-30.81%202.14c1.457%207.407%206.88%2019.173%2013.067%2029.217%202.41%203.762%204.924%207.31%207.366%2010.538l21.597-6.53%22%20fill%3D%22%23489A8E%22/%3E%3Cpath%20d%3D%22M150.153%2041.93l-.007-.03-.092-.365-.018-.074-.128-.504-.15-.6c-.08-.31-.173-.684-.287-1.133l-.302-1.203c-.025-.098-.05-.194-.074-.297l-1.144-4.536c-.228-.905-.48-1.907-.76-3.012l-.543-2.157-.803-3.186-.825-3.27c-.445-1.76-.926-3.67-1.45-5.75l-.542-2.15-1.076-4.266-1.874-7.437c-3.444%201.726-6.444%203.716-9.037%205.893-1.682%201.494-3.402%203.237-5.155%205.253-.28.322-.537.65-.8.977-1.95%202.58-3.473%205.306-4.567%208.103-1.707%204.364-2.375%208.9-2.297%2013.268.08%202.566.405%205.166.93%207.775.064.28.125.563.193.84l30.81-2.14M215.426%2020.63l-10.643%2011.814c-1.626%201.805-3.09%203.432-4.42%204.907l-1.525%201.693-3.874%204.3-1.29%201.433-1.476%201.638-1.374%201.525c-.17.187-.328.362-.478.53l-.483.535c-.39.433-.71.787-.963%201.07l-.394.437-.36.398-.045.05-.25.28-.022.025%2026.24%2016.277c.188-.213.374-.433.56-.65%201.687-2.064%203.19-4.212%204.46-6.445%202.113-3.827%203.642-8.147%204.174-12.802.34-2.984.27-6.104-.25-9.298-.08-.41-.153-.82-.25-1.236-.61-2.6-1.314-4.946-2.103-7.053-1.276-3.135-2.998-6.294-5.234-9.427%22%20fill%3D%22%2352B0A3%22/%3E%3Cpath%20d%3D%22M140.078%201.96c.67%202.654%201.29%205.122%201.874%207.436l1.076%204.266.542%202.15%201.45%205.75.824%203.27.803%203.186.543%202.157.76%203.012c.476%201.89.85%203.377%201.144%204.536l.074.297.303%201.203.287%201.134c.06.234.108.43.15.6l.13.504c.005.027.01.052.017.075l.092.364.007.03.003-.002c.002%200%20.006-.005.015-.01l.137-.095c.016-.01.035-.025.054-.038l.076-.052.225-.157.043-.03.604-.42.472-.328%202.46-1.712.28-.195%201.16-.807%201.743-1.212c.39-.27.8-.558%201.234-.86l1.415-.984%202.218-1.543%202.877-2.002%203.818-2.656%201.918-1.335%203.42-2.38s-1.1-3.753-3.565-8.324c-3.157-5.46-8.275-11.844-14.95-14.843-4.35-1.723-9.56-2.08-15.73.016M177.306%2030.885l2.133%204.132%201.607%203.114c.44.854.855%201.656%201.24%202.4l.79%201.532.69%201.336.973%201.885c.232.45.45.873.65%201.257l.155.303c.602%201.165%201.05%202.03%201.375%202.663l.263.51.338.654.024.046.126.243.042.08.03.06.076.145c.006.01.007.015.01.017v.003l.02-.024.253-.28c.016-.014.032-.032.047-.05l.36-.398c.11-.124.24-.268.393-.437l.963-1.07c.15-.166.31-.345.483-.535l.478-.53c.4-.446.858-.954%201.374-1.526l1.476-1.638%201.29-1.433%203.874-4.3%201.525-1.692%204.42-4.906%2010.643-11.814c-4.475-4.734-9.25-6.85-13.9-7.36-7.305-.463-14.816%202.792-20.16%206.145-4.314%202.89-7.04%205.692-7.043%205.694.674%201.302%201.304%202.523%201.91%203.7l1.073%202.075%22%20fill%3D%22%235CC6B8%22/%3E%3C/g%3E%3C/svg%3E');
+        background-size: 120px;
+        background-repeat: no-repeat;
+        width: 120px;
+        height: 83px;
+        position: absolute;
+        left: -140px;
+        top: 10px
+    }
+    .sl-promotion.promotion-tokens .promotion-header p,
+    .sl-promotion.promotion-tokens.active .promotion-header p {
+        float: right;
+        font-size: 16px;
+        line-height: 18px;
+        margin-left: 0
+    }
+    .sl-promotion.promotion-tokens .promotion-header h1,
+    .sl-promotion.promotion-tokens.active .promotion-header h1,
+    .sl-promotion.promotion-tokens .promotion-header p,
+    .sl-promotion.promotion-tokens.active .promotion-header p {
+        width: 560px
+    }
+    .sl-promotion.promotion-tokens .promotion-body,
+    .sl-promotion.promotion-tokens.active .promotion-body {
+        width: 28%;
+        height: 125px;
+        padding: 41px 0;
+        text-align: left
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-tokens .promotion-header,
+    .sl-promotion.promotion-tokens.active .promotion-header {
+        width: 68%
+    }
+    .sl-promotion.promotion-tokens .promotion-header h1:before,
+    .sl-promotion.promotion-tokens.active .promotion-header h1:before {
+        background-size: 150px;
+        width: 150px;
+        height: 108px;
+        left: -160px;
+        top: 10px
+    }
+    .sl-promotion.promotion-tokens .promotion-body,
+    .sl-promotion.promotion-tokens.active .promotion-body {
+        width: 31%
+    }
+}
+@media (min-width: 1415px) {
+    .sl-promotion.promotion-tokens .promotion-header,
+    .sl-promotion.promotion-tokens.active .promotion-header {
+        margin-left: 0;
+        width: 65%
+    }
+    .sl-promotion.promotion-tokens .promotion-header h1:before,
+    .sl-promotion.promotion-tokens.active .promotion-header h1:before {
+        background-size: 160px;
+        width: 160px;
+        height: 125px;
+        left: -180px
+    }
+    .sl-promotion.promotion-tokens .promotion-header p,
+    .sl-promotion.promotion-tokens.active .promotion-header p {
+        font-size: 16px;
+        line-height: 18px;
+        margin-left: 32px
+    }
+    .sl-promotion.promotion-tokens .promotion-body,
+    .sl-promotion.promotion-tokens.active .promotion-body {
+        width: 33%
+    }
+}
+@media (min-width: 1615px) {
+    .sl-promotion.promotion-tokens .promotion-header,
+    .sl-promotion.promotion-tokens.active .promotion-header {
+        width: 56%;
+        margin-right: 120px
+    }
+    .sl-promotion.promotion-tokens .promotion-body,
+    .sl-promotion.promotion-tokens.active .promotion-body {
+        width: 32%
+    }
+}
+.sl-promotion.promotion-3days {
+    background: linear-gradient(45deg, rgba(119, 31, 110, 0.95), rgba(237, 69, 119, 0.95))
+}
+.sl-promotion.promotion-3days .promotion-header {
+    text-align: center;
+    padding: 10px
+}
+.sl-promotion.promotion-3days .promotion-header h1 {
+    font-size: 23px;
+    line-height: 25px;
+    margin: 25px 0 15px
+}
+.sl-promotion.promotion-3days .promotion-header h1:before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMjFweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjEgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkltcG9ydGVkIExheWVycyBDb3B5PC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8ZyBpZD0iQXJ0Ym9hcmQiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDAuMDAwMDAwLCAtMzAwLjAwMDAwMCkiPiAgICAgICAgICAgIDxnIGlkPSJJbXBvcnRlZC1MYXllcnMtQ29weSIgc2tldGNoOnR5cGU9Ik1TTGF5ZXJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQwLjUwMDAwMCwgMzAwLjEwNzUwMCkiPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTAuMjU0MjEyMywxNy4xMzU4NDQ1IEMxMC4yNTQyMTIzLDE3LjEzNTg0NDUgNC41OTIxMDM0NiwxOS44NzExNzE0IDQuMDAxNjc1MzgsMTkuNDgxNjMzNSBDMy40MTEyNDczLDE5LjA5MTAyNTQgNC4zMDI3ODI5OCwxMi44MTc3NTIxIDQuMzAyNzgyOTgsMTIuODE3NzUyMSBDNC4zMDI3ODI5OCwxMi44MTc3NTIxIC0wLjExOTUzNDA2Niw4LjMxNTU5MjM3IDAuMTM3NjM5NjksNy42MDM5MzY1IEMwLjM5Mzc0MTg4OSw2Ljg5MjI4MDY0IDYuNTc1NTU2MDYsNS44MzA2ODI3MSA2LjU3NTU1NjA2LDUuODMwNjgyNzEgQzYuNTc1NTU2MDYsNS44MzA2ODI3MSA5LjQwNzY4MjA1LDAuMjYzNzE0NTUgMTAuMjU0MjEyMywwLjI2MzcxNDU1IEMxMS4wOTk2NzExLDAuMjYzNzE0NTUgMTMuOTMxNzk3LDUuODMwNjgyNzEgMTMuOTMxNzk3LDUuODMwNjgyNzEgQzEzLjkzMTc5Nyw1LjgzMDY4MjcxIDIwLjE4NTQwNTYsNi45MTkwMzQ2MiAyMC4zNzA3ODUsNy42MDM5MzY1IEMyMC41NTUwOTI4LDguMjg4ODM4MzkgMTYuMjA0NTcwMSwxMi44MTc3NTIxIDE2LjIwNDU3MDEsMTIuODE3NzUyMSBDMTYuMjA0NTcwMSwxMi44MTc3NTIxIDE3LjA5Mjg5MTEsMTguOTg5MzYwMiAxNi41MDU2Nzc3LDE5LjQ4MTYzMzUgQzE1LjkxOTUzNTksMTkuOTcyODM2NSAxMC4yNTQyMTIzLDE3LjEzNTg0NDUgMTAuMjU0MjEyMywxNy4xMzU4NDQ1IiBpZD0iRmlsbC0yIiBmaWxsPSIjRjlDODIyIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+ICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMC4yNTQyMTIzLDAuMjYzNzE0NTUgQzkuNTY0MTI5NDIsMC4xNTM0ODgxNTMgNi41NzU1NTYwNiw1LjgzMDY4MjcxIDYuNTc1NTU2MDYsNS44MzA2ODI3MSBDNi41NzU1NTYwNiw1LjgzMDY4MjcxIDAuNDc4Mzk0OTE3LDYuOTYxODQwOTggMC4xMzc2Mzk2OSw3LjYwMzkzNjUgQy0wLjIwNDE4NzA5NCw4LjI0NjAzMjAzIDQuMzAyNzgyOTgsMTIuODE3NzUyMSA0LjMwMjc4Mjk4LDEyLjgxNzc1MjEgQzQuMzAyNzgyOTgsMTIuODE3NzUyMSAyLjI5MzYxMzAxLDguOTY2MjQ5MTcgMi40NTk3MDQ0LDguMzU2MjU4NDIgQzIuNjI2ODY3MzQsNy43NDczMzc4NCA2Ljg0NDUxNjk0LDcuODAxOTE1OTYgNy40NTUzMDQ2MSw3LjMwMzIyMTc3IEM4LjA2NTAyMDczLDYuODA0NTI3NTggOS43NzMwODMwOSwyLjcwMzY3NzUzIDEwLjI1MDk5NzcsMi40MjY1MDYyOSBDMTAuNzI4OTEyMiwyLjE0OTMzNTA2IDEyLjM0ODAzNTMsMi45NDIzMjMwMyAxMi4zNDgwMzUzLDIuOTQyMzIzMDMgQzEyLjM0ODAzNTMsMi45NDIzMjMwMyAxMC45NDMyMjM3LDAuMzcyODcwNzg5IDEwLjI1NDIxMjMsMC4yNjM3MTQ1NSIgaWQ9IkZpbGwtMyIgZmlsbD0iI0ZDRTA4MyIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+    display: inline-block;
+    height: 20px;
+    width: 21px;
+    vertical-align: middle;
+    margin-right: 10px
+}
+.sl-promotion.promotion-3days.active .promotion-header {
+    padding: 20% 35px 0
+}
+.sl-promotion.promotion-3days.active .promotion-header h1 {
+    font-size: 40px;
+    line-height: 35px
+}
+.sl-promotion.promotion-3days.active .promotion-header h1:before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNzNweCIgaGVpZ2h0PSI3MHB4IiB2aWV3Qm94PSIwIDAgNzMgNzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkltcG9ydGVkIExheWVyczwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYW5vcyIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0ODMuMDAwMDAwLCAtMzg2LjAwMDAwMCkiPiAgICAgICAgICAgIDxnIGlkPSJJbXBvcnRlZC1MYXllcnMiIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0ODMuMDAwMDAwLCAzODYuMDAwMDAwKSI+ICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNi41MTUsNjEuMDIwMzI0MyBDMzYuNTE1LDYxLjAyMDMyNDMgMTYuMzUyMzY4NCw3MC43NjA3NTY4IDE0LjI0OTg2ODQsNjkuMzczNjIxNiBDMTIuMTQ3MzY4NCw2Ny45ODI2NzU3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyAxNS4zMjIxMDUzLDQ1LjY0MzcwMjcgQzE1LjMyMjEwNTMsNDUuNjQzNzAyNyAtMC40MjU2NTc4OTUsMjkuNjExNjIxNiAwLjQ5MDEzMTU3OSwyNy4wNzc0MzI0IEMxLjQwMjEwNTI2LDI0LjU0MzI0MzIgMjMuNDE1Mzk0NywyMC43NjI5MTg5IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSBDMjMuNDE1Mzk0NywyMC43NjI5MTg5IDMzLjUwMDUyNjMsMC45MzkwODEwODEgMzYuNTE1LDAuOTM5MDgxMDgxIEMzOS41MjU2NTc5LDAuOTM5MDgxMDgxIDQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA0OS42MTA3ODk1LDIwLjc2MjkxODkgQzQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA3MS44Nzk3MzY4LDI0LjYzODUxMzUgNzIuNTM5ODY4NCwyNy4wNzc0MzI0IEM3My4xOTYxODQyLDI5LjUxNjM1MTQgNTcuNzA0MDc4OSw0NS42NDM3MDI3IDU3LjcwNDA3ODksNDUuNjQzNzAyNyBDNTcuNzA0MDc4OSw0NS42NDM3MDI3IDYwLjg2NzM2ODQsNjcuNjIwNjQ4NiA1OC43NzYzMTU4LDY5LjM3MzYyMTYgQzU2LjY4OTA3ODksNzEuMTIyNzgzOCAzNi41MTUsNjEuMDIwMzI0MyAzNi41MTUsNjEuMDIwMzI0MyIgaWQ9IkZpbGwtMiIgZmlsbD0iI0Y5QzgyMiIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzYuNTE1LDAuOTM5MDgxMDgxIEMzNC4wNTc2MzE2LDAuNTQ2NTY3NTY4IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSAyMy40MTUzOTQ3LDIwLjc2MjkxODkgQzIzLjQxNTM5NDcsMjAuNzYyOTE4OSAxLjcwMzU1MjYzLDI0Ljc5MDk0NTkgMC40OTAxMzE1NzksMjcuMDc3NDMyNCBDLTAuNzI3MTA1MjYzLDI5LjM2MzkxODkgMTUuMzIyMTA1Myw0NS42NDM3MDI3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyBDMTUuMzIyMTA1Myw0NS42NDM3MDI3IDguMTY3NSwzMS45Mjg1OTQ2IDguNzU4OTQ3MzcsMjkuNzU2NDMyNCBDOS4zNTQyMTA1MywyNy41ODgwODExIDI0LjM3MzE1NzksMjcuNzgyNDMyNCAyNi41NDgxNTc5LDI2LjAwNjU5NDYgQzI4LjcxOTM0MjEsMjQuMjMwNzU2OCAzNC44MDE3MTA1LDkuNjI3NzI5NzMgMzYuNTAzNTUyNiw4LjY0MDcyOTczIEMzOC4yMDUzOTQ3LDcuNjUzNzI5NzMgNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDQzLjk3MTA1MjYsMTAuNDc3NTQwNSBDNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDM4Ljk2ODU1MjYsMS4zMjc3ODM3OCAzNi41MTUsMC45MzkwODEwODEiIGlkPSJGaWxsLTMiIGZpbGw9IiNGQ0UwODMiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
+    display: block;
+    height: 70px;
+    width: 73px;
+    margin: 0 auto 25px
+}
+.sl-promotion.promotion-3days.active .promotion-header p {
+    font-size: 20px
+}
+.sl-promotion.promotion-3days.active .promotion-body button {
+    vertical-align: middle;
+    color: #fff;
+    background: #ffbf2c linear-gradient(to bottom, #ffbf2c 0, #ff4e51 100%);
+    text-shadow: rgba(0, 0, 0, 0.35) 0 1px 2px;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+    width: 80%;
+    padding: 10px 16px;
+    margin-top: 30px
+}
+.sl-promotion.promotion-3days.active .promotion-body button:hover {
+    background: #FFC746 linear-gradient(to bottom, #FFC746 0, #FF686A 100%);
+    border: none;
+    color: #fff
+}
+.sl-promotion.promotion-3days.active .promotion-body button:focus {
+    color: #fff
+}
+@media (min-width: 600px) {
+    .sl-promotion.promotion-3days.active .promotion-header {
+        padding: 20% 20% 0
+    }
+    .sl-promotion.promotion-3days.active .promotion-body button {
+        width: 50%
+    }
+}
+@media (min-width: 992px) {
+    .adaptive .sl-promotion.promotion-3days,
+    .adaptive .sl-promotion.promotion-3days.active {
+        background: linear-gradient(45deg, #771f6e, #ed4577)
+    }
+    .adaptive .sl-promotion.promotion-3days .promotion-header h1,
+    .adaptive .sl-promotion.promotion-3days.active .promotion-header h1 {
+        width: 40%
+    }
+    .adaptive .sl-promotion.promotion-3days .promotion-header p,
+    .adaptive .sl-promotion.promotion-3days.active .promotion-header p {
+        width: 40%;
+        margin-left: 10px
+    }
+    .adaptive .sl-promotion.promotion-3days .promotion-body,
+    .adaptive .sl-promotion.promotion-3days.active .promotion-body {
+        width: 300px;
+        padding: 35px 20px 20px
+    }
+    .adaptive .sl-promotion.promotion-3days .promotion-body button,
+    .adaptive .sl-promotion.promotion-3days.active .promotion-body button {
+        width: 85%;
+        margin-top: 0
+    }
+    .sl-promotion.promotion-3days,
+    .sl-promotion.promotion-3days.active {
+        background: linear-gradient(45deg, #771f6e, #ed4577)
+    }
+    .sl-promotion.promotion-3days .promotion-header,
+    .sl-promotion.promotion-3days.active .promotion-header {
+        text-align: left;
+        padding: 20px
+    }
+    .sl-promotion.promotion-3days .promotion-header h1,
+    .sl-promotion.promotion-3days.active .promotion-header h1 {
+        font-size: 37px;
+        margin: 0;
+        display: inline-block;
+        width: 50%;
+        padding: 0 0 0 85px;
+        position: relative;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        line-height: 35px
+    }
+    .sl-promotion.promotion-3days .promotion-header h1 span,
+    .sl-promotion.promotion-3days.active .promotion-header h1 span {
+        display: block;
+        font-size: 30px;
+        line-height: 30px;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5)
+    }
+    .sl-promotion.promotion-3days .promotion-header h1:before,
+    .sl-promotion.promotion-3days.active .promotion-header h1:before {
+        content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNzNweCIgaGVpZ2h0PSI3MHB4IiB2aWV3Qm94PSIwIDAgNzMgNzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkltcG9ydGVkIExheWVyczwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYW5vcyIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0ODMuMDAwMDAwLCAtMzg2LjAwMDAwMCkiPiAgICAgICAgICAgIDxnIGlkPSJJbXBvcnRlZC1MYXllcnMiIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0ODMuMDAwMDAwLCAzODYuMDAwMDAwKSI+ICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNi41MTUsNjEuMDIwMzI0MyBDMzYuNTE1LDYxLjAyMDMyNDMgMTYuMzUyMzY4NCw3MC43NjA3NTY4IDE0LjI0OTg2ODQsNjkuMzczNjIxNiBDMTIuMTQ3MzY4NCw2Ny45ODI2NzU3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyAxNS4zMjIxMDUzLDQ1LjY0MzcwMjcgQzE1LjMyMjEwNTMsNDUuNjQzNzAyNyAtMC40MjU2NTc4OTUsMjkuNjExNjIxNiAwLjQ5MDEzMTU3OSwyNy4wNzc0MzI0IEMxLjQwMjEwNTI2LDI0LjU0MzI0MzIgMjMuNDE1Mzk0NywyMC43NjI5MTg5IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSBDMjMuNDE1Mzk0NywyMC43NjI5MTg5IDMzLjUwMDUyNjMsMC45MzkwODEwODEgMzYuNTE1LDAuOTM5MDgxMDgxIEMzOS41MjU2NTc5LDAuOTM5MDgxMDgxIDQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA0OS42MTA3ODk1LDIwLjc2MjkxODkgQzQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA3MS44Nzk3MzY4LDI0LjYzODUxMzUgNzIuNTM5ODY4NCwyNy4wNzc0MzI0IEM3My4xOTYxODQyLDI5LjUxNjM1MTQgNTcuNzA0MDc4OSw0NS42NDM3MDI3IDU3LjcwNDA3ODksNDUuNjQzNzAyNyBDNTcuNzA0MDc4OSw0NS42NDM3MDI3IDYwLjg2NzM2ODQsNjcuNjIwNjQ4NiA1OC43NzYzMTU4LDY5LjM3MzYyMTYgQzU2LjY4OTA3ODksNzEuMTIyNzgzOCAzNi41MTUsNjEuMDIwMzI0MyAzNi41MTUsNjEuMDIwMzI0MyIgaWQ9IkZpbGwtMiIgZmlsbD0iI0Y5QzgyMiIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzYuNTE1LDAuOTM5MDgxMDgxIEMzNC4wNTc2MzE2LDAuNTQ2NTY3NTY4IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSAyMy40MTUzOTQ3LDIwLjc2MjkxODkgQzIzLjQxNTM5NDcsMjAuNzYyOTE4OSAxLjcwMzU1MjYzLDI0Ljc5MDk0NTkgMC40OTAxMzE1NzksMjcuMDc3NDMyNCBDLTAuNzI3MTA1MjYzLDI5LjM2MzkxODkgMTUuMzIyMTA1Myw0NS42NDM3MDI3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyBDMTUuMzIyMTA1Myw0NS42NDM3MDI3IDguMTY3NSwzMS45Mjg1OTQ2IDguNzU4OTQ3MzcsMjkuNzU2NDMyNCBDOS4zNTQyMTA1MywyNy41ODgwODExIDI0LjM3MzE1NzksMjcuNzgyNDMyNCAyNi41NDgxNTc5LDI2LjAwNjU5NDYgQzI4LjcxOTM0MjEsMjQuMjMwNzU2OCAzNC44MDE3MTA1LDkuNjI3NzI5NzMgMzYuNTAzNTUyNiw4LjY0MDcyOTczIEMzOC4yMDUzOTQ3LDcuNjUzNzI5NzMgNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDQzLjk3MTA1MjYsMTAuNDc3NTQwNSBDNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDM4Ljk2ODU1MjYsMS4zMjc3ODM3OCAzNi41MTUsMC45MzkwODEwODEiIGlkPSJGaWxsLTMiIGZpbGw9IiNGQ0UwODMiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
+        display: inline-block;
+        height: 70px;
+        left: 0;
+        position: absolute;
+        top: -5px;
+        width: 73px;
+        margin-bottom: 0
+    }
+    .sl-promotion.promotion-3days .promotion-header p,
+    .sl-promotion.promotion-3days.active .promotion-header p {
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 30px;
+        width: 40%;
+        padding: 10px;
+        vertical-align: super
+    }
+    .sl-promotion.promotion-3days .promotion-body,
+    .sl-promotion.promotion-3days.active .promotion-body {
+        width: 300px;
+        padding: 35px 20px 20px
+    }
+    .sl-promotion.promotion-3days .promotion-body button,
+    .sl-promotion.promotion-3days.active .promotion-body button {
+        vertical-align: middle;
+        color: #fff;
+        background: #ffbf2c linear-gradient(to bottom, #ffbf2c 0, #ff4e51 100%);
+        text-shadow: rgba(0, 0, 0, 0.35) 0 1px 2px;
+        font-weight: 600;
+        font-size: 20px;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+        margin-top: 0
+    }
+    .sl-promotion.promotion-3days .promotion-body button:hover,
+    .sl-promotion.promotion-3days.active .promotion-body button:hover {
+        background: #FFC746 linear-gradient(to bottom, #FFC746 0, #FF686A 100%);
+        border: none;
+        color: #fff
+    }
+    .sl-promotion.promotion-3days .promotion-body button:focus,
+    .sl-promotion.promotion-3days.active .promotion-body button:focus {
+        color: #fff
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-3days .promotion-header,
+    .sl-promotion.promotion-3days.active .promotion-header {
+        width: 55%
+    }
+    .sl-promotion.promotion-3days .promotion-header h1 span,
+    .sl-promotion.promotion-3days.active .promotion-header h1 span {
+        font-size: 30px;
+        line-height: 30px;
+        display: block
+    }
+    .sl-promotion.promotion-3days .promotion-header h1:before,
+    .sl-promotion.promotion-3days.active .promotion-header h1:before {
+        top: -10px
+    }
+    .sl-promotion.promotion-3days .promotion-header p,
+    .sl-promotion.promotion-3days.active .promotion-header p {
+        font-size: 16px;
+        width: 45%;
+        margin-left: 0
+    }
+}
+@media (min-width: 1415px) {
+    .sl-promotion.promotion-3days .promotion-header h1,
+    .sl-promotion.promotion-3days.active .promotion-header h1 {
+        width: 50%
+    }
+    .sl-promotion.promotion-3days .promotion-header h1:before,
+    .sl-promotion.promotion-3days.active .promotion-header h1:before {
+        top: -5px
+    }
+    .sl-promotion.promotion-3days .promotion-header p,
+    .sl-promotion.promotion-3days.active .promotion-header p {
+        width: 40%
+    }
+}
+@media (min-width: 1615px) {
+    .adaptive .sl-promotion.promotion-3days,
+    .adaptive .sl-promotion.promotion-3days.active {
+        background: linear-gradient(45deg, #771f6e, #ed4577)
+    }
+    .adaptive .sl-promotion.promotion-3days .promotion-header h1,
+    .adaptive .sl-promotion.promotion-3days.active .promotion-header h1 {
+        width: 35%
+    }
+    .sl-promotion.promotion-3days .promotion-header h1,
+    .sl-promotion.promotion-3days.active .promotion-header h1 {
+        width: 45%
+    }
+    .sl-promotion.promotion-3days .promotion-header p,
+    .sl-promotion.promotion-3days.active .promotion-header p {
+        vertical-align: inherit
+    }
+    .sl-promotion.promotion-3days .promotion-body,
+    .sl-promotion.promotion-3days.active .promotion-body {
+        padding: 30px 20px 20px
+    }
+}
+
+
+.sl-promotion.promotion-conversion {
+    
+}
+
+@media (max-width: 991px) {
+    .sl-promotion.promotion-conversion {
+        background-image: url(../img/vip-promo-bg-mobile.png), linear-gradient(to right, #B8273B, #A63145);
+    }
+}
+
+
+
+@media (min-width: 992px) {
+    .sl-promotion.promotion-conversion {
+        background-image: url(../img/vip-promo-bg-desktop.png), linear-gradient(to right, #B8273B, #A63145);
+    }
+}
+
+.sl-promotion.promotion-conversion .promotion-header {
+    padding: 20px
+}
+.sl-promotion.promotion-conversion .promotion-header:before {
+    display: none
+}
+
+.sl-promotion.promotion-conversion .promotion-header p {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7)
+}
+.sl-promotion.promotion-conversion .promotion-header .promotion-counter {
+    display: none
+}
+.sl-promotion.promotion-conversion.active .promotion-counter {
+    display: none
+}
+.sl-promotion.promotion-conversion.active .promotion-header {
+    padding: 40% 20px 0
+}
+
+    .sl-promotion.promotion-conversion.active .promotion-header:before {
+        content: '';
+        /*background-image: url('../img/nave_espacial.png');*/
+        background-image: url('../img/seja_premium.png');
+        display: block;
+        margin: 0 auto;
+        width: 224px;
+        height: 94px
+    }
+.sl-promotion.promotion-conversion.active .promotion-header h1 {
+    font-size: 26px;
+    line-height: 28px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin: 20px 0 10px 0
+}
+.sl-promotion.promotion-conversion.active .promotion-header p {
+    font-size: 16px
+}
+
+
+.sl-promotion.promotion-conversion.active .promotion-body button {
+    vertical-align: middle;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    /*    margin-top: -150px;*/
+    color: #48168e;
+    background: #efda09;
+    width: 60%;
+    height: 50px;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+@media (min-width: 600px) {
+    .sl-promotion.promotion-conversion.active .promotion-body button {
+
+        margin-top: 0px;
+    }
+}
+.sl-promotion.promotion-conversion.active .promotion-body button:focus {
+    color: #fff
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-counter .remaining {
+    display: block
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-counter .countdown .countdown-divider {
+    font-size: 26px
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-counter .countdown .countdown-amount {
+    font-size: 46px
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-counter .countdown .countdown-period {
+    display: none
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-header {
+    padding-bottom: 0
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-header .promotion-counter {
+    display: none
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-header h1 {
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0 10px 0
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-header p {
+    margin: 5px auto
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-body .promotion-counter {
+    margin-top: 20px
+}
+.sl-promotion.promotion-conversion.countdown-active.active .promotion-body button {
+    margin-top: 0
+}
+.sl-promotion.promotion-conversion.countdown-active .countdown .countdown-period {
+    display: none
+}
+.sl-promotion.promotion-conversion.countdown-active .countdown .countdown-amount {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffd957;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7)
+}
+.sl-promotion.promotion-conversion.countdown-active .countdown .countdown-divider {
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    line-height: 0;
+    font-size: 15px;
+    font-weight: bold
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-counter {
+    display: inline-block;
+    vertical-align: middle
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-counter .remaining {
+    font-size: 14px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    display: none
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-counter .countdown .countdown-section {
+    background: none;
+    width: inherit;
+    height: inherit;
+    line-height: inherit
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-counter .countdown .countdown-section .countdown-amount {
+    background: none
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-counter .countdown .countdown-section .countdown-period {
+    display: none
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-header {
+    padding: 25px 20px 20px 20px
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-header h1 {
+    display: inline-block;
+    width: calc(100% - 90px);
+    font-size: 17px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: middle
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-header .promotion-counter {
+    margin-left: 5px
+}
+.sl-promotion.promotion-conversion.countdown-active .promotion-body .promotion-counter {
+    margin-top: 30px
+}
+.sl-promotion-legacy .sl-promotion.promotion-conversion.countdown-active .promotion-header h1 {
+    width: calc(100% - 120px)
+}
+.sl-promotion-legacy .sl-promotion.promotion-conversion.countdown-active.active .promotion-header h1 {
+    width: 100%
+}
+@media (max-device-width: 736px) and (orientation: landscape) {
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header:before {
+        display: none
+    }
+}
+@media (min-width: 992px) {
+    .sl-promotion.promotion-conversion.countdown-active.active,
+    .sl-promotion.promotion-conversion.countdown-active {
+        height: 125px;
+        overflow: hidden
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-header {
+        width: 59%;
+        height: 125px;
+        overflow: hidden;
+        padding: 20px
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header:before,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-header:before {
+        content: '';
+        width: 80px;
+        height: 75px;
+        background-size: 83px;
+        background-repeat: no-repeat;
+        margin-right: 20px;
+        margin-top: 4px
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header h1,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-header h1,
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header p,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-header p {
+        width: calc(100% - 100px);
+        display: inline-block;
+        text-align: left
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header h1,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-header h1 {
+        font-size: 21px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        line-height: 22px
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header p,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-header p {
+        font-size: 15px;
+        line-height: 18px;
+        float: right;
+        margin: 0
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-header .promotion-counter,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-header .promotion-counter {
+        display: none
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body {
+        width: calc(100% - 59%);
+        max-width: 450px;
+        display: inline-block;
+        height: 125px;
+        line-height: calc(125px - 20px);
+        padding-right: 50px;
+        text-align: center
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body .promotion-counter,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body .promotion-counter {
+        margin-top: 0;
+        text-align: center;
+        height: 55px;
+        display: inline-block;
+        line-height: normal;
+        vertical-align: middle
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body .promotion-counter span.remaining,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body .promotion-counter span.remaining {
+        font-size: 14px;
+        height: 18px;
+        display: block
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body .promotion-counter .countdown .countdown-section,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body .promotion-counter .countdown .countdown-section {
+        width: inherit;
+        display: inline-block;
+        line-height: normal
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount {
+        font-size: 38px;
+        line-height: 40px;
+        display: block;
+        margin-left: 0
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body button,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body button {
+        display: inline-block;
+        width: 44%;
+        line-height: normal;
+        vertical-align: middle;
+        margin-top: 0;
+        margin-left: 15px
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-counter .countdown .countdown-divider,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-counter .countdown .countdown-divider {
+        font-size: 26px;
+        height: 30px;
+        line-height: 30px;
+        width: auto;
+        margin: 2px 0 0 0
+    }
+    .sl-promotion-legacy .sl-promotion.promotion-conversion.countdown-active.active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount,
+    .sl-promotion-legacy .sl-promotion.promotion-conversion.countdown-active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount {
+        font-size: 34px
+    }
+}
+@media (min-width: 1415px) {
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body {
+        max-width: 560px
+    }
+}
+@media (min-width: 1615px) {
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body {
+        max-width: 600px
+    }
+    .sl-promotion.promotion-conversion.countdown-active.active .promotion-body button,
+    .sl-promotion.promotion-conversion.countdown-active .promotion-body button {
+        margin-left: 35px
+    }
+}
+@media (min-width: 600px) {
+    .sl-promotion.promotion-conversion.active .promotion-header {
+        padding: 31% 20px 0
+    }
+    .sl-promotion.promotion-conversion.active .promotion-header p {
+        width: 70%;
+        margin: 0 auto
+    }
+    .sl-promotion.promotion-conversion.active .promotion-body button {
+        margin-top: 10px;
+        width: 40%
+    }
+}
+@media (min-width: 992px) {
+    .sl-promotion.promotion-conversion,
+    .sl-promotion.promotion-conversion.active {
+        height: 125px
+    }
+    .sl-promotion.promotion-conversion .promotion-header,
+    .sl-promotion.promotion-conversion.active .promotion-header {
+        padding: 12px 20px
+    }
+        .sl-promotion.promotion-conversion .promotion-header:before,
+        .sl-promotion.promotion-conversion.active .promotion-header:before {
+            content: '';
+            background-image: url('../img/seja_premium.png');
+            display: inline-block;
+            float: left;
+            margin-right: 30px;
+            width: 224px;
+            height: 94px
+        }
+    .sl-promotion.promotion-conversion .promotion-header h1,
+    .sl-promotion.promotion-conversion.active .promotion-header h1 {
+        /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);*/
+        font-size: 20px;
+        text-align: left;
+        width: 100%
+    }
+    .sl-promotion.promotion-conversion .promotion-header p,
+    .sl-promotion.promotion-conversion.active .promotion-header p {
+        font-size: 14px;
+        text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.5)
+    }
+        .sl-promotion.promotion-conversion .promotion-body button,
+        .sl-promotion.promotion-conversion.active .promotion-body button {
+            vertical-align: middle;
+            font-weight: 600;
+            font-size: 20px;
+            border-radius: 4px;
+            border: none;
+            padding: 10px;
+            margin-top: -150px;
+            color: #48168e;
+            background: #efda09;
+            width: 25%;
+            height: 50px;
+            text-shadow: none !important;
+            box-shadow: none !important;
+        }
+            .sl-promotion.promotion-conversion .promotion-body button:hover,
+            .sl-promotion.promotion-conversion.active .promotion-body button:hover {
+                border: none;
+                background: #EFD97D;
+                color: #48168e
+            }
+    .sl-promotion.promotion-conversion .promotion-body button:focus,
+    .sl-promotion.promotion-conversion.active .promotion-body button:focus {
+        color: #fff
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-conversion .promotion-header,
+    .sl-promotion.promotion-conversion.active .promotion-header {
+        width: 100%;
+    }
+}
+.sl-promotion.promotion-non-subscriber .promotion-header {
+    padding-top: 30px
+}
+.sl-promotion.promotion-non-subscriber .promotion-header h1 {
+    color: #FFD957;
+    text-align: center
+}
+.sl-promotion.promotion-non-subscriber .promotion-header h1:before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMjFweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjEgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkltcG9ydGVkIExheWVycyBDb3B5PC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8ZyBpZD0iQXJ0Ym9hcmQiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDAuMDAwMDAwLCAtMzAwLjAwMDAwMCkiPiAgICAgICAgICAgIDxnIGlkPSJJbXBvcnRlZC1MYXllcnMtQ29weSIgc2tldGNoOnR5cGU9Ik1TTGF5ZXJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQwLjUwMDAwMCwgMzAwLjEwNzUwMCkiPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTAuMjU0MjEyMywxNy4xMzU4NDQ1IEMxMC4yNTQyMTIzLDE3LjEzNTg0NDUgNC41OTIxMDM0NiwxOS44NzExNzE0IDQuMDAxNjc1MzgsMTkuNDgxNjMzNSBDMy40MTEyNDczLDE5LjA5MTAyNTQgNC4zMDI3ODI5OCwxMi44MTc3NTIxIDQuMzAyNzgyOTgsMTIuODE3NzUyMSBDNC4zMDI3ODI5OCwxMi44MTc3NTIxIC0wLjExOTUzNDA2Niw4LjMxNTU5MjM3IDAuMTM3NjM5NjksNy42MDM5MzY1IEMwLjM5Mzc0MTg4OSw2Ljg5MjI4MDY0IDYuNTc1NTU2MDYsNS44MzA2ODI3MSA2LjU3NTU1NjA2LDUuODMwNjgyNzEgQzYuNTc1NTU2MDYsNS44MzA2ODI3MSA5LjQwNzY4MjA1LDAuMjYzNzE0NTUgMTAuMjU0MjEyMywwLjI2MzcxNDU1IEMxMS4wOTk2NzExLDAuMjYzNzE0NTUgMTMuOTMxNzk3LDUuODMwNjgyNzEgMTMuOTMxNzk3LDUuODMwNjgyNzEgQzEzLjkzMTc5Nyw1LjgzMDY4MjcxIDIwLjE4NTQwNTYsNi45MTkwMzQ2MiAyMC4zNzA3ODUsNy42MDM5MzY1IEMyMC41NTUwOTI4LDguMjg4ODM4MzkgMTYuMjA0NTcwMSwxMi44MTc3NTIxIDE2LjIwNDU3MDEsMTIuODE3NzUyMSBDMTYuMjA0NTcwMSwxMi44MTc3NTIxIDE3LjA5Mjg5MTEsMTguOTg5MzYwMiAxNi41MDU2Nzc3LDE5LjQ4MTYzMzUgQzE1LjkxOTUzNTksMTkuOTcyODM2NSAxMC4yNTQyMTIzLDE3LjEzNTg0NDUgMTAuMjU0MjEyMywxNy4xMzU4NDQ1IiBpZD0iRmlsbC0yIiBmaWxsPSIjRjlDODIyIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+ICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMC4yNTQyMTIzLDAuMjYzNzE0NTUgQzkuNTY0MTI5NDIsMC4xNTM0ODgxNTMgNi41NzU1NTYwNiw1LjgzMDY4MjcxIDYuNTc1NTU2MDYsNS44MzA2ODI3MSBDNi41NzU1NTYwNiw1LjgzMDY4MjcxIDAuNDc4Mzk0OTE3LDYuOTYxODQwOTggMC4xMzc2Mzk2OSw3LjYwMzkzNjUgQy0wLjIwNDE4NzA5NCw4LjI0NjAzMjAzIDQuMzAyNzgyOTgsMTIuODE3NzUyMSA0LjMwMjc4Mjk4LDEyLjgxNzc1MjEgQzQuMzAyNzgyOTgsMTIuODE3NzUyMSAyLjI5MzYxMzAxLDguOTY2MjQ5MTcgMi40NTk3MDQ0LDguMzU2MjU4NDIgQzIuNjI2ODY3MzQsNy43NDczMzc4NCA2Ljg0NDUxNjk0LDcuODAxOTE1OTYgNy40NTUzMDQ2MSw3LjMwMzIyMTc3IEM4LjA2NTAyMDczLDYuODA0NTI3NTggOS43NzMwODMwOSwyLjcwMzY3NzUzIDEwLjI1MDk5NzcsMi40MjY1MDYyOSBDMTAuNzI4OTEyMiwyLjE0OTMzNTA2IDEyLjM0ODAzNTMsMi45NDIzMjMwMyAxMi4zNDgwMzUzLDIuOTQyMzIzMDMgQzEyLjM0ODAzNTMsMi45NDIzMjMwMyAxMC45NDMyMjM3LDAuMzcyODcwNzg5IDEwLjI1NDIxMjMsMC4yNjM3MTQ1NSIgaWQ9IkZpbGwtMyIgZmlsbD0iI0ZDRTA4MyIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+    display: inline-block;
+    height: 20px;
+    width: 21px;
+    vertical-align: middle;
+    margin-right: 10px
+}
+.sl-promotion.promotion-non-subscriber .promotion-header p {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+.sl-promotion.promotion-non-subscriber .promotion-header .promotion-counter {
+    display: none
+}
+.sl-promotion.promotion-non-subscriber .promotion-body {
+    padding-top: 13px
+}
+.sl-promotion.promotion-non-subscriber .promotion-body button {
+    background-color: #e9b63b;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background .2s linear;
+    max-width: 300px;
+    white-space: normal;
+    text-shadow: rgba(0, 0, 0, 0.35) 0 1px 2px;
+    background: #EFD94D linear-gradient(to bottom, #EFD94D 0, #D99820 100%);
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6)
+}
+.sl-promotion.promotion-non-subscriber .promotion-body button:hover,
+.sl-promotion.promotion-non-subscriber .promotion-body button:focus {
+    background: #edd436 linear-gradient(to bottom, #edd436 0, #c3881d 100%);
+    border-color: #c3881d;
+    color: #fff
+}
+.sl-promotion.promotion-non-subscriber .promotion-body small {
+    display: block
+}
+.sl-promotion.promotion-non-subscriber.countdown-active {
+    font-family: 'Signika Negative', tahoma, verdana, arial, sans-serif
+}
+.sl-promotion.promotion-non-subscriber.countdown-active .promotion-counter .remaining {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+.sl-promotion.promotion-non-subscriber.countdown-active .promotion-counter .countdown .countdown-section {
+    background: none;
+    width: 52px
+}
+.sl-promotion.promotion-non-subscriber.countdown-active .promotion-counter .countdown .countdown-section .countdown-amount {
+    background: none;
+    color: #FFD957;
+    font-size: 46px;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+.sl-promotion.promotion-non-subscriber.countdown-active .promotion-counter .countdown .countdown-section .countdown-period {
+    display: none
+}
+.sl-promotion.promotion-non-subscriber.countdown-active .promotion-counter .countdown .countdown-divider {
+    font-size: 26px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+.sl-promotion.promotion-non-subscriber.active .promotion-header h1:before {
+    content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNzNweCIgaGVpZ2h0PSI3MHB4IiB2aWV3Qm94PSIwIDAgNzMgNzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkltcG9ydGVkIExheWVyczwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYW5vcyIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0ODMuMDAwMDAwLCAtMzg2LjAwMDAwMCkiPiAgICAgICAgICAgIDxnIGlkPSJJbXBvcnRlZC1MYXllcnMiIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0ODMuMDAwMDAwLCAzODYuMDAwMDAwKSI+ICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNi41MTUsNjEuMDIwMzI0MyBDMzYuNTE1LDYxLjAyMDMyNDMgMTYuMzUyMzY4NCw3MC43NjA3NTY4IDE0LjI0OTg2ODQsNjkuMzczNjIxNiBDMTIuMTQ3MzY4NCw2Ny45ODI2NzU3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyAxNS4zMjIxMDUzLDQ1LjY0MzcwMjcgQzE1LjMyMjEwNTMsNDUuNjQzNzAyNyAtMC40MjU2NTc4OTUsMjkuNjExNjIxNiAwLjQ5MDEzMTU3OSwyNy4wNzc0MzI0IEMxLjQwMjEwNTI2LDI0LjU0MzI0MzIgMjMuNDE1Mzk0NywyMC43NjI5MTg5IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSBDMjMuNDE1Mzk0NywyMC43NjI5MTg5IDMzLjUwMDUyNjMsMC45MzkwODEwODEgMzYuNTE1LDAuOTM5MDgxMDgxIEMzOS41MjU2NTc5LDAuOTM5MDgxMDgxIDQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA0OS42MTA3ODk1LDIwLjc2MjkxODkgQzQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA3MS44Nzk3MzY4LDI0LjYzODUxMzUgNzIuNTM5ODY4NCwyNy4wNzc0MzI0IEM3My4xOTYxODQyLDI5LjUxNjM1MTQgNTcuNzA0MDc4OSw0NS42NDM3MDI3IDU3LjcwNDA3ODksNDUuNjQzNzAyNyBDNTcuNzA0MDc4OSw0NS42NDM3MDI3IDYwLjg2NzM2ODQsNjcuNjIwNjQ4NiA1OC43NzYzMTU4LDY5LjM3MzYyMTYgQzU2LjY4OTA3ODksNzEuMTIyNzgzOCAzNi41MTUsNjEuMDIwMzI0MyAzNi41MTUsNjEuMDIwMzI0MyIgaWQ9IkZpbGwtMiIgZmlsbD0iI0Y5QzgyMiIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzYuNTE1LDAuOTM5MDgxMDgxIEMzNC4wNTc2MzE2LDAuNTQ2NTY3NTY4IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSAyMy40MTUzOTQ3LDIwLjc2MjkxODkgQzIzLjQxNTM5NDcsMjAuNzYyOTE4OSAxLjcwMzU1MjYzLDI0Ljc5MDk0NTkgMC40OTAxMzE1NzksMjcuMDc3NDMyNCBDLTAuNzI3MTA1MjYzLDI5LjM2MzkxODkgMTUuMzIyMTA1Myw0NS42NDM3MDI3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyBDMTUuMzIyMTA1Myw0NS42NDM3MDI3IDguMTY3NSwzMS45Mjg1OTQ2IDguNzU4OTQ3MzcsMjkuNzU2NDMyNCBDOS4zNTQyMTA1MywyNy41ODgwODExIDI0LjM3MzE1NzksMjcuNzgyNDMyNCAyNi41NDgxNTc5LDI2LjAwNjU5NDYgQzI4LjcxOTM0MjEsMjQuMjMwNzU2OCAzNC44MDE3MTA1LDkuNjI3NzI5NzMgMzYuNTAzNTUyNiw4LjY0MDcyOTczIEMzOC4yMDUzOTQ3LDcuNjUzNzI5NzMgNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDQzLjk3MTA1MjYsMTAuNDc3NTQwNSBDNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDM4Ljk2ODU1MjYsMS4zMjc3ODM3OCAzNi41MTUsMC45MzkwODEwODEiIGlkPSJGaWxsLTMiIGZpbGw9IiNGQ0UwODMiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
+    display: block;
+    height: 70px;
+    width: 73px;
+    margin: 0 auto 25px
+}
+.sl-promotion.promotion-non-subscriber.active .promotion-header p {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto
+}
+.sl-promotion.promotion-non-subscriber.active .promotion-header .back,
+.sl-promotion.promotion-non-subscriber.active .promotion-header .up {
+    display: block
+}
+.sl-promotion.promotion-non-subscriber.active .promotion-body {
+    padding-top: 16px
+}
+@media (min-width: 480px) and (orientation: landscape) {
+    .sl-promotion.promotion-non-subscriber.active .promotion-header {
+        padding-top: 30px
+    }
+    .sl-promotion.promotion-non-subscriber.active .promotion-header h1:before {
+        content: '';
+        display: none
+    }
+}
+@media (min-width: 992px) {
+    .sl-promotion.promotion-non-subscriber .promotion-header {
+        width: 56%;
+        padding-top: 12px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-header h1 {
+        text-align: left;
+        font-size: 21px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-header h1:before {
+        content: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2246%22%20height%3D%2245%22%20viewBox%3D%220%200%2046%2045%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cfilter%20x%3D%22-50%25%22%20y%3D%22-50%25%22%20width%3D%22200%25%22%20height%3D%22200%25%22%20filterUnits%3D%22objectBoundingBox%22%20id%3D%22a%22%3E%3CfeOffset%20dy%3D%222%22%20in%3D%22SourceAlpha%22%20result%3D%22shadowOffsetOuter1%22/%3E%3CfeGaussianBlur%20stdDeviation%3D%222%22%20in%3D%22shadowOffsetOuter1%22%20result%3D%22shadowBlurOuter1%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.35%200%22%20in%3D%22shadowBlurOuter1%22%20result%3D%22shadowMatrixOuter1%22/%3E%3CfeMerge%3E%3CfeMergeNode%20in%3D%22shadowMatrixOuter1%22/%3E%3CfeMergeNode%20in%3D%22SourceGraphic%22/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M20.008%2033.302S8.96%2038.617%207.808%2037.86c-1.152-.76.588-12.95.588-12.95S-.234%2016.16.27%2014.777c.498-1.383%2012.56-3.446%2012.56-3.446S18.356.514%2020.008.514c1.65%200%207.176%2010.818%207.176%2010.818s12.202%202.116%2012.564%203.447c.36%201.33-8.13%2010.133-8.13%2010.133s1.734%2011.994.588%2012.95c-1.143.955-12.198-4.558-12.198-4.558%22%20fill%3D%22%23F9C822%22%20filter%3D%22url%28%23a%29%22%20transform%3D%22translate%283%20.798%29%22/%3E%3Cpath%20d%3D%22M23.008%201.31c-1.346-.214-7.178%2010.82-7.178%2010.82S3.933%2014.327%203.27%2015.574c-.668%201.248%208.126%2010.133%208.126%2010.133s-3.92-7.485-3.597-8.67c.326-1.184%208.555-1.078%209.747-2.047%201.19-.968%204.522-8.938%205.455-9.476.932-.54%204.092%201.002%204.092%201.002s-2.74-4.993-4.086-5.205%22%20fill%3D%22%23FCE083%22/%3E%3C/g%3E%3C/svg%3E');
+        display: inline-block;
+        height: 0;
+        width: 45px;
+        vertical-align: middle;
+        margin-right: 10px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-header p {
+        margin-left: 55px;
+        margin-bottom: 15px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-body {
+        width: 44%
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-body button {
+        padding: 10px 15px;
+        margin-top: 22px
+    }
+    .sl-promotion.promotion-non-subscriber.countdown-active .promotion-counter {
+        margin-top: 5px
+    }
+    .sl-promotion.promotion-non-subscriber.active .promotion-header {
+        padding-top: 12px
+    }
+    .sl-promotion.promotion-non-subscriber.active .promotion-header h1:before {
+        content: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2246%22%20height%3D%2245%22%20viewBox%3D%220%200%2046%2045%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cfilter%20x%3D%22-50%25%22%20y%3D%22-50%25%22%20width%3D%22200%25%22%20height%3D%22200%25%22%20filterUnits%3D%22objectBoundingBox%22%20id%3D%22a%22%3E%3CfeOffset%20dy%3D%222%22%20in%3D%22SourceAlpha%22%20result%3D%22shadowOffsetOuter1%22/%3E%3CfeGaussianBlur%20stdDeviation%3D%222%22%20in%3D%22shadowOffsetOuter1%22%20result%3D%22shadowBlurOuter1%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.35%200%22%20in%3D%22shadowBlurOuter1%22%20result%3D%22shadowMatrixOuter1%22/%3E%3CfeMerge%3E%3CfeMergeNode%20in%3D%22shadowMatrixOuter1%22/%3E%3CfeMergeNode%20in%3D%22SourceGraphic%22/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M20.008%2033.302S8.96%2038.617%207.808%2037.86c-1.152-.76.588-12.95.588-12.95S-.234%2016.16.27%2014.777c.498-1.383%2012.56-3.446%2012.56-3.446S18.356.514%2020.008.514c1.65%200%207.176%2010.818%207.176%2010.818s12.202%202.116%2012.564%203.447c.36%201.33-8.13%2010.133-8.13%2010.133s1.734%2011.994.588%2012.95c-1.143.955-12.198-4.558-12.198-4.558%22%20fill%3D%22%23F9C822%22%20filter%3D%22url%28%23a%29%22%20transform%3D%22translate%283%20.798%29%22/%3E%3Cpath%20d%3D%22M23.008%201.31c-1.346-.214-7.178%2010.82-7.178%2010.82S3.933%2014.327%203.27%2015.574c-.668%201.248%208.126%2010.133%208.126%2010.133s-3.92-7.485-3.597-8.67c.326-1.184%208.555-1.078%209.747-2.047%201.19-.968%204.522-8.938%205.455-9.476.932-.54%204.092%201.002%204.092%201.002s-2.74-4.993-4.086-5.205%22%20fill%3D%22%23FCE083%22/%3E%3C/g%3E%3C/svg%3E');
+        display: inline-block;
+        height: 20px;
+        width: 45px;
+        vertical-align: middle;
+        margin-right: 10px
+    }
+    .sl-promotion.promotion-non-subscriber.active .promotion-header .back {
+        display: none
+    }
+    .sl-promotion.promotion-non-subscriber.active.countdown-active .promotion-counter {
+        margin-top: 5px
+    }
+    .sl-promotion.promotion-non-subscriber.active.countdown-active .promotion-counter .countdown .countdown-section .countdown-amount {
+        font-size: 32px
+    }
+    .sl-promotion.promotion-non-subscriber.active.countdown-active .promotion-counter .countdown .countdown-divider {
+        font-size: 20px
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-non-subscriber .promotion-header {
+        width: 650px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-header h1 {
+        margin-left: 55px;
+        position: relative;
+        font-size: 24px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-header h1:before {
+        content: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNzNweCIgaGVpZ2h0PSI3MHB4IiB2aWV3Qm94PSIwIDAgNzMgNzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkltcG9ydGVkIExheWVyczwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYW5vcyIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0ODMuMDAwMDAwLCAtMzg2LjAwMDAwMCkiPiAgICAgICAgICAgIDxnIGlkPSJJbXBvcnRlZC1MYXllcnMiIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0ODMuMDAwMDAwLCAzODYuMDAwMDAwKSI+ICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNi41MTUsNjEuMDIwMzI0MyBDMzYuNTE1LDYxLjAyMDMyNDMgMTYuMzUyMzY4NCw3MC43NjA3NTY4IDE0LjI0OTg2ODQsNjkuMzczNjIxNiBDMTIuMTQ3MzY4NCw2Ny45ODI2NzU3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyAxNS4zMjIxMDUzLDQ1LjY0MzcwMjcgQzE1LjMyMjEwNTMsNDUuNjQzNzAyNyAtMC40MjU2NTc4OTUsMjkuNjExNjIxNiAwLjQ5MDEzMTU3OSwyNy4wNzc0MzI0IEMxLjQwMjEwNTI2LDI0LjU0MzI0MzIgMjMuNDE1Mzk0NywyMC43NjI5MTg5IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSBDMjMuNDE1Mzk0NywyMC43NjI5MTg5IDMzLjUwMDUyNjMsMC45MzkwODEwODEgMzYuNTE1LDAuOTM5MDgxMDgxIEMzOS41MjU2NTc5LDAuOTM5MDgxMDgxIDQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA0OS42MTA3ODk1LDIwLjc2MjkxODkgQzQ5LjYxMDc4OTUsMjAuNzYyOTE4OSA3MS44Nzk3MzY4LDI0LjYzODUxMzUgNzIuNTM5ODY4NCwyNy4wNzc0MzI0IEM3My4xOTYxODQyLDI5LjUxNjM1MTQgNTcuNzA0MDc4OSw0NS42NDM3MDI3IDU3LjcwNDA3ODksNDUuNjQzNzAyNyBDNTcuNzA0MDc4OSw0NS42NDM3MDI3IDYwLjg2NzM2ODQsNjcuNjIwNjQ4NiA1OC43NzYzMTU4LDY5LjM3MzYyMTYgQzU2LjY4OTA3ODksNzEuMTIyNzgzOCAzNi41MTUsNjEuMDIwMzI0MyAzNi41MTUsNjEuMDIwMzI0MyIgaWQ9IkZpbGwtMiIgZmlsbD0iI0Y5QzgyMiIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzYuNTE1LDAuOTM5MDgxMDgxIEMzNC4wNTc2MzE2LDAuNTQ2NTY3NTY4IDIzLjQxNTM5NDcsMjAuNzYyOTE4OSAyMy40MTUzOTQ3LDIwLjc2MjkxODkgQzIzLjQxNTM5NDcsMjAuNzYyOTE4OSAxLjcwMzU1MjYzLDI0Ljc5MDk0NTkgMC40OTAxMzE1NzksMjcuMDc3NDMyNCBDLTAuNzI3MTA1MjYzLDI5LjM2MzkxODkgMTUuMzIyMTA1Myw0NS42NDM3MDI3IDE1LjMyMjEwNTMsNDUuNjQzNzAyNyBDMTUuMzIyMTA1Myw0NS42NDM3MDI3IDguMTY3NSwzMS45Mjg1OTQ2IDguNzU4OTQ3MzcsMjkuNzU2NDMyNCBDOS4zNTQyMTA1MywyNy41ODgwODExIDI0LjM3MzE1NzksMjcuNzgyNDMyNCAyNi41NDgxNTc5LDI2LjAwNjU5NDYgQzI4LjcxOTM0MjEsMjQuMjMwNzU2OCAzNC44MDE3MTA1LDkuNjI3NzI5NzMgMzYuNTAzNTUyNiw4LjY0MDcyOTczIEMzOC4yMDUzOTQ3LDcuNjUzNzI5NzMgNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDQzLjk3MTA1MjYsMTAuNDc3NTQwNSBDNDMuOTcxMDUyNiwxMC40Nzc1NDA1IDM4Ljk2ODU1MjYsMS4zMjc3ODM3OCAzNi41MTUsMC45MzkwODEwODEiIGlkPSJGaWxsLTMiIGZpbGw9IiNGQ0UwODMiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
+        display: block;
+        height: 70px;
+        width: 73px;
+        POSITION: absolute;
+        left: -90px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-header p {
+        font-size: 16px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-body {
+        width: 450px
+    }
+    .sl-promotion.promotion-non-subscriber .promotion-body button {
+        padding: 8px 20px
+    }
+    .sl-promotion.promotion-non-subscriber.active .promotion-header h1:before {
+        position: static
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-non-subscriber .promotion-body button {
+        padding: 10px 32px
+    }
+    .sl-promotion.promotion-non-subscriber.countdown-active .promotion-counter {
+        margin-right: 15px
+    }
+}
+.sl-promotion.promotion-smartexpiration {
+    background: #fff;
+    font-size: 0;
+    box-shadow: 1px 1px 30px -5px rgba(0, 0, 0, 0.5);
+    cursor: pointer
+}
+.sl-promotion.promotion-smartexpiration .promotion-header {
+    padding: 20px 10px 0
+}
+.sl-promotion.promotion-smartexpiration .promotion-header h1 {
+    font-size: 18px;
+    line-height: 28px;
+    color: #85067B;
+    text-shadow: none;
+    text-align: center;
+    margin: 0
+}
+.sl-promotion.promotion-smartexpiration .promotion-header h1:before {
+    content: '';
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTY1cHgiIGhlaWdodD0iMTAzcHgiIHZpZXdCb3g9IjAgMCAxNjUgMTAzIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4gICAgICAgIDx0aXRsZT5JbXBvcnRlZCBMYXllcnMgQ29weSArIEltcG9ydGVkIExheWVycyBDb3B5ICsgSW1wb3J0ZWQgTGF5ZXJzIENvcHk8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+ICAgICAgICA8ZmlsdGVyIHg9Ii01MCUiIHk9Ii01MCUiIHdpZHRoPSIyMDAlIiBoZWlnaHQ9IjIwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgaWQ9ImZpbHRlci0xIj4gICAgICAgICAgICA8ZmVPZmZzZXQgZHg9IjAiIGR5PSIwIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIj48L2ZlT2Zmc2V0PiAgICAgICAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjIiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSI+PC9mZUdhdXNzaWFuQmx1cj4gICAgICAgICAgICA8ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMSAgIDAgMCAwIDAgMSAgIDAgMCAwIDAgMSAgMCAwIDAgMC43IDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIiB0eXBlPSJtYXRyaXgiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlQ29sb3JNYXRyaXg+ICAgICAgICAgICAgPGZlTWVyZ2U+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgICAgPC9mZU1lcmdlPiAgICAgICAgPC9maWx0ZXI+ICAgICAgICA8ZmlsdGVyIHg9Ii01MCUiIHk9Ii01MCUiIHdpZHRoPSIyMDAlIiBoZWlnaHQ9IjIwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgaWQ9ImZpbHRlci0yIj4gICAgICAgICAgICA8ZmVPZmZzZXQgZHg9IjAiIGR5PSIwIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIj48L2ZlT2Zmc2V0PiAgICAgICAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjIiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSI+PC9mZUdhdXNzaWFuQmx1cj4gICAgICAgICAgICA8ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMSAgIDAgMCAwIDAgMSAgIDAgMCAwIDAgMSAgMCAwIDAgMC43IDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIiB0eXBlPSJtYXRyaXgiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlQ29sb3JNYXRyaXg+ICAgICAgICAgICAgPGZlTWVyZ2U+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgICAgPC9mZU1lcmdlPiAgICAgICAgPC9maWx0ZXI+ICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjI1LjgyNDY3NjklIiB5MT0iMTcuNTY0MDE0MyUiIHgyPSI4My43NjY4NDgzJSIgeTI9IjgzLjQ0MzY5MTElIiBpZD0ibGluZWFyR3JhZGllbnQtMyI+ICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0YwQkEwMCIgb2Zmc2V0PSIwJSI+PC9zdG9wPiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGRkQ4NTAiIG9mZnNldD0iMTAwJSI+PC9zdG9wPiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4gICAgICAgIDxmaWx0ZXIgeD0iLTUwJSIgeT0iLTUwJSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iZmlsdGVyLTQiPiAgICAgICAgICAgIDxmZU9mZnNldCBkeD0iMCIgZHk9IjAiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiPjwvZmVPZmZzZXQ+ICAgICAgICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMyIgaW49InNoYWRvd09mZnNldE91dGVyMSIgcmVzdWx0PSJzaGFkb3dCbHVyT3V0ZXIxIj48L2ZlR2F1c3NpYW5CbHVyPiAgICAgICAgICAgIDxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwICAgMCAwIDAgMCAwICAgMCAwIDAgMCAwICAwIDAgMCAwLjcgMCIgaW49InNoYWRvd0JsdXJPdXRlcjEiIHR5cGU9Im1hdHJpeCIgcmVzdWx0PSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVDb2xvck1hdHJpeD4gICAgICAgICAgICA8ZmVNZXJnZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICA8L2ZlTWVyZ2U+ICAgICAgICA8L2ZpbHRlcj4gICAgPC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSI5ODBweCIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQwOC4wMDAwMDAsIC01My4wMDAwMDApIj4gICAgICAgICAgICA8ZyBpZD0iQWJlcnRvIiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIj4gICAgICAgICAgICAgICAgPGcgaWQ9IkltcG9ydGVkLUxheWVycy1Db3B5LSstSW1wb3J0ZWQtTGF5ZXJzLUNvcHktKy1JbXBvcnRlZC1MYXllcnMtQ29weSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAwLjAwMDAwMCwgNTguMDAwMDAwKSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+ICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iSW1wb3J0ZWQtTGF5ZXJzLUNvcHkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzOC44NzY3NjEsIDUwLjQ1MjI0NCkgcm90YXRlKC0zMzAuMDAwMDAwKSB0cmFuc2xhdGUoLTEzOC44NzY3NjEsIC01MC40NTIyNDQpIHRyYW5zbGF0ZSgxMDcuODc2NzYxLCAyMC45NTIyNDQpIj4gICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzEuMDEyNzM5Nyw1MS4xNzY2ODk3IEMzMS4wMTI3Mzk3LDUxLjE3NjY4OTcgMTMuODg4MzEyOSw1OS40NzAzNDUgMTIuMTAyNjI4LDU4LjI4OTI0NTQgQzEwLjMxNjk0Myw1Ny4xMDQ5MDExIDEzLjAxMzI5NDksMzguMDg0MDA2IDEzLjAxMzI5NDksMzguMDg0MDA2IEMxMy4wMTMyOTQ5LDM4LjA4NDAwNiAtMC4zNjE1MTc2NjQsMjQuNDMzMjIwNCAwLjQxNjI3NjEzNiwyMi4yNzU0NDIzIEMxLjE5MDgyOTEzLDIwLjExNzY2NDIgMTkuODg3MDQ3NiwxNi44OTg4NDMzIDE5Ljg4NzA0NzYsMTYuODk4ODQzMyBDMTkuODg3MDQ3NiwxNi44OTg4NDMzIDI4LjQ1MjUwMTgsMC4wMTk1MDI1MTY2IDMxLjAxMjczOTcsMC4wMTk1MDI1MTY2IEMzMy41Njk3MzY4LDAuMDE5NTAyNTE2NiA0Mi4xMzUxOTExLDE2Ljg5ODg0MzMgNDIuMTM1MTkxMSwxNi44OTg4NDMzIEM0Mi4xMzUxOTExLDE2Ljg5ODg0MzMgNjEuMDQ4NTQzNiwyMC4xOTg3ODM3IDYxLjYwOTIwMzMsMjIuMjc1NDQyMyBDNjIuMTY2NjIyMiwyNC4zNTIxMDA5IDQ5LjAwODk0MzgsMzguMDg0MDA2IDQ5LjAwODk0MzgsMzguMDg0MDA2IEM0OS4wMDg5NDM4LDM4LjA4NDAwNiA1MS42OTU1NzMyLDU2Ljc5NjY0NyA0OS45MTk2MTA3LDU4LjI4OTI0NTQgQzQ4LjE0Njg4OSw1OS43Nzg1OTkgMzEuMDEyNzM5Nyw1MS4xNzY2ODk3IDMxLjAxMjczOTcsNTEuMTc2Njg5NyIgaWQ9IkZpbGwtMiIgZmlsbD0iI0Y5QzgyMiIgZmlsdGVyPSJ1cmwoI2ZpbHRlci0xKSI+PC9wYXRoPiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zMS4wMTI3Mzk3LDAuMDE5NTAyNTE2NiBDMjguOTI1NjU5NywtMC4zMTQ3MDk3MyAxOS44ODcwNDc2LDE2Ljg5ODg0MzMgMTkuODg3MDQ3NiwxNi44OTg4NDMzIEMxOS44ODcwNDc2LDE2Ljg5ODg0MzMgMS40NDY4NTI5MiwyMC4zMjg1NzQ4IDAuNDE2Mjc2MTM2LDIyLjI3NTQ0MjMgQy0wLjYxNzU0MTQ1NiwyNC4yMjIzMDk4IDEzLjAxMzI5NDksMzguMDg0MDA2IDEzLjAxMzI5NDksMzguMDg0MDA2IEMxMy4wMTMyOTQ5LDM4LjA4NDAwNiA2LjkzNjc4MDgyLDI2LjQwNjA0NjEgNy40MzkxMDU5OCwyNC41NTY1MjIgQzcuOTQ0NjcxOTUsMjIuNzEwMjQyNyAyMC43MDA0OTAzLDIyLjg3NTcyNjQgMjIuNTQ3NzUwNSwyMS4zNjM2NTk0IEMyNC4zOTE3NywxOS44NTE1OTIzIDI5LjU1NzYxNzIsNy40MTc1OTg4NCAzMS4wMDMwMTczLDYuNTc3MjAxMDYgQzMyLjQ0ODQxNzQsNS43MzY4MDMyNyAzNy4zNDUyNzc2LDguMTQxMTg0NTggMzcuMzQ1Mjc3Niw4LjE0MTE4NDU4IEMzNy4zNDUyNzc2LDguMTQxMTg0NTggMzMuMDk2NTc4OSwwLjM1MDQ2OTk4NCAzMS4wMTI3Mzk3LDAuMDE5NTAyNTE2NiIgaWQ9IkZpbGwtMyIgZmlsbD0iI0ZDRTA4MyI+PC9wYXRoPiAgICAgICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkltcG9ydGVkLUxheWVycy1Db3B5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0Mi4xMjMyMzksIDUzLjQ1MjI0NCkgcm90YXRlKC0zMC4wMDAwMDApIHRyYW5zbGF0ZSgtNDIuMTIzMjM5LCAtNTMuNDUyMjQ0KSB0cmFuc2xhdGUoMTEuMTIzMjM5LCAyMy45NTIyNDQpIj4gICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzEuMDEyNzM5Nyw1MS4xNzY2ODk3IEMzMS4wMTI3Mzk3LDUxLjE3NjY4OTcgMTMuODg4MzEyOSw1OS40NzAzNDUgMTIuMTAyNjI4LDU4LjI4OTI0NTQgQzEwLjMxNjk0Myw1Ny4xMDQ5MDExIDEzLjAxMzI5NDksMzguMDg0MDA2IDEzLjAxMzI5NDksMzguMDg0MDA2IEMxMy4wMTMyOTQ5LDM4LjA4NDAwNiAtMC4zNjE1MTc2NjQsMjQuNDMzMjIwNCAwLjQxNjI3NjEzNiwyMi4yNzU0NDIzIEMxLjE5MDgyOTEzLDIwLjExNzY2NDIgMTkuODg3MDQ3NiwxNi44OTg4NDMzIDE5Ljg4NzA0NzYsMTYuODk4ODQzMyBDMTkuODg3MDQ3NiwxNi44OTg4NDMzIDI4LjQ1MjUwMTgsMC4wMTk1MDI1MTY2IDMxLjAxMjczOTcsMC4wMTk1MDI1MTY2IEMzMy41Njk3MzY4LDAuMDE5NTAyNTE2NiA0Mi4xMzUxOTExLDE2Ljg5ODg0MzMgNDIuMTM1MTkxMSwxNi44OTg4NDMzIEM0Mi4xMzUxOTExLDE2Ljg5ODg0MzMgNjEuMDQ4NTQzNiwyMC4xOTg3ODM3IDYxLjYwOTIwMzMsMjIuMjc1NDQyMyBDNjIuMTY2NjIyMiwyNC4zNTIxMDA5IDQ5LjAwODk0MzgsMzguMDg0MDA2IDQ5LjAwODk0MzgsMzguMDg0MDA2IEM0OS4wMDg5NDM4LDM4LjA4NDAwNiA1MS42OTU1NzMyLDU2Ljc5NjY0NyA0OS45MTk2MTA3LDU4LjI4OTI0NTQgQzQ4LjE0Njg4OSw1OS43Nzg1OTkgMzEuMDEyNzM5Nyw1MS4xNzY2ODk3IDMxLjAxMjczOTcsNTEuMTc2Njg5NyIgaWQ9IkZpbGwtMiIgZmlsbD0iI0Y5QzgyMiIgZmlsdGVyPSJ1cmwoI2ZpbHRlci0yKSI+PC9wYXRoPiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zMS4wMTI3Mzk3LDAuMDE5NTAyNTE2NiBDMjguOTI1NjU5NywtMC4zMTQ3MDk3MyAxOS44ODcwNDc2LDE2Ljg5ODg0MzMgMTkuODg3MDQ3NiwxNi44OTg4NDMzIEMxOS44ODcwNDc2LDE2Ljg5ODg0MzMgMS40NDY4NTI5MiwyMC4zMjg1NzQ4IDAuNDE2Mjc2MTM2LDIyLjI3NTQ0MjMgQy0wLjYxNzU0MTQ1NiwyNC4yMjIzMDk4IDEzLjAxMzI5NDksMzguMDg0MDA2IDEzLjAxMzI5NDksMzguMDg0MDA2IEMxMy4wMTMyOTQ5LDM4LjA4NDAwNiA2LjkzNjc4MDgyLDI2LjQwNjA0NjEgNy40MzkxMDU5OCwyNC41NTY1MjIgQzcuOTQ0NjcxOTUsMjIuNzEwMjQyNyAyMC43MDA0OTAzLDIyLjg3NTcyNjQgMjIuNTQ3NzUwNSwyMS4zNjM2NTk0IEMyNC4zOTE3NywxOS44NTE1OTIzIDI5LjU1NzYxNzIsNy40MTc1OTg4NCAzMS4wMDMwMTczLDYuNTc3MjAxMDYgQzMyLjQ0ODQxNzQsNS43MzY4MDMyNyAzNy4zNDUyNzc2LDguMTQxMTg0NTggMzcuMzQ1Mjc3Niw4LjE0MTE4NDU4IEMzNy4zNDUyNzc2LDguMTQxMTg0NTggMzMuMDk2NTc4OSwwLjM1MDQ2OTk4NCAzMS4wMTI3Mzk3LDAuMDE5NTAyNTE2NiIgaWQ9IkZpbGwtMyIgZmlsbD0iI0ZDRTA4MyI+PC9wYXRoPiAgICAgICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkltcG9ydGVkLUxheWVycy1Db3B5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0My41MjY0NTIsIDAuNDA0NDk0KSI+ICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTE5LjEyOTk2MDMsOTEuNjU3NTIzMSBDMTYuMzA3NDI2MSw4OS43OTUxODg3IDIwLjU2OTQwMTYsNTkuODg1NTg2OCAyMC41Njk0MDE2LDU5Ljg4NTU4NjggQzIwLjU2OTQwMTYsNTkuODg1NTg2OCAtMC41NzE0MzExNDYsMzguNDIwMjY4NiAwLjY1Nzk4NDg1OSwzNS4wMjcyNDgyIEMxLjg4MjI3ODMsMzEuNjM0MjI3OSAzMS40MzQzNjU1LDI2LjU3Mjc1OTkgMzEuNDM0MzY1NSwyNi41NzI3NTk5IEMzMS40MzQzNjU1LDI2LjU3Mjc1OTkgNDQuOTczMzA5MywwLjAzMDY2NjkzMjcgNDkuMDIwMTM3LDAuMDMwNjY2OTMyNyBDNTMuMDYxODQyMSwwLjAzMDY2NjkzMjcgNjYuNjAwNzg1OSwyNi41NzI3NTk5IDY2LjYwMDc4NTksMjYuNTcyNzU5OSBDNjYuNjAwNzg1OSwyNi41NzI3NTk5IDk2LjQ5NjA4NTEsMzEuNzYxNzg1IDk3LjM4MjI4OTEsMzUuMDI3MjQ4MiBDOTguMjYzMzcwNiwzOC4yOTI3MTE0IDc3LjQ2NTc0OTgsNTkuODg1NTg2OCA3Ny40NjU3NDk4LDU5Ljg4NTU4NjggQzc3LjQ2NTc0OTgsNTkuODg1NTg2OCA4MS43MTIzNTc2LDg5LjMxMDQ3MTUgNzguOTA1MTkxMSw5MS42NTc1MjMxIEM3Ni4xMDMxNDcxLDkzLjk5OTQ3MjUgNDkuMDIwMTM3LDgwLjQ3MzMxMTcgNDkuMDIwMTM3LDgwLjQ3MzMxMTcgQzQ5LjAyMDEzNyw4MC40NzMzMTE3IDIxLjk1MjQ5NDYsOTMuNTE0NzU1MyAxOS4xMjk5NjAzLDkxLjY1NzUyMzEgWiIgaWQ9IkZpbGwtMiIgZmlsbD0idXJsKCNsaW5lYXJHcmFkaWVudC0zKSIgZmlsdGVyPSJ1cmwoI2ZpbHRlci00KSI+PC9wYXRoPiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik00OS4wMjAxMzcsMC4wMzA2NjY5MzI3IEM0NS43MjEyMDQsLTAuNDk0ODY4NTQ5IDMxLjQzNDM2NTUsMjYuNTcyNzU5OSAzMS40MzQzNjU1LDI2LjU3Mjc1OTkgQzMxLjQzNDM2NTUsMjYuNTcyNzU5OSAyLjI4Njk2MTA3LDMxLjk2NTg3NjUgMC42NTc5ODQ4NTksMzUuMDI3MjQ4MiBDLTAuOTc2MTEzOTE1LDM4LjA4ODYyIDIwLjU2OTQwMTYsNTkuODg1NTg2OCAyMC41Njk0MDE2LDU5Ljg4NTU4NjggQzIwLjU2OTQwMTYsNTkuODg1NTg2OCAxMC45NjQ1ODksNDEuNTIyNDU4NiAxMS43NTg1ODY5LDM4LjYxNDE1NTQgQzEyLjU1NzcwNzMsMzUuNzEwOTU0NiAzMi43MjAxMjk4LDM1Ljk3MTE3MTIgMzUuNjM5OTkyOCwzMy41OTM1MDU4IEMzOC41NTQ3MzMyLDMxLjIxNTg0MDQgNDYuNzIwMTA0NSwxMS42NjM4Nzk1IDQ5LjAwNDc2OTMsMTAuMzQyMzg3NCBDNTEuMjg5NDM0LDkuMDIwODk1MjggNTkuMDI5NjMyMywxMi44MDE2ODk0IDU5LjAyOTYzMjMsMTIuODAxNjg5NCBDNTkuMDI5NjMyMywxMi44MDE2ODk0IDUyLjMxMzk0NzQsMC41NTExMDAxMjkgNDkuMDIwMTM3LDAuMDMwNjY2OTMyNyIgaWQ9IkZpbGwtMyIgZmlsbD0iI0ZDRTA4MyI+PC9wYXRoPiAgICAgICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgICAgICA8L2c+ICAgICAgICAgICAgPC9nPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
+    width: 60px;
+    height: 40px;
+    display: inline-block;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 10px;
+    position: relative;
+    top: 10px
+}
+.sl-promotion.promotion-smartexpiration .promotion-header p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #E481D5
+}
+.sl-promotion.promotion-smartexpiration .promotion-body {
+    display: block;
+    position: relative;
+    top: -15px;
+    text-align: center;
+    left: -3px
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter {
+    height: 25px
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter span.remaining {
+    font-size: 14px;
+    color: #757575;
+    font-weight: lighter
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown-title {
+    color: #999;
+    font-size: 16px;
+    margin-right: 5px
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown-section,
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown-divider {
+    display: inline-block
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown .countdown-section {
+    width: auto
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown .countdown-section .countdown-period {
+    display: none
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown .countdown-amount {
+    color: #E481D5;
+    font-size: 20px;
+    font-weight: bold
+}
+.sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown .countdown-divider {
+    color: #666;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 28px
+}
+.sl-promotion.promotion-smartexpiration .promotion-body button {
+    background-image: linear-gradient(to bottom, #F074E3, #B81CA8);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background .2s linear;
+    max-width: 300px;
+    border-radius: 4px;
+    display: none;
+    padding: 10px 30px
+}
+.sl-promotion.promotion-smartexpiration .promotion-body button:hover,
+.sl-promotion.promotion-smartexpiration .promotion-body button:focus {
+    background: linear-gradient(to bottom, #f28be8, #ce1fbc)
+}
+.sl-promotion.promotion-smartexpiration .promotion-body small {
+    color: #666
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-header {
+    padding: 20px 20px 0
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-header h1 {
+    margin: 30px 0 0 0;
+    font-size: 24px
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-header h1:before {
+    display: block;
+    width: 165px;
+    height: 103px;
+    background-size: 100%;
+    margin: 0 auto 10px;
+    top: 0
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-body {
+    display: block;
+    position: static;
+    height: auto;
+    padding: 0 20px;
+    text-align: center;
+    margin-left: 0;
+    top: 0
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter .countdown-title {
+    display: none
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter .countdown .countdown-amount {
+    font-size: 60px
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter .countdown .countdown-divider {
+    font-size: 25px;
+    line-height: 40px
+}
+.sl-promotion.promotion-smartexpiration.active .promotion-body button {
+    display: block;
+    margin-top: 25px
+}
+html[lang="en-us"] .sl-promotion.promotion-smartexpiration .promotion-body {
+    left: -2px
+}
+html[lang="es-es"] .sl-promotion.promotion-smartexpiration .promotion-body {
+    left: -2px
+}
+html[lang="it-it"] .sl-promotion.promotion-smartexpiration .promotion-body {
+    left: 7px
+}
+@media (min-width: 992px) {
+    .sl-promotion.promotion-smartexpiration {
+        box-shadow: none
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-header {
+        padding: 7px 0 5px 40px
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-header h1 {
+        font-size: 30px;
+        text-align: left
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-header h1:before {
+        width: 80px;
+        height: 55px;
+        background-size: 80px;
+        top: 2px
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-header p {
+        display: none;
+        font-size: 14px
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-header .up {
+        display: none
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body {
+        min-height: 60px;
+        top: 0;
+        padding: 10px 50px 10px 10px;
+        display: inline-block;
+        margin-left: 0;
+        text-align: right
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter {
+        height: 35px;
+        margin-right: 20px;
+        position: relative;
+        top: 5px
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown-title {
+        position: relative;
+        font-size: 16px;
+        vertical-align: text-bottom;
+        right: 10px
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter span.remaining {
+        display: none
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount {
+        font-size: 46px
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body .promotion-counter .countdown .countdown-divider {
+        line-height: 35px
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body button {
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        top: 2px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header {
+        padding: 12px 0 5px 20px;
+        width: 55%;
+        position: relative
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header h1 {
+        margin: 0;
+        text-align: left;
+        margin-left: 120px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header h1:before {
+        width: 120px;
+        height: 75px;
+        display: inline-block;
+        background-size: 100%;
+        position: absolute;
+        left: 10px;
+        top: 5px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header p {
+        display: inline-block;
+        margin-left: 120px;
+        float: left;
+        line-height: 18px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body {
+        min-height: 60px;
+        top: 0;
+        padding: 10px 40px 10px 10px;
+        display: inline-block;
+        width: 45%;
+        text-align: right
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter {
+        height: auto;
+        margin-right: 20px;
+        text-align: center
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter span.remaining {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 12px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount {
+        font-size: 46px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter .countdown .countdown-divider {
+        line-height: 35px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body button {
+        position: relative;
+        top: 15px;
+        margin: 0;
+        display: inline-block
+    }
+    html[lang="it-it"] .sl-promotion.promotion-smartexpiration .promotion-header h1 {
+        font-size: 27px
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-smartexpiration .promotion-header {
+        width: 50%
+    }
+    .sl-promotion.promotion-smartexpiration .promotion-body {
+        padding: 10px 40px 10px 10px;
+        width: 40%
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header {
+        width: 50%
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header h1:before {
+        top: 8px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header p {
+        font-size: 16px
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body {
+        padding: 10px 40px 10px 10px;
+        width: 40%
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body .promotion-counter span.remaining {
+        font-size: 15px
+    }
+}
+@media (min-width: 1415px) {
+    .sl-promotion.promotion-smartexpiration .promotion-body {
+        text-align: center
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header {
+        width: 45%
+    }
+}
+@media (min-width: 1615px) {
+    .sl-promotion.promotion-smartexpiration .promotion-header,
+    .sl-promotion.promotion-smartexpiration .promotion-body {
+        width: 35%
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-header {
+        width: 40%
+    }
+    .sl-promotion.promotion-smartexpiration.active .promotion-body {
+        width: 35%
+    }
+}
+.sl-promotion.promotion-progressive * {
+    font-family: 'Signika Negative', tahoma, verdana, arial, sans-serif
+}
+.sl-promotion.promotion-progressive .promotion-header {
+    padding: 30px 50px
+}
+.sl-promotion.promotion-progressive .promotion-header .close {
+    left: inherit;
+    right: 0;
+    width: 40px;
+    height: 40px
+}
+.sl-promotion.promotion-progressive .promotion-header h1 {
+    font-size: 16px;
+    font-weight: 300;
+    color: #D5186A;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+    margin-top: 0;
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-header h1 strong {
+    font-size: 23px
+}
+.sl-promotion.promotion-progressive .promotion-header p {
+    font-size: 22px;
+    font-weight: 600;
+    display: block;
+    margin: 0;
+    text-align: center;
+    line-height: 1
+}
+.sl-promotion.promotion-progressive .promotion-body {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-body .plan {
+    display: none;
+    height: 100px;
+    background: white;
+    border-radius: 5px;
+    opacity: .5;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 0;
+    position: relative;
+    cursor: not-allowed
+}
+.sl-promotion.promotion-progressive .promotion-body .plan>div {
+    height: 100%;
+    vertical-align: top
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-info {
+    width: 94px;
+    display: inline-block
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-info .lotto {
+    display: block;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 600;
+    margin-bottom: 2px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-info .discount {
+    font-size: 10px;
+    text-align: center;
+    background: #666666;
+    color: white;
+    font-weight: 600;
+    display: block
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-info .discount>span {
+    font-size: 14px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-info .finished {
+    display: block;
+    font-size: 13px;
+    text-align: center;
+    border: 1px solid #666;
+    margin-top: 23px;
+    padding: 5px 0
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-info .startin {
+    display: none;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    margin-top: 15px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .price-container {
+    width: 128px;
+    margin: 0 auto
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-price {
+    display: inline-block;
+    width: calc(55% - 94px / 2);
+    font-size: 16px;
+    font-weight: 100;
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-price .old-price {
+    display: block;
+    margin-top: 6px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-price .new-price {
+    display: block;
+    position: relative
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-price .price {
+    font-size: 68px;
+    font-weight: 600;
+    display: inline-block;
+    line-height: 48px;
+    padding-left: 2px;
+    color: #D5186A
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-price .price span {
+    font-size: 24px;
+    position: relative;
+    bottom: 27px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-price .for {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-price .currency {
+    position: relative;
+    bottom: 12px;
+    left: 5px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-action {
+    display: inline-block;
+    width: calc(45% - (94px / 2));
+    position: relative;
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .plan-action .sl-btn {
+    width: 100%;
+    position: absolute;
+    top: calc(50% - 18px);
+    margin: 0
+}
+.sl-promotion.promotion-progressive .promotion-body .plan .close {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2298%22%20height%3D%2298%22%20viewBox%3D%220%200%2098%2098%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M59.34%2049l37.92-37.918L86.917.742%2049%2038.658%2011.082.74.742%2011.083%2038.658%2049%20.74%2086.918l10.342%2010.34L49%2059.342l37.918%2037.92%2010.34-10.342L59.342%2049z%22%20fill%3D%22%23D5186A%22%20opacity%3D%22.246%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    display: none;
+    width: 120px;
+    height: 120px;
+    background-position: 50%;
+    position: absolute;
+    top: calc(50% - 60px);
+    left: calc(50% - 60px);
+    background-size: 110px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.finished .close {
+    display: inline-block
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active {
+    display: inline-block;
+    width: 100%;
+    color: #666;
+    min-width: 395px;
+    max-width: 445px;
+    opacity: 1;
+    cursor: inherit
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active .plan-info .discount {
+    background-color: #D5186A
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active .plan-info .finished {
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active .plan-info .startin {
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active .plan-price,
+.sl-promotion.promotion-progressive .promotion-body .plan.active .plan-action {
+    display: inline-block
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active .promotion-counter {
+    display: inline-block
+}
+.sl-promotion.promotion-progressive .promotion-body .plan:not(:last-child) {
+    margin-right: 8px
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active+.plan .plan-info .finished,
+.sl-promotion.promotion-progressive .promotion-body .plan:last-child:not(.active) .plan-info .finished {
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-body .plan.active+.plan .plan-info .startin,
+.sl-promotion.promotion-progressive .promotion-body .plan:last-child:not(.active) .plan-info .startin {
+    display: block
+}
+.sl-promotion.promotion-progressive .promotion-body .promotion-counter {
+    display: none;
+    color: black;
+    margin-top: 8px
+}
+.sl-promotion.promotion-progressive .promotion-body .promotion-counter .remaining {
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-body .promotion-counter .countdown {
+    display: block;
+    text-align: center
+}
+.sl-promotion.promotion-progressive .promotion-body .promotion-counter .countdown-section {
+    display: inline-block;
+    position: relative;
+    height: 38px
+}
+.sl-promotion.promotion-progressive .promotion-body .promotion-counter .countdown-amount {
+    font-size: 21px
+}
+.sl-promotion.promotion-progressive .promotion-body .promotion-counter .countdown-divider {
+    font-size: 12px;
+    width: 10px;
+    display: inline-block;
+    position: relative;
+    bottom: 3px
+}
+.sl-promotion.promotion-progressive .promotion-body .promotion-counter .countdown-period {
+    font-size: 9px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-weight: 100;
+    white-space: nowrap
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile {
+    height: 100%;
+    position: relative;
+    display: none;
+    text-align: center
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .btn-progressive {
+    width: 80%;
+    max-width: 260px;
+    height: 50px;
+    font-size: 22px;
+    margin-top: 20px
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .promotion-counter {
+    margin-top: 0
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .promotion-counter .countdown {
+    width: 153px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    margin: 0 auto
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan {
+    width: 220px;
+    margin: 0 auto;
+    background: white;
+    padding: 8px 0;
+    border-radius: 5px;
+    margin-bottom: 16px
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .lotto {
+    font-size: 18px;
+    margin-bottom: 0
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .discount span {
+    font-size: 14px;
+    text-align: center;
+    background: #D5186A;
+    color: white;
+    display: inline-block;
+    padding: 1px 6px
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .plan-price {
+    font-size: 16px;
+    font-weight: 100;
+    display: block;
+    width: 130px;
+    margin: 0 auto
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .plan-price .old-price {
+    display: block;
+    margin-top: 6px
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .plan-price .new-price {
+    display: block;
+    position: relative
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .plan-price .price {
+    font-size: 68px;
+    font-weight: 600;
+    display: inline-block;
+    line-height: 48px;
+    padding-left: 2px;
+    color: #D5186A
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .plan-price .price span {
+    font-size: 24px;
+    position: relative;
+    bottom: 27px
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .plan-price .for {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.sl-promotion.promotion-progressive .promotion-body-mobile .plan .plan-price .currency {
+    position: relative;
+    bottom: 12px;
+    left: 5px
+}
+.sl-promotion.promotion-progressive .btn-progressive {
+    background-image: linear-gradient(#F6BA43, #F76B1C);
+    color: white;
+    border: none;
+    padding: 9px 0;
+    border-radius: 4px
+}
+.sl-promotion.promotion-progressive .btn-progressive:hover {
+    background-image: linear-gradient(#f4ad21, #e75908)
+}
+.sl-promotion.promotion-progressive .promotion-counter {
+    color: white;
+    margin-top: 8px
+}
+.sl-promotion.promotion-progressive .promotion-counter .remaining {
+    display: none
+}
+.sl-promotion.promotion-progressive .promotion-counter .countdown {
+    display: block;
+    text-align: center;
+    height: 60px
+}
+.sl-promotion.promotion-progressive .promotion-counter .countdown-section {
+    display: inline-block;
+    position: relative;
+    height: 60px
+}
+.sl-promotion.promotion-progressive .promotion-counter .countdown-amount {
+    font-size: 38px;
+    font-weight: 600
+}
+.sl-promotion.promotion-progressive .promotion-counter .countdown-divider {
+    font-size: 24px;
+    width: 10px;
+    display: inline-block;
+    position: relative;
+    bottom: 6px
+}
+.sl-promotion.promotion-progressive .promotion-counter .countdown-period {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+.sl-promotion.promotion-progressive.step-1 {
+    background-image: linear-gradient(to right, #00D2FF, #3A7BD5)
+}
+.sl-promotion.promotion-progressive.step-2 {
+    background-image: linear-gradient(to right, #DC2430, #7B4397)
+}
+.sl-promotion.promotion-progressive.step-2 .promotion-header h1 {
+    color: #F6B541
+}
+.sl-promotion.promotion-progressive.step-3 {
+    background-image: linear-gradient(to right, #43CEA2, #185A9D)
+}
+.sl-promotion.promotion-progressive.active {
+    color: #333
+}
+@media (min-width: 600px) {
+    .sl-promotion.promotion-progressive .promotion-body-mobile .btn-progressive {
+        margin-top: 30px
+    }
+}
+@media (min-width: 992px) {
+    .sl-promotion.promotion-progressive {
+        min-height: 144px
+    }
+    .sl-promotion.promotion-progressive .promotion-body-mobile {
+        display: none
+    }
+    .sl-promotion.promotion-progressive .promotion-header {
+        padding: 20px 10px;
+        width: 50%
+    }
+    .sl-promotion.promotion-progressive .promotion-header h1 {
+        display: block;
+        margin-top: 5px
+    }
+    .sl-promotion.promotion-progressive .promotion-header p {
+        text-align: left;
+        font-size: 30px
+    }
+    .sl-promotion.promotion-progressive .promotion-header .up {
+        display: none
+    }
+    .sl-promotion.promotion-progressive .promotion-body {
+        display: block;
+        width: 50%
+    }
+    .sl-promotion.promotion-progressive .promotion-counter {
+        width: 94px
+    }
+    .sl-promotion.promotion-progressive .promotion-counter .countdown {
+        width: 91px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        margin: 0 auto
+    }
+    .adaptive .sl-promotion.promotion-progressive .promotion-body .promotion-counter .countdown {
+        line-height: 22px;
+        margin-top: 5px;
+        margin-left: 3px
+    }
+    .adaptive .sl-promotion.promotion-progressive .promotion-body .plan .plan-info .lotto,
+    .adaptive .sl-promotion.promotion-progressive .promotion-body .plan .plan-info .discount {
+        line-height: 22px
+    }
+    .adaptive .sl-promotion.promotion-progressive .promotion-body .plan .plan-price .old-price {
+        line-height: 22px
+    }
+    .adaptive .sl-promotion.promotion-progressive .promotion-body .plan .plan-price .new-price {
+        margin-top: 5px
+    }
+    .adaptive .sl-promotion.promotion-progressive .promotion-body .plan .plan-action .sl-btn {
+        padding: 10px 0
+    }
+    html[lang="it-it"] .sl-promotion.promotion-progressive .promotion-body .plan .plan-info .lotto {
+        font-size: 14px
+    }
+    html[lang="it-it"] .sl-promotion.promotion-progressive .promotion-body .plan .plan-price .for {
+        left: 8px
+    }
+    html[lang="en-us"] .sl-promotion.promotion-progressive .promotion-body .plan .plan-price .for {
+        left: -8px
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-progressive .promotion-header {
+        float: left;
+        width: 36%
+    }
+    .sl-promotion.promotion-progressive .promotion-body {
+        float: left;
+        width: 64%;
+        text-align: center
+    }
+    .sl-promotion.promotion-progressive .promotion-body .plans .plan {
+        display: inline-block
+    }
+}
+@media (min-width: 1415px) {
+    .sl-promotion.promotion-progressive .promotion-header {
+        width: 45%
+    }
+    .sl-promotion.promotion-progressive .promotion-header h1,
+    .sl-promotion.promotion-progressive .promotion-header p {
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto
+    }
+    .sl-promotion.promotion-progressive .promotion-body {
+        width: 55%
+    }
+}
+.ie11 .sl-promotion.promotion-progressive .promotion-body .plans .plan {
+    display: -ms-inline-flexbox
+}
+.sl-promotion.promotion-progressive.active .promotion-header h1 {
+    display: block
+}
+.sl-promotion.promotion-progressive.active .promotion-header p {
+    font-size: 18px
+}
+.sl-promotion.promotion-progressive.active .promotion-body-mobile {
+    display: block
+}
+@media (min-width: 992px) {
+    .sl-promotion.promotion-progressive.active .promotion-header p {
+        font-size: 30px
+    }
+    .sl-promotion.promotion-progressive.active .promotion-body-mobile {
+        display: none
+    }
+}
+.sl-promotion.promotion-woman .promotion-header {
+    padding: 30px 10px 24px 10px
+}
+.sl-promotion.promotion-woman .promotion-header .title {
+    text-align: center;
+    text-shadow: none
+}
+.sl-promotion.promotion-woman .promotion-header .subtitle {
+    font-weight: 600
+}
+.sl-promotion.promotion-woman .promotion-header .image-container {
+    display: none;
+    margin-bottom: 8px
+}
+.sl-promotion.promotion-woman .promotion-header .image-container img {
+    display: block;
+    margin: 0 auto
+}
+.sl-promotion.promotion-woman .promotion-header .back {
+    display: none
+}
+.sl-promotion.promotion-woman .promotion-header .close {
+    left: inherit;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: none
+}
+.sl-promotion.promotion-woman .promotion-header .up {
+    display: block
+}
+.sl-promotion.promotion-woman .promotion-body .call-to-action {
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 85px;
+    border: none
+}
+.sl-promotion.promotion-woman .promotion-body>small {
+    display: none
+}
+.sl-promotion.promotion-woman.prevent-close .close {
+    display: none !important
+}
+.sl-promotion.promotion-woman.variation1 {
+    background-image: url(../../../../images/modules/promotion-woman/fundo1.png)
+}
+.sl-promotion.promotion-woman.variation1 .promotion-header .title {
+    color: #FF4EA1
+}
+.sl-promotion.promotion-woman.variation1 .promotion-header .subtitle {
+    color: #F120FF
+}
+.sl-promotion.promotion-woman.variation1 .promotion-body .call-to-action {
+    background-image: linear-gradient(#F120FF, #FF4EA1);
+    color: white
+}
+.sl-promotion.promotion-woman.variation2 {
+    background-image: url(../../../../images/modules/promotion-woman/fundo2.png)
+}
+.sl-promotion.promotion-woman.variation2 .promotion-header .title {
+    color: white
+}
+.sl-promotion.promotion-woman.variation2 .promotion-header .subtitle {
+    color: white
+}
+.sl-promotion.promotion-woman.variation2 .promotion-body .call-to-action {
+    background-image: linear-gradient(#FFFFFF, #FFC1DE);
+    color: #FF4EA1
+}
+.sl-promotion.promotion-woman.variation3 {
+    background-image: url(../../../../images/modules/promotion-woman/fundo3.png)
+}
+.sl-promotion.promotion-woman.variation3 .promotion-header .title {
+    color: #ffdd68
+}
+.sl-promotion.promotion-woman.variation3 .promotion-header .subtitle {
+    color: white
+}
+.sl-promotion.promotion-woman.variation3 .promotion-body .call-to-action {
+    background-image: linear-gradient(#FFDD68, #FFEAA1);
+    color: #E17E00
+}
+.sl-promotion.promotion-woman.active .promotion-header {
+    margin-top: 30px
+}
+.sl-promotion.promotion-woman.active .promotion-header .subtitle {
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 400px
+}
+.sl-promotion.promotion-woman.active .promotion-header .image-container {
+    display: block
+}
+.sl-promotion.promotion-woman.active .promotion-header .title {
+    margin: 0 auto 5px auto;
+    max-width: 400px
+}
+.sl-promotion.promotion-woman.active .promotion-header .up svg {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+.sl-promotion.promotion-woman.active .promotion-header .close {
+    display: block
+}
+.sl-promotion.promotion-woman.countdown-active .promotion-counter span.remaining {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0
+}
+.sl-promotion.promotion-woman.countdown-active .promotion-counter .countdown .countdown-section {
+    background: none;
+    width: 52px
+}
+.sl-promotion.promotion-woman.countdown-active .promotion-counter .countdown .countdown-section .countdown-amount {
+    background: none;
+    font-size: 46px;
+    font-weight: 600
+}
+.sl-promotion.promotion-woman.countdown-active .promotion-counter .countdown .countdown-section .countdown-period {
+    display: none
+}
+.sl-promotion.promotion-woman.countdown-active .promotion-counter .countdown-divider {
+    font-size: 26px
+}
+.sl-subscription-modal .sl-subscription .plans-list .plan.woman .plan-info {
+    background-color: #FFDBFD
+}
+.sl-subscription-modal .sl-subscription .plans-list .plan.woman .plan-info h1 .currency,
+.sl-subscription-modal .sl-subscription .plans-list .plan.woman .plan-info h1 .periodicy {
+    color: #F131FD
+}
+.sl-subscription-modal .sl-subscription .plans-list .plan.woman .plan-info h1 .price strong {
+    color: #D5186A
+}
+.sl-subscription-modal .sl-subscription .plans-list .plan.woman .plan-info h1 .decimal {
+    color: #D5186A
+}
+.sl-subscription-modal .sl-subscription .plans-list .plan.woman .plan-info .title h3 {
+    color: #D5186A;
+    font-size: 24px
+}
+.sl-subscription-modal .sl-subscription .plans-list .plan.woman .plan-info .title .benefits {
+    color: #F23FFB
+}
+@media (min-width: 992px) {
+    .sl-promotion.promotion-woman .promotion-header {
+        padding: 12px 10px;
+        width: 70%
+    }
+    .sl-promotion.promotion-woman .promotion-header .title {
+        text-align: left;
+        margin-top: 0
+    }
+    .sl-promotion.promotion-woman .promotion-header .image-container {
+        float: left;
+        width: 200px;
+        margin-right: 15px;
+        margin-bottom: 0
+    }
+    .sl-promotion.promotion-woman .promotion-header .header-container {
+        padding: 16px 0;
+        float: left;
+        width: calc(100% - 200px - 15px)
+    }
+    .sl-promotion.promotion-woman .promotion-header .image-container {
+        display: block
+    }
+    .sl-promotion.promotion-woman .promotion-header .up {
+        display: none
+    }
+    .sl-promotion.promotion-woman .promotion-header .close {
+        display: block
+    }
+    .sl-promotion.promotion-woman .promotion-body {
+        width: 30%;
+        text-align: center;
+        padding: 30px 0
+    }
+    .sl-promotion.promotion-woman .promotion-body .call-to-action {
+        font-size: 18px;
+        padding: 12px 20px
+    }
+    .sl-promotion.promotion-woman.active .promotion-header {
+        margin-top: 0
+    }
+    .sl-promotion.promotion-woman.active .promotion-header .image-container {
+        display: none
+    }
+    .sl-promotion.promotion-woman.active .promotion-header .header-container {
+        padding: 6px 0
+    }
+    .sl-promotion.promotion-woman.active .promotion-header .title {
+        margin-bottom: 0
+    }
+    .sl-promotion.promotion-woman.active .promotion-header .subtitle {
+        font-size: 14px;
+        display: none
+    }
+    .sl-promotion.promotion-woman.active .promotion-header .title,
+    .sl-promotion.promotion-woman.active .promotion-header .subtitle {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none
+    }
+    .sl-promotion.promotion-woman.active .promotion-body {
+        padding: 9px 0
+    }
+    .sl-promotion.promotion-woman.active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount {
+        font-size: 32px
+    }
+    .sl-promotion.promotion-woman.active .promotion-body .call-to-action {
+        padding: 6px 50px
+    }
+    .sl-promotion.promotion-woman.active .promotion-body>small {
+        display: none
+    }
+    .sl-promotion.promotion-woman.countdown-active .promotion-header {
+        width: 60%
+    }
+    .sl-promotion.promotion-woman.countdown-active .promotion-header .image-container {
+        display: none
+    }
+    .sl-promotion.promotion-woman.countdown-active .promotion-body {
+        width: 40%
+    }
+    .sl-promotion.promotion-woman.countdown-active .promotion-body .call-to-action {
+        margin: 0 0 0 15px;
+        vertical-align: text-bottom
+    }
+}
+@media (min-width: 1200px) {
+    .sl-promotion.promotion-woman .promotion-header,
+    .sl-promotion.promotion-woman.countdown-active .promotion-header {
+        width: 750px
+    }
+    .sl-promotion.promotion-woman .promotion-body,
+    .sl-promotion.promotion-woman.countdown-active .promotion-body {
+        width: 450px
+    }
+}
+
+
+.sl-campaign.promotion-conversion {
+	background-size: cover;
+	background-image: url(../../images/modules/campaign/campaign-conversion/vip-promo-bg-mobile.png), linear-gradient(to right, #ff1494, #ff3144)
+}
+
+@media(min-width:992px) {
+	.sl-campaign.promotion-conversion {
+		background-image: url(../../images/modules/campaign/campaign-conversion/vip-promo-bg-desktop.png), linear-gradient(to right, #ff1494, #ff3144)
+	}
+}
+
+.sl-campaign.promotion-conversion .campaign-container {
+	flex-direction: row
+}
+
+.sl-campaign.promotion-conversion .campaign-container .campaign-image.desktop img {
+	display: none
+}
+
+.sl-campaign.promotion-conversion .campaign-text {
+	color: #efda09
+}
+
+.sl-campaign.promotion-conversion .campaign-text h4 {
+	font-size: 20px;
+	font-weight: 700;
+	text-shadow: none
+}
+
+.sl-campaign.promotion-conversion .campaign-text .subtitle {
+	font-size: 15px;
+	color: #fff;
+	padding: 0 15px;
+	text-shadow: none;
+	margin: 0 auto
+}
+
+.sl-campaign.promotion-conversion .campaign-text .subtitle-highlight {
+	color: #efda09
+}
+
+.sl-campaign.promotion-conversion .campaign-countdown {
+	display: block
+}
+
+.sl-campaign.promotion-conversion .campaign-countdown .text {
+	display: none
+}
+
+.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-section {
+	text-shadow: none
+}
+
+.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-divider {
+	text-shadow: none
+}
+
+.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-amount,
+.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-divider {
+	color: #00f193;
+	font-size: 36px;
+	font-weight: 700
+}
+
+.sl-campaign.promotion-conversion .campaign-action {
+	width: 80%
+}
+
+.sl-campaign.promotion-conversion .campaign-action button {
+	margin-top: 30px;
+	color: #48168e;
+	background: #efda09;
+	width: 100%;
+	height: 50px;
+	text-shadow: none
+}
+
+.sl-campaign.promotion-conversion.toggle .campaign-container {
+	flex-direction: column
+}
+
+.sl-campaign.promotion-conversion.toggle .campaign-text {
+	margin-top: 30px
+}
+
+.sl-campaign.promotion-conversion.toggle .campaign-image {
+	width: auto
+}
+
+.sl-campaign.promotion-conversion.toggle .campaign-image img {
+	max-width: none;
+	max-height: none
+}
+
+.sl-campaign.promotion-conversion.toggle .campaign-countdown {
+	margin-top: 20px
+}
+
+.sl-campaign.promotion-conversion.toggle .campaign-action {
+	margin-top: 30px
+}
+
+@media(orientation:landscape) {
+	.sl-campaign.promotion-conversion.toggle .campaign-image.mobile img {
+		display: inline-block;
+		width: 50%
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-countdown {
+		margin-top: 10px
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-action button {
+		margin-top: 10px
+	}
+}
+
+@media(min-width:600px) {
+	.sl-campaign.promotion-conversion .campaign-container {
+		flex-direction: row
+	}
+	.sl-campaign.promotion-conversion .campaign-countdown {
+		display: inline-block
+	}
+	.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-amount,
+	.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-divider {
+		font-size: 30px
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-container {
+		flex-direction: column
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-text h4 {
+		font-size: 26px;
+		font-weight: 700
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-text .subtitle {
+		color: #fff
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-countdown {
+		display: inline-block
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-countdown .countdown .countdown-amount,
+	.sl-campaign.promotion-conversion.toggle .campaign-countdown .countdown .countdown-divider {
+		font-size: 36px
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-image.mobile img {
+		width: auto
+	}
+}
+
+@media(min-width:992px) {
+	.sl-campaign.promotion-conversion .campaign-container {
+		justify-content: space-around
+	}
+	.sl-campaign.promotion-conversion .campaign-container .campaign-image.desktop img {
+		display: block
+	}
+	.sl-campaign.promotion-conversion .campaign-text {
+		margin: 0
+	}
+	.sl-campaign.promotion-conversion .campaign-text h4 {
+		font-size: 24px
+	}
+	.sl-campaign.promotion-conversion .campaign-text .subtitle {
+		padding: 0
+	}
+	.sl-campaign.promotion-conversion .campaign-image {
+		width: auto
+	}
+	.sl-campaign.promotion-conversion .campaign-image.desktop img {
+		display: inline-block
+	}
+	.sl-campaign.promotion-conversion .campaign-image.mobile img {
+		display: none
+	}
+	.sl-campaign.promotion-conversion .campaign-image img {
+		max-width: none;
+		max-height: none
+	}
+	.sl-campaign.promotion-conversion .campaign-action {
+		flex-basis: 30%
+	}
+	.sl-campaign.promotion-conversion .campaign-action button {
+		margin-top: 0
+	}
+	.sl-campaign.promotion-conversion .campaign-countdown .countdown-period {
+		display: none
+	}
+	.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-amount,
+	.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-divider {
+		font-size: 45px
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-text {
+		margin-top: 0
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-text h4 {
+		font-size: 27px
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-container {
+		flex-direction: row
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-countdown {
+		margin: 0
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-action {
+		margin-left: 50px;
+		flex-basis: 25%;
+		margin-top: 0
+	}
+	.sl-campaign.promotion-conversion.toggle .campaign-action button {
+		margin-top: 0
+	}
+}
+
+@media(min-width:1415px) {
+	.sl-campaign.promotion-conversion .campaign-countdown .countdown .countdown-amount {
+		font-size: 40px
+	}
+}
+
+
+
+
+/*========================*/
+
+.promotion-body{
+   width:100% !important;width:70%;margin:auto auto;
+}
+
+@media (min-width: 1200px) {
+    .sl-promotion .promotion-body, .sl-promotion.active .promotion-body {
+      width: 100% !important;
+        margin: auto auto;
+    }
+}
+.promotion-body table, .promotion-body table tr th{
+    background: white;
+    text-align: center !important;
+}
+
+
+
+@media(min-width:992px) and (orientation:landscape) {
+    .sl-promotion-offset {
+        display: block
+    }
+
+    .sl-promotion.legacy-browser {
+        height: 39px;
+        border-bottom: solid 1px #c1c2ad;
+        position: fixed;
+        background: #fdffca;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 202;
+        display: block
+    }
+
+        .sl-promotion.legacy-browser .promotion-header {
+            position: relative;
+            width: 41.66666667%;
+            min-height: 1px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background: #ab5050;
+            height: 48px;
+            float: left;
+            text-align: right;
+            z-index: 3;
+            padding: 0;
+            position: static;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+            .sl-promotion.legacy-browser .promotion-header h1 {
+                display: none
+            }
+
+            .sl-promotion.legacy-browser .promotion-header p {
+                float: right;
+                color: #fff;
+                line-height: 48px;
+                margin-right: 10px;
+                font-family: Arial,helvetica neue,Helvetica,sans-serif;
+                font-size: 14px
+            }
+
+            .sl-promotion.legacy-browser .promotion-header .back {
+                display: none
+            }
+
+            .sl-promotion.legacy-browser .promotion-header .close {
+                position: absolute;
+                left: inherit;
+                top: 14px;
+                right: 10px;
+                overflow: hidden;
+                width: 21px;
+                height: 20px;
+                text-indent: -9999px;
+                z-index: 99;
+                background: url(../../../images/icon/closeBar.png)
+            }
+
+        .sl-promotion.legacy-browser .promotion-body {
+            float: left;
+            width: 58.33333333%;
+            min-height: 1px;
+            padding-left: 10px;
+            padding-right: 10px;
+            position: relative;
+            background: #fdffca;
+            z-index: 2;
+            padding: 0;
+            margin: 0;
+            height: 48px;
+            line-height: 48px;
+            padding-left: 20px;
+            max-width: inherit;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+            .sl-promotion.legacy-browser .promotion-body small {
+                color: #333;
+                font-size: 14px;
+                line-height: 48px;
+                float: left;
+                font-family: Arial,helvetica neue,Helvetica,sans-serif
+            }
+
+                .sl-promotion.legacy-browser .promotion-body small a {
+                    float: none;
+                    color: #333;
+                    text-decoration: underline
+                }
+
+            .sl-promotion.legacy-browser .promotion-body button {
+                display: none
+            }
+
+            .sl-promotion.legacy-browser .promotion-body b {
+                font-weight: 700
+            }
+
+            .sl-promotion.legacy-browser .promotion-body:before {
+                content: "";
+                float: left;
+                width: 0;
+                height: 0;
+                border-top: 24px solid transparent;
+                border-bottom: 26px solid transparent;
+                border-left: 10px solid #ab5050;
+                position: absolute;
+                z-index: 3;
+                top: 0;
+                left: 0
+            }
+}
+
+.sl-promotion-offset {
+    display: block
+}
+
+.sl-promotion-scroll-block {
+    max-width: 100%;
+    position: relative
+}
+
+.sl-promotion-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 100;
+    background: rgba(0,0,0,.7)
+}
+
+.sl-promotion-video {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin: 28px 60px 0
+}
+
+    .sl-promotion-video video {
+        position: absolute;
+        width: 100%;
+        margin: auto;
+        top: 0;
+        left: 0
+    }
+
+    .sl-promotion-video .close {
+        background: rgba(0,0,0,.5);
+        position: absolute;
+        top: 0;
+        color: #fff;
+        border: 0;
+        z-index: 2;
+        padding: 0;
+        display: block;
+        left: initial;
+        right: 0;
+        height: 48px
+    }
+
+        .sl-promotion-video .close .sl-svg-close {
+            width: 46px;
+            line-height: 48px;
+            display: block
+        }
+
+.sl-promotion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba(210,53,74,.9);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+    .sl-promotion:after {
+        content: '';
+        display: table;
+        clear: both
+    }
+
+    .sl-promotion .promotion-header {
+        padding: 20px 50px 20px 20px
+    }
+
+        .sl-promotion .promotion-header h1 {
+            font-size: 24px;
+            line-height: 24px;
+            color: #fff;
+            font-weight: 700;
+            margin: 0;
+            font-family: source sans pro,helvetica neue,Arial,Helvetica,sans-serif
+        }
+
+        .sl-promotion .promotion-header p {
+            display: none;
+            color: #fff;
+            font-family: source sans pro,helvetica neue,Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            line-height: 20px
+        }
+
+        .sl-promotion .promotion-header button {
+            border: 0;
+            width: 48px;
+            height: 48px;
+            background: rgba(0,0,0,.2);
+            position: absolute;
+            top: 0;
+            color: #fff
+        }
+
+        .sl-promotion .promotion-header .back {
+            left: 0;
+            z-index: 2
+        }
+
+        .sl-promotion .promotion-header .close, .sl-promotion .promotion-header .up {
+            z-index: 2;
+            padding: 0;
+            width: 46px;
+            height: 20px;
+            left: calc(50% - 23px);
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg)
+        }
+
+            .sl-promotion .promotion-header .up svg {
+                -webkit-transition: all .5s;
+                transition: all .5s
+            }
+
+    .sl-promotion .promotion-body {
+        display: none;
+        text-align: center
+    }
+
+        .sl-promotion .promotion-body a {
+            font-family: source sans pro,helvetica neue,Arial,Helvetica,sans-serif
+        }
+
+        .sl-promotion .promotion-body .promotion-counter {
+            display: none;
+            color: #fff
+        }
+
+        .sl-promotion .promotion-body button {
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-family: source sans pro,helvetica neue,Arial,Helvetica,sans-serif
+        }
+
+        .sl-promotion .promotion-body small {
+            font-size: 12px;
+            display: block;
+            color: #fff;
+            font-family: source sans pro,helvetica neue,Arial,Helvetica,sans-serif
+        }
+
+    .sl-promotion.closeable .close {
+        display: none
+    }
+
+    .sl-promotion.closeable .sl-svg-close {
+        width: 46px;
+        line-height: 48px
+    }
+
+    .sl-promotion.closeable.active .up {
+        display: none
+    }
+
+    .sl-promotion.closeable.active .close {
+        display: block;
+        right: 0;
+        height: 48px;
+        left: inherit
+    }
+
+    .sl-promotion.toggleable .back {
+        display: none
+    }
+
+    .sl-promotion.toggleable.active .back {
+        display: block
+    }
+
+    .sl-promotion.countdown-active .promotion-header .back {
+        display: none
+    }
+
+    .sl-promotion.countdown-active .promotion-header .close {
+        display: none
+    }
+
+    .sl-promotion.countdown-active .promotion-header .up svg {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    .sl-promotion.countdown-active .promotion-body .promotion-counter {
+        display: inline-block;
+        margin-right: 0
+    }
+
+        .sl-promotion.countdown-active .promotion-body .promotion-counter span.remaining {
+            margin: 0 0 5px;
+            color: #fff;
+            font-size: 12px;
+            text-decoration: none;
+            text-align: center;
+            height: 20px;
+            line-height: 20px;
+            display: none
+        }
+
+        .sl-promotion.countdown-active .promotion-body .promotion-counter .countdown .countdown-section .countdown-period {
+            font-size: 12px;
+            line-height: 10px;
+            display: block;
+            margin-top: 3px
+        }
+
+        .sl-promotion.countdown-active .promotion-body .promotion-counter .countdown .countdown-divider {
+            line-height: 40px;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-block;
+            height: 40px;
+            vertical-align: top;
+            width: 10px;
+            text-align: center
+        }
+
+    .sl-promotion.countdown-active .promotion-body button {
+        vertical-align: top;
+        display: block;
+        margin: 0 auto
+    }
+
+    .sl-promotion.countdown-active .promotion-body small {
+        display: none
+    }
+
+    .sl-promotion.countdown-active.active .promotion-header .up svg {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+
+    .sl-promotion.countdown-active.active .promotion-counter {
+        font-size: 0;
+        margin-bottom: 20px
+    }
+
+        .sl-promotion.countdown-active.active .promotion-counter span.remaining {
+            display: block
+        }
+
+        .sl-promotion.countdown-active.active .promotion-counter .countdown-section {
+            height: 40px;
+            display: inline-block;
+            background: rgba(255,255,255,.2);
+            text-align: center;
+            width: 70px;
+            line-height: 40px
+        }
+
+            .sl-promotion.countdown-active.active .promotion-counter .countdown-section .countdown-amount {
+                border-radius: 2px;
+                display: block;
+                text-align: center;
+                font-size: 24px;
+                line-height: 40px;
+                background: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.4)),color-stop(49%,rgba(255,255,255,.3)),color-stop(50%,rgba(255,255,255,0)));
+                background: linear-gradient(to bottom,rgba(255,255,255,.4) 0,rgba(255,255,255,.3) 49%,rgba(255,255,255,0) 50%)
+            }
+
+            .sl-promotion.countdown-active.active .promotion-counter .countdown-section .countdown-period {
+                display: none
+            }
+
+    .sl-promotion.pre-bf .promotion-header .up {
+        display: block
+    }
+
+    .sl-promotion.pre-bf .promotion-header .close {
+        display: none
+    }
+
+    .sl-promotion.active {
+        height: 100%;
+        z-index: 15
+    }
+
+        .sl-promotion.active .promotion-header {
+            display: block;
+            padding: 36% 20px 0
+        }
+
+            .sl-promotion.active .promotion-header h1 {
+                margin: 20px;
+                text-align: center
+            }
+
+            .sl-promotion.active .promotion-header p {
+                display: block;
+                margin: 20px 0;
+                text-align: center
+            }
+
+        .sl-promotion.active .promotion-body {
+            display: block
+        }
+
+        .sl-promotion.active.pre-bf .promotion-header .up {
+            display: none
+        }
+
+        .sl-promotion.active.pre-bf .promotion-header .close {
+            display: block;
+            right: 0;
+            left: inherit;
+            width: 48px;
+            height: 48px;
+            background: rgba(0,0,0,.2)
+        }
+
+        .sl-promotion.active.pre-bf .promotion-body button {
+            display: none
+        }
+
+    .sl-promotion.promotion-background-color {
+        background: rgba(82,143,40,.9)
+    }
+
+    .sl-promotion.promotion-background-color {
+        background: rgba(82,143,40,.9)
+    }
+
+    .sl-promotion.promotion-makingof-color {
+        background: rgba(165,4,4,.9)
+    }
+
+@media(min-width:480px) and (max-width:600px) and (orientation:landscape) {
+    .sl-promotion.active {
+        height: 100%
+    }
+
+        .sl-promotion.active .promotion-header {
+            padding-top: 60px
+        }
+
+            .sl-promotion.active .promotion-header p {
+                margin-bottom: 15px
+            }
+}
+
+@media(min-width:992px) {
+    .sl-promotion-video {
+        width: 700px;
+        margin: 28px auto;
+        padding-bottom: 0;
+        height: 0
+    }
+
+    .sl-promotion {
+        background: #d2354a;
+        height: auto;
+        top: 0;
+        bottom: inherit;
+        min-height: 48px;
+        z-index: 11;
+        opacity: 1 !important
+    }
+
+        .sl-promotion .promotion-header {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            float: left;
+            margin: 0;
+            padding: 20px
+        }
+
+            .sl-promotion .promotion-header h1 {
+                text-align: left
+            }
+
+            .sl-promotion .promotion-header p {
+                display: block;
+                text-align: left;
+                margin: 0
+            }
+
+        .sl-promotion .promotion-body {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            float: right;
+            text-align: right;
+            padding: 20px 50px
+        }
+
+        .sl-promotion.toggleable .back {
+            display: none
+        }
+
+        .sl-promotion.closeable .promotion-header .close {
+            display: block;
+            right: 0;
+            left: inherit;
+            height: 48px
+        }
+
+        .sl-promotion.closeable .promotion-header .up {
+            display: none
+        }
+
+        .sl-promotion.promotion-background-color {
+            background: #528f28
+        }
+
+        .sl-promotion.promotion-makingof-color {
+            background: #a50404
+        }
+
+        .sl-promotion.active {
+            height: auto;
+            z-index: 11
+        }
+
+            .sl-promotion.active .promotion-header {
+                padding: 20px 10px
+            }
+
+        .sl-promotion, .sl-promotion.active {
+            text-align: center
+        }
+
+            .sl-promotion .promotion-header, .sl-promotion.active .promotion-header {
+                position: relative;
+                min-height: 1px;
+                padding-left: 10px;
+                padding-right: 10px;
+                position: static;
+                vertical-align: top
+            }
+
+                .sl-promotion .promotion-header h1, .sl-promotion.active .promotion-header h1 {
+                    text-align: left;
+                    margin: 5px 0
+                }
+
+                .sl-promotion .promotion-header p, .sl-promotion.active .promotion-header p {
+                    margin: 0;
+                    text-align: left
+                }
+
+                .sl-promotion .promotion-header .back, .sl-promotion.active .promotion-header .back {
+                    display: none
+                }
+
+            .sl-promotion .promotion-body, .sl-promotion.active .promotion-body {
+                position: relative;
+                min-height: 1px;
+                padding-left: 10px;
+                padding-right: 10px;
+                position: static;
+                display: inline-block;
+                vertical-align: top;
+                padding-right: 50px
+            }
+
+            .sl-promotion.active.pre-bf .promotion-header, .sl-promotion.pre-bf .promotion-header {
+                width: 1100px
+            }
+
+                .sl-promotion.active.pre-bf .promotion-header .up, .sl-promotion.pre-bf .promotion-header .up {
+                    display: none
+                }
+
+                .sl-promotion.active.pre-bf .promotion-header .close, .sl-promotion.pre-bf .promotion-header .close {
+                    left: inherit;
+                    right: 0;
+                    width: 48px;
+                    height: 48px;
+                    background: rgba(0,0,0,.2);
+                    display: block
+                }
+
+            .sl-promotion.active.pre-bf .promotion-body, .sl-promotion.pre-bf .promotion-body {
+                display: none
+            }
+}
+
+@media(min-width:992px) and (min-width:992px) {
+    .sl-promotion .promotion-header, .sl-promotion.active .promotion-header {
+        float: left;
+        width: 80%
+    }
+}
+
+@media(min-width:992px) and (min-width:992px) {
+    .sl-promotion .promotion-body, .sl-promotion.active .promotion-body {
+        float: left;
+        width: 33.33333333%
+    }
+}
+
+@media(min-width:992px) {
+    .sl-promotion.countdown-active .promotion-header {
+        position: relative;
+        min-height: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        position: static;
+        padding: 12px 0 5px 20px
+    }
+
+        .sl-promotion.countdown-active .promotion-header button {
+            right: 0;
+            left: inherit;
+            height: 48px
+        }
+
+    .sl-promotion.countdown-active .promotion-body {
+        position: relative;
+        min-height: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-right: 70px;
+        text-align: right;
+        padding: 10px 70px 10px 10px;
+        min-height: 86px
+    }
+
+        .sl-promotion.countdown-active .promotion-body:after {
+            content: '';
+            display: table;
+            clear: both
+        }
+
+        .sl-promotion.countdown-active .promotion-body .promotion-counter {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 2px;
+            font-size: 0;
+            margin: 0
+        }
+
+            .sl-promotion.countdown-active .promotion-body .promotion-counter span.remaining {
+                margin: 0;
+                display: block
+            }
+
+            .sl-promotion.countdown-active .promotion-body .promotion-counter .countdown .countdown-section {
+                height: 40px;
+                display: inline-block;
+                background: rgba(255,255,255,.2);
+                text-align: center;
+                width: 70px;
+                line-height: 40px
+            }
+
+                .sl-promotion.countdown-active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount {
+                    border-radius: 2px;
+                    display: block;
+                    text-align: center;
+                    font-size: 24px;
+                    line-height: 40px;
+                    background: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.4)),color-stop(49%,rgba(255,255,255,.3)),color-stop(50%,rgba(255,255,255,0)));
+                    background: linear-gradient(to bottom,rgba(255,255,255,.4) 0,rgba(255,255,255,.3) 49%,rgba(255,255,255,0) 50%);
+                    margin: 0
+                }
+
+                .sl-promotion.countdown-active .promotion-body .promotion-counter .countdown .countdown-section .countdown-period {
+                    display: inline-block;
+                    vertical-align: top
+                }
+
+            .sl-promotion.countdown-active .promotion-body .promotion-counter .countdown .countdown-divider {
+                line-height: 40px;
+                font-size: 16px;
+                font-weight: 700;
+                display: inline-block;
+                height: 40px;
+                vertical-align: top;
+                width: 10px;
+                text-align: center
+            }
+
+        .sl-promotion.countdown-active .promotion-body button {
+            padding: 5px 10px;
+            display: inline-block;
+            margin: 20px 0 0 7px
+        }
+
+    .sl-promotion.countdown-active.active .promotion-header {
+        padding: 12px 0 5px 20px
+    }
+
+        .sl-promotion.countdown-active.active .promotion-header h1 {
+            margin-top: 0
+        }
+
+        .sl-promotion.countdown-active.active .promotion-header p {
+            display: none
+        }
+
+    .sl-promotion.countdown-active.active .promotion-body {
+        min-height: 53px
+    }
+
+        .sl-promotion.countdown-active.active .promotion-body .promotion-counter {
+            margin: 2px 0 0
+        }
+
+            .sl-promotion.countdown-active.active .promotion-body .promotion-counter span.remaining {
+                display: none
+            }
+
+            .sl-promotion.countdown-active.active .promotion-body .promotion-counter .countdown .countdown-section {
+                display: inline;
+                width: auto;
+                line-height: 20px;
+                background: 0 0
+            }
+
+                .sl-promotion.countdown-active.active .promotion-body .promotion-counter .countdown .countdown-section .countdown-amount {
+                    display: inline;
+                    background: 0 0;
+                    line-height: 30px;
+                    margin-left: 4px;
+                    font-size: 20px
+                }
+
+                .sl-promotion.countdown-active.active .promotion-body .promotion-counter .countdown .countdown-section .countdown-period {
+                    vertical-align: inherit
+                }
+
+            .sl-promotion.countdown-active.active .promotion-body .promotion-counter .countdown .countdown-divider {
+                line-height: 30px;
+                font-size: 12px;
+                height: 30px;
+                margin-top: 2px;
+                margin: 2px 0 0
+            }
+
+        .sl-promotion.countdown-active.active .promotion-body button {
+            margin-top: 0
+        }
+}
+
+@media(min-width:992px) and (min-width:992px) {
+    .sl-promotion.countdown-active .promotion-header {
+        float: left;
+        width: 50%
+    }
+}
+
+@media(min-width:992px) and (min-width:992px) {
+    .sl-promotion.countdown-active .promotion-body {
+        float: left;
+        width: 50%
+    }
+}
+
+@media(min-width:1200px) {
+    .sl-promotion.countdown-active .promotion-header, .sl-promotion.countdown-active.active .promotion-header {
+        position: static;
+        width: 650px;
+        float: none;
+        display: inline-block
+    }
+
+    .sl-promotion.countdown-active .promotion-body, .sl-promotion.countdown-active.active .promotion-body {
+        width: 450px;
+        float: none;
+        display: inline-block;
+        padding: 10px
+    }
+}
+
+@media(min-width:1200px) {
+    .sl-promotion .promotion-header, .sl-promotion.active .promotion-header {
+        position: static;
+        width: 650px;
+        float: none;
+        display: inline-block
+    }
+
+    .sl-promotion .promotion-body, .sl-promotion.active .promotion-body {
+        width: 450px;
+        float: none;
+        display: inline-block
+    }
+}
+
+.sl-promotion.legacy-browser {
+    display: none
+}
+
+@media(min-width:992px) and (orientation:landscape) {
+    .sl-promotion-offset {
+        display: block
+    }
+
+    .sl-promotion.legacy-browser {
+        height: 39px;
+        border-bottom: solid 1px #c1c2ad;
+        position: fixed;
+        background: #fdffca;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 202;
+        display: block
+    }
+
+        .sl-promotion.legacy-browser .promotion-header {
+            position: relative;
+            width: 41.66666667%;
+            min-height: 1px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background: #ab5050;
+            height: 48px;
+            float: left;
+            text-align: right;
+            z-index: 3;
+            padding: 0;
+            position: static;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+            .sl-promotion.legacy-browser .promotion-header h1 {
+                display: none
+            }
+
+            .sl-promotion.legacy-browser .promotion-header p {
+                float: right;
+                color: #fff;
+                line-height: 48px;
+                margin-right: 10px;
+                font-family: Arial,helvetica neue,Helvetica,sans-serif;
+                font-size: 14px
+            }
+
+            .sl-promotion.legacy-browser .promotion-header .back {
+                display: none
+            }
+
+            .sl-promotion.legacy-browser .promotion-header .close {
+                position: absolute;
+                left: inherit;
+                top: 14px;
+                right: 10px;
+                overflow: hidden;
+                width: 21px;
+                height: 20px;
+                text-indent: -9999px;
+                z-index: 99;
+                background: url(../../../images/icon/closeBar.png)
+            }
+
+        .sl-promotion.legacy-browser .promotion-body {
+            float: left;
+            width: 58.33333333%;
+            min-height: 1px;
+            padding-left: 10px;
+            padding-right: 10px;
+            position: relative;
+            background: #fdffca;
+            z-index: 2;
+            padding: 0;
+            margin: 0;
+            height: 48px;
+            line-height: 48px;
+            padding-left: 20px;
+            max-width: inherit;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+            .sl-promotion.legacy-browser .promotion-body small {
+                color: #333;
+                font-size: 14px;
+                line-height: 48px;
+                float: left;
+                font-family: Arial,helvetica neue,Helvetica,sans-serif
+            }
+
+                .sl-promotion.legacy-browser .promotion-body small a {
+                    float: none;
+                    color: #333;
+                    text-decoration: underline
+                }
+
+            .sl-promotion.legacy-browser .promotion-body button {
+                display: none
+            }
+
+            .sl-promotion.legacy-browser .promotion-body b {
+                font-weight: 700
+            }
+
+            .sl-promotion.legacy-browser .promotion-body:before {
+                content: "";
+                float: left;
+                width: 0;
+                height: 0;
+                border-top: 24px solid transparent;
+                border-bottom: 26px solid transparent;
+                border-left: 10px solid #ab5050;
+                position: absolute;
+                z-index: 3;
+                top: 0;
+                left: 0
+            }
+}
+
+.sl-promotion.subscribe-fail {
+    background-color: rgba(248,243,177,.95)
+}
+
+    .sl-promotion.subscribe-fail .subscribe-fail-description {
+        color: #666;
+        display: inline-block;
+        line-height: 17px;
+        margin: 0 60px 0 10px;
+        text-align: left;
+        width: 75%
+    }
+
+    .sl-promotion.subscribe-fail .subscribe-fail-header {
+        text-align: center
+    }
+
+        .sl-promotion.subscribe-fail .subscribe-fail-header .subscribe-fail-description {
+            font-size: 14px;
+            font-family: source sans pro,helvetica neue,Arial,Helvetica,sans-serif;
+            margin: 0 0 0 5px;
+            vertical-align: middle
+        }
+
+        .sl-promotion.subscribe-fail .subscribe-fail-header .subscribe-fail-description-secondary {
+            display: none
+        }
+
+        .sl-promotion.subscribe-fail .subscribe-fail-header .icon-alert {
+            margin-left: 5%;
+            vertical-align: middle
+        }
+
+        .sl-promotion.subscribe-fail .subscribe-fail-header .back, .sl-promotion.subscribe-fail .subscribe-fail-header .close {
+            background-color: transparent
+        }
+
+            .sl-promotion.subscribe-fail .subscribe-fail-header .back svg, .sl-promotion.subscribe-fail .subscribe-fail-header .close svg {
+                fill: #666;
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2)
+            }
+
+    .sl-promotion.subscribe-fail .subscribe-fail-body .subscribe-fail-button {
+        background-color: #666;
+        border-radius: 5px;
+        border: 1px solid #000;
+        color: #fff;
+        font-size: 15px;
+        padding: 10px 35px;
+        vertical-align: bottom
+    }
+
+        .sl-promotion.subscribe-fail .subscribe-fail-body .subscribe-fail-button:hover {
+            background-color: #595959
+        }
+
+    .sl-promotion.subscribe-fail .subscribe-fail-body .icon-alert {
+        width: 15%
+    }
+
+    .sl-promotion.subscribe-fail.active .subscribe-fail-header .subscribe-fail-description {
+        text-align: center;
+        width: 100%
+    }
+
+    .sl-promotion.subscribe-fail.active .subscribe-fail-header .subscribe-fail-description-secondary {
+        display: inline-block
+    }
+
+    .sl-promotion.subscribe-fail.active .subscribe-fail-header .icon-alert {
+        margin-left: 0;
+        margin-bottom: 15px
+    }
+
+    .sl-promotion.subscribe-fail.active .subscribe-fail-header .back, .sl-promotion.subscribe-fail.active .subscribe-fail-header .close {
+        background-color: transparent
+    }
+
+        .sl-promotion.subscribe-fail.active .subscribe-fail-header .back svg, .sl-promotion.subscribe-fail.active .subscribe-fail-header .close svg {
+            fill: #666;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2)
+        }
+
+    .sl-promotion.subscribe-fail.active .subscribe-fail-body .subscribe-fail-button {
+        margin-top: 20px
+    }

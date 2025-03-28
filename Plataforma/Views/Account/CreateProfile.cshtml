@@ -1,0 +1,122 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee - A Rede Social Sugar Baby e Sugar Daddy";
+    Layout = "~/Views/Shared/_LayoutDeslogado.cshtml";
+}
+
+<style>
+    .container-flex.authentication {
+        -webkit-transform: translateY(10%);
+        -ms-transform: translateY(10%);
+        transform: translateY(10%);
+    }
+
+    @@media (min-width:600px) {
+        .container-flex.authentication {
+            -webkit-transform: translateY(calc(20% - 48px));
+            -ms-transform: translateY(calc(20% - 48px));
+            transform: translateY(calc(20% - 48px));
+        }
+    }
+
+    .sl-modal.login.injected, .sl-modal.signup.injected, .panel.confirm-email {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    @@media (min-width:600px) {
+        .sl-modal.login.injected, .sl-modal.signup.injected, .panel.confirm-email {
+            width: 500px;
+        }
+    }
+
+    .panel.confirm-email {
+        border: 1px solid #d4d4d4;
+    }
+
+    @@media (min-width:992px) {
+        .panel.confirm-email {
+            width: 700px;
+        }
+    }
+
+    .panel.confirm-email .alert {
+        margin: -41px -20px 20px;
+    }
+
+    .panel.confirm-email .mobile-validation .alert {
+        margin: -20px -20px -5px;
+    }
+
+    .panel.confirm-email .mobile-validation + .hide-resend-email {
+        margin-top: 30px;
+    }
+
+    @@media (min-width:600px) {
+        .panel.confirm-email .mobile-validation + .hide-resend-email {
+            margin-top: 0;
+        }
+    }
+
+    .panel.confirm-email .panel-heading {
+        padding: 20px;
+    }
+
+        .panel.confirm-email .panel-heading h3 {
+            margin: 0;
+            color: #661577;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+    .panel.confirm-email .panel-body {
+        padding: 50px 20px 0;
+        border-top: 1px solid #d4d4d4;
+        font-size: 14px;
+    }
+
+        .panel.confirm-email .panel-body p {
+            font-size: 16px;
+        }
+
+            .panel.confirm-email .panel-body p.small {
+                font-size: 13px;
+                margin-top: 50px;
+            }
+
+        .panel.confirm-email .panel-body .text-or {
+            margin-left: 12px;
+        }
+
+        .panel.confirm-email .panel-body .btn-link {
+            font-size: 14px;
+        }
+
+        .panel.confirm-email .panel-body .keep-browsing {
+            margin: 10px 0;
+        }
+
+    .panel.change-password .panel-body {
+        padding: 40px;
+    }
+
+        .panel.change-password .panel-body .alert.alert-danger {
+            margin: -41px -41px 20px;
+        }
+
+    form.change-email {
+        background-color: #f5f5f5;
+        padding: 20px;
+        margin: 5px -20px;
+    }
+
+    form.change-password .form-control.input-lg {
+        margin-bottom: 20px;
+        border-radius: 3px;
+    }
+</style>
+
+
+@Html.Action("_CreateProfileWizardPartial", "Wizard", new { user_id = @ViewBag.vbUser_id })

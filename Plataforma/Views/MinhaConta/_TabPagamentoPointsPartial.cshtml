@@ -1,0 +1,148 @@
+﻿@using Plataforma.Models
+@model PagamentoPoints
+
+@{
+    Layout = null;
+}
+
+
+<div class="tab-pane">
+
+    @using (Ajax.BeginForm("ComprarAssinaturaPoints", "MinhaConta", new AjaxOptions
+    {
+        OnSuccess = "OnSuccess",
+        //UpdateTargetId = "TargetUpdate",
+        //InsertionMode = InsertionMode.Replace
+    }, new { @id = "SubmitFormSubscription", @class = "sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-valid ng-invalid-flag" }))
+    {
+
+        @Html.HiddenFor(m => m.plan_id)
+        @Html.HiddenFor(m => m.ValorItem)
+        @Html.HiddenFor(m => m.ValorSaldo)
+        @Html.HiddenFor(m => m.ValorFalta)
+        <div></div>
+        <div class="subscribe-payment__tokens-container">
+            <div class="subscribe-payment__tokens-title">
+                Para adquirir este plano com Points:
+            </div>
+            <div class="subscribe-payment__tokens-price">
+                <div class="subscribe-payment__tokens-price-block subscribe-payment__tokens-need">
+                    <div class="subscribe-payment__tokens-price-title">
+                        você precisa de:
+                    </div>
+                    <div class="subscribe-payment__tokens-numbers-container">
+                        <div class="subscribe-payment__tokens-numbers subscribe-payment__tokens-need-numbers ng-binding"> @Html.Raw(Model.ValorItem.ToString())</div>
+                        <img src="/modules/img/kinkee_points_compra_1.svg" class="subscribe-payment__tokens-numbers-icon">
+                    </div>
+                </div>
+                <div class="subscribe-payment__tokens-price-block">
+                    <div class="subscribe-payment__tokens-price-title">
+                        você tem:
+                    </div>
+                    <div class="subscribe-payment__tokens-numbers-container">
+                        <div class="subscribe-payment__tokens-numbers subscribe-payment__tokens-have-numbers ng-binding">@Html.Raw(Model.ValorSaldo.ToString())</div>
+                        <img src="/modules/img/kinkee_points_compra_1.svg" class="subscribe-payment__tokens-numbers-icon">
+                    </div>
+                </div>
+                <div class="subscribe-payment__tokens-price-block subscribe-payment__tokens-total">
+                    <div class="subscribe-payment__tokens-price-title subscribe-payment__tokens-total-title">
+                        faltam:
+                    </div>
+                    <div class="subscribe-payment__tokens-numbers-container">
+                        <div class="subscribe-payment__tokens-numbers subscribe-payment__tokens-total-numbers ng-binding">@Html.Raw(Model.ValorFalta.ToString())</div>
+                        <img src="/modules/img/kinkee_points_compra_1.svg" class="subscribe-payment__tokens-numbers-icon">
+                    </div>
+                </div>
+            </div>
+            <div class="subscribe-payment__tokens-message">
+                <div class="subscribe-payment__tokens-message-text subscribe-payment__tokens-error-text">
+                    @ViewBag.AvisoCreditosFaltantes
+                </div>
+                <a class="subscribe-payment__tokens-error-button js-points-button">
+                    Comprar +Points
+                </a>
+            </div>
+        </div>
+    }
+
+
+
+    <hr class="separate">
+
+    <div class="box-submit">
+
+        <div class="box-submit__btn">
+            <button class="sl-btn btn-primary btn-lg js-button-submit-subscription">
+                <span class="ng-binding">Assinar Premium</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+@*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+<script>
+    $(document).ready(function () {
+
+        $("input[id*='CEP']").inputmask({
+            mask: ['99999-999', '99999999'],
+            keepStatic: true
+        });
+
+        $("input[id*='NumeroCartao']").inputmask({
+            mask: ['9999999999999999999', '9999999999999999999'],
+            keepStatic: true
+        });
+
+        $("input[id*='CodigoSeguranca']").inputmask({
+            mask: ['999', '999'],
+            keepStatic: true
+        });
+
+        $("#SelectMesValidade").change(function () {
+
+            $('#mesValidadeCartao').val($(this).val());
+        });
+
+        $("#SelectAnoValidade").change(function () {
+
+            $('#anoValidadeCartao').val($(this).val());
+        });
+
+
+        $('.js-button-submit-subscription').click(function () {
+
+
+
+            //if (!FormValidate()) {
+            //    $('.js-validator-label').css("display", "block");
+            //}
+            //else {
+            //    $("#SubmitFormSubscription").submit();
+            //}
+
+            $("#SubmitFormSubscription").submit();
+
+        });
+
+
+        
+
+
+        //function FormValidate() {
+        //    var retorno = true;
+
+
+        //}
+
+        //function validaNumeroCartao() {
+        //    var valor = $('#NumeroCartao');
+
+
+
+        //    if (valor.replace("_", "").length)
+        //}
+
+    });
+
+</script>

@@ -1,0 +1,188 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+@{
+    if (ViewBag.NewsNotifications != null)
+    {
+        foreach (var item in ViewBag.NewsNotifications)
+        {
+            string notread = "";
+            if (!item.Read)
+            {
+                notread = "notread";
+            }
+
+            const int SECOND = 1;
+            const int MINUTE = 60 * SECOND;
+            const int HOUR = 60 * MINUTE;
+            const int DAY = 24 * HOUR;
+            const int MONTH = 30 * DAY;
+
+            var ts = new TimeSpan(DateTime.UtcNow.Ticks - item.DateCreate.Ticks);
+            double delta = Math.Abs(ts.TotalSeconds);
+
+            string textTime = "";
+
+            if (delta < 1 * MINUTE)
+            {
+                textTime = ts.Seconds == 1 ? "um segundo atrás" : ts.Seconds + " segundos atrás";
+            }
+            else if (delta < 2 * MINUTE)
+            {
+                textTime = "um minuto atrás";
+            }
+            else if (delta < 45 * MINUTE)
+            {
+                textTime = ts.Minutes + " minutos atrás";
+            }
+            else if (delta < 90 * MINUTE)
+            {
+                textTime = "uma hora atrás";
+            }
+            else if (delta < 24 * HOUR)
+            {
+                textTime = ts.Hours + " horas atrás";
+            }
+            else if (delta < 48 * HOUR)
+            {
+                textTime = "hoje";
+            }
+            else if (delta < 30 * DAY)
+            {
+                textTime = ts.Days + " dias Atrás";
+            }
+            else if (delta < 12 * MONTH)
+            {
+                int months = Convert.ToInt32(Math.Floor((double)ts.Days / 30));
+                textTime = months <= 1 ? "um mês atrás" : months + " meses atrás";
+            }
+            else
+            {
+                int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
+                textTime = years <= 1 ? "um ano atrás" : years + " anos atrás";
+            }
+
+
+
+            <li class="ng-scope js-lista-item-notif notread">
+
+                <a href="https://app.kinkeesugar.com/@item.AddtionalData["URL_DESTINO"]" class="clearfix line" target="_self">
+
+                    <!-- Avatar -->
+                    <div class="avatar overlayContentCard">
+                        <img alt="." class="" src="@item.AddtionalData["URL_IMAGEM"]" style="width: 40px; height: 37px; border-radius: 50%;">
+                    </div>
+
+                    <!-- Nome e descrição -->
+                    <div class="about">
+                        <div class="about-section">
+                            <div href="#" class="title overlayContentCard" target="_self">@item.AddtionalData["SUBTITULO"]</div>
+                            <span class="subtitle date ng-binding">@textTime</span>
+                        </div>
+                        <div class="about-section">
+                            <p>
+                                <span class="ng-binding">@Html.Raw(Server.HtmlDecode(item.AddtionalData["DESCRICAO"]))</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </a>
+
+            </li>
+        }
+    }
+
+
+    if (ViewBag.LastsNotifications != null)
+    {
+        foreach (var item in ViewBag.LastsNotifications)
+        {
+            string notread = "";
+            if (!item.Read)
+            {
+                notread = "notread";
+            }
+
+            const int SECOND = 1;
+            const int MINUTE = 60 * SECOND;
+            const int HOUR = 60 * MINUTE;
+            const int DAY = 24 * HOUR;
+            const int MONTH = 30 * DAY;
+
+            var ts = new TimeSpan(DateTime.UtcNow.Ticks - item.DateCreate.Ticks);
+            double delta = Math.Abs(ts.TotalSeconds);
+
+            string textTime = "";
+
+            if (delta < 1 * MINUTE)
+            {
+                textTime = ts.Seconds == 1 ? "um segundo atrás" : ts.Seconds + " segundos atrás";
+            }
+            else if (delta < 2 * MINUTE)
+            {
+                textTime = "um minuto atrás";
+            }
+            else if (delta < 45 * MINUTE)
+            {
+                textTime = ts.Minutes + " minutos atrás";
+            }
+            else if (delta < 90 * MINUTE)
+            {
+                textTime = "uma hora atrás";
+            }
+            else if (delta < 24 * HOUR)
+            {
+                textTime = ts.Hours + " horas atrás";
+            }
+            else if (delta < 48 * HOUR)
+            {
+                textTime = "há algum tempo";
+            }
+            else if (delta < 30 * DAY)
+            {
+                textTime = ts.Days + " dias Atrás";
+            }
+            else if (delta < 12 * MONTH)
+            {
+                int months = Convert.ToInt32(Math.Floor((double)ts.Days / 30));
+                textTime = months <= 1 ? "um mês atrás" : months + " meses atrás";
+            }
+            else
+            {
+                int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
+                textTime = years <= 1 ? "um ano atrás" : years + " anos atrás";
+            }
+
+
+
+            <li class="ng-scope js-lista-item-notif @Html.Raw(notread)">
+
+                <a href="https://app.kinkeesugar.com/@item.AddtionalData["URL_DESTINO"]" class="clearfix line" target="_self">
+
+                    <!-- Avatar -->
+                    <div class="avatar overlayContentCard">
+                        <img alt="." class="img-circle" src="@item.AddtionalData["URL_IMAGEM"]">
+                    </div>
+
+                    <!-- Nome e descrição -->
+                    <div class="about">
+                        <div class="about-section">
+                            <div href="#" class="title overlayContentCard" target="_self">@item.AddtionalData["SUBTITULO"]</div>
+                            <span class="subtitle date ng-binding">@textTime</span>
+                        </div>
+                        <div class="about-section">
+                            <p>
+                                <span class="ng-binding">@Html.Raw(Server.HtmlDecode(item.AddtionalData["DESCRICAO"]))</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </a>
+
+            </li>
+        }
+    }
+}

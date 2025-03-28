@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/modules/css/certification-modal-intro");
+
+<style>
+    .certification-modal__intro--green {
+        background-image: radial-gradient(circle at 51% 32%,#fff,#EDE4E4);
+    }
+
+    .slmodal__body h2 {
+        color: #000;
+    }
+
+    .slmodal__body p {
+        color: #000;
+    }
+
+    .certification-modal__intro--green .slmodal__close {
+        color: #000;
+    }
+
+    .certification-modal__intro--green .slmodal__btn {
+        background-color: #000;
+        color: #fff;
+    }
+</style>
+
+<div class="modal-backdrop in" modal-backdrop="" style="z-index: 1040;"></div>
+
+
+<input value="@ViewBag.nomeUsuarioRecebedor" id="nomeUsuarioRecebedor" name="sth" type="hidden">
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal slmodal undefined" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content" modal-transclude="">
+            <div class="slmodal__content ng-scope">
+                <div class="certification-modal__intro--green ng-scope">
+                    <slmodal-close class="ng-isolate-scope"><div id="js-action-close-modal" class="slmodal__close js-action-close-modal">×</div></slmodal-close>
+                    <div class="slmodal__body slmodal__body--center" ng-transclude="" center="">
+                        <img src='~/modules/img/imagem_pix.png' class="certification-modal__thumb" alt='Verificado'>
+                        <h2 class="ng-binding ng-scope">Você recebeu um Pix de @ViewBag.valor.ToString("C")</h2>
+
+                        <div class="js-inicio">
+                            <p class="ng-scope">O usuário <strong>@ViewBag.NomePagador</strong> enviou um pix de presente pra você. Vefique o valor no aplicativo do seu banco, e confirme o recebimento clicando no botão abaixo. Clique em não recebi caso não tenha encontrado o valor em seu extrato Pix.</p>
+
+                            <button data-confima_id="@ViewBag.IdPix" data-confirma="true" class="slmodal__btn ng-scope ng-isolate-scope js-confirma-pix">
+                               Confirmar
+                            </button>
+
+                            <button data-confima_id="@ViewBag.IdPix" data-confirma="false" class="slmodal__btn ng-scope ng-isolate-scope js-confirma-pix">
+                                Não Recebi!
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.js-confirma-pix').click(function () {
+
+        IdPix = $(this).attr('data-confima_id');
+        confirmado = $(this).attr('data-confirma');
+
+        ConfirmarPix(confirmado, IdPix);
+    });
+
+    $('#js-action-close-modal').click(function () {
+        $('#ShareModal').empty();
+    });
+
+    function ConfirmarPix(confirmado, IdPix) {
+       
+        $.ajax({
+            url: "@Url.Action("ConfirmarPixRecebido", "Dating")",
+            data: {
+                'confirmado': confirmado,
+                'IdPix': IdPix,
+            },
+            dataType: "json",
+            type: 'POST',
+            success: function (data) {
+                
+            },
+            error: function () {
+                //Notification();
+            }
+        });
+
+        $('#ShareModal').empty();
+
+        e.preventDefault();
+    }
+
+</script>

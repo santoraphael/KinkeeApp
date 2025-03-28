@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAfiliados.cshtml";
+}
+
+<div class="main helpPage" style="height:auto">
+    <h2 class="title">Está com dúvidas? Vamos ajudar você.</h2>
+    <p class="subtitle">Preparamos três formas de ajuda, primeiro um passo-a-passo de como funciona, depois uma lista com as dúvidas mais<br>frequentes e por fim algumas formas de contato direto com a nossa equipe. Utilize a barra de rolagem para visualizá-las.</p>
+    <h3 class="titleHelp">Passo-a-passo</h3>
+</div>
+
+<div class="stepBystepHome home helpStepbyStep">
+    <div class="center">
+        <ul class="ulListItensHome itensStepByStep">
+            <li class="listItemHome">
+                <h3 class="capitularNumber">1</h3>
+                <h2 class="titleItem">Divulgue</h2>
+                <p class="textItem">No menu @Html.ActionLink("Apoio", "MaterialApoio", "Afiliados") está disponível diversos texto e imagens de divulgação para inserir nas suas redes sociais. Escolha quantas formas quiser e aplique nas suas redes sociais para começar a ganhar muito dinheiro.</p>
+            </li>
+            <li class="listItemHome">
+                <h3 class="capitularNumber">2</h3>
+                <h2 class="titleItem">Cadastros</h2>
+                <p class="textItem">Com boas divulgações e uma grande visibilidade, você terá muito mais chances de converter os visitantes em cadastros reais, quanto mais cadastros, mais chances reais de assinaturas.</p>
+            </li>
+            <li class="listItemHome">
+                <h3 class="capitularNumber">3</h3>
+                <h2 class="titleItem">Assinaturas</h2>
+                <p class="textItem">Assim que um cadastrado através de seu site/link efetuar uma assinatura na Kinkee, você ganhará uma porcentagem sobre o total do valor da assinatura! Fique de olho nos @Html.ActionLink("Relatórios", "Relatorios", "Afiliados") para acompanhar de perto.</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main helpPage home">
+    <h3 class="titleHelp">Perguntas frequentes</h3>
+    <ul class="faq">
+        <li class="itemFaq">
+            <h2>O que é o programa de afiliados da Kinkee?</h2>
+            <p>O Programa de Afiliados da Sexlog é uma maneira muito prática de gerar lucro para você e criar uma parceria com a Kinkee. É muito fácil. Qualquer pessoa pode se cadastrar e compartilhar seu link de convite para a Kinkee. O programa permite o monitoramento de cliques, cadastros e assinaturas feitos por meio da sua referência, e você é bonificado a cada conversão concretizada. É uma oportunidade imperdível de participar do sucesso da mais inovadora rede de relacionamento do mundo.</p>
+        </li>
+        <li class="itemFaq">
+            <h2>Como funciona?</h2>
+            <p>Os textos e imagens disponibilizadas na sua área de Afiliado ajudam você a divulgar. Mas você pode fazer o seu texto e suas imagens, desde que contenham o seu link. nosso sistema contabiliza todos os cliques, cadastros e assinaturas geradas a partir da sua referência. A cada assinatura de uma pessoa que chegou a Kinkee por meio do seu link, você é bonificado com uma % do valor do plano escolhido por ela. Você pode faturar até R$ 48,02 (daddy semestral) por assinatura. Não perca tempo, comece agora!</p>
+        </li>
+
+        <li class="itemFaq">
+            <h2>Eu ganho se convidar também Sugar Babies ou só Daddy?</h2>
+            <p>Não, você ganha se caso uma Sugar Baby também fechar uma assinatura, então você também pode convidar sugar babies para fazer parte da Kinkee.</p>
+        </li>
+        <li class="itemFaq">
+            <h2>Eu só ganho se fecharem assinatura?</h2>
+            <p>No caso de Sugar Daddies, você começa a ganhar uma comissão assim que ele for aprovado na Kinkee, e conforme ele usa o site, você vai ganhando mais!</p>
+        </li>
+        <li class="itemFaq">
+            <h2>Como é realizado o pagamento?</h2>
+            <p>O pagamento é realizado via PIX automático em conta corrente. Para configurar suas preferências, acesse o menu @Html.ActionLink("Pagamentos", "ConfiguracaoPagamento", "Afiliados"), clique no botão Salvar abaixo da sessão Forma de Pagamento e salve sua chave do PIX.</p>
+        </li>
+        <li class="itemFaq">
+            <h2>Quando é realizado o pagamento?</h2>
+            <p>O pagamento é realizado no dia 30 de cada mês e o fechamento da fatura ocorre 5 dias antes do pagamento, ou seja, todo dia 25 de cada mês.<br><br></p>
+        </li>
+    </ul>
+    <span class="infoSpan">
+    </span>
+    <h3 class="titleHelp">Ainda tem dúvidas?</h3>
+    <p class="text">Caso ainda tenha alguma dúvida, por favor entre em contato pelo e-mail <a href="mailto:afiliados@kinkeesugar.com">afiliados@kinkeesugar.com</a> informando sua dúvida juntamente com seu nome de usuário. Ou se preferir entre contato pelas nossas redes sociais.</p>
+</div>

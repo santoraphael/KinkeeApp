@@ -1,0 +1,137 @@
+﻿[
+  {
+    "Capital": "Rio Branco",
+    "Estado": "Acre",
+    "UF": "AC"
+  },
+  {
+    "Capital": "Maceió",
+    "Estado": "Alagoas",
+    "UF": "AL"
+  },
+  {
+    "Capital": "Manaus",
+    "Estado": "Amazonas",
+    "UF": "AM"
+  },
+  {
+    "Capital": "Macapá",
+    "Estado": "Amapá",
+    "UF": "AP"
+  },
+  {
+    "Capital": "Salvador",
+    "Estado": "Bahia",
+    "UF": "BA"
+  },
+  {
+    "Capital": "Fortaleza",
+    "Estado": "Ceará",
+    "UF": "CE"
+  },
+  {
+    "Capital": "Brasília",
+    "Estado": "Distrito Federal",
+    "UF": "DF"
+  },
+  {
+    "Capital": "Vitória",
+    "Estado": "Espírito Santo",
+    "UF": "ES"
+  },
+  {
+    "Capital": "Goiânia",
+    "Estado": "Goiás",
+    "UF": "GO"
+  },
+  {
+    "Capital": "São Luís",
+    "Estado": "Maranhão",
+    "UF": "MA"
+  },
+  {
+    "Capital": "Belo Horizonte",
+    "Estado": "Minas Gerais",
+    "UF": "MG"
+  },
+  {
+    "Capital": "Campo Grande",
+    "Estado": "Mato Grosso do Sul",
+    "UF": "MS"
+  },
+  {
+    "Capital": "Cuiabá",
+    "Estado": "Mato Grosso",
+    "UF": "MT"
+  },
+  {
+    "Capital": "Belém",
+    "Estado": "Pará",
+    "UF": "PA"
+  },
+  {
+    "Capital": "João Pessoa",
+    "Estado": "Paraíba",
+    "UF": "PB"
+  },
+  {
+    "Capital": "Recife",
+    "Estado": "Pernambuco",
+    "UF": "PE"
+  },
+  {
+    "Capital": "Teresina",
+    "Estado": "Piauí",
+    "UF": "PI"
+  },
+  {
+    "Capital": "Curitiba",
+    "Estado": "Paraná",
+    "UF": "PR"
+  },
+  {
+    "Capital": "Rio de Janeiro",
+    "Estado": "Rio de Janeiro",
+    "UF": "RJ"
+  },
+  {
+    "Capital": "Natal",
+    "Estado": "Rio Grande do Norte",
+    "UF": "RN"
+  },
+  {
+    "Capital": "Porto Velho",
+    "Estado": "Rondônia",
+    "UF": "RO"
+  },
+  {
+    "Capital": "Boa Vista",
+    "Estado": "Roraima",
+    "UF": "RR"
+  },
+  {
+    "Capital": "Porto Alegre",
+    "Estado": "Rio Grande do Sul",
+    "UF": "RS"
+  },
+  {
+    "Capital": "Florianópolis",
+    "Estado": "Santa Catarina",
+    "UF": "SC"
+  },
+  {
+    "Capital": "Aracaju",
+    "Estado": "Sergipe",
+    "UF": "SE"
+  },
+  {
+    "Capital": "São Paulo",
+    "Estado": "São Paulo",
+    "UF": "SP"
+  },
+  {
+    "Capital": "Palmas",
+    "Estado": "Tocantins",
+    "UF": "TO"
+  }
+]

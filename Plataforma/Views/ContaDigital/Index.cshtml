@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Kinkee | Conta Digital";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+<link href="~/modules/css/Loja.css" rel="stylesheet" />
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1 {
+        font-size: 37px;
+    }
+</style>
+<div class="myaccount">
+
+    <div ng-controller="StoreController" class="store ng-scope">
+        <div class="closet-banner store-banner">
+            <div class="container-flex">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6">
+                        <div class="closet-banner-description">
+                            <p class="closet-banner-title">
+                                <small>Kinkee | Conta Digital</small>
+                                Saldo e Extrato da Conta
+                            </p>
+                            <br />
+                            <p class="closet-banner-subtitle">
+                                Saldo disponível
+                            </p>
+                            <p class="closet-banner-title" style="color:green;">
+                                @{
+                                    double saldo = 0;
+
+                                    if (ViewBag.Saldo != null)
+                                    {
+                                        saldo = ViewBag.Saldo;
+                                    }
+                                }
+
+                                @saldo KOINS <br />
+                                <span style="font-size:small">(R$ @ViewBag.SaldoFinal)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flex store-list">
+            <div class="product ng-scope js-comprar-koins-btn">
+                <figure style="height: 297px;">
+                    <a bo-title="product.title" href="" class="image" style="background-image: url('../../modules/img/dribble_rewards.gif'); background-size: 100%;">
+                    </a>
+                    <figcaption style="height: 75px;">
+                        <h2>
+                            <a href="">
+                                <span class="title ng-scope">Comprar Koins</span>
+                            </a>
+                        </h2>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="product ng-scope">
+                <figure style="height: 297px;">
+                    <a bo-title="product.title" href="/ContaDigital/Extrato" class="image" style="background-image: url('../../modules/img/al_extract2a.gif'); background-size: 169%;">
+                    </a>
+                    <figcaption style="height: 75px;">
+                        <h2>
+                            <a href="/ContaDigital/Extrato">
+                                <span class="title ng-scope" >Extrato da Conta</span>
+                            </a>
+                        </h2>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="product ng-scope">
+                <figure  style="height: 297px;">
+                    <a href="Transferencias" class="image" style="background-image: url('../../modules/img/image_processing20191007-13676-13tco5z.gif'); background-size: 100%;">
+                    </a>
+                    <figcaption style="height: 75px;">
+                        <h2>
+                            <a href="">
+                                <span class="title ng-scope">Transferir Koins</span>
+                            </a>
+                        </h2>
+                    </figcaption>
+                </figure>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-flex">
+
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+    </div>
+
+</div>s
+

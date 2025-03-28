@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+
+    <div class="Ta(c) Expand Mx(a)" style="height:auto;">
+        <img src="~/static/build/logo_modal.svg" />
+
+        <div class="">
+            <h3 class="Fz($ml) Fw($bold) Mb(36px) Mt(20px) Mb(12px)--s Mt(8px)--s Fs(i)">Insira seu número de celular</h3>
+        </div>
+        <div class="D(b) My(12px) My(24px)--ml Mx(a)" aria-describedby="phoneErrorMessage">
+            <div class="Whs(nw) Ov(h) My(40px) My(20px)--s">
+
+                <div class="Fz($m) Va(m) Py(8px) Bdrs(4px)--ml Bgc($c-divider-lite)--ml Px(8px)--ml BdB--s Bdrs(0)--s Bdbc($c-secondary)--s Px(4px)--s D(ib) Lts($ls-m) Ta(c) Bdrstend(0) Bdrsbend(0) focus-button-style Cur(p)" tabindex="0">+55</div>
+                <input class="Fz($m) Va(m) Py(8px) Bdrs(4px)--ml Bgc($c-divider-lite)--ml Px(8px)--ml BdB--s Bdrs(0)--s Bdbc($c-secondary)--s Px(4px)--s D(ib) Lts($ls-m) Bdrsbstart(0) Bdrststart(0) telefone" autocomplete="tel" name="phone_number" type="tel" value="">
+            </div>
+            <span id="phoneErrorMessage"></span>
+        </div>
+        <span class="D(b) C($c-secondary) Fz($2xs) My(24px) My(16px)--s My(12px)--xs Mx(a) Ta(start)">
+
+            Nós usaremos o seu numero de telefone apedas para confirmações de segurança.
+        </span>
+
+        <button type="button" disabled="" style="background:#e0e4e9;" class="btnCadastrarEmail button Lts($ls-s) Z(0) CenterAlign Mx(a) Cur(p) Tt(u) Ell Bdrs(100px) Px(24px) Px(20px)--s Py(0) Mih(54px) Pos(r) Ov(h) C(#fff) Bg($c-pink):h::b Bg($c-pink):f::b Bg($c-pink):a::b Trsdu($fast) Trsp($background) Bg($primary-gradient) button--primary-shadow StyledButton Fw($semibold) focus-button-style My(20px) Maw(315px) W(100%) Ell" draggable="false">
+            <span class="labelBtnNumeroTelefone Pos(r) Z(1)">Insira o numero de telefone</span>
+        </button>
+    </div>

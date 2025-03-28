@@ -1,0 +1,3845 @@
+﻿.toolsList {
+    position: relative;
+    float: left;
+    width: 98%;
+    padding: 10px 1%;
+    margin-top: -15px;
+    background-color: #F6EDF5;
+    border-radius: 0 0 3px 3px;
+    z-index: 5
+}
+
+    .toolsList #orderbySelectBoxIt,
+    .toolsList #orderbySelectBoxItOptions {
+        width: 140px
+    }
+
+    .toolsList #filterbySelectBoxIt,
+    .toolsList #filterbySelectBoxItOptions {
+        width: 180px
+    }
+
+    .toolsList .btn {
+        margin: 0 0 0 2px
+    }
+
+    .toolsList .trashIco span {
+        height: 20px;
+        padding: 0 12px;
+        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+        background-repeat: no-repeat;
+        background-position: 8px -126px
+    }
+
+    .toolsList .messageIco span {
+        height: 20px;
+        padding: 0 15px;
+        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+        background-repeat: no-repeat;
+        background-position: -15px -127px
+    }
+
+    .toolsList .toolsRight {
+        float: right
+    }
+
+    .toolsList .searchList {
+        position: relative;
+        float: left;
+        margin: 0 10px 0 0
+    }
+
+        .toolsList .searchList .textSearch {
+            position: relative;
+            float: right;
+            width: 70px;
+            min-width: 70px;
+            left: 0 !important;
+            border-color: #CAA7E3;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-repeat: no-repeat;
+            background-position: -144px -268px;
+            padding: 2px 0 2px 20px;
+            z-index: 100;
+            left: 0 !important
+        }
+
+        .toolsList .searchList .inputsearch {
+            float: left
+        }
+
+        .toolsList .searchList .expanded {
+            width: 150px
+        }
+
+        .toolsList .searchList .viewAll {
+            position: absolute;
+            float: left;
+            top: 9px;
+            right: 7px;
+            height: 9px;
+            width: 9px;
+            font-size: 11px;
+            font-size: 0.6875rem;
+            text-indent: -1999px;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-repeat: no-repeat;
+            background-position: 0 -100px;
+            z-index: 200;
+            outline: none
+        }
+
+        .toolsList .searchList .btnSearch {
+            position: absolute;
+            display: block;
+            height: 15px;
+            width: 15px;
+            top: 4px;
+            right: 4px;
+            z-index: 10
+        }
+
+    .toolsList .filtercheck {
+        margin-top: 5px
+    }
+
+        .toolsList .filtercheck #chkNone {
+            display: none
+        }
+
+.modal {
+    display: none
+}
+
+@media (min-width: 0) {
+    .navbar-left {
+        float: left !important
+    }
+
+    .navbar-nav {
+        float: left;
+        margin: 0
+    }
+
+        .navbar-nav > li {
+            float: left
+        }
+
+    .navbar-collapse {
+        border: 0
+    }
+
+        .navbar-collapse.collapse {
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+            box-shadow: 0 0 0 transparent
+        }
+}
+
+#header {
+    position: relative;
+    height: 59px;
+    width: 100%;
+    background: #85067B;
+    border-top-color: #A4089A;
+    border-top-style: solid;
+    border-top-width: 1px;
+    color: #FFF;
+    z-index: 100
+}
+
+    #header .logoSexlog {
+        float: left;
+        height: 38px;
+        width: 136px;
+        margin: 10px 0 0 -4px
+    }
+
+        #header .logoSexlog > a {
+            float: left;
+            height: 100%;
+            width: 100%
+        }
+
+            #header .logoSexlog > a h1 {
+                float: left;
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                text-indent: -1999px;
+                background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                background-position: 4px 3px;
+                background-repeat: no-repeat
+            }
+
+            #header .logoSexlog > a:hover h1 {
+                background-position: 0 -660px
+            }
+
+    #header .disable {
+        opacity: .6;
+        filter: alpha(opacity=60);
+        -moz-opacity: 0.60
+    }
+
+    #header .navTop {
+        float: right;
+        margin: 2px 0 0
+    }
+
+        #header .navTop li {
+            float: left;
+            height: 56px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #85067B;
+            border-radius: 2px;
+            font-size: 13px;
+            font-size: 0.8125rem;
+            line-height: 56px
+        }
+
+            #header .navTop li a {
+                float: left;
+                height: 100%;
+                padding: 0 15px;
+                color: #FFF
+            }
+
+                #header .navTop li a:hover {
+                    text-decoration: none
+                }
+
+    #header #addMedia {
+        float: right;
+        height: 18px;
+        width: 18px;
+        margin: 22px 0 0 5px;
+        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+        background-repeat: no-repeat;
+        background-position: 0 -771px;
+        cursor: pointer
+    }
+
+    #header .addMediaHover {
+        background-position: 0 -789px !important
+    }
+
+    #header .searchTop {
+        float: left;
+        height: 30px;
+        margin: 13px 0 0 85px
+    }
+
+        #header .searchTop .btn .magnifier {
+            padding: 0 18px;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-repeat: no-repeat;
+            background-position: -132px -344px
+        }
+
+        #header .searchTop #seSearchForSelectBoxIt,
+        #header .searchTop #seSearchForSelectBoxItOptions {
+            width: 133px
+        }
+
+        #header .searchTop #seAnywhereSelectBoxIt,
+        #header .searchTop #seAnywhereSelectBoxItOptions {
+            width: 170px
+        }
+
+        #header .searchTop .selectBoxItContainer {
+            margin: 0 8px 0 0
+        }
+
+            #header .searchTop .selectBoxItContainer > div {
+                border-style: solid;
+                border-width: 1px;
+                border-color: #CAA7E3
+            }
+
+        #header .searchTop .selectBoxIt {
+            height: 30px
+        }
+
+            #header .searchTop .selectBoxIt .selectBoxItText {
+                line-height: 30px
+            }
+
+            #header .searchTop .selectBoxIt .selectBoxItArrowContainer span {
+                margin-top: 7px !important
+            }
+
+        #header .searchTop #txtLocationsHeader {
+            width: 170px;
+            height: 32px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-right: 7px;
+            padding: 0 6px 0 20px;
+            border-color: #4b0045;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-repeat: no-repeat;
+            background-position: -143px -843px
+        }
+
+        #header .searchTop.normal .selectTop {
+            height: 30px;
+            border-radius: 1px;
+            margin-right: 5px;
+            background: none repeat scroll 0 0 #FAF2FF;
+            border-color: #CAA7E3;
+            border-style: solid;
+            border-width: 1px
+        }
+
+            #header .searchTop.normal .selectTop .selected {
+                height: 20px;
+                line-height: 20px;
+                color: #333333 !important
+            }
+
+            #header .searchTop.normal .selectTop > div {
+                top: 31px !important
+            }
+
+    #header .searchTopOffline {
+        margin: 13px 0 0 112px
+    }
+
+#container {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    width: 100%
+}
+
+    #container #main {
+        position: relative;
+        height: 100%;
+        width: 960px;
+        margin: 0 auto
+    }
+
+    #container #main2 {
+        position: relative;
+        height: 100%;
+        width: 960px
+    }
+
+    #container .push {
+        clear: both
+    }
+
+#aside {
+    position: relative;
+    float: left;
+    width: 216px;
+    overflow: hidden;
+    height: 100%;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #e7cde5;
+    margin: 0 -1px 0 0
+}
+
+    #aside .mtext {
+        max-width: 82% !important;
+        padding: 10px 0 10px 11%;
+        background-position: 2% center
+    }
+
+.userbox {
+    width: 101%;
+    margin: 15px 0 0;
+    padding: 5px 0 5px 5px;
+    background-color: #F6EDF5;
+    display: table
+}
+
+    .userbox .divUserPicture {
+        position: relative;
+        float: left;
+        height: 60px;
+        width: 60px;
+        margin: 0 8px 0 0
+    }
+
+        .userbox .divUserPicture .imgMyAvatar {
+            height: 60px;
+            width: 60px
+        }
+
+        .userbox .divUserPicture .changePic {
+            position: absolute;
+            width: 46px;
+            height: 18px;
+            bottom: 2px;
+            left: 2px;
+            border-radius: 2px;
+            font-size: 10px;
+            font-size: 0.625rem;
+            font-weight: normal;
+            line-height: 18px;
+            text-align: center;
+            background: #fa6c1e !important;
+            background: rgba(250, 108, 30, 0.8) !important;
+            color: #FFF;
+            cursor: pointer;
+            display: none
+        }
+
+    .userbox .nameProfile {
+        float: left;
+        padding: 3px 0;
+        font-size: 16px;
+        font-size: 1rem;
+        line-height: 16px;
+        font-weight: bold;
+        color: #85067B;
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+        text-overflow: ellipsis;
+        width: 140px;
+        overflow: hidden
+    }
+
+    .userbox ul {
+        float: left;
+        width: 145px;
+        list-style: none
+    }
+
+        .userbox ul li {
+            height: 16px;
+            margin: 0 0 2px
+        }
+
+            .userbox ul li a {
+                font-size: 12px;
+                font-size: 0.75rem;
+                line-height: 14px;
+                padding: 2px 0 0;
+                font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+                height: 16px;
+                line-height: 16px;
+                display: block
+            }
+
+        .userbox ul .editprofile i {
+            float: left;
+            width: 12px;
+            height: 12px;
+            margin-right: 2px;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-position: -149px -32px;
+            background-repeat: no-repeat
+        }
+
+        .userbox ul .popularity i {
+            float: left;
+            width: 12px;
+            height: 12px;
+            margin-right: 2px;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-position: -149px -1032px;
+            background-repeat: no-repeat
+        }
+
+.nav {
+    margin: 0 0 10px
+}
+
+.ulfirst {
+    list-style: none
+}
+
+    .ulfirst > li {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #E5CBE3
+    }
+
+        .ulfirst > li > a {
+            font-size: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+            padding: 0 0 0 16px;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-position: 0 0;
+            background-repeat: no-repeat
+        }
+
+        .ulfirst > li .notextdec {
+            text-decoration: none;
+            cursor: default
+        }
+
+    .ulfirst .friendfavorite {
+        background-position: -142px -96px !important;
+        padding: 0 0 0 20px
+    }
+
+    .ulfirst .mysexlog {
+        background-position: -146px -112px !important
+    }
+
+    .ulfirst .tools {
+        background-position: -146px -128px !important
+    }
+
+    .ulfirst .acountsubscribe {
+        background-position: -146px -144px !important
+    }
+
+.ulsecond {
+    padding: 5px 0;
+    list-style: none
+}
+
+    .ulsecond li {
+        position: relative;
+        height: 21px;
+        padding: 0 0 0 2px;
+        margin: 0 0 2px
+    }
+
+        .ulsecond li a {
+            float: left;
+            width: 91%;
+            font-size: 13px;
+            font-size: 0.8125rem;
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+            line-height: 22px;
+            font-weight: normal
+        }
+
+            .ulsecond li a i {
+                float: left;
+                width: 18px;
+                height: 16px;
+                margin: 4px 0 0 2px;
+                background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                background-repeat: no-repeat
+            }
+
+            .ulsecond li a .minor {
+                font-size: 11px
+            }
+
+            .ulsecond li a:hover {
+                text-decoration: none
+            }
+
+        .ulsecond li .explain {
+            background: #85077b;
+            width: 13px;
+            height: 13px;
+            font-size: 10px;
+            line-height: 13px;
+            font-family: Arial, Verdana, sans-serif;
+            border-radius: 7px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            position: absolute;
+            top: 4px;
+            right: 5px;
+            cursor: help
+        }
+
+        .ulsecond li:hover {
+            background-color: #F6EDF5
+        }
+
+    .ulsecond .select {
+        background-color: #F6EDF5
+    }
+
+        .ulsecond .select a {
+            cursor: default;
+            text-decoration: none
+        }
+
+.newMenu li {
+    height: 28px
+}
+
+    .newMenu li a {
+        font-size: 14px;
+        font-size: 0.875rem;
+        line-height: 26px
+    }
+
+.homePage i {
+    background-position: -146px -705px
+}
+
+.newsPage i {
+    background-position: -146px -721px
+}
+
+.mensagePage i {
+    background-position: -145px -738px
+}
+
+.eventPage i {
+    background-position: -145px -755px
+}
+
+.groupPage i {
+    background-position: -145px -916px
+}
+
+.chatPage i {
+    background-position: -145px -983px
+}
+
+.videosPage i {
+    background-position: -145px -688px
+}
+
+.photosPage i {
+    background-position: -145px -657px
+}
+
+.peoplePage i {
+    background-position: -145px -673px
+}
+
+.conquestPage i {
+    background-position: -145px -1070px
+}
+
+.alertNews {
+    position: absolute;
+    height: 13px;
+    top: 4px;
+    right: 5px;
+    background-color: #dfbfdd;
+    border-radius: 2px;
+    color: #85067B;
+    font-size: 10px;
+    font-size: 0.625rem;
+    font-weight: bold;
+    line-height: 13px;
+    padding: 0 4px
+}
+
+.anotherConfig .icoConfig i {
+    background-position: -144px -1000px
+}
+
+.anotherConfig .icoSignature i {
+    background-position: -144px -1016px
+}
+
+.body {
+    margin: 50px 0
+}
+
+#send_success a,
+#send_error a,
+#send_user_notsubscriber a,
+#send_alerts a {
+    color: #85067B !important
+}
+
+#send_wait .body {
+    text-align: center;
+    margin: 56px
+}
+
+#send_success {
+    text-align: center
+}
+
+    #send_success .body span {
+        background: transparent url("../images/icon/nice_check.png") no-repeat 0 3px;
+        font-size: 20px;
+        padding: 5px 34px
+    }
+
+#send_error {
+    text-align: center
+}
+
+    #send_error .body span {
+        background: transparent url("../images/icon/nice_error.png") no-repeat 0 3px;
+        font-size: 20px;
+        padding: 5px 34px
+    }
+
+#send_user_notsubscriber {
+    text-align: center
+}
+
+    #send_user_notsubscriber .body span {
+        font-size: 18px
+    }
+
+    #send_user_notsubscriber .subsError {
+        margin: 10px 0;
+        font-size: 20px
+    }
+
+#send_alerts {
+    text-align: center
+}
+
+    #send_alerts .body span {
+        font-size: 18px
+    }
+
+.preview {
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+    position: relative;
+    clear: both;
+    min-height: 45px
+}
+
+.videopreview {
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+    position: relative;
+    clear: both;
+    min-height: 45px
+}
+
+.boxPhotoEdit {
+    min-height: 100px;
+    max-height: 385px;
+    width: 455px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    border: #e5e5e5 solid 1px
+}
+
+    .boxPhotoEdit img {
+        opacity: 0.2
+    }
+
+    .boxPhotoEdit .disableTools {
+        background: #F5F5F5;
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        bottom: -65px;
+        left: 0px;
+        opacity: 0.5
+    }
+
+    .boxPhotoEdit #queueFileItem {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 50%;
+        margin-left: 25%
+    }
+
+        .boxPhotoEdit #queueFileItem .icon {
+            display: none
+        }
+
+        .boxPhotoEdit #queueFileItem .fileName {
+            display: none
+        }
+
+        .boxPhotoEdit #queueFileItem .percentage {
+            display: none
+        }
+
+        .boxPhotoEdit #queueFileItem .uploadifyProgressBar {
+            height: 10px !important;
+            background: #85067B !important
+        }
+
+    .boxPhotoEdit #queuePhotoFileItem,
+    .boxPhotoEdit #queueVideoFileItem {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 50%;
+        margin-left: 25%
+    }
+
+        .boxPhotoEdit #queuePhotoFileItem .icon,
+        .boxPhotoEdit #queueVideoFileItem .icon {
+            display: none
+        }
+
+        .boxPhotoEdit #queuePhotoFileItem .fileName,
+        .boxPhotoEdit #queueVideoFileItem .fileName {
+            display: none
+        }
+
+        .boxPhotoEdit #queuePhotoFileItem .percentage,
+        .boxPhotoEdit #queueVideoFileItem .percentage {
+            display: none
+        }
+
+        .boxPhotoEdit #queuePhotoFileItem .uploadifyProgressBar,
+        .boxPhotoEdit #queueVideoFileItem .uploadifyProgressBar {
+            height: 10px !important;
+            background: #85067B !important
+        }
+
+    .boxPhotoEdit #waterMark .elements {
+        position: absolute;
+        height: 21px;
+        width: 225px
+    }
+
+        .boxPhotoEdit #waterMark .elements .logo {
+            width: 70px;
+            height: 21px;
+            float: left;
+            background-image: url(../images/watermark-small.png);
+            background-repeat: no-repeat;
+            background-position: 0 0
+        }
+
+        .boxPhotoEdit #waterMark .elements .login {
+            font-size: 10px;
+            font-size: 0.625rem;
+            font-weight: bold;
+            color: #FFF;
+            float: left;
+            line-height: 20px;
+            height: 21px;
+            text-shadow: 0px 1px 2px #969696
+        }
+
+        .boxPhotoEdit #waterMark .elements .login2 {
+            font-size: 10px;
+            font-size: 0.625rem;
+            font-weight: bold;
+            color: #FFF;
+            float: right;
+            line-height: 20px;
+            height: 21px;
+            text-shadow: 0px 1px 2px #969696
+        }
+
+        .boxPhotoEdit #waterMark .elements .logo2 {
+            width: 70px;
+            height: 21px;
+            float: right;
+            background-image: url(../images/watermark-small.png);
+            background-repeat: no-repeat;
+            background-position: 0 0
+        }
+
+    .boxPhotoEdit .topLeft {
+        top: 5px;
+        left: 5px
+    }
+
+    .boxPhotoEdit .topRight {
+        top: 5px;
+        right: 5px
+    }
+
+    .boxPhotoEdit .bottomLeft {
+        bottom: 5px;
+        left: 5px
+    }
+
+    .boxPhotoEdit .bottomRight {
+        bottom: 5px;
+        right: 5px
+    }
+
+.boxPhotoEditCompleted img {
+    opacity: 1
+}
+
+.boxPhotoEditCompleted #queueFileItem {
+    display: none
+}
+
+.boxPhotoEditCompleted .disableTools {
+    display: none
+}
+
+.toolsUpload {
+    background: #f5f5f5;
+    padding: 10px;
+    border: #e5e5e5 solid 1px;
+    border-width: 0 1px 1px;
+    width: 435px;
+    margin: 0 0 10px;
+    min-height: 45px;
+    float: left
+}
+
+    .toolsUpload p {
+        font-size: 11px;
+        margin-bottom: 5px
+    }
+
+    .toolsUpload .tollsL {
+        float: left
+    }
+
+        .toolsUpload .tollsL li {
+            float: left;
+            margin-right: 4px;
+            width: 26px;
+            height: 27px
+        }
+
+            .toolsUpload .tollsL li a {
+                display: block;
+                height: 27px;
+                text-indent: -9999px;
+                background: url("../images/icon/photoEditor.png?v=1.8");
+                outline: none
+            }
+
+                .toolsUpload .tollsL li a .disable {
+                    opacity: 0.5
+                }
+
+        .toolsUpload .tollsL .tl a {
+            background-position: 0 0;
+            background-repeat: no-repeat
+        }
+
+            .toolsUpload .tollsL .tl a.selected {
+                background-position: 0 -56px
+            }
+
+            .toolsUpload .tollsL .tl a:hover {
+                background-position: 0 -28px
+            }
+
+        .toolsUpload .tollsL .tr a {
+            background-position: -30px 0;
+            background-repeat: no-repeat
+        }
+
+            .toolsUpload .tollsL .tr a.selected {
+                background-position: -30px -56px
+            }
+
+            .toolsUpload .tollsL .tr a:hover {
+                background-position: -30px -28px
+            }
+
+        .toolsUpload .tollsL .bl a {
+            background-position: -61px 0;
+            background-repeat: no-repeat
+        }
+
+            .toolsUpload .tollsL .bl a.selected {
+                background-position: -61px -56px
+            }
+
+            .toolsUpload .tollsL .bl a:hover {
+                background-position: -61px -28px
+            }
+
+        .toolsUpload .tollsL .br a {
+            background-position: -92px 0;
+            background-repeat: no-repeat
+        }
+
+            .toolsUpload .tollsL .br a.selected {
+                background-position: -92px -56px
+            }
+
+            .toolsUpload .tollsL .br a:hover {
+                background-position: -92px -28px
+            }
+
+    .toolsUpload .tollsR {
+        float: right
+    }
+
+        .toolsUpload .tollsR li {
+            float: right;
+            margin-left: 4px;
+            width: 26px;
+            height: 27px
+        }
+
+            .toolsUpload .tollsR li a {
+                display: block;
+                height: 27px;
+                text-indent: -9999px;
+                background: url("../images/icon/photoEditor.png?v=1.8");
+                outline: none
+            }
+
+                .toolsUpload .tollsR li a.selected {
+                    background-position: 0 -28px
+                }
+
+        .toolsUpload .tollsR .rotate a {
+            background-position: -122px 0;
+            background-repeat: no-repeat
+        }
+
+            .toolsUpload .tollsR .rotate a:hover {
+                background-position: -122px -28px
+            }
+
+        .toolsUpload .tollsR .crop a {
+            background-position: -153px 0;
+            background-repeat: no-repeat
+        }
+
+            .toolsUpload .tollsR .crop a:hover {
+                background-position: -153px -28px
+            }
+
+.toolsCrop {
+    height: 37px;
+    float: left;
+    width: 100%;
+    padding-top: 12px
+}
+
+    .toolsCrop span {
+        float: left;
+        font-size: 11px;
+        font-size: 0.6875rem;
+        margin-right: 8px;
+        height: 27px;
+        line-height: 27px
+    }
+
+    .toolsCrop ul {
+        float: left
+    }
+
+        .toolsCrop ul li {
+            float: left;
+            margin-right: 4px;
+            width: 26px;
+            height: 27px
+        }
+
+            .toolsCrop ul li a {
+                display: block;
+                height: 27px;
+                text-indent: -9999px;
+                background: url("../images/icon/photoEditor.png?v=1.8");
+                outline: none
+            }
+
+        .toolsCrop ul .free a {
+            background-position: -184px 0;
+            background-repeat: no-repeat
+        }
+
+        .toolsCrop ul .free .selected {
+            background-position: -184px -56px
+        }
+
+        .toolsCrop ul .free a:hover {
+            background-position: -184px -28px
+        }
+
+        .toolsCrop ul .landscape a {
+            background-position: -215px 0;
+            background-repeat: no-repeat
+        }
+
+        .toolsCrop ul .landscape .selected {
+            background-position: -215px -56px
+        }
+
+        .toolsCrop ul .landscape a:hover {
+            background-position: -215px -28px
+        }
+
+        .toolsCrop ul .portrait a {
+            background-position: -246px 0;
+            background-repeat: no-repeat
+        }
+
+        .toolsCrop ul .portrait .selected {
+            background-position: -246px -56px
+        }
+
+        .toolsCrop ul .portrait a:hover {
+            background-position: -246px -28px
+        }
+
+        .toolsCrop ul .square a {
+            background-position: -277px 0;
+            background-repeat: no-repeat
+        }
+
+        .toolsCrop ul .square .selected {
+            background-position: -277px -56px
+        }
+
+        .toolsCrop ul .square a:hover {
+            background-position: -277px -28px
+        }
+
+.centerCrop {
+    float: left;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    min-height: 100px;
+    max-height: 585px;
+    width: 655px;
+    border: #e5e5e5 solid 1px
+}
+
+.previewCrop .jcrop-holder {
+    margin: 0 auto
+}
+
+#contentInformation {
+    float: left;
+    clear: both;
+    width: 100%;
+    position: relative
+}
+
+    #contentInformation .infield {
+        position: absolute;
+        top: 3px;
+        left: 8px;
+        font-weight: normal
+    }
+
+    #contentInformation .inTxtArea {
+        top: 45px
+    }
+
+#dialogSendFile #infoDiv {
+    float: left;
+    width: 450px;
+    margin: -21px auto 0;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    line-height: 20px;
+    text-align: right;
+    background: #efefef;
+    padding-right: 1%;
+    border: #ccc 1px solid;
+    border-width: 0 1px 1px;
+    border-radius: 0 0 4px 4px;
+    height: 20px
+}
+
+#dialogSendFile label {
+    float: left;
+    margin: 8px 0 2px;
+    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 1.3636;
+    font-weight: bold;
+    text-align: left
+}
+
+#dialogSendFile .helpSendFile {
+    margin: 9px 0 0 5px
+}
+
+#dialogSendFile input[type=text] {
+    height: 30px;
+    width: 446px;
+    padding: 2px 1%
+}
+
+#dialogSendFile textarea {
+    min-height: 60px;
+    max-height: 150px;
+    min-width: 446px;
+    max-width: 446px;
+    padding: 2px 1% 6px;
+    margin: 10px 0 19px;
+    resize: none
+}
+
+#dialogSendFile #queueFile {
+    float: left;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    text-align: left
+}
+
+#dialogSendFile #queueFileAudio {
+    float: left;
+    width: 100%;
+    text-align: left
+}
+
+#dialogSendFile #send_audio {
+    float: left;
+    margin: 20px 0;
+    width: 100%
+}
+
+#dialogSendFile .help-left {
+    width: 70px;
+    margin: 0 0 10px;
+    float: left
+}
+
+#dialogSendFile #audioBtnLoad {
+    width: 100px;
+    margin: 0 0 5px
+}
+
+#dialogSendFile #audioDropZone {
+    float: left;
+    width: 263px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FFF;
+    padding: 0;
+    margin: 0 0 0 20px;
+    border-radius: 2px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #FFF;
+    text-align: center;
+    cursor: default
+}
+
+    #dialogSendFile #audioDropZone p {
+        margin: 5px 0;
+        font-size: 12px;
+        font-size: 0.75rem;
+        line-height: 1.3636
+    }
+
+        #dialogSendFile #audioDropZone p strong {
+            font-weight: bold
+        }
+
+#dialogSendFile .fileOnPage {
+    border-width: 3px;
+    border-style: solid;
+    border-color: #ccc
+}
+
+#dialogSendFile .termsUse {
+    float: left;
+    margin: 10px 0
+}
+
+    #dialogSendFile .termsUse .filtercheck li {
+        height: auto !important
+    }
+
+        #dialogSendFile .termsUse .filtercheck li label {
+            float: right;
+            margin: 0;
+            width: 94%;
+            font-size: 11px !important;
+            font-size: 0.6875rem !important;
+            line-height: 1.3636;
+            font-weight: normal;
+            cursor: pointer
+        }
+
+#dialogSendFile .uploadifyQueueItem {
+    width: auto !important
+}
+
+#dialogSendFile #player {
+    float: left;
+    width: 100%;
+    margin: 10px 0
+}
+
+#dialogSendFile #player {
+    display: none
+}
+
+#dialogSendFile #btnCancel,
+#dialogSendFile #btnSend {
+    float: right;
+    margin: 0 0 0 5px
+}
+
+#dialogSendFile .iconForm {
+    float: left;
+    height: 35px;
+    width: 51px;
+    margin: 0 10px 0 0;
+    border: none !important;
+    background-image: url("../images/icon/sendfiles.png");
+    background-repeat: no-repeat
+}
+
+#dialogSendFile .icophoto {
+    background-position: 0 0
+}
+
+#dialogSendFile .icovideo {
+    background-position: -51px 0
+}
+
+.ui-dialog #dialogSendFile.ui-dialog-content {
+    overflow: visible !important
+}
+
+#privacy {
+    clear: both
+}
+
+    #privacy .help-left {
+        width: 110px
+    }
+
+    #privacy #divBtnPrivacyDropBox {
+        float: left
+    }
+
+.boxPrivacy {
+    float: left;
+    height: 32px;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none
+}
+
+    .boxPrivacy .buttonPrivacy {
+        float: left;
+        width: auto;
+        height: 30px;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        border-radius: 4px;
+        text-align: center;
+        color: #85067B;
+        cursor: pointer;
+        border: 1px solid #cdadca;
+        background: #ffffff;
+        background: linear-gradient(to bottom, #ffffff 0%, #faedf9 100%)
+    }
+
+        .boxPrivacy .buttonPrivacy span {
+            float: left;
+            margin: 0;
+            padding: 0
+        }
+
+        .boxPrivacy .buttonPrivacy .iconEye {
+            margin: 10px 10px 0;
+            width: 16px;
+            height: 11px;
+            padding: 0;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-position: 0 -939px;
+            background-repeat: no-repeat
+        }
+
+        .boxPrivacy .buttonPrivacy .iconEyeCustom {
+            margin: 7px 10px 0;
+            width: 16px;
+            height: 14px;
+            padding: 0;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-position: 0 -950px;
+            background-repeat: no-repeat
+        }
+
+        .boxPrivacy .buttonPrivacy .label {
+            margin: 9px 12px 0 0
+        }
+
+        .boxPrivacy .buttonPrivacy .arrow {
+            width: 7px;
+            height: 5px;
+            margin: 13px 10px 0 0;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-position: -3px -609px;
+            background-repeat: no-repeat
+        }
+
+    .boxPrivacy .contentPrivacy {
+        display: none;
+        width: 210px;
+        height: auto;
+        max-height: 220px;
+        overflow: hidden;
+        overflow-y: scroll;
+        border-radius: 2px;
+        border: #999 solid 1px;
+        clear: left;
+        float: left;
+        background: #FFF;
+        position: relative;
+        z-index: 9
+    }
+
+        .boxPrivacy .contentPrivacy .filtercheck,
+        .boxPrivacy .contentPrivacy .filterRadio {
+            width: 100%
+        }
+
+            .boxPrivacy .contentPrivacy .filtercheck li.select,
+            .boxPrivacy .contentPrivacy .filterRadio li.select {
+                font-weight: normal !important
+            }
+
+            .boxPrivacy .contentPrivacy .filtercheck li,
+            .boxPrivacy .contentPrivacy .filterRadio li {
+                height: 26px;
+                line-height: 26px
+            }
+
+                .boxPrivacy .contentPrivacy .filtercheck li div,
+                .boxPrivacy .contentPrivacy .filterRadio li div {
+                    margin-top: 6px !important;
+                    margin-left: 11px !important
+                }
+
+                .boxPrivacy .contentPrivacy .filtercheck li span,
+                .boxPrivacy .contentPrivacy .filterRadio li span {
+                    margin: 6px 0 0 2px
+                }
+
+                    .boxPrivacy .contentPrivacy .filtercheck li span.bold,
+                    .boxPrivacy .contentPrivacy .filterRadio li span.bold {
+                        font-weight: bold
+                    }
+
+                    .boxPrivacy .contentPrivacy .filtercheck li span.public,
+                    .boxPrivacy .contentPrivacy .filterRadio li span.public {
+                        width: 16px;
+                        height: 12px;
+                        padding: 0;
+                        margin: 7px 2px 0 10px;
+                        float: left;
+                        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                        background-position: 0 -939px;
+                        background-repeat: no-repeat
+                    }
+
+                    .boxPrivacy .contentPrivacy .filtercheck li span.subs,
+                    .boxPrivacy .contentPrivacy .filterRadio li span.subs {
+                        width: 14px;
+                        height: 12px;
+                        padding: 0;
+                        margin: 6px 0px 0 6px;
+                        float: left;
+                        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                        background-position: -149px -409px;
+                        background-repeat: no-repeat
+                    }
+
+                    .boxPrivacy .contentPrivacy .filtercheck li span.friends,
+                    .boxPrivacy .contentPrivacy .filterRadio li span.friends {
+                        width: 16px;
+                        height: 12px;
+                        padding: 0;
+                        margin: 7px 2px 0 2px;
+                        float: left;
+                        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                        background-position: -141px -578px;
+                        background-repeat: no-repeat
+                    }
+
+                    .boxPrivacy .contentPrivacy .filtercheck li span.custom,
+                    .boxPrivacy .contentPrivacy .filterRadio li span.custom {
+                        width: 16px;
+                        height: 14px;
+                        padding: 0;
+                        margin: 6px 2px 0 2px;
+                        float: left;
+                        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                        background-position: 0px -950px;
+                        background-repeat: no-repeat
+                    }
+
+                    .boxPrivacy .contentPrivacy .filtercheck li span.local,
+                    .boxPrivacy .contentPrivacy .filterRadio li span.local {
+                        width: 16px;
+                        height: 14px;
+                        padding: 0;
+                        margin: 6px 2px 0 2px;
+                        float: left;
+                        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                        background-position: -146px -853px;
+                        background-repeat: no-repeat
+                    }
+
+                .boxPrivacy .contentPrivacy .filtercheck li .titList,
+                .boxPrivacy .contentPrivacy .filterRadio li .titList {
+                    text-transform: uppercase;
+                    margin-left: 10px
+                }
+
+                .boxPrivacy .contentPrivacy .filtercheck li a,
+                .boxPrivacy .contentPrivacy .filterRadio li a {
+                    margin-left: 30px
+                }
+
+                .boxPrivacy .contentPrivacy .filtercheck li:hover,
+                .boxPrivacy .contentPrivacy .filterRadio li:hover {
+                    background: #F6EDF5
+                }
+
+        .boxPrivacy .contentPrivacy p {
+            background: none !important;
+            height: 26px;
+            line-height: 30px;
+            clear: both;
+            padding-left: 10px;
+            border-top: solid 1px #f0f0f0;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-size: 0.625rem;
+            color: #333
+        }
+
+        .boxPrivacy .contentPrivacy a {
+            background: none;
+            height: 26px;
+            line-height: 24px;
+            clear: both;
+            margin-left: 31px;
+            font-size: 12px !important;
+            font-size: 0.75rem !important;
+            margin-bottom: 3px;
+            display: block
+        }
+
+    .boxPrivacy.boxPrivacyHover .buttonPrivacy {
+        color: #FFF;
+        cursor: pointer;
+        border: 1px solid #4b0045;
+        background: #85067b
+    }
+
+        .boxPrivacy.boxPrivacyHover .buttonPrivacy .iconEye {
+            background-position: 0 -928px
+        }
+
+        .boxPrivacy.boxPrivacyHover .buttonPrivacy .iconEyeCustom {
+            background-position: 0 -963px
+        }
+
+        .boxPrivacy.boxPrivacyHover .buttonPrivacy .arrow {
+            background-position: -3px -634px
+        }
+
+    .boxPrivacy.boxPrivacyHover .contentPrivacy {
+        display: block
+    }
+
+#msgContentWithPrivacy {
+    float: left;
+    display: none;
+    padding: 10px 15px;
+    margin: 10px 0 5px;
+    background: #fffad9;
+    border-radius: 2px
+}
+
+    #msgContentWithPrivacy span {
+        line-height: 16px;
+        font-size: 11px
+    }
+
+.jcrop-holder {
+    direction: ltr;
+    text-align: left
+}
+
+.jcrop-vline,
+.jcrop-hline {
+    background: #FFF url("../images/icon/jcrop.gif") top left repeat;
+    font-size: 0;
+    position: absolute
+}
+
+.jcrop-vline {
+    height: 100%;
+    width: 1px !important
+}
+
+    .jcrop-vline.right {
+        right: 0
+    }
+
+.jcrop-hline {
+    height: 1px !important;
+    width: 100%
+}
+
+    .jcrop-hline.bottom {
+        bottom: 0
+    }
+
+.jcrop-tracker {
+    height: 100%;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none
+}
+
+.jcrop-handle {
+    background-color: #333333;
+    border: 1px #eeeeee solid;
+    width: 7px;
+    height: 7px;
+    font-size: 1px
+}
+
+    .jcrop-handle.ord-n {
+        left: 50%;
+        margin-left: -4px;
+        margin-top: -4px;
+        top: 0
+    }
+
+    .jcrop-handle.ord-s {
+        bottom: 0;
+        left: 50%;
+        margin-bottom: -4px;
+        margin-left: -4px
+    }
+
+    .jcrop-handle.ord-e {
+        margin-right: -4px;
+        margin-top: -4px;
+        right: 0;
+        top: 50%
+    }
+
+    .jcrop-handle.ord-w {
+        left: 0;
+        margin-left: -4px;
+        margin-top: -4px;
+        top: 50%
+    }
+
+    .jcrop-handle.ord-nw {
+        left: 0;
+        margin-left: -4px;
+        margin-top: -4px;
+        top: 0
+    }
+
+    .jcrop-handle.ord-ne {
+        margin-right: -4px;
+        margin-top: -4px;
+        right: 0;
+        top: 0
+    }
+
+    .jcrop-handle.ord-se {
+        bottom: 0;
+        margin-bottom: -4px;
+        margin-right: -4px;
+        right: 0
+    }
+
+    .jcrop-handle.ord-sw {
+        bottom: 0;
+        left: 0;
+        margin-bottom: -4px;
+        margin-left: -4px
+    }
+
+.jcrop-dragbar.ord-n,
+.jcrop-dragbar.ord-s {
+    height: 7px;
+    width: 100%
+}
+
+.jcrop-dragbar.ord-e,
+.jcrop-dragbar.ord-w {
+    height: 100%;
+    width: 7px
+}
+
+.jcrop-dragbar.ord-n {
+    margin-top: -4px
+}
+
+.jcrop-dragbar.ord-s {
+    bottom: 0;
+    margin-bottom: -4px
+}
+
+.jcrop-dragbar.ord-e {
+    margin-right: -4px;
+    right: 0
+}
+
+.jcrop-dragbar.ord-w {
+    margin-left: -4px
+}
+
+.jcrop-light .jcrop-vline,
+.jcrop-light .jcrop-hline {
+    background: #ffffff;
+    filter: alpha(opacity=70) !important;
+    opacity: 0.7 !important
+}
+
+.jcrop-light .jcrop-handle {
+    background-color: #000000;
+    border-color: #ffffff;
+    border-radius: 3px
+}
+
+.jcrop-dark .jcrop-vline,
+.jcrop-dark .jcrop-hline {
+    background: #000000;
+    filter: alpha(opacity=70) !important;
+    opacity: 0.7 !important
+}
+
+.jcrop-dark .jcrop-handle {
+    background-color: #ffffff;
+    border-color: #000000;
+    border-radius: 3px
+}
+
+.solid-line .jcrop-vline,
+.solid-line .jcrop-hline {
+    background: #ffffff
+}
+
+.jcrop-holder img,
+img.jcrop-preview {
+    max-width: none
+}
+
+.attention {
+    color: #fb0301
+}
+
+.btnMore {
+    width: 99%;
+    margin-top: 15px
+}
+
+.noMore,
+.waitMore {
+    float: left;
+    height: 20px;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    display: none
+}
+
+.noMore {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    color: #85067B
+}
+
+.subscribeMsg {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    line-height: 17px;
+    font-size: 13px;
+    font-size: 0.8125rem
+}
+
+.divOnline {
+    background-image: url("../images/icon/sprite_sl.png?v=2.8");
+    background-position: 6px -152px;
+    background-repeat: no-repeat;
+    background-color: #58a900;
+    border-radius: 2px;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1.5454;
+    min-width: 1px;
+    overflow: hidden;
+    padding: 0 2px 0 19px;
+    position: absolute;
+    color: #58A900;
+    left: -2px;
+    bottom: -3px;
+    width: 0
+}
+
+    .divOnline:hover {
+        background-color: #68c800;
+        color: #FFF
+    }
+
+.divPicture {
+    -moz-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.4)
+}
+
+#btnFeedBack {
+    position: fixed;
+    height: 147px;
+    width: 30px;
+    top: 200px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9
+}
+
+#modalFeedBacks textarea {
+    min-height: 50px;
+    resize: none;
+    width: 97.5%;
+    margin: 10px 0
+}
+
+#btnLike span {
+    padding: 1px 10px 0 25px;
+    background-image: url("../images/icon/sprite_sl.png?v=2.8");
+    background-position: 7px -377px;
+    background-repeat: no-repeat
+}
+
+.ui-menu {
+    list-style: none;
+    padding: 2px;
+    margin: 0;
+    display: block;
+    float: left
+}
+
+.ui-menu .ui-menu {
+    margin-top: -3px
+}
+
+.ui-menu .ui-menu-item {
+    margin: 0;
+    padding: 0;
+    zoom: 1;
+    float: left;
+    clear: left;
+    width: 100%
+}
+
+
+.ui-autocomplete {
+    position: relative;
+    border-radius: 0px;
+    display: block;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 220px;
+    max-width: 509px;
+    max-height: 350px;
+    overflow: auto;
+    overflow-x: hidden;
+    font-size: small;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0px;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #000;
+}
+
+
+
+.ui-autocomplete .ui-menu-item .ui-corner-all {
+    float: left;
+    width: 100%;
+    padding: 2px 10px;
+    margin-top: 1px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFF;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.ui-autocomplete .ui-menu-item .ui-corner-all span {
+    float: left;
+    width: 100%;
+    /*font-size: 11px;
+    font-size: 0.6875rem*/
+}
+
+.ui-autocomplete .ui-menu-item .ui-state-hover {
+    margin: 0 !important;
+}
+
+.ui-state-focus {
+    background: none !important;
+    text-decoration: none !important;
+    background-color: #B8273B !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 0px !important;
+    margin-top: 1px !important;
+}
+
+.ui-autocomplete-loading {
+    background-image: url("../images/icon/load.gif");
+    background-repeat: no-repeat;
+    background-position: 95% center
+}
+
+.ui-menu .ui-menu-item {
+    list-style-image: none !important;
+}
+
+.template {
+    display: none
+}
+
+.answer {
+    float: right;
+    width: 78%;
+    padding: 1.7%;
+    margin: 10px 0 0;
+    background: #F6EDF5
+}
+
+    .answer p {
+        font-size: 12px;
+        font-size: 0.75rem;
+        line-height: 1.3636
+    }
+
+        .answer p span {
+            font-size: 11px;
+            font-size: 0.6875rem
+        }
+
+    .answer .answers {
+        float: left;
+        width: 100%;
+        margin: 0;
+        padding: 0
+    }
+
+        .answer .answers > li {
+            position: relative;
+            float: left;
+            min-height: auto;
+            width: 100%;
+            padding: 0 0 10px;
+            margin: 0 0 10px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #E5CBE3
+        }
+
+            .answer .answers > li .answerBtnDel,
+            .answer .answers > li .myAnswerBtnDel {
+                position: absolute;
+                height: 9px;
+                width: 9px;
+                top: 5px;
+                right: 5px;
+                background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                background-repeat: no-repeat;
+                background-position: 0 -100px;
+                display: none;
+                cursor: pointer
+            }
+
+            .answer .answers > li p {
+                width: 83%
+            }
+
+            .answer .answers > li:last-child {
+                border-bottom: none;
+                margin: 0 !important;
+                padding: 0 !important
+            }
+
+        .answer .answers .writeAnswer {
+            border: none;
+            margin: 0;
+            padding: 0
+        }
+
+            .answer .answers .writeAnswer form {
+                overflow: auto
+            }
+
+                .answer .answers .writeAnswer form > label {
+                    font-size: 12px;
+                    font-size: 0.75rem;
+                    line-height: 2
+                }
+
+                .answer .answers .writeAnswer form > span {
+                    float: left
+                }
+
+            .answer .answers .writeAnswer textarea {
+                height: 20px;
+                min-height: 20px;
+                max-height: 125px;
+                min-width: 97%;
+                max-width: 97%;
+                width: 97%;
+                padding: 1%;
+                margin-bottom: 5px;
+                resize: none;
+                outline: none;
+                overflow: auto
+            }
+
+    .answer #countAnswers {
+        position: relative;
+        cursor: pointer
+    }
+
+        .answer #countAnswers p {
+            width: 90%
+        }
+
+        .answer #countAnswers .alertNewsMsg {
+            position: absolute;
+            height: 13px;
+            top: 2px;
+            right: 18px;
+            background-color: #dfbfdd;
+            border-radius: 2px;
+            color: #85067B;
+            font-size: 10px;
+            font-size: 0.625rem;
+            font-weight: bold;
+            line-height: 13px;
+            padding: 0 4px
+        }
+
+        .answer #countAnswers .moreMsgs {
+            position: absolute;
+            height: 13px;
+            width: 13px;
+            top: 2px;
+            right: 0;
+            background-color: #dfbfdd;
+            border-radius: 2px;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-repeat: no-repeat;
+            background-position: 0 -604px;
+            display: block
+        }
+
+.closeAnswers,
+#totalAnswer {
+    float: right;
+    margin: 0 0 10px;
+    width: 100%;
+    background-color: #FFF;
+    text-align: center
+}
+
+    .closeAnswers a,
+    #totalAnswer a {
+        font-size: 11px;
+        font-size: 0.6875rem;
+        line-height: 1.5
+    }
+
+.closeAnswers {
+    width: 78%;
+    margin: 10px 0 0;
+    display: none
+}
+
+#divMessage textarea {
+    resize: none;
+    min-height: 100px;
+    float: left;
+    width: 455px;
+    margin: -7px 0 10px
+}
+
+#divMessage input[type=text] {
+    width: 455px;
+    float: left
+}
+
+#divMessage form {
+    clear: both
+}
+
+    #divMessage form .filtercheck li {
+        width: 200px;
+        margin: 0
+    }
+
+#divMessage .msg {
+    float: right;
+    margin: 5px 0 0;
+    font-size: 11px;
+    font-size: 0.6875rem
+}
+
+#divMessage form > label,
+#divMessage p > label {
+    float: left;
+    width: 75px;
+    font-size: 11px;
+    height: 32px;
+    line-height: 26px
+}
+
+#divMessage strong {
+    font-size: 12px;
+    font-size: 0.75rem;
+    color: #85067B
+}
+
+#divMessage hr {
+    border: none;
+    background-color: #E5CBE3;
+    height: 1px;
+    margin: 6px 0
+}
+
+#divSearchLogin {
+    top: 212px !important
+}
+
+    #divSearchLogin ul {
+        background-color: #FFF;
+        padding: 5px 0;
+        max-height: 400px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #E5CBE3
+    }
+
+        #divSearchLogin ul li {
+            padding: 2px 5px;
+            font-size: 12px;
+            font-size: 0.75rem;
+            line-height: 1.25;
+            cursor: pointer
+        }
+
+        #divSearchLogin ul .selected {
+            background-color: #E5CBE3
+        }
+
+.icons li {
+    float: right;
+    margin-left: 10px;
+    height: 26px;
+    width: 24px
+}
+
+.icons .iconSubscriber {
+    width: auto;
+    cursor: default
+}
+
+    .icons .iconSubscriber .subLeft {
+        width: 27px;
+        height: 26px;
+        float: left;
+        background-image: url("../images/icon/sprite_sign.png?v=1.8");
+        background-repeat: repeat-x;
+        background-position: 0px 0px
+    }
+
+    .icons .iconSubscriber .subCenter {
+        float: left;
+        width: auto;
+        position: relative;
+        font-size: 11px;
+        font-size: 0.6875rem;
+        color: #FFF;
+        line-height: 26px;
+        font-weight: bold;
+        padding: 0 0 0 3px;
+        text-shadow: 0px 0px 3px #470342;
+        background-image: url("../images/icon/sprite_sign.png?v=1.8");
+        background-repeat: repeat-x;
+        background-position: -5px -26px
+    }
+
+    .icons .iconSubscriber .subRight {
+        float: left;
+        width: 16px;
+        height: 26px;
+        position: relative;
+        background-image: url("../images/icon/sprite_sign.png?v=1.8");
+        background-repeat: repeat-x;
+        background-position: -79px 0px
+    }
+
+.icons .iconNew {
+    text-indent: -9999px;
+    background-image: url("../images/icon/sprite_sign.png?v=1.8");
+    background-repeat: repeat-x;
+    background-position: -174px 0px
+}
+
+.icons .iconVeteran {
+    text-indent: -9999px;
+    background-image: url("../images/icon/sprite_sign.png?v=1.8");
+    background-repeat: repeat-x;
+    background-position: -149px 0px
+}
+
+.icons .iconPopular {
+    text-indent: -9999px;
+    background-image: url("../images/icon/sprite_sign.png?v=1.8");
+    background-repeat: repeat-x;
+    background-position: -199px 0px
+}
+
+.icons .iconReal {
+    text-indent: -9999px;
+    background-image: url("../images/icon/sprite_sign.png?v=1.8");
+    background-repeat: repeat-x;
+    background-position: -124px 0px
+}
+
+    .icons .iconReal > a {
+        display: block;
+        height: 26px;
+        width: 24px
+    }
+
+.icons .iconTop {
+    text-indent: -9999px;
+    background-image: url("../images/icon/sprite_sign.png?v=1.8");
+    background-repeat: repeat-x;
+    background-position: -99px 0px
+}
+
+.icons .iconConquest {
+    background-image: url("../images/icon/sprite_sign.png?v=1.8");
+    background-repeat: no-repeat;
+    background-position: 0 -52px;
+    width: 48px;
+    font-size: 10px;
+    color: #fff;
+    padding: 9px 6px;
+    display: inline-block;
+    margin-top: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: center;
+    margin-right: -12px
+}
+
+.calendar {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 5px 10px 15px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #E5CBE3;
+    background: #F6EDF5;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+    .calendar > div h2 {
+        float: left;
+        width: 100%;
+        margin: 0 0 5px;
+        font-size: 11px;
+        font-size: 0.6875rem;
+        font-weight: bold;
+        line-height: 17px
+    }
+
+    .calendar > div .next_calendar,
+    .calendar > div .prev_calendar {
+        position: absolute;
+        top: 5px;
+        width: 17px;
+        height: 15px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #CAA7E3;
+        background-color: #FFF;
+        cursor: pointer;
+        border-radius: 2px
+    }
+
+        .calendar > div .next_calendar a,
+        .calendar > div .prev_calendar a {
+            position: absolute;
+            float: left;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-indent: -19999px;
+            background-image: url("../images/icon/sprite_sl.png?v=2.8");
+            background-repeat: no-repeat
+        }
+
+        .calendar > div .next_calendar:hover,
+        .calendar > div .prev_calendar:hover {
+            background-color: #F6EDF5
+        }
+
+    .calendar > div .next_calendar {
+        right: 5px
+    }
+
+        .calendar > div .next_calendar a {
+            background-position: -146px -780px
+        }
+
+    .calendar > div .prev_calendar {
+        right: 26px
+    }
+
+        .calendar > div .prev_calendar a {
+            background-position: -113px -780px
+        }
+
+    .calendar ul {
+        float: left;
+        width: 100%
+    }
+
+        .calendar ul li {
+            float: left;
+            width: 14.285%;
+            height: 18px;
+            margin: 5px 0;
+            font-size: 11px;
+            font-size: 0.6875rem;
+            line-height: 18px;
+            text-align: center;
+            cursor: default
+        }
+
+            .calendar ul li a {
+                font-weight: bold !important
+            }
+
+        .calendar ul .highlight {
+            float: left;
+            width: 100%;
+            height: 18px;
+            border-radius: 2px;
+            background-color: #85067B;
+            color: #FFF
+        }
+
+            .calendar ul .highlight a {
+                color: #FFF
+            }
+
+        .calendar ul .selected {
+            float: left;
+            width: 100%;
+            height: 18px;
+            border-radius: 2px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid #85067B
+        }
+
+.btnAddPeople > span {
+    padding-left: 40px;
+    background-image: url("../images/icon/sprite_sl.png?v=2.8");
+    background-repeat: no-repeat;
+    background-position: -125px -869px
+}
+
+.slide-out-div {
+    padding: 20px;
+    width: 250px;
+    height: auto !important;
+    background-color: #FFFFFF;
+    border: 1px solid #B66AB0;
+    z-index: 999999
+}
+
+    .slide-out-div p {
+        margin-top: 4px
+    }
+
+    .slide-out-div h3 {
+        font-weight: bold;
+        font-size: 12px
+    }
+
+    .slide-out-div textarea {
+        min-width: 238px;
+        width: 238px;
+        max-width: 238px;
+        min-height: 50px;
+        height: 50px;
+        max-height: 50px;
+        margin: 6px 0;
+        font-size: 12px;
+        resize: none
+    }
+
+    .slide-out-div .success {
+        padding-top: 40px;
+        height: 76px;
+        font-weight: bold;
+        text-align: center
+    }
+
+    .slide-out-div #opinion {
+        width: 150px;
+        float: left
+    }
+
+    .slide-out-div input {
+        margin-bottom: 4px;
+        margin-right: 3px
+    }
+
+    .slide-out-div .btn {
+        float: right
+    }
+
+.handle {
+    position: absolute;
+    top: 44px !important;
+    left: -75px !important;
+    height: 30px;
+    width: 100px;
+    padding: 0 10px;
+    background-color: #b66ab0;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none !important;
+    text-indent: 0 !important;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg)
+}
+
+.loadPercent .topForm {
+    border: 0;
+    padding: 0 3% !important;
+    height: 20px
+}
+
+    .loadPercent .topForm .closeDialog {
+        top: 12px;
+        right: 13px
+    }
+
+.loadPercent .centerForm {
+    padding: 0 !important;
+    width: 100% !important;
+    margin: 20px 0
+}
+
+    .loadPercent .centerForm .barPercent {
+        width: 340px;
+        margin: 0 auto;
+        border: #d5ced5 solid 1px;
+        background: #f5ebf5;
+        height: 20px;
+        padding: 1px;
+        overflow: hidden;
+        border-radius: 50px
+    }
+
+    .loadPercent .centerForm .f1 {
+        font-size: 16px;
+        font-size: 1rem;
+        line-height: 21px;
+        text-align: center;
+        margin: 12px 0
+    }
+
+        .loadPercent .centerForm .f1 bold {
+            font-size: 20px;
+            font-size: 1.25rem
+        }
+
+    .loadPercent .centerForm .f2 {
+        font-size: 11px;
+        font-size: 0.6875rem;
+        line-height: 13px;
+        text-align: center;
+        margin: 0 10px
+    }
+
+    .loadPercent .centerForm .f3 {
+        font-size: 14px;
+        font-size: 0.875rem;
+        line-height: 21px;
+        text-align: center;
+        margin: -10px 0 5px
+    }
+
+.loadPercent .btnsForm {
+    position: relative
+}
+
+    .loadPercent .btnsForm .dfl {
+        margin-top: 4px;
+        position: relative;
+        top: 0;
+        right: 0
+    }
+
+    .loadPercent .btnsForm .green {
+        margin-right: 40px
+    }
+
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #428bca;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    transition: width 0.6s ease
+}
+
+.progress-striped .progress-bar {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+    background-size: 40px 40px
+}
+
+.progress.active .progress-bar {
+    -webkit-animation: progress-bar-stripes 2s linear infinite;
+    -moz-animation: progress-bar-stripes 2s linear infinite;
+    -ms-animation: progress-bar-stripes 2s linear infinite;
+    -o-animation: progress-bar-stripes 2s linear infinite;
+    animation: progress-bar-stripes 2s linear infinite
+}
+
+.progress-bar-success {
+    background-color: #5cb85c;
+    border-radius: 50px 0 0 50px
+}
+
+.progress-striped .progress-bar-success {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0))
+}
+
+.progress-bar-warning {
+    background-color: #f0ad4e;
+    border-radius: 50px 0 0 50px
+}
+
+.progress-striped .progress-bar-warning {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0))
+}
+
+.progress-bar-danger {
+    background-color: #d9534f
+}
+
+.progress-striped .progress-bar-danger {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0))
+}
+
+.progress-bar-over {
+    background-color: #d9534f;
+    border-radius: 50px
+}
+
+.progress-striped .progress-bar-over {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0))
+}
+
+.captchaContainer {
+    width: 155px;
+    height: 40px;
+    margin: 0 auto
+}
+
+    .captchaContainer span {
+        float: left;
+        font-size: 18px;
+        font-size: 1.125rem;
+        line-height: 40px
+    }
+
+    .captchaContainer > .inputText {
+        width: 34px;
+        min-width: 34px;
+        height: 22px;
+        text-align: center;
+        margin: 6px 0 0 8px
+    }
+
+.drop {
+    position: relative
+}
+
+    .drop .dropContent {
+        position: absolute;
+        left: -1px;
+        padding: 4px 2px;
+        background-color: #FFF;
+        border-radius: 2px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #b262ac;
+        -moz-box-shadow: 0px 2px 4px rgba(75, 0, 69, 0.5);
+        -webkit-box-shadow: 0px 2px 4px rgba(75, 0, 69, 0.5);
+        box-shadow: 0px 2px 4px rgba(75, 0, 69, 0.5);
+        z-index: 500;
+        display: none
+    }
+
+        .drop .dropContent > li {
+            white-space: nowrap;
+            width: 100%;
+            padding: 0 10px;
+            white-space: nowrap;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 2px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #FFF;
+            font-size: 11px;
+            font-size: 0.6875rem;
+            line-height: 25px;
+            color: #4B0045;
+            text-align: left
+        }
+
+            .drop .dropContent > li:hover {
+                border-color: #6E0466;
+                background-color: #85067B;
+                color: #FFF
+            }
+
+        .drop .dropContent .pTitle {
+            float: left;
+            width: 100%;
+            margin: 5px 0;
+            font-size: 11px;
+            font-size: 0.6875rem;
+            text-align: left;
+            color: #333
+        }
+
+        .drop .dropContent .filterContent {
+            float: left;
+            width: 203px;
+            padding: 0 0 8px;
+            margin: 0 0 10px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #e7cde5
+        }
+
+            .drop .dropContent .filterContent #txtLocationsEvent {
+                width: 203px;
+                height: 32px;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                margin-right: 7px;
+                padding: 0 6px 0 15px;
+                border-color: #4b0045;
+                background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                background-repeat: no-repeat;
+                background-position: -146px -843px
+            }
+
+        .drop .dropContent .btn {
+            float: right !important
+        }
+
+        .drop .dropContent .filtercheck,
+        .drop .dropContent .filterRadio {
+            margin: 10px 0 0
+        }
+
+            .drop .dropContent .filtercheck li,
+            .drop .dropContent .filterRadio li {
+                height: auto !important
+            }
+
+                .drop .dropContent .filtercheck li label,
+                .drop .dropContent .filterRadio li label {
+                    text-align: left !important;
+                    line-height: 17px;
+                    width: 170px;
+                    float: left
+                }
+
+    .drop .dropPadding {
+        padding: 10px !important
+    }
+
+.dropIcon > span {
+    position: relative;
+    padding-right: 20px
+}
+
+    .dropIcon > span p {
+        position: absolute;
+        width: 7px;
+        height: 5px;
+        top: 13px;
+        right: 7px;
+        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+        background-position: -3px -609px;
+        background-repeat: no-repeat
+    }
+
+.dropRight .dropContent {
+    right: -1px;
+    left: auto !important
+}
+
+.dropSelect {
+    background-image: none !important;
+    background-color: #85067B !important;
+    color: #FFF;
+    border-color: #4B0045 !important;
+    background: #ffffff;
+    background: linear-gradient(to bottom, #ffffff 0%, #faedf9 100%)
+}
+
+    .dropSelect > span {
+        border-color: #85067B !important;
+        color: #FFF !important
+    }
+
+        .dropSelect > span p {
+            background-position: -3px -635px
+        }
+
+.newModal .topForm {
+    background: #f5ebf5;
+    border: 0;
+    font-size: 16px;
+    font-weight: 300;
+    color: #85067B;
+    font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+}
+
+    .newModal .topForm .headerModal {
+        overflow: hidden
+    }
+
+        .newModal .topForm .headerModal img {
+            float: left;
+            margin-right: 10px
+        }
+
+        .newModal .topForm .headerModal div {
+            float: left
+        }
+
+            .newModal .topForm .headerModal div .name {
+                font-size: 14px;
+                color: #85067B;
+                display: block;
+                margin: 2px 0;
+                font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+                font-weight: bold
+            }
+
+            .newModal .topForm .headerModal div .where {
+                font-size: 12px;
+                color: #999;
+                display: block;
+                font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+                font-weight: normal
+            }
+
+    .newModal .topForm h2 {
+        color: #85067B
+    }
+
+.newModal .tabs {
+    float: left;
+    width: 97%;
+    background: #FFF;
+    margin-left: 15px
+}
+
+    .newModal .tabs li {
+        cursor: pointer;
+        float: left;
+        margin-right: 30px;
+        height: 16px;
+        padding: 15px 0 13px;
+        border-width: 0 0 2px;
+        border-style: solid;
+        border-color: transparent
+    }
+
+        .newModal .tabs li i {
+            width: 27px;
+            height: 18px;
+            float: left;
+            margin-right: 4px;
+            background-image: url("../images/icon/sprite_group.png?v=1.8");
+            background-position: 0 0;
+            background-repeat: no-repeat
+        }
+
+        .newModal .tabs li span {
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+            color: #333;
+            font-size: 12px;
+            line-height: 22px
+        }
+
+        .newModal .tabs li:hover {
+            border-color: #85067B
+        }
+
+    .newModal .tabs .text i {
+        background-position: -127px -73px;
+        width: 18px;
+        height: 16px;
+        margin-top: 2px
+    }
+
+    .newModal .tabs .text:hover i {
+        background-position: -127px -92px
+    }
+
+    .newModal .tabs .text.selected {
+        border-color: #85067B
+    }
+
+        .newModal .tabs .text.selected i {
+            background-position: -127px -92px
+        }
+
+    .newModal .tabs .picture i {
+        background-position: -156px -73px;
+        width: 24px;
+        height: 17px;
+        margin-top: 1px
+    }
+
+    .newModal .tabs .picture:hover i {
+        background-position: -156px -92px
+    }
+
+    .newModal .tabs .picture.selected {
+        border-color: #85067B
+    }
+
+        .newModal .tabs .picture.selected i {
+            background-position: -156px -92px
+        }
+
+    .newModal .tabs .movie i {
+        margin-top: 1px;
+        background-position: -190px -72px
+    }
+
+    .newModal .tabs .movie:hover i {
+        background-position: -190px -91px
+    }
+
+    .newModal .tabs .movie.selected {
+        border-color: #85067B
+    }
+
+        .newModal .tabs .movie.selected i {
+            background-position: -190px -91px
+        }
+
+.newModal .centerForm {
+    padding: 10px 3% !important;
+    width: 94% !important;
+    float: left
+}
+
+    .newModal .centerForm .selectedType .tab {
+        display: none;
+        width: 100%;
+        font-size: 14px;
+        background-color: #FFF
+    }
+
+        .newModal .centerForm .selectedType .tab .uploadifyQueueItem {
+            width: auto
+        }
+
+    .newModal .centerForm .selectedType .selected {
+        display: block
+    }
+
+    .newModal .centerForm .selectedType #tab1 textarea {
+        padding: 1%;
+        border-radius: 2px;
+        width: 98%;
+        resize: none;
+        font-size: 12px;
+        font-size: 0.75rem;
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+    }
+
+    .newModal .centerForm .selectedType .pInfieldLabel {
+        width: 100%
+    }
+
+        .newModal .centerForm .selectedType .pInfieldLabel textarea {
+            resize: none;
+            font-size: 12px;
+            font-size: 0.75rem;
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+        }
+
+        .newModal .centerForm .selectedType .pInfieldLabel label {
+            font-size: 12px;
+            font-size: 0.75rem;
+            top: 7px;
+            left: 6px;
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+        }
+
+    .newModal .centerForm .question {
+        font-size: 14px;
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+        margin: 5px 0;
+        font-weight: normal;
+        line-height: 20px
+    }
+
+    .newModal .centerForm .boxPhotoEdit {
+        width: 100%
+    }
+
+    .newModal .centerForm .boxPhotoEditCompleted img {
+        opacity: 1
+    }
+
+    .newModal .centerForm .boxPhotoEditCompleted .uploadifyQueue {
+        display: none
+    }
+
+    .newModal .centerForm .boxPhotoEditCompleted .disableTools {
+        display: none
+    }
+
+    .newModal .centerForm .toolsUpload {
+        display: none;
+        width: 100%;
+        background: #FFF;
+        border-radius: 0 0 2px 2px;
+        min-height: 25px;
+        padding: 10px 0
+    }
+
+        .newModal .centerForm .toolsUpload .tollsL {
+            float: left;
+            margin-left: 10px
+        }
+
+            .newModal .centerForm .toolsUpload .tollsL p {
+                font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+                float: left;
+                margin: 7px 5px 5px 0;
+                font-size: 12px
+            }
+
+            .newModal .centerForm .toolsUpload .tollsL ul {
+                float: left
+            }
+
+        .newModal .centerForm .toolsUpload .tollsR {
+            margin-right: 10px
+        }
+
+            .newModal .centerForm .toolsUpload .tollsR p {
+                font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+                float: left;
+                margin: 7px 5px 5px 0;
+                font-size: 12px
+            }
+
+            .newModal .centerForm .toolsUpload .tollsR ul {
+                float: right
+            }
+
+    .newModal .centerForm #waterMark .elements {
+        position: absolute;
+        height: 21px;
+        width: 225px
+    }
+
+        .newModal .centerForm #waterMark .elements span {
+            display: none
+        }
+
+        .newModal .centerForm #waterMark .elements .logo {
+            width: 70px;
+            height: 21px;
+            float: left;
+            background-image: url(../images/watermark-small.png);
+            background-repeat: no-repeat;
+            background-position: 0 0
+        }
+
+        .newModal .centerForm #waterMark .elements .login {
+            font-size: 10px;
+            font-size: 0.625rem;
+            font-weight: bold;
+            color: #FFF;
+            float: left;
+            line-height: 20px;
+            height: 21px;
+            text-shadow: 0px 1px 2px #969696
+        }
+
+        .newModal .centerForm #waterMark .elements .login2 {
+            font-size: 10px;
+            font-size: 0.625rem;
+            font-weight: bold;
+            color: #FFF;
+            float: right;
+            line-height: 20px;
+            height: 21px;
+            text-shadow: 0px 1px 2px #969696
+        }
+
+        .newModal .centerForm #waterMark .elements .logo2 {
+            width: 70px;
+            height: 21px;
+            float: right;
+            background-image: url(../images/watermark-small.png);
+            background-repeat: no-repeat;
+            background-position: 0 0
+        }
+
+    .newModal .centerForm #contentInformation .infield {
+        font-size: 12px;
+        font-size: 0.75rem;
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+        position: absolute;
+        top: 10px;
+        left: 9px;
+        font-weight: normal
+    }
+
+    .newModal .centerForm #contentInformation textarea {
+        min-height: 60px;
+        max-height: 150px;
+        min-width: 97%;
+        max-width: 97%;
+        padding: 7px 1% 6px 2%;
+        margin: 0px 0 19px;
+        resize: none;
+        font-size: 14px !important;
+        font-size: 0.875rem !important;
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+    }
+
+    .newModal .centerForm #contentInformation .infoDiv {
+        float: left;
+        width: 471px;
+        margin: -21px auto 0;
+        font-size: 11px;
+        font-size: 0.6875rem;
+        line-height: 20px;
+        text-align: right;
+        background: #efefef;
+        padding-right: 1%;
+        border: #ccc 1px solid;
+        border-width: 0 1px 1px;
+        border-radius: 0 0 4px 4px;
+        height: 20px;
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+    }
+
+    .newModal .centerForm .uiAlert {
+        display: none;
+        float: left;
+        width: 100%;
+        margin: 10px 0 0;
+        min-height: 23px;
+        line-height: 23px;
+        text-align: center;
+        font-size: 11px;
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+        border-radius: 2px;
+        color: #666;
+        background: #fffcd5;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #d9d6b5
+    }
+
+.newModal .btnsForm {
+    background: #FFF;
+    position: relative
+}
+
+    .newModal .btnsForm .btn .span {
+        font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+    }
+
+    .newModal .btnsForm .btn:focus {
+        outline: none
+    }
+
+#libConfirm {
+    min-height: 104px !important
+}
+
+    #libConfirm .centerForm {
+        padding: 0px 5% 0px !important
+    }
+
+        #libConfirm .centerForm .question {
+            font-weight: normal
+        }
+
+    #libConfirm .btnsForm {
+        background: #FFF;
+        position: relative
+    }
+
+        #libConfirm .btnsForm .btn .span {
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+        }
+
+        #libConfirm .btnsForm .btn:focus {
+            outline: none;
+            color: #fff
+        }
+
+        #libConfirm .btnsForm .btn.dfl {
+            color: #85067b
+        }
+
+.commonAccountModal.newModal .centerForm {
+    width: 90%
+}
+
+    .commonAccountModal.newModal .centerForm .accountModalContainer {
+        width: 461px
+    }
+
+.conquestModal {
+    background: none !important;
+    border: none !important;
+    font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif !important
+}
+
+    .conquestModal .ui-dialog-content {
+        background: none !important;
+        border: none !important;
+        color: #fff !important;
+        margin-top: 50px !important;
+        border-radius: 0 !important;
+        margin-top: -70px !important;
+        overflow: visible !important
+    }
+
+    .conquestModal .closeDialog {
+        width: 35px;
+        height: 35px;
+        background-image: url(../images/conquest/sprite_modal_conquest.png);
+        background-position: -192px -10px;
+        position: fixed;
+        right: 20px;
+        top: 20px
+    }
+
+    .conquestModal .conquest-notification {
+        margin: 0 auto;
+        text-align: center;
+        width: 580px
+    }
+
+        .conquestModal .conquest-notification .logo {
+            width: 172px;
+            height: 220px;
+            margin: 0 auto 30px;
+            background-image: url(../images/conquest/sprite_modal_conquest.png);
+            background-position: 0 0
+        }
+
+        .conquestModal .conquest-notification h1 {
+            font-size: 80px;
+            text-shadow: 1px 3px 3px #000;
+            line-height: 70px;
+            letter-spacing: 0;
+            margin: 30px
+        }
+
+        .conquestModal .conquest-notification h2 {
+            font-size: 18px;
+            text-shadow: 1px 3px 3px #000;
+            line-height: 25px
+        }
+
+    .conquestModal + .ui-widget-overlay {
+        background-color: #000 !important;
+        opacity: 0.8 !important
+    }
+
+.createGroup .form li {
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative
+}
+
+    .createGroup .form li label {
+        float: left;
+        width: 75px;
+        font-size: 11px;
+        height: 32px;
+        line-height: 32px
+    }
+
+    .createGroup .form li .pInfieldLabel {
+        float: left;
+        width: 413px;
+        position: relative
+    }
+
+        .createGroup .form li .pInfieldLabel label {
+            width: 95%;
+            position: absolute;
+            top: 3px;
+            left: 7px;
+            cursor: text
+        }
+
+            .createGroup .form li .pInfieldLabel label.icon {
+                left: 20px
+            }
+
+        .createGroup .form li .pInfieldLabel input[type=text] {
+            line-height: 30px
+        }
+
+    .createGroup .form li .infieldTextarea label {
+        top: 0
+    }
+
+    .createGroup .form li #groupImagePreview {
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin-right: 22px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 2px;
+        border: 1px solid #e1e1e1;
+        background: #f3f3f3
+    }
+
+        .createGroup .form li #groupImagePreview .endpage {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .createGroup .form li #groupImagePreview > img {
+            opacity: 0.6
+        }
+
+        .createGroup .form li #groupImagePreview.uploadComplete img {
+            opacity: 1
+        }
+
+        .createGroup .form li #groupImagePreview.uploadComplete .imgDrag {
+            position: absolute;
+            height: 20px;
+            width: 10px;
+            padding: 0 5px;
+            margin: 40px;
+            -moz-user-select: -moz-none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            font-size: 11px;
+            font-size: 0.6875rem;
+            border-radius: 2px;
+            line-height: 20px;
+            color: #FFF;
+            cursor: default;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            text-indent: 0;
+            display: block;
+            background-image: none;
+            background-position: 0 0 !important;
+            background-color: rgba(0, 0, 0, 0.8)
+        }
+
+            .createGroup .form li #groupImagePreview.uploadComplete .imgDrag span {
+                height: 20px;
+                padding: 0 0 0 15px;
+                background-image: url("../images/icon/sprite_sl.png?v=2.8");
+                background-position: -120px -803px;
+                background-repeat: no-repeat
+            }
+
+        .createGroup .form li #groupImagePreview.uploadComplete:hover .imgDrag {
+            display: none
+        }
+
+    .createGroup .form li #queueImageGroupItem.completed .cancel {
+        position: absolute;
+        top: -36px;
+        left: -39px;
+        height: 9px;
+        width: 9px;
+        padding: 2px;
+        border-radius: 2px;
+        cursor: pointer;
+        z-index: 100;
+        background-color: #eed9ed;
+        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+        background-position: 2px -98px !important;
+        background-repeat: no-repeat
+    }
+
+    .createGroup .form li .fileinput-button:focus {
+        border-color: #cdadca;
+        background: #faedf9;
+        background: linear-gradient(to bottom, #faedf9 0%, #ffffff 100%)
+    }
+
+    .createGroup .form li .ew-resize {
+        cursor: ew-resize
+    }
+
+    .createGroup .form li .ns-resize {
+        cursor: ns-resize
+    }
+
+    .createGroup .form li .uploadifyQueueItem {
+        position: absolute;
+        left: 198px;
+        top: 36px;
+        width: 281px
+    }
+
+    .createGroup .form li .dropZone {
+        border-width: 0;
+        padding: 0;
+        text-align: left;
+        height: 52px
+    }
+
+        .createGroup .form li .dropZone p {
+            margin: 0;
+            font-size: 11px;
+            color: #999
+        }
+
+    .createGroup .form li .selectType {
+        float: left;
+        width: 75px;
+        font-size: 11px;
+        height: 18px;
+        line-height: 18px
+    }
+
+    .createGroup .form li .filterRadio {
+        float: left;
+        width: 425px
+    }
+
+        .createGroup .form li .filterRadio li {
+            height: auto;
+            margin-bottom: 10px
+        }
+
+            .createGroup .form li .filterRadio li label {
+                height: auto;
+                width: 370px;
+                line-height: 16px;
+                color: #333;
+                margin: 0
+            }
+
+                .createGroup .form li .filterRadio li label span {
+                    display: block;
+                    font-size: 14px;
+                    font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+                    color: #85067B;
+                    line-height: 19px
+                }
+
+            .createGroup .form li .filterRadio li.select {
+                font-weight: normal !important
+            }
+
+                .createGroup .form li .filterRadio li.select span {
+                    font-weight: bold
+                }
+
+    .createGroup .form li .filtercheck label {
+        line-height: 16px !important;
+        color: #333 !important
+    }
+
+    .createGroup .form li input[type=text] {
+        float: left;
+        width: 413px;
+        font-size: 12px;
+        height: 30px;
+        border-radius: 4px
+    }
+
+    .createGroup .form li .local {
+        width: 15px;
+        height: 27px;
+        position: absolute;
+        top: 5px;
+        left: 78px;
+        z-index: 2;
+        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+        background-repeat: no-repeat;
+        background-position: -146px -846px
+    }
+
+    .createGroup .form li .inputLocal {
+        padding-left: 20px;
+        width: 403px !important;
+        padding-right: 0
+    }
+
+    .createGroup .form li textarea {
+        width: 413px;
+        resize: none;
+        border-radius: 4px;
+        margin: 0px 0 19px !important;
+        padding: 5px;
+        font-size: 12px;
+        min-height: 45px;
+        max-height: 200px
+    }
+
+    .createGroup .form li .infoDiv {
+        float: left;
+        width: 418px;
+        margin: -21px 0 0 75px;
+        font-size: 11px;
+        line-height: 20px;
+        text-align: right;
+        background: #efefef;
+        padding-right: 1%;
+        border: #ccc 1px solid;
+        border-width: 0 1px 1px;
+        border-radius: 0 0 4px 4px;
+        height: 20px
+    }
+
+    .createGroup .form li .lisRadio {
+        float: left;
+        width: 425px;
+        margin-top: 8px
+    }
+
+        .createGroup .form li .lisRadio li {
+            width: 424px;
+            margin-bottom: 10px
+        }
+
+        .createGroup .form li .lisRadio input {
+            float: left
+        }
+
+            .createGroup .form li .lisRadio input[type=radio] {
+                margin: 3px 5px 0 0
+            }
+
+        .createGroup .form li .lisRadio label.radio {
+            width: 403px;
+            font-size: 11px;
+            line-height: 18px;
+            height: auto;
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+        }
+
+            .createGroup .form li .lisRadio label.radio .tit {
+                display: block;
+                font-size: 14px;
+                color: #85067B;
+                margin-top: 1px
+            }
+
+#groupWait {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none;
+    z-index: 100
+}
+
+.pInfieldLabel {
+    float: left;
+    width: 413px;
+    position: relative
+}
+
+    .pInfieldLabel label {
+        width: 95%;
+        position: absolute;
+        top: 3px;
+        left: 7px;
+        cursor: text
+    }
+
+        .pInfieldLabel label.icon {
+            left: 20px
+        }
+
+.infieldTextarea label {
+    top: 0
+}
+
+#footer {
+    position: relative;
+    clear: both;
+    height: 65px;
+    width: 100%;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #E5CBE3;
+    z-index: 9;
+    background-color: #6E0466
+}
+
+    #footer .logosl {
+        float: left;
+        height: 26px;
+        width: 102px;
+        margin: 20px 0 0;
+        background-image: url("../images/icon/sprite_sl.png?v=2.8");
+        background-position: 0 -35px;
+        background-repeat: no-repeat;
+        text-indent: -1999px
+    }
+
+    #footer .leftitems {
+        float: left
+    }
+
+        #footer .leftitems ul {
+            float: left;
+            margin: 25px 0 0 50px;
+            list-style: none
+        }
+
+            #footer .leftitems ul li {
+                float: left;
+                margin: 0 20px 0 0
+            }
+
+                #footer .leftitems ul li a {
+                    font-size: 13px;
+                    font-size: 0.8125rem;
+                    font-weight: bold;
+                    color: #FFF
+                }
+
+@media (min-width: 1200px) {
+    .adaptive #container #main {
+        transition: all .4s;
+        width: calc(100% - 50px);
+        left: 50px;
+        float: none;
+        margin: 0
+    }
+
+        .adaptive #container #main .container {
+            width: 960px;
+            margin: 0 auto
+        }
+
+    .adaptive .sidebar-open #container #main {
+        width: calc(100% - 215px);
+        left: 215px
+    }
+}
+
+.accountModalList .media {
+    list-style: none
+}
+
+.adaptive.modal-open .sl-share {
+    font: normal normal 500 normal 18px/19.7999992370605px 'Signika Negative', tahoma, verdana, arial, sans-serif !important
+}
+
+    .adaptive.modal-open .sl-share .modal-header h4,
+    .adaptive.modal-open .sl-share .modal-forward-header h4 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #666
+    }
+
+    .adaptive.modal-open .sl-share .modal-header button,
+    .adaptive.modal-open .sl-share .modal-forward-header button {
+        box-sizing: border-box
+    }
+
+    .adaptive.modal-open .sl-share .modal-header .title,
+    .adaptive.modal-open .sl-share .modal-forward-header .title {
+        color: #666
+    }
+
+    .adaptive.modal-open .sl-share .modal-body textarea {
+        float: none;
+        padding: 2px;
+        border-radius: 0;
+        font-family: 'Signika Negative', tahoma, verdana, arial, sans-serif;
+        font-size: 14px;
+        box-sizing: border-box
+    }
+
+    .adaptive.modal-open .sl-share .modal-body .image img {
+        vertical-align: middle
+    }
+
+    .adaptive.modal-open .sl-share .modal-body .share-alert {
+        font-size: 14px
+    }
+
+    .adaptive.modal-open .sl-share .modal-footer small {
+        font-size: 12px
+    }
+
+    .adaptive.modal-open .sl-share .modal-confirm .modal-confirm-body h3 {
+        font-size: 24px;
+        line-height: 25px
+    }
+
+    .adaptive.modal-open .sl-share .modal-confirm .modal-confirm-body p {
+        font-size: 14px
+    }
+
+.adaptive .sidebar:before,
+.adaptive .sidebar:after,
+.adaptive .sidebar * {
+    box-sizing: border-box
+}
+
+@media (max-width: 991px) {
+    aside.sidebar {
+        position: absolute
+    }
+}
+
+.adaptive .holdnavbar {
+    height: 48px;
+    display: none
+}
+
+.adaptive .sl.navbar {
+    margin: 0;
+    position: relative
+}
+
+    .adaptive .sl.navbar * {
+        box-sizing: border-box
+    }
+
+    .adaptive .sl.navbar .container-flex {
+        margin: 0
+    }
+
+    .adaptive .sl.navbar .navbar-brand {
+        width: 125px
+    }
+
+        .adaptive .sl.navbar .navbar-brand.products {
+            display: inline-block
+        }
+
+    .adaptive .sl.navbar .navbar-actions + .navbar-search {
+        width: calc(100% - 670px)
+    }
+
+    .adaptive .sl.navbar .navbar-search {
+        display: block;
+        width: calc(100% - 600px)
+    }
+
+        .adaptive .sl.navbar .navbar-search .dropdown-menu > li.friend a img.img-circle {
+            vertical-align: middle
+        }
+
+    .adaptive .sl.navbar .profile {
+        display: block;
+        height: 49px;
+    }
+
+        .adaptive .sl.navbar .profile a img {
+            top: 8px;
+            position: relative
+        }
+
+        .adaptive .sl.navbar .profile .newDivFigureHeader {
+            vertical-align: top
+        }
+
+            .adaptive .sl.navbar .profile .newDivFigureHeader img {
+                top: 0
+            }
+
+    .adaptive .sl.navbar .notifications {
+        width: 368px
+    }
+
+        .adaptive .sl.navbar .notifications > li.share label {
+            background-color: #d9d9d9;
+            margin-top: -1px;
+            width: 94px;
+            text-align: center
+        }
+
+            .adaptive .sl.navbar .notifications > li.share label span {
+                display: inline-block;
+                font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif;
+                background-image: none
+            }
+
+            .adaptive .sl.navbar .notifications > li.share label:hover {
+                background-color: #f3f3f3
+            }
+
+            .adaptive .sl.navbar .notifications > li.share label:before {
+                display: none
+            }
+
+        .adaptive .sl.navbar .notifications > li.tokens {
+            display: inline-block !important
+        }
+
+            .adaptive .sl.navbar .notifications > li.tokens label,
+            .adaptive .sl.navbar .notifications > li.tokens span,
+            .adaptive .sl.navbar .notifications > li.tokens a,
+            .adaptive .sl.navbar .notifications > li.tokens button {
+                font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+            }
+
+        .adaptive .sl.navbar .notifications .sl-dropbox {
+            font-family: "Signika Negative", "lucida grande", "LucidaGrande_", tahoma, verdana, arial, sans-serif
+        }
+
+@media (min-width: 600px) {
+    .adaptive .sl.navbar .container-flex {
+        width: 960px
+    }
+
+    .adaptive .sl.navbar.offline .container-flex .navbar-search {
+        width: calc(100% - 407px)
+    }
+}
+
+@media (min-width: 992px) {
+    .adaptive .sidebar-open {
+        height: inherit;
+        width: inherit;
+        position: relative;
+        overflow: auto
+    }
+
+    .adaptive aside.sidebar {
+        margin-top: -48px
+    }
+
+    .adaptive .sl.navbar {
+        position: fixed
+    }
+
+        .adaptive .sl.navbar .container-flex {
+            margin: 0 auto;
+            width: 980px
+        }
+
+    .adaptive .holdnavbar {
+        display: block
+    }
+}
+
+@media (min-width: 1200px) {
+    .adaptive .sl.navbar {
+        width: calc(100% - 50px);
+        left: 50px;
+        transition: all .4s
+    }
+
+        .adaptive .sl.navbar .container-flex {
+            width: 960px;
+            left: 0;
+            margin: 0 auto
+        }
+
+    .adaptive .sidebar-open .sl.navbar {
+        width: calc(100% - 215px);
+        left: 215px
+    }
+}
+
+.adaptive .containersearch {
+    background: #fff
+}
+
+.adaptive .sl-search .search-footer {
+    bottom: 58px
+}

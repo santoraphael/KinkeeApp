@@ -1,0 +1,421 @@
+﻿@using Plataforma.Models
+@model WizardViewModel
+@{
+    Layout = null;
+}
+
+
+
+
+@if (ViewBag.MostrarIntro == true)
+{
+
+    <link href="~/modules/css/Wizard.css" rel="stylesheet" />
+    <div class="modal-backdrop in " modal-backdrop=""></div>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/additional-methods.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <style>
+        .sl-onboarding-modal .step-welcome {
+            background-image: radial-gradient(circle at 50% 32%,#fff,#fff) !important;
+        }
+
+            .sl-onboarding-modal .step-welcome .title {
+                color: #000;
+            }
+
+            .sl-onboarding-modal .step-welcome .subtitle {
+                color: #000;
+            }
+
+            .sl-onboarding-modal .step-welcome .message-bottom {
+                color: #000;
+            }
+
+        .onboarding-page {
+            background-image: none !important;
+        }
+
+        .list_icones_wizard {
+            list-style: none;
+        }
+    </style>
+    @Styles.Render("~/modules/css/certification-modal-intro");
+    <div class="onboarding-page ng-scope wizard-create-profile" style="z-index: 1050; display: block;">
+
+        <div class="modal sl-modal sl-modal-flex sl-onboarding-modal" style="visibility: visible;">
+            <div class="modal-dialog" style="margin-top: 20px;">
+                <div class="modal-content">
+
+                    <div sl-onboarding="" class="onboarding-content">
+                        <div class="modal-body js-modal-body" vl-data="0" vl-step="1" style="transform: translateX(0px);">
+
+                            @*INTRO*@
+                            <div class="step-welcome wizard-step active" bindonce="" style="width: 100%;">
+                                @*<i class="icon"></i>*@
+
+                                <img src="~/pulsar/Kinkee/assets/images/modules/sobre/kinkee_logo_preto.png" style="width:300px; margin-bottom:20px;" />
+                                <h2 class="title">Uhu! Seu perfil foi</h2>
+                                <p class="subtitle">APROVADO</p>
+
+
+                                <p class="message-bottom">Agora vou te mostrar como o site funciona.</p>
+                            </div>
+
+                            @*ICONES*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%;">
+                                @*<i class="icon"></i>*@
+                                <h2 class="title">Saiba o que cada icone significa</h2>
+
+                                <p class="subtitle">Cada perfil pode ter um ou mais icones</p>
+
+                                <ul class="list_icones_wizard">
+                                    <li><img src='~/modules/img/verificado.svg' style="width: 60px;" alt='Verificado'>Perfil verificado e real</li>
+                                    <li><img src='~/modules/img/novo.svg' style="width: 60px;" alt='Novo'>Perfil Novo no site</li>
+                                    <li><img src='~/modules/img/premium.svg' style="width: 35px; margin-right: 10px;" alt='Premium'>Perfil Premium e cheio de vantagens</li>
+                                </ul>
+
+
+                                <p class="message-bottom">Cada icone representa uma informação sobre aquele perfil, e novos icones serão adicionados em breve, incluindo icones de conquistas dentro da kinkee.</p>
+                            </div>
+
+                            @*LIKE e DISLIKE*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%;">
+                                @*<i class="icon"></i>*@
+                                <h2 class="title">LIKE e DISLIKE</h2>
+
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="229px"
+                                     height="38px" viewBox="0 0 229 38" style="enable-background:new 0 0 229 38;" xml:space="preserve">
+                                <defs>
+                                    </defs>
+                                <image style="overflow:visible;" width="229" height="38" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEASABIAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
+                                    EAMCAwYAAAI3AAADcAAABlb/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
+                                    Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
+                                    JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIACcA5gMBIgACEQEDEQH/
+                                    xACoAAEBAQADAQEAAAAAAAAAAAAABAcCBQYDAQEBAQEAAAAAAAAAAAAAAAAAAAECEAABAwUAAQQB
+                                    BQAAAAAAAAAFAAEVEQIDBAYgEDBAIRITIxQkNhEAAgADBgMGAwYHAAAAAAAAAQIAAwQRMtKT0zQh
+                                    EpQQMUFRYRNAcQWBwdEiQmKRsXKSorIVEgABAwMEAwAAAAAAAAAAAAABADAREECBIVFhoXGRsf/a
+                                    AAwDAQACEQMRAAAA9XkWu5EEd1cWydPGZrulixGqxGLEYsRixGLEYsRixw9bZ5n5+88BNc6eroTa
+                                    3AT5NrWNHG7r/wANY6zxMJbCAAAAAAAHoNEx762bpi08mdff6yfezZwc+iCUAAAAAAAAAAAC4O6B
+                                    /9oACAECAAEFAEzVTvRM9W86Kvi7VTNRvOqp9/B//9oACAEDAAEFAE/o7UfzqqeLezRV+vg//9oA
+                                    CAEBAAEFACmTJYNmCymCymCymCymCymCymCymCymCymCymCymCymCymCymCymCymCymCymCymCym
+                                    CymCymCyzb57ApgspgshhYpcSa66hJmfQ2dL8PQIOvJk8YQRjxnRAuze7DFiw9D748ftEtrkeN/X
+                                    2+25wyX2yA/bG7VHQ+tu+z/tk3oPuz/Vzs94IxkCEeW63P0Gx2HV6utvmSdxYj7/AA3+k565nzX3
+                                    22WdEScoYsvttbFezbLP/XIY7sujmbJjvr6DTRAXY7vc/wADFmzYL8ZDfxXXFSl9qqtPDl2NprX/
+                                    AIzt9kNPkM2xGcCozgVGcCozgVGcCozgVGcCozgVGcCozgVGcCozgVGcCozgVGcCozgVGcCozgVG
+                                    cCozgVGcCozgVGcCozgVGcChmry2DMzfX//aAAgBAgIGPwCmQPaB3eHGuVAYwR3Kmy//2gAIAQMC
+                                    Bj8ApiXzz8ZPkHqFFl//2gAIAQEBBj8ArGVirLJmlSCQQQh4iN9UZr4o31RmvijfVGa+KN9UZr4o
+                                    31RmvijfVGa+KN9UZr4o31RmvijfVGa+KN9UZr4o31RmvijfVGa+KN9UZr4o31RmvijfVGa+KN9U
+                                    Zr4o31RmvijfVGa+KN9UZr4o31RmvijfVGa+KN9UZr4o31RmvihPeqqqX7i8yc0yYOZT4jjG+qM1
+                                    8Ub6ozXxRSK9bPZTPlhgZrkEFxaD+aDxPd98VQPcZMwH+0wXlcV8vHsp6NRwmMOc+SDi0KgopBCg
+                                    C0ykJ4epWPpLJSSV5qgowVFAZeRjYwAsPdFXLkosuWpFiIAqjgO4D4BKSkUPPe3lUkL3erRNqPqg
+                                    HLRzDL9i23mmL5keEU//AD5CtTyJfLaXROJPdYxEPSVie3OSzmW0Hv4947KZrO6bLP8AkIY/t/CK
+                                    s+UmZ/qewmFrpcsTSqlSjGy0N68YnS2pFp0kqGLhy1pJ7roikk0oFROopvuzeNi22FeS3jx4xOr2
+                                    liUZxB5AeYCwWd9g+Apvk38o+pgHiKuZaIZ3NiqCST4ARU1f6Gbll/0LwWLIkuPB1t/iIY/s/CKm
+                                    UnF5kqYqj1ZSBDS3BVlNhB8x2z0opntioXkc2cR6qfAwWY2k8ST8CJkmY0qYO50JVh9oh3lVM1Gm
+                                    G12WYylj5sQeMFHrJ7KwsZTNcgj1HN2ypUoFnZhYB84Zf1e3Z9vDsZq9qQVH6+ecstrfUB1i/RdS
+                                    NWL9F1I1Yv0XUjVi/RdSNWL9F1I1Yv0XUjVi/RdSNWL9F1I1Yv0XUjVi/RdSNWL9F1I1Yv0XUjVi
+                                    /RdSNWL9F1I1Yv0XUjVi/RdSNWL9F1I1Yv0XUjVi/RdSNWL9F1I1Yv0XUjVi/RdSNWL9F1I1Yv0X
+                                    UjVi/RdSNWLfpjUpneHtzVmN9n52MN8vvEf/2Q==">
+                                    </image>
+                                </svg>
+
+
+                                <p class="subtitle">Likes dão Sugar Score, Dislike Tiram...</p>
+
+                                <p class="message-bottom">Através do Like e Dislike uma pontuação é adicionada ou tirada da pessoa que recebu a ação</p>
+                            </div>
+
+                            @*ELO*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%; ">
+                                @*<i class="icon"></i>*@
+                                <h2 class="title">Cartões para os Daddies...</h2>
+                                <img src="~/modules/img/7_cartao_unlimited.svg" style="width: 164px;" />
+
+                                <p class="subtitle">O cartão representa uma faixa de pontuação do sugar score</p>
+
+                                <p class="message-bottom">Likes e dislikes, denuncias, pix recebidos ou enviados, mais uma série de coisas dentro do site determinam qual é a pontuação.</p>
+                            </div>
+
+                            @*ELO*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%; ">
+                                @*<i class="icon"></i>*@
+                                <h2 class="title">...Jóias para babies</h2>
+                                <img src="~/modules/img/7_gema_diamante.svg" style="width: 164px;" />
+
+                                <p class="subtitle">Sua faixa de pontuação e seu nível vai determinar quais perfis você verá lá.</p>
+
+                                <p class="message-bottom">Por exemplo, o nível diamanta das babies verão os daddies de cartão unlimited e outros dentro da mesma faixa.</p>
+                                <p class="message-bottom" style="font-size: 13px;">Para ver mais níveis e as faixas de pontuação, cline no icone que aparece na pagina de cada perfil.</p>
+                            </div>
+
+                            @*BLENDS*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%; ">
+                                @*<i class="icon"></i>*@
+                                <h2 class="title">Veja a mistura</h2>
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="183px"
+                                     height="63px" viewBox="0 0 183 63" style="enable-background:new 0 0 183 63;" xml:space="preserve">
+                                <defs>
+                                </defs>
+                                <image style="overflow:visible;" width="183" height="63" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEASABIAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
+                                EAMCAwYAAAL5AAAEHQAAB/H/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
+                                Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
+                                JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIAEAAuAMBIgACEQEDEQH/
+                                xAC3AAEAAgMBAQAAAAAAAAAAAAAABQcCBAYDAQEBAQEBAQEAAAAAAAAAAAAAAAECBAMFEAAABgED
+                                AwMFAAAAAAAAAAAAAQIDBAUSExQWEBEVQDM1IDFBQwYRAAIBAwEGAgkEAQUAAAAAAAECAwAREgQh
+                                kZLSMzQxE0FRYbEiMnKycxBAcRTBQlJiUwUSAAADBQYDCQEAAAAAAAAAAAABEaHR4QIyECExEqIz
+                                QVGBIEDwYXGRscGCIv/aAAwDAQACEQMRAAAA6T5wmGPp984EvfOBHfOBHfOBHfOBHfOBHfOBHfOB
+                                HfOBHfOBFguHXPjhnhnuGymskTMck/E0kjiaCYjzXSequslPFNFI5kWkfNdINbIY8cM8G2zrEmcY
+                                gxLaumXd2ogTsbqEmdLTLPeUMZmfWBEr9iSg9NkMeOFnfNcVZLNLWSzRWSzRWSzRWSzRWSzRWSzR
+                                WSzRWSzRWSzRXaxTP//aAAgBAgABBQDIxkYyMZGMjGRjIxkYyMZGMjGR9e309h26/jp3+nuO/X8Y
+                                jEYjEYjEYjEYjEYjEf/aAAgBAwABBQDYNDYNDYNDYNDYNDYNDYNDYNDYNDYNDYNDYt5F9jMiLVQC
+                                cI1aie6XEKBOJMydQYN1BAnEmY/YX2MiMtFHYmyJRtpM0tJSEtpIyYSRGwgxpJ7j9nkCHkCHkCHk
+                                CHkCHkCHkCHkCHkCHkCHkCG/LL//2gAIAQEAAQUAV/QVBK5DTjkNOOQ045DTjkNOOQ045DTjkNOO
+                                Q045DTjkNOOQ045DTjkNOOQ045DTjkNOOQ045DTjkNOOQ04avqpx173fS13yD3u+lrvkHvd6RIZy
+                                0x6hbzPiVPJYrobsmychuKRXQ1Q5EGLHQr+eeKccZtEwqcliZD2xu0yEBdYpNizXRJEpujeUpNSl
+                                8pkOPG613yD3u9IEraS128ZU1m0jwG4kiriTJ8gnzRLaTVSLFp6Mv+gRrG7EesTsoqZNhJZeJ+4j
+                                LJybXKsis2kyWL2PtW5cCMUmwYXB6V3yD3u+lrvkHvd9LXfIGwnvoJGgkaCRoJGgkaCRoJGgkaCR
+                                oJGgkaCRoJGgkaCRoJGgkaCRoJGgkaCQhlJK/9oACAECAgY/AO4+OFidvx62l5WL3H//2gAIAQMC
+                                Bj8AqnY4VTscKp2OFU7HCqdjhVOxwqnY4VTscKp2OFU7HCqdjhlzT0rwsUxjgMpEfsgS9fQx/Jrd
+                                m6BCO8XHgS4cAamiEt5GEI7+SG2z8fdhkeB3BL05dEGZTM8L0C+Zn7g8qkpICPkEIzwy9DF6/AU1
+                                M1XrZ+PsbeqA29UBt6oDb1QG3qgNvVAbeqA29UBt6oDb1QG3qgM2TglUB//aAAgBAQEGPwAg6oXB
+                                sdjctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzc
+                                td0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0Nzctd0NzctJGmpBZ2CqLNtJNh6Kf6j7
+                                /wBtpfzR/cKf6j7/ANtpfzR/cKf6j7/1mxezwxmQJb5gvzbqimaURq6vI9x8kaG2XtufCoX0cgnj
+                                mcx3IwKsNvxC7bLbaEMeq8xlY5qYyAQoLHEh9vh7KU6YKGFw4WPyh7NmbU2s/tMI0cRsPK25EX/7
+                                KQyalvMkjEioIrj4hcAtn/ioNKJQUnXMzYmy+sEX9dNp5ZcERmVpbX+X/j7aikiny08qPIZCuLKI
+                                /m+C599Rsr+ZFMgkje2JIOzaLm1SxpqMp4YhMylMVxIBtnkfX6qTQeYCXKjO3hkL+F6XSxapsySG
+                                ZosQoUEk/OfVTK8gRlnXT2tf5hcMNvhTDRT+c8bBZEdfLIucQw2tcXqSMagvPE2DRmMqPTcq2R8P
+                                10v5o/uFP9R9/wCsc52oDaQD0odjDdUoCsuheH+ugFslUeDW/moIdKGmVJTLK7jDK4wxUXa2yhqo
+                                5pm2tYYAYBlYf7tpufZSn+1JqbX2SJjj/HxNUukN/NeZZBs2YhbVHGmrliCQrG0IS6llFjtz9P8A
+                                FYop8kyRPkR8QVcc1A9pWml1GY0ryFmxHx4nbbxouJWaB4ngEYjwESMPhxGZvWniguY9PGIw7DEs
+                                bkk2ubeNSnzZZI3hEa6VlAQNYDLLI+B2+FR/+gJZLoUJi8sf6QAfiz/xSzPq5tQgztGyWtkrKLfG
+                                fXUEc4YzxTI7OADlGgIHp8dtTCJ5JW1RxdioTCPLI4jJrmpNOZpNXI7AxtKoXywPUcmO39dL+aP7
+                                hT/Uff8AttL+aP7hT/Uff+20v5o/uFdMcNdMcNdMcNdMcNdMcNdMcNdMcNdMcNdMcNdMcNdMcNdM
+                                cNdMcNdMcNdMcNdMcNdMcNdMcNdMcNdMcNdMcNdMcNA+WBYj0V//2Q==">
+                                </image>
+                                </svg>
+
+                                <p class="subtitle">Todos os dias você recebe 20 BLENDS</p>
+
+                                <p class="message-bottom">Com os Blends você poderá ver quais perfis fazem mais a sua cara e poderá entrar em contato com eles.</p>
+                                <p class="message-bottom" style="font-size: 13px;">Os Blends (mistura de perfis) são reiniciados após algumas horas, mas perfil Premium tem Blends ilimitados.</p>
+                            </div>
+
+                            @*PIX*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%; ">
+                                @*<i class="icon"></i>*@
+                                <h2 class="title">PIX</h2>
+                                <img src="~/modules/img/imagem_pix.png" />
+                                <p class="subtitle">ENVIE E RECEBA.</p>
+
+                                <p class="message-bottom">Quem faz pix de verdade mostra pra todo mundo ver. As babies que tiverem um cadastro de chave pix no site poderá receber pix dos daddies, que mostrão para todo mudo o quão generosos eles são.</p>
+                                <p class="message-bottom" style="font-size: 13px;">Nenhuma informação sobre pix fica no site, todas as transações acontecem diretamente entre os bancos.</p>
+                            </div>
+
+                            @*AFILIADOS*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%; ">
+                                @*<i class="icon"></i>*@
+                                <h2 class="title">Ganhe Dinheiro</h2>
+                                <img src="~/modules/afiliados/img/kinkee-afiliados.png" />
+                                <p class="subtitle">Convide e ganhe dinheiro.</p>
+
+                                <p class="message-bottom">Cada pessoa que for aprovada na kinkee que se cadastrou com seu link de convite te dá um valor que vai direto pra sua conta bancária.</p>
+                                <p class="message-bottom" style="font-size: 13px;">Quanto mais pessoas você connvidar, mais você ganha.</p>
+                            </div>
+
+                            @*ASSINATURA*@
+                            <div class="step-welcome wizard-step step-subscribed" bindonce="" style="width: 100%;">
+                                <img src="~/modules/img/premium.svg" style="width:40px; margin-bottom:20px;" />
+                                <h2 class="title">Seja Premium</h2>
+                                <p class="message-bottom">Ser uma assinante tem inúmeras vantagens.</p>
+                                <p class="message-bottom">Premium tem Blends ilimitados, mais pontuação no Sugar Score, mais perfis, mais, mais mais...</p>
+
+
+                            </div>
+
+                            @*FINAL*@
+                            @*<div class="step-login wizard-step cad-validate" style="width: 100%;">
+                                <div class="onboarding-header">
+                                    <p class="info">Convide pessoas para a kinkee</p>
+                                    <p class="step">Pode ser baby ou daddy.</p>
+                                </div>
+                                <div class="onboarding-container">
+                                    <div class="login-checkbox">
+                                        <p>Convide pessoas para conhecer a kinkee.</p>
+                                    </div>
+                                    <div class="login-area">
+
+                                        <div class="area-email">
+                                            <input type="email" maxlength="100" class="login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength js-email-to-invite" placeholder="nomedoamigo@email.com">
+                                            <br />
+                                            <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-send-invite" style="width: 100%; border-radius: 5px;">
+                                                Enviar convite
+                                            </button>
+                                            <br />
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>*@
+
+
+                        </div>
+
+
+                        <div class="modal-footer" style="position: absolute; bottom: -3px; width: 100%;">
+                            <div class="onboarding-steps">
+                                <span class="step active"></span>
+
+                            </div>
+                            <div class="spinner" spinner="" data-size="12" style="display:none">
+                                <p>Foto sendo carregada</p>
+                                <div class="one" style="width: 12px; height: 12px;"></div>
+                                <div class="two" style="width: 12px; height: 12px;"></div>
+                                <div class="three" style="width: 12px; height: 12px;"></div>
+                            </div>
+                            <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-btn-avancar" disabled="disabled">
+                                Aguarde...
+                            </button>
+
+                            <a href="#" class="js-btn-voltar">Voltar a configuração anterior</a>
+
+                            <button type="submit" class="onboarding-button-primary sl-btn btn-primary-inverse js-btn-enviar-wizard" @*disabled="disabled"*@>
+                                <span class="text">Finalizar</span>
+                                <div class="spinner" spinner="" data-size="12" style="display:none">
+                                    <div class="one" style="width: 12px; height: 12px;"></div>
+                                    <div class="two" style="width: 12px; height: 12px;"></div>
+                                    <div class="three" style="width: 12px; height: 12px;"></div>
+                                </div>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/modules/js/wizard.js"></script>
+    <script>
+
+
+    $(document).ready(function () {
+
+
+        $('.js-btn-avancar').removeAttr('disabled');
+        $('.js-btn-avancar').html("Avançar");
+
+
+        $(document).on("click", ".js-btn-enviar-wizard", function (e) {
+            $(this).children('.text').css('display', 'nome');
+            $(this).children('.spinner').css('display', 'block');
+
+
+            $.ajax({
+                url: '@Url.Action("WizardCompleto", "Wizard")',
+                dataType: 'hmtl',
+                type: 'POST',
+                success: function (data) {
+                    console.log('FOI: '+data);
+                    location.reload();
+                }
+            });
+
+            setTimeout(function () { location.reload(); }, 3000);
+        });
+
+
+        $(document).on("click", ".js-send-invite", function (e) {
+
+
+            $(this).html("Enviando...");
+            $(this).attr('disabled', 'disabled');
+            var email = $('.js-email-to-invite').val();
+
+
+            $.ajax({
+                url: '@Url.Action("SendEmailConviteCadastro", "Wizard")',
+                data: { email: email },
+                dataType: 'json',
+                type: 'POST',
+                success: function (data) {
+
+                    $('.js-send-invite').html("Enviar outro");
+                    $('.js-send-invite').removeAttr('disabled');
+                    $('.js-email-to-invite').val("");
+                }
+            });
+
+            e.preventDefault();
+
+        });
+
+    });
+
+    </script>
+
+}
+
+
+
+@*PERFIS--- SE QUISER USAR SO COLOCAR ENTRE AS OUTRAS DIVS*@
+@*<div class="step-genders step-interests wizard-step" bindonce="" style="width: 100%;">
+        <div class="onboarding-header">
+            <i class="icon"></i>
+            <p class="info">Conheça algumas pessoas</p>
+            <p class="step">Adicione alguns perfis que são destaque.</p>
+        </div>
+
+        <div class="onboarding-container ">
+            <ul class="interests-list">
+                @if (ViewBag.GeneroUsuario == "Homem")
+                {
+                    <li class="interest ng-scope">
+                        <div class="toggleable">
+                            <span class="check"></span>
+                            <span class="description" bo-text="interest.name">Também quero ver Homens</span>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="interest ng-scope">
+                        <div class="toggleable">
+                            <span class="check"></span>
+                            <span class="description" bo-text="interest.name">Também quero ver Mulheres</span>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+
+            <p class="message-bottom">Você só poderá mudar isso depois se for assinante <b>Premium</b></p>
+
+        </div>
+        <br /><br />
+        <div class="onboarding-container">
+
+            <ul class="genders-list">
+
+                <li class="gender ng-scope">
+                    <div class="gender-image">
+                        <img src="">
+                    </div>
+                    <div class="gender-actions">
+                        <span class="description" bo-bind="gender.name">Homem</span>
+                        <span class="check"></span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>*@

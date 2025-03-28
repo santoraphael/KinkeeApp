@@ -1,0 +1,815 @@
+﻿@using Plataforma.Models
+@model PerfilViewModel
+
+@{
+    Layout = null;
+}
+
+<link href="~/modules/css/profile.css" rel="stylesheet" />
+<style>
+    html {
+        overflow: hidden;
+    }
+
+    .ng-hide {
+        display: none;
+    }
+</style>
+
+
+<div class="modal-backdrop in" modal-backdrop="" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal profile-edit-modal" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content" modal-transclude="">
+            <div sl-profile-edit-modal="" class="ng-scope">
+
+                @using (Html.BeginForm("EnviarEdicaoPerfil", "Dating", FormMethod.Post))
+                {
+                    <div class="edit-modal-header">
+                        <div class="header-top">
+                            <div class="header-title">
+                                <a class="icon icon-profile-arrow action-close"></a>
+                                <h2>
+                                    Editar perfil
+                                </h2>
+                            </div>
+                            <div class="header-actions">
+                                <button class="sl-btn action-save">
+
+                                    Salvar
+                                </button>
+                                <button class="sl-btn action-close">×</button>
+                            </div>
+                        </div>
+                        <nav class="header-nav">
+                            <ul sl-nav-tabs="" offset="50" class="ng-isolate-scope" style="overflow-x: auto; white-space: nowrap;">
+                                <li class="nav-item js-click-tab-general active">
+                                    <a href="#">Geral</a>
+                                </li>
+                                <li class="nav-item js-click-tab-info">
+                                    <a href="#">Informações pessoais</a>
+                                </li>
+                                @*<li class="nav-item js-click-tab-interesses">
+                                    <a href="#">Interesses</a>
+                                </li>*@
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="edit-modal-body" style="max-height: calc(100vh - 230px); ">
+
+                        <div id="avatarStatus" class="ng-hide"></div>
+                        <div class="general-tab edit-tab">
+
+                            <div class="general-avatar form-group">
+
+                                <script>
+
+                                    $('.btn-primary.action-change').click(function (e) {
+
+                                        var output = document.getElementById('file');
+
+                                        output.click();
+
+                                        e.preventDefault();
+                                    });
+
+                                    var loadFile = function (event) {
+                                        var output = document.getElementById('img-output');
+
+                                        var file = event.target.files[0], img;
+                                        if (Math.round(file.size / (1024 * 1024)) > 3) { // make it in MB so divide by 1024*1024
+
+
+                                            alert('A foto deve ter entre 5 kB e 3 MB de tamanho. E essa tem ' + Math.round(file.size / (1024 * 1024))+' MB');
+                                            return false;
+                                        }
+                                        else {
+                                            var formdata = new FormData($('form').get(0));
+
+                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                        }
+                                    };
+
+                                </script>
+
+                                <div class="avatar-image">
+                                    <img class="img-circle" id="img-output" src="@Model.imagemPerfil">
+                                    <div class="spinner" spinner="">
+                                        <div class="one"></div>
+                                        <div class="two"></div>
+                                        <div class="three"></div>
+                                    </div>
+                                </div>
+
+                                <div class="avatar-actions @*file-upload*@">
+                                    @*<div class="sl-btn btn-primary action-change">Alterar foto de perfil</div>*@
+                                    <a class="edit-tooltip" title="" sl-tooltip="" data-placement="right" data-container="body" data-original-title="Tamanho máx. do arquivo: 64MB. min. 150px por 200px
+JPG, GIF ou PNG.">?</a>
+                                    @*<a class="action-delete">Excluir foto de perfil</a>*@
+                                    @*@Html.TextBoxFor(m => m.createProfileModel.Foto, new { type = "file", accept = "image/*", name = "file", onchange = "loadFile(event)", id = "file", @class = "file-upload-input ng-isolate-scope" })*@
+                                    @*<input sl-file-upload="" type="file" class="file-upload-input ng-isolate-scope" name="files" accept="image/jpg,image/jpeg,image/gif,image/png">*@
+                                </div>
+
+                            </div>
+
+                            <div class="general-user form-group">
+                                <label>Usuário</label>
+                                <span class="user-name">@Model.Usuario</span>
+                                <a href="" class="edit-tooltip" title="" sl-tooltip="" target="_blank" data-original-title="O login não pode ser alterado. Para mais informações, entre em contato através da nossa central de ajuda.">?</a>
+                            </div>
+
+                            <div class="general-location form-group">
+                                <label>Localização</label>
+                                <div class="flex">
+
+                                    <div class="location-search-city ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty">
+
+                                        <a href="#" class="js-edit-location" style="text-decoration: underline dotted red">@Html.Raw(Model.createProfileModel.Feature_str_name), @Html.Raw(Model.createProfileModel.Admin1_str_name) (CLIQUE PARA EDITAR)</a>
+
+                                        <div class="location-search js-location-search-link" style="display:none;">
+                                            @Html.DropDownListFor(m => m.createProfileModel.Country_str_code, ViewData["Countries"] as SelectList, "-- Escolha um País --", new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location" })
+                                            <br />
+                                            <select id="Estados" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                <option selected="selected" value="">-- Estados --</option>
+                                            </select>
+                                            @Html.HiddenFor(m => m.createProfileModel.Admin1_str_code)
+                                            @Html.HiddenFor(m => m.createProfileModel.Admin1_str_name)
+                                            <br />
+
+                                            <select id="Cidades" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                <option selected="selected" value="">-- Cidades --</option>
+                                            </select>
+                                            @Html.HiddenFor(m => m.createProfileModel.Feature_int_id)
+                                            @Html.HiddenFor(m => m.createProfileModel.Feature_str_name)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="general-marital-status form-group">
+                                <label>Estado civil</label>
+
+                                @{ 
+                                    List<SelectListItem> newList = new List<SelectListItem>();
+
+                                    SelectListItem solteiro = new SelectListItem() { Value = "Solteiro(a)", Text = "Solteiro(a)" };
+                                    newList.Add(solteiro);
+
+                                    SelectListItem numaRelacao = new SelectListItem() { Value = "Numa Relação", Text = "Numa Relação" };
+                                    newList.Add(numaRelacao);
+
+                                    SelectListItem noivo = new SelectListItem() { Value = "Noivo(a)", Text = "Noivo(a)" };
+                                    newList.Add(noivo);
+
+                                    SelectListItem casado = new SelectListItem() { Value = "Casado(a)", Text = "Casado(a)" };
+                                    newList.Add(casado);
+
+                                    SelectListItem numaRelacaoAberta = new SelectListItem() { Value = "Numa Relação Aberta", Text = "Numa Relação Aberta" };
+                                    newList.Add(numaRelacaoAberta);
+
+
+                                    SelectList relacionamento = new SelectList(newList, "Value", "Text", null);
+
+                                }
+
+                                @Html.DropDownListFor(m => m.EstadoCivil, relacionamento, "-- Estado Civil --", new { @id = "EstadoCivil", @style="max-width: 210px;", @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location" })
+
+
+                                @Html.HiddenFor(m => m.createProfileModel.StatusRelacionamento)
+                                @Html.HiddenFor(m => m.createProfileModel.NomeStatusRelacionamento)
+                                <br />
+                                <p class="location-info lbl-descricao" style="display:none;">Descreva como ter uma relação sugar sigilosa com você.</p>
+                                @*<textarea id="txtDescricaoRelacionamento" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength" style="height:200px; display:none;" placeholder="" autocomplete="new-password"></textarea>*@
+                                @Html.TextAreaFor(m => m.createProfileModel.DescricaoRelacionamento, new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength", @style = "height:200px; display:none;", @placeholder = "" })
+                            </div>
+
+                            <div class="general-status form-group">
+                                <label>Status</label>
+                                @Html.TextAreaFor(m => m.Descricao_Curta, new { @class = "form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength", @id = "exampleTextarea", @rows = "3", @maxlength = "150", @style = "overflow: hidden; overflow-wrap: break-word; resize: none; height: 50px;", @placeholder = "Diga algo objetivo e direto sobre você." })
+                                @*<textarea class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength" maxlength="250" readonly="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 50px;"></textarea>*@
+                            </div>
+
+                            <div class="general-description form-group">
+                                <label>Descrição</label>
+                                @Html.TextAreaFor(m => m.Descricao_Longa, new { @class = "form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength", @rows = "10", @maxlength = "1024", @style = "overflow-wrap: break-word; resize: none; height: 150px;", @placeholder = "Fale um pouco mais sobre você, o que gosta de fazer e o espera do seu sugar perfeito." })
+                                @*<textarea class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength" maxlength="1024" readonly="" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 150px;"></textarea>*@
+                            </div>
+                        </div>
+
+                        <div class="info-tab ng-hide edit-tab">
+
+                            <div class="info-name form-group">
+                                <label for="info-name">Nome</label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength", @maxlength = "30", @placeholder = "Primeiro Nome" })
+                            </div>
+
+                            <div class="info-name form-group">
+                                <label for="info-name">Ultimo nome</label>
+                                @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength", @maxlength = "30", @placeholder = "Ultimo Nome" })
+                            </div>
+
+                            <div>
+                                <div class="info-job form-group js-edit-job">
+                                    <label for="info-job">Profissão</label>
+                                    <a href="#" style="text-decoration: underline dotted red">@Html.Raw(Model.createProfileModel.NomeGrupoProfissao), @Html.Raw(Model.createProfileModel.NomeProfissao) (CLIQUE PARA EDITAR)</a>
+                                </div>
+
+                                <div class="info-job form-group js-job-area" style="display:none;">
+                                    <label for="info-job">Profissão</label>
+                                    <select id="ProfissoesCategoria" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                        <option selected="selected" value="">-- Profissão --</option>
+                                        <option value="1">Administração, Negócios e Serviços</option>
+                                        <option value="2">Artes e Design</option>
+                                        <option value="3">Ciências Biológicas e da Terra</option>
+                                        <option value="4">Ciências e Tecnologia</option>
+                                        <option value="5">Ciências Sociais e Humanas</option>
+                                        <option value="6">Comunicação e Informação</option>
+                                        <option value="7">Engenharia e Produção</option>
+                                        <option value="8">Saúde e Bem-estar</option>
+                                    </select>
+                                    @Html.HiddenFor(m => m.createProfileModel.IdGrupoProfissao)
+                                    @Html.HiddenFor(m => m.createProfileModel.NomeGrupoProfissao)
+                                </div>
+
+                                <div class="info-job form-group js-job-area" style="display:none;">
+                                    <label for="info-job">Area de atuação</label>
+                                    <div class="location-search">
+                                        <select id="ProfissoesSubcategorias" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                            <option selected="selected" value="">-- Ecolha --</option>
+                                        </select>
+                                        @Html.HiddenFor(m => m.createProfileModel.IdProfissao)
+                                        @Html.HiddenFor(m => m.createProfileModel.NomeProfissao)
+
+                                    </div>
+
+
+                                    @*<input id="info-job" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength" value="" maxlength="50" readonly="">*@
+                                </div>
+                            </div>
+
+                            <div class="info-birthday form-group">
+                                <label for="info-birthday">Data de Nascimento</label>
+                                @Html.TextBoxFor(m => m.DataNascimento, "{0:dd/MM/yyyy}", new { @type = "date",  @class = "form-control ng-pristine ng-untouched ng-valid ng-empty", @style= "max-width: 162px;", @maxlength = "10", @placeholder = "__/__/____" }) &nbsp; &nbsp;
+                                @Model.DataNascimento.ToString("dd/MM/yyyy")
+
+
+                                @*<input id="info-birthday" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-mask="00/00/0000" placeholder="__/__/____" value="" maxlength="10">*@
+                                <a href="#" class="edit-tooltip" title="" sl-tooltip="" target="_blank" data-original-title="Para sua privacidade e segurança, não exibiremos a data de seu nascimento em seu perfil, apenas a sua idade.">?</a>
+                            </div>
+
+                            <div class="info-orientation form-group">
+
+                                <label for="info-orientation">Orientação Sexual</label>
+                                @{
+                                    List<SelectListItem> orientationList = new List<SelectListItem>();
+
+
+                                    SelectListItem Heterossexual = new SelectListItem() { Value = "Heterossexual", Text = "Heterossexual" };
+                                    orientationList.Add(Heterossexual);
+
+                                    SelectListItem Homossexual = new SelectListItem() { Value = "Homossexual", Text = "Homossexual" };
+                                    orientationList.Add(Homossexual);
+
+                                    SelectListItem Bissexual = new SelectListItem() { Value = "Bissexual", Text = "Bissexual" };
+                                    orientationList.Add(Bissexual);
+
+                                    SelectListItem Panssexual = new SelectListItem() { Value = "Panssexual", Text = "Panssexual" };
+                                    orientationList.Add(Panssexual);
+
+
+                                    SelectList orientacaoSelect = new SelectList(orientationList, "Value", "Text", null);
+
+                                }
+
+                                @Html.DropDownListFor(m => m.OrientacaoSexual, orientacaoSelect, "-- Selecione --", new {@class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                            </div>
+
+                            <div class="info-ethnicity form-group">
+                                <label for="info-ethnicity">Etnia</label>
+                                @{
+                                    List<SelectListItem> etiniaList = new List<SelectListItem>();
+
+
+                                    SelectListItem Branco = new SelectListItem() { Value = "Branco", Text = "Branco" };
+                                    etiniaList.Add(Branco);
+
+                                    SelectListItem Negro = new SelectListItem() { Value = "Negro", Text = "Negro" };
+                                    etiniaList.Add(Negro);
+
+                                    SelectListItem Latino = new SelectListItem() { Value = "Latino", Text = "Latino" };
+                                    etiniaList.Add(Latino);
+
+                                    SelectListItem Oriental = new SelectListItem() { Value = "Oriental", Text = "Oriental" };
+                                    etiniaList.Add(Oriental);
+
+                                    SelectListItem Arabe = new SelectListItem() { Value = "Árabe", Text = "Árabe" };
+                                    etiniaList.Add(Arabe);
+
+                                    SelectListItem Indigena = new SelectListItem() { Value = "Indígena", Text = "Indígena" };
+                                    etiniaList.Add(Indigena);
+
+                                    SelectListItem OutroEtnia = new SelectListItem() { Value = "Outro", Text = "Outro" };
+                                    etiniaList.Add(OutroEtnia);
+
+                                    SelectList etniaSelect = new SelectList(etiniaList, "Value", "Text", null);
+                                }
+
+                                @Html.DropDownListFor(m => m.Etnia, etniaSelect, "-- Selecione --", new {@class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                            </div>
+
+                            <div class="info-hair form-group">
+                                <label>Cabelos</label>
+                                <div class="inline-controls">
+
+                                    @{
+                                        List<SelectListItem> cabeloList = new List<SelectListItem>();
+
+                                        SelectListItem Pretos = new SelectListItem() { Value = "Pretos", Text = "Pretos" };
+                                        cabeloList.Add(Pretos);
+
+                                        SelectListItem Castanhos = new SelectListItem() { Value = "Castanhos", Text = "Castanhos" };
+                                        cabeloList.Add(Castanhos);
+
+                                        SelectListItem Ruivos = new SelectListItem() { Value = "Ruivos", Text = "Ruivos" };
+                                        cabeloList.Add(Ruivos);
+
+                                        SelectListItem Loiros = new SelectListItem() { Value = "Loiros", Text = "Loiros" };
+                                        cabeloList.Add(Loiros);
+
+                                        SelectListItem Grisalhos = new SelectListItem() { Value = "Grisalhos", Text = "Grisalhos" };
+                                        cabeloList.Add(Grisalhos);
+
+                                        SelectListItem OutroCabelo = new SelectListItem() { Value = "Outro", Text = "Outro" };
+                                        cabeloList.Add(OutroCabelo);
+
+                                        SelectList cabeloSelect = new SelectList(cabeloList, "Value", "Text", null);
+
+
+
+                                        List<SelectListItem> cabeloEstiloList = new List<SelectListItem>();
+
+                                        SelectListItem Careca = new SelectListItem() { Value = "Careca", Text = "Careca" };
+                                        cabeloEstiloList.Add(Careca);
+
+                                        SelectListItem Liso = new SelectListItem() { Value = "Liso", Text = "Liso" };
+                                        cabeloEstiloList.Add(Liso);
+
+                                        SelectListItem Arrepiado = new SelectListItem() { Value = "Arrepiado", Text = "Arrepiado" };
+                                        cabeloEstiloList.Add(Arrepiado);
+
+                                        SelectListItem Curto = new SelectListItem() { Value = "Curto", Text = "Curto" };
+                                        cabeloEstiloList.Add(Curto);
+
+                                        SelectListItem Cacheados = new SelectListItem() { Value = "Cacheados", Text = "Cacheados" };
+                                        cabeloEstiloList.Add(Cacheados);
+
+                                        SelectListItem Rastafari = new SelectListItem() { Value = "Rastafári", Text = "Rastafári" };
+                                        cabeloEstiloList.Add(Rastafari);
+
+                                        SelectListItem Compridos = new SelectListItem() { Value = "Compridos", Text = "Compridos" };
+                                        cabeloEstiloList.Add(Compridos);
+
+                                        SelectListItem Ondulados = new SelectListItem() { Value = "Ondulados", Text = "Ondulados" };
+                                        cabeloEstiloList.Add(Ondulados);
+
+                                        SelectListItem Raspado = new SelectListItem() { Value = "Raspado", Text = "Raspado" };
+                                        cabeloEstiloList.Add(Raspado);
+
+                                        SelectListItem OutroEstiloCabelo = new SelectListItem() { Value = "Outro", Text = "Outro" };
+                                        cabeloEstiloList.Add(OutroEstiloCabelo);
+
+                                        SelectList cabeloEstiloSelect = new SelectList(cabeloEstiloList, "Value", "Text", null);
+
+                                    }
+
+                                    @Html.DropDownListFor(m => m.Cabelos, cabeloSelect, "-- Selecione --", new { @class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                                    <span>e</span>
+
+                                    @Html.DropDownListFor(m => m.TipoCabelos, cabeloEstiloSelect, "-- Selecione --", new { @class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                                </div>
+                            </div>
+
+                            <div class="info-eyes form-group">
+                                <label>Olhos</label>
+                                @{
+                                    List<SelectListItem> OlhosList = new List<SelectListItem>();
+
+                                    SelectListItem OlhosPretos = new SelectListItem() { Value = "Pretos", Text = "Pretos" };
+                                    OlhosList.Add(OlhosPretos);
+
+                                    SelectListItem OlhosCastanhos = new SelectListItem() { Value = "Castanhos", Text = "Castanhos" };
+                                    OlhosList.Add(OlhosCastanhos);
+
+                                    SelectListItem Verdes = new SelectListItem() { Value = "Verdes", Text = "Verdes" };
+                                    OlhosList.Add(Verdes);
+
+                                    SelectListItem Azuis = new SelectListItem() { Value = "Azuis", Text = "Azuis" };
+                                    OlhosList.Add(Loiros);
+
+                                    SelectListItem Cinzas = new SelectListItem() { Value = "Cinzas", Text = "Cinzas" };
+                                    OlhosList.Add(Cinzas);
+
+                                    SelectListItem OutroOlhos = new SelectListItem() { Value = "Outro", Text = "Outro" };
+                                    OlhosList.Add(OutroOlhos);
+
+                                    SelectList OlhosSelect = new SelectList(OlhosList, "Value", "Text", null);
+
+                                }
+
+                                @Html.DropDownListFor(m => m.Olhos, OlhosSelect, "-- Selecione --", new { @class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                            </div>
+
+                            <div class="info-height form-group">
+                                <label for="info-height">Altura</label>
+                                @Html.TextBoxFor(m => m.Altura, new { @type = "text", @class="form-control ng-pristine ng-untouched ng-valid ng-empty", @maxlength = "4" })
+                                <span>m</span>
+                            </div>
+
+                            <div class="info-wheight form-group">
+                                <label for="info-wheight">Peso</label>
+                                @Html.TextBoxFor(m => m.Peso, new { @type = "text", @class = "form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength", @maxlength = "3" })
+                                <span>Kg</span>
+                            </div>
+
+                            <div class="info-body form-group">
+                                <label for="info-body">Porte físico</label>
+                                @{
+                                    List<SelectListItem> PorteList = new List<SelectListItem>();
+
+                                    SelectListItem Magro = new SelectListItem() { Value = "Magro(a)", Text = "Magro(a)" };
+                                    PorteList.Add(Magro);
+
+                                    SelectListItem Atletico = new SelectListItem() { Value = "Atlético(a)", Text = "Atlético(a)" };
+                                    PorteList.Add(Atletico);
+
+                                    SelectListItem AcimaPeso = new SelectListItem() { Value = "Acima do peso", Text = "Acima do peso" };
+                                    PorteList.Add(AcimaPeso);
+
+                                    SelectListItem Obeso = new SelectListItem() { Value = "Obeso(a)", Text = "Obeso(a)" };
+                                    PorteList.Add(Obeso);
+
+                                    SelectListItem OutroPorte = new SelectListItem() { Value = "Outro", Text = "Outro" };
+                                    PorteList.Add(OutroPorte);
+
+                                    SelectList PorteSelect = new SelectList(PorteList, "Value", "Text", null);
+
+                                }
+
+                                @Html.DropDownListFor(m => m.Corpo, PorteSelect, "-- Selecione --", new { @class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                            </div>
+
+                            <div class="info-smoke form-group">
+                                <label for="info-smoke">Fuma?</label>
+
+                                @{
+                                    List<SelectListItem> PadraoList = new List<SelectListItem>();
+
+                                    SelectListItem Nao = new SelectListItem() { Value = "Não", Text = "Não" };
+                                    PadraoList.Add(Nao);
+
+                                    SelectListItem Socialmente = new SelectListItem() { Value = "Socialmente", Text = "Socialmente" };
+                                    PadraoList.Add(Socialmente);
+
+                                    SelectListItem Sim = new SelectListItem() { Value = "Sim", Text = "Sim" };
+                                    PadraoList.Add(Sim);
+
+                                    SelectList PadraoSelect = new SelectList(PadraoList, "Value", "Text", null);
+
+                                }
+
+                                @Html.DropDownListFor(m => m.Fuma, PadraoSelect, "-- Selecione --", new { @class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                            </div>
+
+                            <div class="info-drink form-group">
+                                <label for="info-drink">Bebe?</label>
+
+                                @Html.DropDownListFor(m => m.Bebe, PadraoSelect, "-- Selecione --", new { @class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+                            </div>
+
+                        </div>
+
+                        <!--<div class="interests-tab ng-hide edit-tab">
+
+                            <div class="interests-for form-group top-label">
+                                <label>Procurando por</label>
+                                <ul bindonce="">
+
+                                    <li class="ng-scope">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span bo-text="lookingFor.name">Homem</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key -->
+                                    <!--<li ng-repeat="lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="lookingFor.status" ng-click="profileEdit.toggleCheckbox(lookingFor)">
+                                            <span bo-text="lookingFor.name">Mulher</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key -->
+                                    <!--<li ng-repeat="lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="lookingFor.status" ng-click="profileEdit.toggleCheckbox(lookingFor)">
+                                            <span bo-text="lookingFor.name">Casal Ele/Ela</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key -->
+                                    <!--<li ng-repeat="lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="lookingFor.status" ng-click="profileEdit.toggleCheckbox(lookingFor)">
+                                            <span bo-text="lookingFor.name">Casal Ele/Ele</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key -->
+                                    <!--<li ng-repeat="lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="lookingFor.status" ng-click="profileEdit.toggleCheckbox(lookingFor)">
+                                            <span bo-text="lookingFor.name">Casal Ela/Ela</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key -->
+                                    <!--<li ng-repeat="lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="lookingFor.status" ng-click="profileEdit.toggleCheckbox(lookingFor)">
+                                            <span bo-text="lookingFor.name">Transexual</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: lookingFor in profileEdit.edit.interestsTab.lookingFor track by lookingFor.key -->
+                                <!--</ul>
+                            </div>
+
+                            <div class="interests-relationships form-group top-label">
+                                <label>Objetivos</label>
+                                <ul bindonce="">-->
+                                    <!-- ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                    <!--<li ng-repeat="relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="relationship.status" ng-click="profileEdit.toggleCheckbox(relationship)">
+                                            <span bo-text="relationship.name">Ménage masculino sem bi</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                    <!--<li ng-repeat="relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="relationship.status" ng-click="profileEdit.toggleCheckbox(relationship)">
+                                            <span bo-text="relationship.name">Ménage masculino com bi</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                    <!--<li ng-repeat="relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="relationship.status" ng-click="profileEdit.toggleCheckbox(relationship)">
+                                            <span bo-text="relationship.name">Sexo a dois</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                    <!--<li ng-repeat="relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="relationship.status" ng-click="profileEdit.toggleCheckbox(relationship)">
+                                            <span bo-text="relationship.name">Sexo em grupo</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                    <!--<li ng-repeat="relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="relationship.status" ng-click="profileEdit.toggleCheckbox(relationship)">
+                                            <span bo-text="relationship.name">Ménage feminino sem bi</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                    <!--<li ng-repeat="relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="relationship.status" ng-click="profileEdit.toggleCheckbox(relationship)">
+                                            <span bo-text="relationship.name">Ménage feminino com bi</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                    <!--<li ng-repeat="relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="relationship.status" ng-click="profileEdit.toggleCheckbox(relationship)">
+                                            <span bo-text="relationship.name">Exibicionismo</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: relationship in profileEdit.edit.interestsTab.relationshipInterests track by relationship.key -->
+                                <!--</ul>
+                            </div>
+
+                            <div class="interests-relationships form-group top-label">
+                                <label>Fetiches</label>
+                                <ul bindonce="">-->
+                                    <!-- ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Sexo anal</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Dotado</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Cuckold</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Voyerismo</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Orgia</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Gang Bang</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Sexting</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Podolatria</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Inversão</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-repeat="fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key" class="ng-scope">
+                                        <label>
+                                            <input type="checkbox" ng-checked="fetish.status" ng-click="profileEdit.toggleCheckbox(fetish)">
+                                            <span bo-text="fetish.name">Dogging</span>
+                                        </label>
+                                    </li>--><!-- end ngRepeat: fetish in profileEdit.edit.interestsTab.fetiches | limitTo: profileEdit.fetishesLimit track by fetish.key -->
+                                    <!--<li ng-show="profileEdit.fetishesLimit === 10" class="">
+                                        <a ng-click="profileEdit.fetishesExpand()">Mais opções</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>-->
+                    </div>
+
+                    <div class="edit-modal-footer">
+                        <button class="sl-btn btn-primary btn-save">Salvar</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.action-close').click(function (e) {
+
+            $('#ShareModal').empty();
+
+            e.preventDefault();
+        });
+
+        $('.js-click-tab-general').click(function (e) {
+            $('.nav-item').removeClass('active');
+            $(this).addClass('active');
+
+
+            $('.edit-tab').css("display", "none");
+
+            $('.general-tab').css("display", "block");
+
+
+            e.preventDefault();
+        });
+
+        $('.js-click-tab-info').click(function (e) {
+            $('.nav-item').removeClass('active');
+            $(this).addClass('active');
+
+            $('.edit-tab').css("display", "none");
+
+            $('.info-tab').css("display", "block");
+
+
+            e.preventDefault();
+        });
+
+        $('.js-click-tab-interesses').click(function (e) {
+            $('.nav-item').removeClass('active');
+            $(this).addClass('active');
+
+            $('.edit-tab').css("display", "none");
+
+            $('.interests-tab').css("display", "block");
+
+
+            e.preventDefault();
+        });
+
+        $("#createProfileModel_Country_str_code").change(function () {
+
+            listaEstados($(this).val());
+        });
+
+        $("#Estados").change(function () {
+
+            $('#Admin1_str_code').val($(this).val());
+            $('#Admin1_str_name').val($('#Estados option:selected').text());
+
+            listaCidades($(this).val());
+        });
+
+        $("#ProfissoesCategoria").change(function () {
+
+            $('#IdGrupoProfissao').val($(this).val());
+            $('#NomeGrupoProfissao').val($('#ProfissoesCategoria option:selected').text());
+
+            listaProfissoes($(this).val());
+        });
+
+        function listaEstados(pais) {
+
+            $.getJSON('@Url.Action("ListaEstados", "Wizard")/' + pais, listaEstadosCallBack);
+        }
+
+        function listaEstadosCallBack(json) {
+
+            $("#Estados :gt(0)").remove();
+            $(json).each(function () {
+                $("#Estados").append("<option value='" + this.Admin1_str_code + "'>" + this.Admin1_str_name + "</option>");
+            });
+        }
+
+        function listaCidades(estado) {
+
+            $.getJSON('@Url.Action("ListaCidades", "Wizard")/' + estado, listaCidadesCallBack);
+        }
+
+        function listaCidadesCallBack(json) {
+
+            $("#Cidades :gt(0)").remove();
+            $(json).each(function () {
+
+                $("#Cidades").append("<option value='" + this.Feature_int_id + "'>" + this.Feature_str_name + "</option>");
+            });
+            }
+
+        function listaProfissoes(profissoes) {
+
+            $.getJSON('@Url.Action("ListaProfissoes", "Wizard")/' + profissoes, listaProfissoesCallBack);
+        }
+
+        function listaProfissoesCallBack(json) {
+
+            $("#ProfissoesSubcategorias :gt(0)").remove();
+            $(json).each(function () {
+
+                $("#ProfissoesSubcategorias").append("<option value='" + this.group + "'>" + this.name + "</option>");
+            });
+        }
+
+        $('#createProfileModel_Country_str_code').val('@Model.createProfileModel.Country_str_code');
+
+        $('.js-edit-location').click(function (e) {
+
+            $(this).css("display", "none");
+            $('.js-location-search-link').css("display","block");
+
+            e.preventDefault();
+        });
+
+        $('.js-edit-job').click(function (e) {
+
+            $(this).css("display", "none");
+            $('.js-job-area').css("display", "block");
+
+            e.preventDefault();
+        });
+
+        $("input[id*='Altura']").inputmask({
+            mask: ['9,99', '9,99'],
+            keepStatic: true
+        });
+
+        $("input[id*='Peso']").inputmask({
+            mask: ['999', '999'],
+            keepStatic: true
+        });
+
+    });
+
+</script>

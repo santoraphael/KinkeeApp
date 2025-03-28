@@ -1,0 +1,82 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+
+<div class="modal-backdrop in " ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}" modal-backdrop="" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal signup" ng-style="{'z-index': 1050 + index*10, display: 'block'}" modal-window="" window-class="sl-modal signup" index="0" style="z-index: 1050; display: block;">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title large primary" style="color:#B8273B;">
+                    <span>Esqueceu sua senha?</span>
+                </h4>
+            </div>
+
+            <div class="modal-body">
+
+                <!-- Reenvio de  -->
+                <div class="text-center" style="@(Model.booleanVariable ? "display:none" : "display:block")">
+                    @using (Html.BeginForm("ForgotPassword", "Account", FormMethod.Post, new { @class = "sl-form ng-pristine ng-invalid ng-invalid-required", @name = "forgetForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.TextBoxFor(m => m.LoginViewModel.Email, new { @type = "text", @class = "form-control input-lg ng-pristine ng-invalid ng-invalid-required", @placeholder = "Digite seu e-mail", @required = "", @name = "username", @maxlength = "100" })
+                        <p class="forget-password">
+                            Enviaremos para seu e-mail um link com as instruções para redefinir a senha.
+                        </p>
+
+                                    <!-- Enviar -->
+                                    <button type="submit" class="sl-btn btn-primary btn-lg btn-block" ng-disabled="loading">
+                                        Enviar
+                                    </button>
+
+                                    <p class="signup-call">
+                                        Ou retorne para <a href="/Account/Login/">tela de login</a>
+                                    </p>
+                    }
+                </div>
+
+                <!-- Confirmação de envio -->
+                <div class="email-confirmation-sent ng-hide" style="@(Model.booleanVariable ? "display:block" : "display:none")">
+                    <h3>Enviamos um email para você. Siga as instruções para redefinir sua senha.</h3>
+                    <p>
+                        Se você não receber o email dentro de alguns minutos, verifique a caixa de spam ou lixo eletrônico de seu email, ou tente <a href="/Account/ForgotPassword/">reenviar sua solicitação.</a>.
+                    </p>
+                    <p>Se ainda precisar de ajuda, envienos um email para <a href="#">ajuda@Kinkee.me</a>.</p>
+                    <button type="button" class="sl-btn btn-default" onclick="location.href='@Url.Action("Login", "Account")'">Voltar para o login</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    
+</div>
+
+
+<script>
+    $('.sl-close').click(function (event) {
+        $('#html_injetado').empty();
+        event.preventDefault();
+    });
+
+
+    $('.btn-signin').click(function (event) {
+        $('#html_injetado').empty();
+
+        $.get('Home/LoginModal', function (data) {
+
+            $('#html_injetado').append(data);
+        });
+
+
+        event.preventDefault();
+    });
+</script>

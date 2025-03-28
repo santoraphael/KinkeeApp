@@ -1,0 +1,208 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutAfiliados.cshtml";
+}
+
+<style>
+    @@media (max-width: 991px) {
+        .aviso-display {
+            display: block !important;
+        }
+    }
+</style>
+
+<div class="aviso-display" style="background-color: #fff5bb; display: none; flex-direction: row; justify-content: space-between; height: 65px; margin: 20px 0">
+    <div style="display: flex; justify-content: center; flex-direction: row; align-items: center; margin-left: 45px; max-width: 450px">
+        <div style="color: #cc0000; font-size: 18px; font-weight: 600; margin-left: 16px"> Atenção!</div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; font-size: 12px; color: #8d8d8d; line-height: 1.5; max-width: 660px">
+        A area de afiliados é melhor visualizadas em telas maiores como de computadores e tablets e em formato desktop. Com isso você terá uma visão melhor de relatórios e informações importantes.
+    </div>
+</div>
+
+<div class="commission">
+    <h2 class="titleCommon titleSpacer">Resumo</h2>
+    <p class="textInfoCommission">
+        Indique novos membros e ganhe comissão sobre todo o gasto e rendimento de cada um deles.<br>
+        Seu link: <div>
+            <input type="text" style=" width: 280px; height: 36px; font-size: 18px; border: none;" id="data" value="https://kinkeesugar.com/u/@ViewBag.CodigoConvite">
+            <button type="button" id="copy" style="height: 36px;">COPIAR</button>
+        </div>
+    </p>
+    <p class="textCommission"><strong>Total de cliques em seu link:</strong> <label style="font-size: 70px;">@ViewBag.NumeroClicks</label></p>
+</div>
+<br />
+<br />
+<br />
+
+
+<div class="resumeReport">
+    <h2 class="titleCommon no-float">
+        Últimos 3 dias @Html.ActionLink("Visualizar últimos 15 dias »", "Relatorios", "Afiliados", null, new {@class= "TabRelatorios linkResumeAll" })
+    </h2>
+    <table class="report-table">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Cliques</th>
+                <th>Cadastros</th>
+                <th>Confirm.</th>
+                <th>Assin.</th>
+                <th>Ganhos</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var first = true;
+                var NumeroClicks = 0;
+                var NumeroCadastros = 0;
+                var NumeroPerfisAprovados = 0;
+                var NumeroAssinaturas = 0;
+                var ValorLiberado = 0.0;
+            }
+            @foreach (var item in ViewBag.Tabela)
+            {
+                <tr>
+                    @if (first)
+                    {
+                        <td>Hoje</td>
+                    }
+                    else
+                    {
+                        <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                    }
+
+                    <td>@item.NumeroClicks</td>
+                    <td>@item.NumeroCadastros</td>
+                    <td>@item.NumeroPerfisAprovados</td>
+                    <td>@item.NumeroAssinaturas</td>
+                    <td>@item.ValorLiberado.ToString("C")</td>
+                </tr>
+
+
+                first = false;
+
+                NumeroClicks += @item.NumeroClicks;
+                NumeroCadastros += @item.NumeroCadastros;
+                NumeroPerfisAprovados += @item.NumeroPerfisAprovados;
+                NumeroAssinaturas += @item.NumeroAssinaturas;
+                ValorLiberado += @item.ValorLiberado;
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Totais</td>
+                <td>@NumeroClicks</td>
+                <td>@NumeroCadastros</td>
+                <td>@NumeroPerfisAprovados</td>
+                <td>@NumeroAssinaturas</td>
+                <td>@ValorLiberado.ToString("C")</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="resumePayment">
+    <h2 class="titleCommon">
+        Pagamentos  @Html.ActionLink("Histórico de pagamentos »", "Pagamentos", "Afiliados", null, new { @class = "linkResumeAll" })
+    </h2>
+        <div class="payment">
+
+            <div class="balance">
+                <h3 class="subTitle">Saldo atual</h3>
+                <h2 class="title green">@ViewBag.saldoLiberado.ToString("C")</h2>
+                <p class="info"></p>
+            </div>
+
+            <div class="nextPayment">
+                <h3 class="subTitle">Próximo pagamento</h3>
+                <h2 class="title green">
+                    @{
+                        var data = DateTime.Now;
+
+                        var dataAtualizada = new DateTime(data.Year, data.Month, DateTime.DaysInMonth(data.Year, data.Month));
+                    }
+                    @dataAtualizada.ToString("dd/MM/yyyy")
+                </h2>
+                <p class="info">aguardando fechamento...</p>
+            </div>
+
+            <div class="lastPayment">
+                <h3 class="subTitle">Último pagamento</h3>
+                <h3 class="subTitle">Não há pagamentos efetuados</h3>
+                <h2 class="title">&nbsp;</h2>
+                <p class="info">&nbsp;</p>
+            </div>
+            <div class="complementaryInfo">
+                Os pagamentos são realizados automaticamente no último dia de cada mês, sendo o fechamento realizado 5 dias antes destas datas.
+            </div>
+
+            <div class="type">
+                <h3 class="subTitle">Forma de pagamento</h3>
+                <h2 class="title">
+                    @Html.ActionLink("definir »", "ConfiguracaoPagamento", "Afiliados", null, new { @class = "linkResumeAll" })
+                </h2>
+            </div>
+        </div>
+</div>
+
+<div class="commission">
+
+    <h3 class="titleCommission">Estatísticas</h3>
+
+    <p class="textInfoCommission">
+        Indique novos membros e ganhe comissão sobre todo o gasto e rendimento de cada um deles.<br>
+        Seu link: <div>
+            <input type="text" style=" width: 280px; height: 36px; font-size: 18px; border: none;" id="data2" value="https://kinkeesugar.com/u/@ViewBag.CodigoConvite">
+            <button type="button" id="copy2" style="height: 36px;">COPIAR</button>
+        </div>
+
+    </p>
+
+    <p class="textCommission"><strong>Total de cliques em seu link:</strong> <label style="font-size: 70px;">@ViewBag.NumeroClicks</label></p>
+    <div class="attention">
+        <h2 class="titleAttention">Atenção!</h2>
+        <p class="textAttention">É proibido enviar mensagens em massa se enquadrando como spam, com seu link de referência. Sua conta poderá ser deletada sem aviso. Qualquer tentativa de enganar o sistema irá resultar na exclusão de sua conta e na perda automática de todo o seu saldo.</p>
+    </div>
+</div>
+
+<ul class="ulListItensContent">
+    <li class="listItemContent">
+        <h2 class="titleItensContent">Material para divulgação</h2>
+        <p class="textItem">
+            Encontre as melhores maneiras de divulgação para converter suas visitas em renda para você. @Html.ActionLink("Ir para Banners &amp; Materiais »", "MaterialApoio", "Afiliados")
+        </p>
+    </li>
+    <li class="listItemContent">
+        <h2 class="titleItensContent">Comissão por indicações</h2>
+        <p class="textItem">
+            Quer indicar novos webmasters e ganhar comissão sobre os ganhos deles? Conheça nosso programa. @Html.ActionLink("Ir para Referências »", "Referencias", "Afiliados")
+        </p>
+    </li>
+    <li class="listItemContent last">
+        <h2 class="titleItensContent">Você tem dúvida?</h2>
+        <p class="textItem">
+            Entre em contato com nossa equipe. Teremos prazer em ajudá-lo. Entrar em contato pelo e-mail: afiliados@@kinkeesugar.com
+        </p>
+    </li>
+</ul>
+
+<script>
+    $(document).ready(function () {
+
+        $(document).ready(function () {
+            $("#copy").click(function () {
+                $("#data").select();
+                document.execCommand("copy");
+                alert("Link de convite copiado");
+            });
+
+            $("#copy2").click(function () {
+                $("#data2").select();
+                document.execCommand("copy");
+                alert("Link de convite copiado");
+            });
+        });
+
+    });
+</script>

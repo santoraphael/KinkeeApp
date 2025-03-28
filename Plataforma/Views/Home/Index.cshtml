@@ -1,0 +1,575 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogedOut.cshtml";
+}
+<!doctype html>
+<html lang="pt-br" class="pt-br desktop">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8;no-cache" />
+<head>
+    <title>Kinkee™ - Encontre o seu Sugar Daddy ou Sugar Baby.</title>
+    <base>
+    <meta property="fb:app_id" content="1015030085319888" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Kinkee - Encontre o seu Sugar Daddy ou Sugar Baby." />
+    <meta name="description" content="Uma das maiores redes sociais de Sugar Baby e Sugar Daddy do Brasil, onde mulheres bonitas e ambiciosas encontram homens de sucesso. Encontre a Sugar Babies ou Sugar Daddies para viagens, luxo e afinidades." />
+    <meta name="keywords" content="Sugar baby wikipedia, viagens,luxo, Sugar Daddies, Sugar Daddi, Sugar Daddie, Sugar Babies, Sugar Daddy, sugar baby, garotas lindas, gatas, milionário, passeios, namoro, namorar homem rico, homem rico, homens ricos, Meu Patrocínio, seekingarrangement, Seeking Arrangement, site de namoro, relacionamento, mulheres, namorar, sugar, baby, daddy, sugar baby site, rede social de relacionamento ,mulheres bonitas, Babies, Daddies, viagens, luxo, afinidade" />
+
+
+    <meta name="author" content="Raphael Santo - weela.com.br" />
+    <meta name="language" content="pt-br" />
+    <meta http-equiv="pragma" content="no-cache">
+
+    <!-- Favicon -->
+    <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
+
+
+    <style type="text/css" rel="stylesheet">
+        @@font-face {
+            font-family: 'Signika Negative';
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-light.eot');
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-light.eot?#iefix') format('embedded-opentype');
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Signika Negative';
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-regular-webfont.eot');
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-regular-webfont.eot?#iefix') format('embedded-opentype'),url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-regular-webfont.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Signika Negative';
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-semibold-webfont.eot');
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-semibold-webfont.eot?#iefix') format('embedded-opentype'),url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/signikanegative-semibold-webfont.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Antonio';
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/Antonio-Bold.eot');
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/Antonio-Bold.eot?#iefix') format('embedded-opentype'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/Antonio-Bold.ttf') format('truetype'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/Antonio-Bold.svg#antoniobold') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Source Sans Pro';
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-bold-webfont.eot');
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-bold-webfont.woff2') format('woff2'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-bold-webfont.woff') format('woff'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-bold-webfont.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Source Sans Pro';
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-light-webfont.eot');
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-light-webfont.woff2') format('woff2'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-light-webfont.woff') format('woff'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-light-webfont.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Source Sans Pro';
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-regular-webfont.eot');
+            src: url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-regular-webfont.woff2') format('woff2'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-regular-webfont.woff') format('woff'), url(' https://app.kinkeesugar.com/pulsar/Kinkee/font/sourcesanspro-regular-webfont.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+    <link id="dynamic-favicon" rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <style type="text/css" rel="stylesheet">
+        @@font-face {
+            font-family: 'Androgyne';
+            src: url('pulsar/Kinkee/font/AndrogyneMedium.eot');
+            src: url('pulsar/Kinkee/font/AndrogyneMedium.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/AndrogyneMedium.woff') format('woff'), url('pulsar/Kinkee/font/AndrogyneMedium.ttf') format('truetype'), url('pulsar/Kinkee/font/AndrogyneMedium.svg#androgyneregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Antonio';
+            src: url('pulsar/Kinkee/font/Antonio-Bold.eot');
+            src: url('pulsar/Kinkee/font/Antonio-Bold.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/Antonio-Bold.ttf') format('truetype'), url('pulsar/Kinkee/font/Antonio-Bold.svg#antoniobold') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/bundle6514.css?v=1476702930" media="screen" />
+    <link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/bootstrap-sl-common6514.css?v=1476702930" media="screen" />
+    <link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/app/home/home.css" media="screen" />
+
+
+
+    <style type="text/css" rel="stylesheet">
+        @@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
+
+        h1.headline {
+            line-height: 20px;
+            padding: 60px 0 10px;
+            border-radius: 4px;
+        }
+
+            h1.headline small {
+                display: none;
+            }
+
+            h1.headline strong {
+                letter-spacing: 0;
+                line-height: 15px;
+            }
+
+                h1.headline strong em, h1.headline strong em + em, h1.headline strong span {
+                    font-style: normal;
+                    font-family: 'Source Sans Pro',sans-serif;
+                    font-size: 29px;
+                    line-height: 29px;
+                    letter-spacing: 0;
+                    background: #B8273B;
+                }
+
+                h1.headline strong span {
+                    padding: 0 4px;
+                    font-weight: 400;
+                }
+
+                h1.headline strong em {
+                    padding: 6px 4px 3px;
+                    font-weight: 900;
+                }
+
+                    h1.headline strong em + em {
+                        padding: 3px 4px 10px;
+                        font-weight: 900;
+                        display: block;
+                        margin: 0 auto;
+                        max-width: 120px;
+                    }
+
+        .home-header .home-header-signup-button .btn-signup {
+            margin-bottom: 65px;
+        }
+
+        @@media (min-width:600px) {
+            h1.headline {
+                margin-top: 80px;
+                margin-bottom: 10px;
+                padding: 10px 0;
+            }
+
+                h1.headline strong span {
+                    padding: 14px 14px 2px 10px;
+                }
+
+                h1.headline strong em {
+                    padding: 4px 10px;
+                }
+
+                    h1.headline strong em, h1.headline strong em + em, h1.headline strong span {
+                        font-size: 29px;
+                        line-height: 29px;
+                    }
+
+                h1.headline strong {
+                    font-size: 28px;
+                }
+
+                    h1.headline strong em + em {
+                        max-width: 160px;
+                    }
+
+            .home-header .home-header-signup-button .btn-signup {
+                margin-bottom: 40px;
+            }
+        }
+
+        @@media (min-width:992px) {
+            h1.headline {
+                margin-top: 90px;
+                margin-bottom: 160px;
+                padding: 0;
+            }
+
+                h1.headline strong span {
+                    padding: 14px 14px 2px 10px;
+                }
+
+                h1.headline strong em {
+                    padding: 9px 2px 14px 10px;
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+
+                    h1.headline strong em + em {
+                        padding: 9px 8px 14px 5px;
+                        position: relative;
+                        right: 9px;
+                        display: inline-block;
+                    }
+
+                h1.headline strong em, h1.headline strong span {
+                    font-size: 29px;
+                    line-height: 29px;
+                }
+
+            .home-header .home-header-signup-button .btn-signup {
+                margin-bottom: 25px;
+            }
+        }
+
+        .home-footer .keep-exploring {
+            display: none;
+        }
+    </style>
+
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            }; if (!f._fbq) f._fbq = n;
+            n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1770434789861416');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=1770434789861416&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="home-navbar">
+        <div class="container-flex">
+            <div class="row">
+
+                <div class="col-md-5">
+                    <a class="brand" href="/">
+                        <img alt="Kinkee" src="~/pulsar/Kinkee/assets/images/modules/home/Kinkee_logo.png" width="160" height="48" />
+                    </a>
+                    <span class="navbar-signin hidden-md hidden-lg">
+                        <span class="already-member hidden-xs">Já é membro?</span>
+                        <a class="btn btn-default btn-signin">Entrar</a>
+                    </span>
+                </div>
+
+                <!--Formulário de login-->
+                <div class="col-md-7 text-right" ng-controller="LoginController">
+
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "navbar-form visible-md-inline-block visible-lg-inline-block", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.LoginViewModel.Email, new { @class = "form-control input-sm", @name = "topLogin", @maxlength = "100", @placeholder = "Usuário ou e-mail", @tabindex = "1" })
+                            @Html.CheckBoxFor(m => m.LoginViewModel.RememberMe, new { @name = "Authorized", @class = "forgot-password", @value = "true", @style = "margin-top: -1px;", @tabindex = "3" }) @Html.LabelFor(m => m.LoginViewModel.RememberMe, new { @class = "forgot-password", @style = "margin-left: 17px;" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.LoginViewModel.Password, new { @type = "password", @name = "topPassword", @class = "form-control input-sm", @placeholder = "Senha", @tabindex = "2" })
+                            <a href="/Account/ForgotPassword/" class="forgot-password">Esqueceu sua senha?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-signin-form ">
+                            <span>Entrar</span>
+                            <span spinner data-color="white" data-size="10"></span>
+                        </button>
+
+                        <!--Mensagens de erro-->
+                        <div class="navbar-form-error"></div>
+
+                        <!--Flag para não validar o recaptcha-->
+                        <input type="hidden" name="navbar">
+                        <input type="hidden" name="postgoto" value="">
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="home-header">
+        <div class="header-headline">
+
+            <!-- VER: FOTO RANDOMICA-->
+
+            <div class="header-headline-background" style="background-image: url('pulsar/Kinkee/images/backgound-luxo.jpg');">
+            </div>
+
+            <!--Headline & Sigup-->
+            <div class="container-flex">
+
+                <!--Headline & Sigup-->
+                <div class="row header-row slim">
+
+                    <!-- Headline -->
+                    <div class="col-md-7">
+
+                        <h1 class="headline">
+                            <small></small>
+                            <strong>
+                                <span>Sinta seu coração bater com um</span>
+                                <em>relacionamento sugar de</em>
+                                <em>verdade</em>
+                            </strong>
+                            <!--<strong>
+                                <span>Sinta seu coração bater com</span>
+                                <em>Um Relacionametno Sugar de</em>
+                                <em>verdade.</em>
+                            </strong>-->
+                        </h1>
+
+
+                        <div class="home-header-signup-button hidden-md hidden-lg">
+                            <a class="btn btn-default btn-lg btn-signup precadastro_se" href="">
+                                Cadastrar Grátis
+                            </a>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="statistics slim">
+                                <div class="container-fluid">
+                                    <div class="row statistic-wrap">
+                                        <div class="col-sm-4 statistic">
+                                            <i class="icon "></i>
+                                            <h2>
+                                                <span home-count-up="25688" data-increment="1-3" class="home-count-up">17.876</span>
+                                                <small>Pessoas cadastradas</small>
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-4 statistic">
+                                            <i class="icon"></i>
+                                            <h2>
+                                                <span home-count-up="7102" data-increment="1-5">44.655</span>
+                                                <small>Fotos</small>
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm-4 statistic">
+                                            <i class="icon "></i>
+                                            <h2>
+                                                <span home-count-up="20144" data-increment="1-1" data-interval="3">476.429</span>
+                                                <small>Mensagens trocadas</small>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--Signup-->
+
+                    @Html.Action("_CadastroPartial", "Home")
+
+                </div>
+            </div>
+
+            <!-- Mapa -->
+            <!--Scroll to more-->
+
+        </div>
+    </header>
+
+
+   <main class="home-main slim" style="background-color:#e9ebee;">
+
+        <div class="container-flex">
+
+
+            <div class="headline-description left">
+
+                <div class="headline-image">
+                    <img src="~/modules/img/baby.png" class="img-responsive" alt="Sugar Baby" width="300" height="300">
+                </div>
+
+                <div class="headline-text">
+                    <h1>
+                        Sugar <em>Baby</em>
+                    </h1>
+                    <p>Ambiciosa, inteligente e decidida, vai muito além da aparência física. Apesar da beleza serve de apoio para o seu dady.</p>
+                </div>
+
+            </div>
+
+
+            <div class="headline-description right">
+
+                <div class="headline-image">
+                    <img src="~/modules/img/daddy.png" class="img-responsive" alt="Sugar Daddy" width="300" height="300">
+                </div>
+
+                <div class="headline-text">
+                    <h1>
+                        Sugar <em>Daddy</em>
+                    </h1>
+                    <p>Homem realizado e influente, é uma pessoa que sabe o que quer. Rico ou não, o importante é que sabe como tratar uma mulher.</p>
+                </div>
+
+            </div>
+
+
+            <div class="headline-description left">
+
+                <div class="headline-image">
+                    <img src="~/modules/img/sugar_dating.png" class="img-responsive" alt="Sugar Dating" width="300" height="300">
+                </div>
+
+                <div class="headline-text">
+                    <h1>
+                        Sugar <em>Dating</em>
+                    </h1>
+                    <p>Relacionamento com benefícios mútuos entre pessoas que querem fugir dos problemas habituais dos romances tradicionais.</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </main>
+    <footer class="home-footer">
+
+        <div class="home-footer-signup">
+
+            <h1 class="footer-signup-headline" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Vem Pulsar</h1>
+            <h2 class="footer-signup-subheadline" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Cadastre-se gratuitamente:</h2>
+
+            <a class="btn btn-default btn-lg btn-signup precadastro_se" href="">
+                Cadastrar Grátis
+            </a>
+
+
+        </div>
+
+        <a class="keep-exploring" href="explorar.html">
+            Ou continue explorando o Kinkee!
+        </a>
+
+        <nav class="home-footer-navbar">
+            <ul>
+                <li><a href="sobre/sobre.html">Kinkee</a></li>
+                <li><a href="sobre/termos.html">Termos</a></li>
+                <li><a href="sobre/privacidade.html">Privacidade</a></li>
+                <li><a href="https://blog.Kinkee.me">Blog</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="home-midia">
+            <div class="container-flex home-container" style="margin-top: 68px;">
+                <h3><em>Powered by</em></h3>
+                <div class="row midia-row">
+
+
+                    <div class="midia">
+                        <img src="~/pulsar/Kinkee/assets/images/modules/home/tecnologia/azure.png" alt="Azure">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    @Scripts.Render("~/modules/js/home");
+    @Scripts.Render("~/Events/events")
+
+
+
+    <div id="html_injetado">
+
+    </div>
+
+
+
+
+</body>
+
+
+
+
+</html>
+
+
+<script>
+    $(document).ready(function () {
+
+
+
+GetCountUsuariosAtivos();
+
+        function GetCountUsuariosAtivos() {
+
+
+        $.ajax({
+            url: '@Url.Action("GetCountUsuariosAtivos", "Home")',
+            dataType: 'json',
+            type: 'GET',
+            success: function (data) {
+            $('.home-count-up').empty();
+            $('.home-count-up').append(data);
+            return false;
+            }
+            });
+            }
+});
+
+</script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-86186988-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1015030085319888',
+            xfbml: true,
+            version: 'v3.0'
+        });
+
+        FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>

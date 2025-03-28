@@ -1,0 +1,276 @@
+﻿
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/modules/css/certification-modal-intro");
+
+<style>
+    .certification-modal__intro--green {
+        background-image: radial-gradient(circle at 51% 32%,#fff,#EDE4E4);
+    }
+
+    .slmodal__body h2 {
+        color: #000;
+    }
+
+    .slmodal__body p {
+        color: #000;
+    }
+
+    .certification-modal__intro--green .slmodal__close {
+        color: #000;
+    }
+
+    .certification-modal__intro--green .slmodal__btn {
+        background-color: #000;
+        color: #fff;
+    }
+</style>
+
+<div class="modal-backdrop in" modal-backdrop="" style="z-index: 1040;"></div>
+
+
+<input value="@ViewBag.nomeUsuarioRecebedor" id="nomeUsuarioRecebedor" name="sth" type="hidden">
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal slmodal undefined" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content" modal-transclude="">
+            <div class="slmodal__content ng-scope">
+                <div class="certification-modal__intro--green ng-scope">
+                    <slmodal-close class="ng-isolate-scope"><div id="js-action-close-modal" class="slmodal__close js-action-close-modal">×</div></slmodal-close>
+                    <div class="slmodal__body slmodal__body--center" ng-transclude="" center="">
+                        <img src='~/modules/img/imagem_pix.png' class="certification-modal__thumb" alt='Verificado'>
+                        <h2 class="ng-binding ng-scope">Mande um Pix de presente</h2>
+
+                        <div class="js-inicio">
+                            <p class="ng-scope">Assim que confirmado, o PIX que enviou aparece para as outras mulheres verem como você é um Sugar Daddy generoso.</p>
+
+                            <button class="slmodal__btn ng-scope ng-isolate-scope js-assinatura-partial">
+                                Enviar Pix agora!
+                            </button>
+                        </div>
+
+                        <div class="js-formulario-pix" style="display:none;">
+                            <p class="ng-scope">Qual valor você quer mandar de presete?</p>
+                            <div style="margin:0 auto;">
+
+                                <form id="form" method="post" action="">
+                                    <p>
+                                        <div class="flex">
+                                            <label for="amount">Qual valor R$</label>
+                                            <input id="amount" name="amount" type="text" maxlength="9" class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength" style="margin: 0 auto; width: 142px; font-size: 26px;" />
+                                        </div>
+                                    </p>
+
+                                    <p id="errorValue" style="display:none;">Adicione um valor</p>
+                                    <button type="submit" class="slmodal__btn ng-scope ng-isolate-scope js-envia-pix">
+                                        <div class="pix spinner" spinner="" data-size="12" style="display:none">
+                                            <div class="one" style="width: 12px; height: 12px;"></div>
+                                            <div class="two" style="width: 12px; height: 12px;"></div>
+                                            <div class="three" style="width: 12px; height: 12px;"></div>
+                                        </div>
+                                        Enviar
+                                    </button>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <div class="js-qrcode-pix" style="display:none;">
+                            <img id="imgPix" src="" />
+
+                            <div class="flex">
+                                <br />
+                                <textarea id="codePix" name="amount" type="text" maxlength="9" class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength" style="margin: 0 auto; height: 180px; font-size: 26px;" />
+                            </div>
+
+                        </div>
+
+                        <div class="js-qrcode-error" style="display:none;">
+                           
+                            <div class="flex">
+                                <br />
+                                <p id="error" class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-empty ng-valid-maxlength" style="margin: 0 auto; height: 180px; font-size: 26px;">
+                                    Usuáio não tem Chave Pix salva! Mas mandamos uma mensagem para ela dizendo que você tentou enviar um presente.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.js-assinatura-partial').click(function () {
+
+        $('.js-inicio').css('display', 'none');
+        $('.js-formulario-pix').css('display', 'block');
+    });
+
+    $('#js-action-close-modal').click(function () {
+        $('#ShareModal').empty();
+    });
+
+
+    (function ($, undefined) {
+
+        "use strict";
+
+        // When ready.
+        $(function () {
+
+            var $form = $("#form");
+            var $input = $form.find("input");
+
+            $input.on("keyup", function (event) {
+
+
+                // When user select text in the document, also abort.
+                var selection = window.getSelection().toString();
+                if (selection !== '') {
+                    return;
+                }
+
+                // When the arrow keys are pressed, abort.
+                if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+                    return;
+                }
+
+
+                var $this = $(this);
+
+                // Get the value.
+                var input = $this.val();
+
+                var input = input.replace(/[\D\s\._\-]+/g, "");
+                input = input ? parseInt(input, 10) : 0;
+
+                $this.val(function () {
+                    return (input === 0) ? "" : formatarMoeda(input);
+                });
+            });
+
+            function formatarMoeda(input) {
+                var valor = input;
+
+                valor = valor + '';
+                valor = parseInt(valor.replace(/[\D]+/g, ''));
+                valor = valor + '';
+
+
+                if (valor.length == 1) {
+                    valor = valor.replace(/([0-9]{1})$/g, "0,$01");
+                }
+
+                if (valor.length < 3) {
+                    valor = valor.replace(/([0-9]{2})$/g, "0,$1");
+                }
+                else {
+                    valor = valor.replace(/([0-9]{2})$/g, ",$1");
+                }
+
+                if (valor.length > 6) {
+                    valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+                }
+
+                input = valor;
+                if (valor == 'NaN') input = '';
+
+                return input;
+            }
+
+
+            /**
+             * ==================================
+             * When Form Submitted
+             * ==================================
+             */
+            $form.on("submit", function (event) {
+                $('#errorValue').css('display', 'none');
+                var $this = $(this);
+                var arr = $this.serializeArray();
+
+                for (var i = 0; i < arr.length; i++) {
+                    arr[i].value = arr[i].value.replace(/[($)\s\._\-]+/g, ''); // Sanitize the values.
+                };
+
+                console.log("valor:"+arr[0].value);
+
+                var nomeUsuarioRecebedor = $('#nomeUsuarioRecebedor').val();
+
+                if (arr[0].value.replace(',', '.') > 0.00) {
+
+                    $('.js-envia-pix').prop("disabled", true);
+                    GerarQrCode(arr[0].value, nomeUsuarioRecebedor);
+                    $('.js-envia-pix').prop("disabled", false);
+                }
+                else {
+                    $('#errorValue').css('display', 'block');
+                }
+
+                event.preventDefault();
+            });
+
+
+            function GerarQrCode(valor, NomeUsuarioRecebedor) {
+                $('.pix.spinner').css('display', 'block');
+                
+                $.ajax({
+                    url: '@Url.Action("GerarQrCode", "Dating")',
+                    data: {
+                        'Valor': valor,
+                        'NomeUsuarioRecebedor': NomeUsuarioRecebedor,
+                    },
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (resultado) {
+                        if (resultado !== "") {
+
+                            console.log(resultado.ChaveCriada);
+
+                            if (resultado.ChaveCriada === true) {
+                                $(imgPix).attr('src', 'data:image/png;base64, ' + resultado.Imagem);
+                                console.log(resultado);
+                                $(codePix).val(resultado.Codigo);
+                                $('.js-formulario-pix').css('display', 'none');
+                                $('.js-qrcode-pix').css('display', 'block');
+                            }
+                            else {
+                                $('.js-formulario-pix').css('display', 'none');
+                                $('.js-qrcode-error').css('display', 'block');
+                            }
+                        }
+                    }
+                });
+            }
+
+            function fetchBlob(uri, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', uri, true);
+                xhr.responseType = 'arraybuffer';
+
+                xhr.onload = function (e) {
+                    if (this.status == 200) {
+                        var blob = this.response;
+                        if (callback) {
+                            callback(blob);
+                        }
+                    }
+                };
+                xhr.send();
+            };
+
+
+
+        });
+    })(jQuery);
+
+</script>

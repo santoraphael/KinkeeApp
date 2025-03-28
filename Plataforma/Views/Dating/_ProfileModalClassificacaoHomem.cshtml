@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/modules/css/certification-modal-intro");
+
+
+
+<div class="modal-backdrop in" modal-backdrop="" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal slmodal undefined" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content" modal-transclude="">
+            <div class="slmodal__content ng-scope">
+                <div class="certification-modal__intro--homem ng-scope">
+                    <slmodal-close class="ng-isolate-scope"><div id="js-action-close-modal" class="slmodal__close">×</div></slmodal-close>
+                    <div class="slmodal__body slmodal__body--center" ng-transclude="" center="">
+
+                        <h2 class="ng-binding ng-scope">Classificação do Sugar Score</h2>
+                        <p class="ng-scope">Sugar Daddies e Babies são classificadas com cartões de crédito e cada cartão tem uma quantidade de pontuação. Quanto maior a pontuação maiores as chances de ser um bom Sugar.</p>
+                        <br />
+
+                        <div style="margin: 0 auto; width: 300px; padding-bottom: 130px;">
+                            <div class="certification-modal__thumb">
+                                <label>NACIONAL</label>
+                                <img src="~/modules/img/1_cartao_nacional.svg" />
+                                <label>(1 - 1499)</label>
+                            </div>
+
+                            <div class="certification-modal__thumb">
+                                <label>INTERNACIONAL</label>
+                                <img src="~/modules/img/2_cartao_internacional.svg" />
+                                <label>(1500 - 1999)</label>
+                            </div>
+
+                            <div class="certification-modal__thumb">
+                                <label>GOLD</label>
+                                <img src="~/modules/img/3_cartao_gold.svg" />
+                                <label>(2000 - 2499)</label>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <div style="margin: 0 auto; width: 300px; padding-bottom: 130px;">
+                            <div class="certification-modal__thumb">
+                                <label>PLATINUM</label>
+                                <img src="~/modules/img/4_cartao_platinum.svg" />
+                                <label>(2500 - 2999)</label>
+                            </div>
+
+                            <div class="certification-modal__thumb">
+                                <label>BLACK</label>
+                                <img src="~/modules/img/5_cartao_black.svg" />
+                                <label>(3000 - 3499)</label>
+                            </div>
+
+                            <div class="certification-modal__thumb">
+                                <label>INFINITY</label>
+                                <img src="~/modules/img/6_cartao_infinity.svg" />
+                                <label>(3500 - 3999)</label>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <div style="margin: 0 auto; width: 100px; padding-bottom:130px;">
+                            <div class="certification-modal__thumb">
+                                <label>UNLIMITED</label>
+                                <img src="~/modules/img/7_cartao_unlimited.svg" />
+                                <label>(4000 - 5000)</label>
+                            </div>
+                        </div>
+
+                        @if (!ViewBag.Assinatura)
+                        {
+                            <button class="slmodal__btn ng-scope ng-isolate-scope js-assinatura-partial">
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.js-assinatura-partial').click(function () {
+
+
+        $('#mensagemModal').empty();
+        $('#preLoadModal').css('display', 'block');
+
+        $.get('@Url.Action("_ModalPremiumPartial", "MinhaConta")', function (data) {
+
+
+            $('#preLoadModal').css('display', 'none');
+
+            $('#ShareModal').append(data);
+        });
+    });
+</script>

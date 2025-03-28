@@ -1,0 +1,218 @@
+﻿
+@{
+    Layout = null;
+}
+
+<style>
+</style>
+
+<div class="sl-promotion closeable toggleable promotion-conversion ng-scope js-banner-principal active" style="background-image: radial-gradient(circle at 50% 32%,#7E4B93,#682C82); opacity: 0.9 !important;">
+
+    <div class="promotion-header">
+
+        @*MAX 50 CARACTERES*@
+        <h1>Esse é um perfil PRIVADO</h1>
+
+        @*MAX 140 CARACTERES*@
+        <p><b>Assine</b> e tenha acesso total a todo o conteúdo dele. Entre em contato direto com o usuário. Cancele sua assinatura a qualquer momento. </p>
+
+
+        <button class="back js-btn-voltar" onclick="location.href='@Url.Action("Index", "Dating")'" type="button">
+            <!-- Voltar -->
+            <span class="sl-svg-back" svg-icon="back">
+                <svg viewBox="0 0 12 10" xmlns="http://www.w3.org/2000/svg" fill="#D8D8D8" width="12" height="10">
+                    <path d="M3.77817459,4 L6.36396103,1.41421356 L4.94974747,1.24344979e-14 L-2.85549362e-13,4.94974747 L0.707106781,5.65685425 L4.94974747,9.89949494 L6.36396103,8.48528137 L3.87867966,6 L12,6 L12,4 L3.77817459,4 Z"></path>
+                </svg>
+            </span>
+        </button>
+
+    </div>
+
+    <div class="promotion-body" id="listaplanosbannerbloqueio">
+
+        <!-- Countdown -->
+        <!-- Usar sempre desta forma -->
+        <!-- Promoção combo -->
+
+        @if (ViewBag.Produtos != null)
+        {
+            <table class="table table-hover table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="fa fa-list"></i> Tipo de Assinatura
+                        </th>
+                        <th>
+                            <i class="fa fa-shopping-basket"></i> Assine
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in ViewBag.Produtos)
+                {
+                    <tr>
+                        <td>
+                            <i class="fa fa-clock-o"></i> @item.NameProduct
+                        </td>
+                        <td>
+                            <a class="btn btn-success assinaplanofanclub" data-hash="@item.HashPagSeguroPlan"><i class="fa fa-check"></i> Assinar</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <button type="button" id="btnpagseguro" class="hidden"></button>
+        }
+        else
+        {
+            <button class="sl-btn btn-lg btn-default call-to-action" style="width: auto;" onclick="location.href='@Url.Action("Assinatura", "MinhaConta")'">Você ainda não pode ser fan dessa pessoa</button>
+        }
+        <br />
+    <div>
+        <b style="font-size: 16px; color: #fff;">Fãs e Pretendentes</b>
+        <h2 style="font-size: 26px; line-height: 28px; text-align: center; width: 100%; height: auto; margin: 20px 0 10px 0; font-weight: 700; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);color: #fff;">
+            @ViewBag.Fas
+        </h2>
+        <hr />
+
+        <b style="font-size: 16px; color: #fff;">Posts, Fotos e Videos</b>
+        <h2 style="font-size: 26px; line-height: 28px; text-align: center; width: 100%; height: auto; margin: 20px 0 10px 0; font-weight: 700; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);color: #fff;">
+            @ViewBag.PostsFotosVideos
+        </h2>
+    </div>
+        
+
+    </div>
+    <div id='tabelapagamentos' class='row col-lg-12  hidden' style='background:white;margin-top:20px;'>
+        <div id='listaformasdepagamento' class='row'>
+            <div class="clearfix col-lg-12">
+                <h4><i class="fa fa-bank"></i>  Escolha a forma de pagamento abaixo: </h4>
+            </div>
+            <div class="clearfix col-lg-12"></div>
+            <br />
+            <div id="divpagamentoboleto" class="hidden d-none col-lg-4">
+                <input type="radio" name="tipopagamento" id="btnboleto" class="tipopagamento" value="1"><b>Boleto</b>
+            </div>
+            <div id="divpagamentocartao" class="hidden d-none col-lg-4">
+                <input type="radio" name="tipopagamento" class="tipopagamento" value="2"><b>Cartão de Crédito</b>
+            </div>
+            <div id="divpagamentodebito" class="hidden d-none col-lg-4">
+                <input type="radio" name="tipopagamento" class="tipopagamento" value="3"><b>Débito Online</b>
+            </div>
+        </div>
+        <div class='col-lg-12 d-none hidden row' id='containerboleto'></div>
+        <div class='col-lg-12 d-none hidden row' id='containercartaodecredito'></div>
+        <div class='col-lg-12 d-none hidden row' id='containerdebitoonline'></div>
+        <div class='col-lg-12 d-none hidden row' id='containerlistaparcelas'></div>
+        <div class='col-lg-12 d-none hidden row' id='containerdadoscartao'>
+            <form action="" id="formcartao" method="post" class=" col-lg-12 bg-white">
+                <div class='row'><div class='col-lg-12'><h4><i class="fa fa-credit-card"></i> Preencha os dados do cartão:</h4></div></div>
+                <div class='row'>
+                    <input type="hidden" name="hashplan"  id="hashplan"/>
+                    <div class="col-lg-12"></div>
+                    <div class="col-lg-6 form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" name="sendername" value='' class="form-control validate[required]" id="sendername">
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" value='' class="form-control validate[required,custom[email]]" id="email">
+                    </div>
+                    <div class="col-lg-2 form-group">
+                        <label>DDD</label>
+                        <input type="number" name="phoneareaCode" value='' class="form-control validate[required,minSize[2],maxSize[2],number]" id="phoneareaCode">
+                    </div>
+                    <div class="col-lg-5 form-group">
+                        <label>Telefone</label>
+                        <input type="number" name="phonenumber" value='' class="form-control validate[required,minSize[9],maxSize[9],number]" id="phonenumber">
+                    </div>
+                    <div class='col-lg-12'></div>
+
+                    <div class="col-lg-4 form-group">
+                        <label>Endereço</label>
+                        <input type="text" name="addressstreet" value='' class="form-control validate[required]" id="addressstreet">
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label>Número</label>
+                        <input type="number" name="addressnumber" value='' class="form-control validate[required,number]" id="addressnumber">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Bairro</label>
+                        <input type="text" name="addressdistrict" value='' class="form-control validate[required]" id="addressdistrict">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Cidade</label>
+                        <input type="text" name="addresscity" value='' class="form-control validate[required]" id="addresscity">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Estado</label>
+                        <input type="text" name="addressstate" value='' class="form-control validate[required,minSize[2],maxSize[2]]" id="addressstate">
+                    </div>
+                    <div class="col-lg-4 form-group hidden">
+                        <label>País</label>
+                        <input type="text" name="addresscountry" value='BRA' class="form-control validate[required]" id="addresscountry">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>CEP</label>
+                        <input type="number" name="addresspostalCode" value='' class="form-control validate[required,minSize[8],maxSize[8],number]" id="addresspostalCode">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>CPF</label>
+                        <input type="number" name="documentsvalue" value='' class="form-control validate[required,minSize[11],maxSize[11],number]" id="documentsvalue">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Data de Nascimento</label>
+                        <input type="text" name="datadenascimento" value='' class="form-control calendario validate[required]" id="datadenascimento">
+                    </div>
+                    <input type='hidden' name='tokencreditcard' id='tokencreditcard'>
+                    <div class="col-lg-8 form-group">
+                        <label>Número do Cartão</label>
+                        <input type="text" name="numerodocartao" value='' class="form-control validate[required]" id="numerodocartao">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Código CVV   </label>
+                        <input type="text" name="cvv" id="cvv" value='' class="form-control validate[required]">
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-lg-12"></div>
+                    <br />
+                    <br />
+                    <div class="col-lg-4 form-group">
+                        <label>Mês de Expiração   </label>
+                        <input type="number" min="1" max="12" name="mesexpiracartao" value='12' id="mesexpiracartao" class="form-control validate[required]">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Ano de Expiração   </label>
+                        <select name='anoexpiracartao' id='anoexpiracartao' class="form-control validate[required]">
+                            <option value=''>Selecione</option>
+                            <option value='2030' selected="selected">2020</option>
+                            <option value='2021'>2021</option>
+                            <option value='2022'>2022</option>
+                            <option value='2023'>2023</option>
+                            <option value='2024'>2024</option>
+                            <option value='2025'>2025</option>
+                            <option value='2026'>2026</option>
+                            <option value='2027'>2027</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12">
+                        <br />
+                        <a href="javascript:;" class="btn btn-success pull-right" id="btnescolhecartao"><i class="fa fa-paper-plane-o"></i> Enviar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class='col-lg-12 d-none hidden' id='containerdebito'></div>
+        <div class='col-lg-12 d-none hidden row' id='containerparcelascartao'></div>
+    </div>
+
+</div>
+<script>
+    
+        const usuarioModel =@Html.Raw(Json.Encode(ViewBag.Usuario));
+        const btniniciaprocesso = 'btnpagseguro';
+        const tipo = 'assinaturafanclub';
+        const itens = [['1', 'Plano', '29.90', '1']];
+        const containerrealizaprocessamento = 'process';
+        Jss = ['finalizacompra','assinaturafanclub'];
+</script>

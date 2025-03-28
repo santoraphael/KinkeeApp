@@ -1,0 +1,127 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutAfiliados.cshtml";
+}
+
+<h2 class="titleCommon titleSpacer">Relatórios</h2>
+@*<div class="filters">
+        <div class="itemFilter">
+            <label class="labelFilter">Visualizar</label>
+            <div id="boxDropReportPeriod" class="btn dfl drop dropLeft">
+                <span>Últimos 15 dias</span>
+                <div class="boxDrop">
+                    <ul class="ulDrop">
+                        <li class="itemDrop"><a class="linkDrop" href="#">Últimos 30 dias</a></li>
+                        <li class="itemDrop select"><a class="linkDrop" href="#">Últimos 15 dias</a></li>
+                        <li class="itemDrop"><a class="linkDrop" href="#">Últimos 7 dias</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<style>
+    .report-table td:first-child, .report-table th:first-child {
+        border-right: 1px solid #d3d3d3;
+        width: 3%;
+    }
+
+    #container .main, #container #main {
+        width: 1300px;
+    }
+</style>
+
+
+
+@if (ViewBag.tipo == "Assinatura")
+{
+    if (ViewBag.Operacao != null)
+    {
+        <p>@ViewBag.Operacao.Id</p>
+        <p>@ViewBag.Operacao.userId</p>
+        <p>@ViewBag.Operacao.subscriptionId</p>
+        <br />
+        <hr />
+        <h3>PLANO</h3>
+        <p>@ViewBag.Operacao.plan.id</p>
+        <p>@ViewBag.Operacao.plan.amount</p>
+        <p>@ViewBag.Operacao.plan.days</p>
+        <p>@ViewBag.Operacao.plan.name</p>
+        <p>@ViewBag.Operacao.plan.trial_days</p>
+        <p>@ViewBag.Operacao.plan.date_created</p>
+        <p>@ViewBag.Operacao.plan.payment_methods</p>
+        <p>@ViewBag.Operacao.plan.color</p>
+        <p>@ViewBag.Operacao.plan.charges</p>
+        <p>@ViewBag.Operacao.plan.installments</p>
+        <p>@ViewBag.Operacao.plan.invoice_reminder</p>
+        <p>@ViewBag.Operacao.plan.payment_deadline_charges_interval</p>
+
+        <br />
+        <hr />
+        <h3>TRANSACAO</h3>
+        <p>@ViewBag.Operacao.current_transaction.status</p>
+        <p>@ViewBag.Operacao.current_transaction.refuse_reason</p>
+        <p>@ViewBag.Operacao.current_transaction.status_reason</p>
+        <p>@ViewBag.Operacao.current_transaction.acquirer_response_code</p>
+        <p>@ViewBag.Operacao.current_transaction.acquirer_name</p>
+        <p>@ViewBag.Operacao.current_transaction.acquirer_id</p>
+        <p>@ViewBag.Operacao.current_transaction.authorization_code</p>
+        <p>@ViewBag.Operacao.current_transaction.soft_descriptor</p>
+        <p>@ViewBag.Operacao.current_transaction.tid</p>
+        <p>@ViewBag.Operacao.current_transaction.nsu</p>
+        @*<p>@ViewBag.Operacao.current_transaction.stdate_createdatus</p>*@
+        <p>@ViewBag.Operacao.current_transaction.date_updated</p>
+        <p>@ViewBag.Operacao.current_transaction.amount</p>
+        <p>@ViewBag.Operacao.current_transaction.authorized_amount</p>
+        <p>@ViewBag.Operacao.current_transaction.paid_amount</p>
+        <p>@ViewBag.Operacao.current_transaction.refunded_amount</p>
+        <p>@ViewBag.Operacao.current_transaction.installments</p>
+        <p>@ViewBag.Operacao.current_transaction.id</p>
+        <p>@ViewBag.Operacao.current_transaction.cost</p>
+        <p>@ViewBag.Operacao.current_transaction.card_holder_name</p>
+        <p>@ViewBag.Operacao.current_transaction.card_last_digits</p>
+        <p>@ViewBag.Operacao.current_transaction.card_first_digits</p>
+        <p>@ViewBag.Operacao.current_transaction.card_brand</p>
+        <p>@ViewBag.Operacao.current_transaction.card_pin_mode</p>
+        <p>@ViewBag.Operacao.current_transaction.card_magstripe_fallback</p>
+        <p>@ViewBag.Operacao.current_transaction.cvm_pin</p>
+        <p>@ViewBag.Operacao.current_transaction.postback_url</p>
+        <p>@ViewBag.Operacao.current_transaction.payment_method</p>
+        <p>@ViewBag.Operacao.current_transaction.capture_method</p>
+        <p>@ViewBag.Operacao.current_transaction.antifraud_score</p>
+        <p>@ViewBag.Operacao.current_transaction.boleto_url</p>
+        <p>@ViewBag.Operacao.current_transaction.boleto_barcode</p>
+        <p>@ViewBag.Operacao.current_transaction.boleto_expiration_date</p>
+        <p>@ViewBag.Operacao.current_transaction.referer</p>
+        <p>@ViewBag.Operacao.current_transaction.ip</p>
+        <p>@ViewBag.Operacao.current_transaction.subscription_id</p>
+        <p>@ViewBag.Operacao.current_transaction.metadata</p>
+        <p>@ViewBag.Operacao.current_transaction.antifraud_metadata</p>
+        <p>@ViewBag.Operacao.current_transaction.reference_key</p>
+        <p>@ViewBag.Operacao.current_transaction.device</p>
+        <p>@ViewBag.Operacao.current_transaction.local_transaction_id</p>
+        <p>@ViewBag.Operacao.current_transaction.local_time</p>
+        <p>@ViewBag.Operacao.current_transaction.fraud_covered</p>
+        <p>@ViewBag.Operacao.current_transaction.fraud_reimbursed</p>
+        <p>@ViewBag.Operacao.current_transaction.order_id</p>
+        <p>@ViewBag.Operacao.current_transaction.risk_level</p>
+        <p>@ViewBag.Operacao.current_transaction.receipt_url</p>
+        <p>@ViewBag.Operacao.current_transaction.payment</p>
+        <p>@ViewBag.Operacao.current_transaction.addition</p>
+        <p>@ViewBag.Operacao.current_transaction.discount</p>
+        <p>@ViewBag.Operacao.current_transaction.private_label</p>
+        <p>@ViewBag.Operacao.current_transaction.pix_qr_code</p>
+        <p>@ViewBag.Operacao.current_transaction.pix_expiration_date</p>
+
+    }
+    else
+    {
+        <div style="width: 100%; margin-top: 10px; float: left; text-align: right;">
+            <p style="font-size: 11px;"><span style="color: red">**</span> Nenhum registro encontrado.</p>
+        </div>
+    }
+}
+
+

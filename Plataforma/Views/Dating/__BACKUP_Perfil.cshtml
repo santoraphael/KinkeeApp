@@ -1,0 +1,417 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee™ - " + @Html.DisplayFor(m => m.PerfilViewModel.Usuario);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/site.css" rel="stylesheet" />
+<link href="~/modules/css/perfil.css" rel="stylesheet" />
+<link href="~/pulsar/Kinkee/assets/css/sl/comum.css" rel="stylesheet" />
+
+
+
+<link href="~/modules/css/blueimp-gallery.min.css" rel="stylesheet" />
+<script type="text/javascript">
+    GetGenero();
+</script>
+
+<style>
+    #links img {
+        max-width: 160px;
+    }
+
+    .aside.sidebar .sidebar-header input.fake-search {
+        width: calc(100% - 45px) !important;
+    }
+</style>
+
+<div ng-controller="ExploreController" class="ng-scope">
+
+    <div class="container-flex gutter-small">
+
+        <div class="profile-container">
+
+            <div id="leftPanel">
+                <div class="userBoxProfile">
+                    <div class="userImg aChangeAvatar">
+
+                        @{
+                            String urlImagePerfil = Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString();
+
+                            HttpCookie urlCookie = new HttpCookie("urlCookie");
+                            urlCookie.Value = Request.Url.AbsoluteUri;
+                            Response.Cookies.Add(urlCookie);
+                        }
+
+                        @if (String.IsNullOrEmpty(urlImagePerfil))
+                        {
+                            <div class="container" id="imgAvatarPro" style="background-image: url( https://app.kinkeesugar.com/pulsar/Kinkee/assets/images/modules/sobre/profile.png)"></div>
+                            @*<img id="imgAvatarPro" class="imgMyAvatar" src=" https://app.kinkeesugar.com/pulsar/Kinkee/assets/images/modules/sobre/profile.png" alt="@HttpContext.Current.User.Identity.Name">*@
+                        }
+                        else
+                        {
+                            <div class="container imgMyAvatar" id="imgAvatarPro" data-toggle="modal" data-target="#myModal" style="background-image: url(@urlImagePerfil)"></div>
+                            @*<img id="imgAvatarPro" data-toggle="modal" data-target="#myModal" class="imgMyAvatar" src="@urlImagePerfil" alt="@HttpContext.Current.User.Identity.Name">*@
+                        }
+
+                        <div class="userInfo">
+                            <h5>@Html.DisplayFor(m => m.PerfilViewModel.Name, new { @class = "form-control" }) @Html.DisplayFor(m => m.PerfilViewModel.Lastname, new { @class = "form-control" })</h5>
+                            <br />
+                            <p>(@@@Html.DisplayFor(m => m.PerfilViewModel.Usuario, new { @id = "idUser", @class = "form-control" }))</p>
+                            <br />
+                            @Html.DisplayFor(m => m.PerfilViewModel.Endereco.Cidade, new { @type = "text", @name = "cidade", @id = "lblCidade" })
+                            @if ((Model.PerfilViewModel.Endereco != null) && (!String.IsNullOrEmpty(Model.PerfilViewModel.Endereco.Cidade)))
+                            {
+                                @Html.Raw(",");
+                            }
+                            @Html.DisplayFor(m => m.PerfilViewModel.Endereco.Estado, new { @type = "text", @name = "estado", @id = "lblEstado" })
+
+                        </div>
+                    </div>
+                    @if (ViewBag.habilitaEdicao)
+                    {
+                        <div class="userInfo" style="width:100%">
+
+                            @*<div class="btnEditProfile newEditProfile" style="width: 113%;">
+                                    <a href="/MinhaConta/EditarPerfil/">Editar perfil</a>
+                                </div>*@
+                            <div class="wrap">
+                                <a href="/MinhaConta/EditarPerfil/" style="width:150px" class="btn6 btnGeneral">Editar perfil</a>
+                            </div>
+                            @*<ul>
+                                    <li class="aEdit">
+                                        <a href="">Editar fotos e vídeos</a>
+                                    </li>
+                                    <li class="aEdit" id="themesProfile">
+                                        <a href="">Editar temas e cores</a>
+                                    </li>
+                                    <li class="aEdit">
+                                        <a href="">Popularidade</a>
+                                    </li>
+                                </ul>*@
+                        </div>
+                    }
+
+
+                </div>
+                <div class="widget">
+                    <h2>Estatísticas</h2>
+                    <p>
+                        <strong>
+                            @if (ViewBag.GaleriaFotos != null)
+                            {
+                                @ViewBag.GaleriaFotos.Count;
+                            }
+                            else
+                            {
+                                <label>0</label>
+                            }
+
+                        </strong> Fotos
+                    </p>
+
+                    @*<p><strong>@Html.DisplayFor(m => m.PerfilViewModel.visitasPerfil)</strong> visitas</p>*@
+                    <hr>
+                    <p>
+                        <strong>
+                            @if (Model.PerfilViewModel.PerfilTop)
+                            {
+                                <label>TOP PERFIL</label>
+                            }
+                        </strong>
+                    </p>
+
+                    <hr>
+                    @*<a href="">Ver todas as estatísticas</a>*@
+                </div>
+
+                @if (!ViewBag.habilitaEdicao)
+                {
+                    <div class="widget">
+                        <a href="" id="btn-mensagem" class="sl-btn btn-primary-inverse text-uppercase" title="Enviar Mensagem">Enviar Mensagem</a><br /><br /><br />
+                        @*<a href="#" id="btn-favorito" js-usuario="@Model.PerfilViewModel.Usuario" class="sl-btn btn-primary-inverse text-uppercase" title="Enviar Mensagem">Add aos Favoritos</a>*@
+                    </div>
+
+                    <div class="widget">
+                        <a href="javasctipt:void(0);" class="abuse">Denunciar este usuário</a>
+                    </div>
+                }
+
+            </div>
+
+
+            <!-- FOTO -->
+            <div id="content">
+                @if (Model.PerfilViewModel.PerfilVerificado)
+                {
+                    <div id="contentProfile">
+                        <img style="float:left; margin-right: 2px;" width="25" src="~/modules/img/perfil_verificado.png" /> <h3>Perfil Verificado.</h3><br />
+                        <p style="font-size: 15px;">Esse perfil foi verificado, então as informações contidas nele como fotos, descrição e outras são consideradas como verdadeiras.</p>
+                    </div>
+                }
+
+                @if (Model.PerfilViewModel.ContaGold)
+                {
+                    <div id="contentProfile">
+                        <img style="float:left; margin-right: 2px;" width="25" src="~/modules/img/perfil_gold.png" /> <h3>Perfil Gold.</h3><br />
+                        <p style="font-size: 15px;">Ser gold significa ter alguns privilégios que a conta free não tem.</p>
+                    </div>
+                }
+
+
+
+                <div id="contentProfile">
+
+
+                    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                        <div class="slides"></div>
+                        <h3 class="title"></h3>
+                        <a class="prev">‹</a>
+                        <a class="next">›</a>
+                        <a class="close">×</a>
+                        <a class="play-pause"></a>
+                        <ol class="indicator"></ol>
+                    </div>
+
+                    @if (ViewBag.GaleriaFotos != null && ViewBag.GaleriaFotos.Count > 0)
+                    {
+                        <div id="links">
+                            @foreach (var item in ViewBag.GaleriaFotos)
+                            {
+                                if (!item.isPrivate)
+                                {
+                                    <div style="float: left; margin-left:10px;">
+
+                                        <a href="@item.UrlFoto" onclick="return false;" title="@HttpContext.Current.User.Identity.Name">
+                                            @*<img src="@item.UrlFoto" width="160" height="160" class="js-img-galeria" alt="@HttpContext.Current.User.Identity.Name">*@
+                                            <div class="container js-img-galeria" id="@item.UrlFoto" style="background-image: url(@item.UrlFoto)"></div>
+                                        </a>
+
+                                        @if (ViewBag.habilitaEdicao)
+                                        {
+                                            @*<br />
+
+                                                if (item.isPrivate)
+                                                {
+                                                    <div style="z-index:9999999999" class="js-privada-foto">
+                                                        <p style="background-color:#B8273B; cursor:default; color:#FFF;">
+                                                            TIRAR PROTEÇÃO
+                                                        </p>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div style="z-index:9999999999" class="js-privada-foto">
+                                                        <p style="background-color:#B8273B; color:#FFF;">
+                                                            FOTO PRIVADA
+                                                        </p>
+                                                    </div>
+                                                }*@
+
+                                            <div style="z-index:9999999999" class="js-exclui-foto">
+                                                <p style="background-color:#B8273B; color:#FFF;">
+                                                    <img src="~/modules/img/trash.png" width="20" height="20" /> EXCLUIR FOTO
+                                                </p>
+                                            </div>
+                                            <br />
+                                            <br />
+                                        }
+
+                                    </div>
+                                }
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <h2 class="msgNoFile">Perfil ainda não enviou<br> nenhuma foto.</h2>
+                    }
+
+
+                    @if (ViewBag.habilitaEdicao)
+                    {
+                        <div style="float: left;width:100%;clear: both">
+                            <a style="text-align:center;width:240px;" class="btn6 btnGeneral">
+                                <p data-toggle="modal" data-target="#myModalEnviaFoto" class="myModalEnviaFoto">Enviar uma foto</p>
+                            </a>
+                        </div>
+                        @*<div id="btEditNoPicture" class="btnEditProfile fileinput-button">
+
+                                <a style="    background-color: #36C959;">
+                                    <p  data-toggle="modal" data-target="#myModalEnviaFoto" class="myModalEnviaFoto" >Enviar uma foto agora</p>
+                                </a>
+                            </div>*@
+                    }
+
+                </div>
+
+                <!--FOTO PRIVADA-->
+                @*<div id="contentProfile">
+
+
+                        <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                            <div class="slides"></div>
+                            <h3 class="title"></h3>
+                            <a class="prev">‹</a>
+                            <a class="next">›</a>
+                            <a class="close">×</a>
+                            <a class="play-pause"></a>
+                            <ol class="indicator"></ol>
+                        </div>
+
+                        @if (ViewBag.GaleriaFotos != null)
+                        {
+                            <div id="links">
+                                @foreach (var item in ViewBag.GaleriaFotos)
+                                {
+
+                                    <a href="@item" onclick="return false;" title="@HttpContext.Current.User.Identity.Name">
+                                        <img src="@item" alt="@HttpContext.Current.User.Identity.Name">
+                                    </a>
+
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <h2 class="msgNoFile">Perfil ainda não enviou<br> nenhuma foto.</h2>
+                        }
+
+
+
+
+                        @if (ViewBag.habilitaEdicao)
+                        {
+                            <div id="btEditNoPicture" class="btnEditProfile fileinput-button">
+
+                                <a>
+                                    <p data-toggle="modal" data-target="#myModalEnviaFotoPrivada" class="myModalEnviaFoto">Enviar uma foto agora</p>
+                                </a>
+
+                            </div>
+                        }
+
+                    </div>*@
+                <div id="contentProfile">
+                    <p style="font-size: 17px;">
+                        <strong>Expectativa financeira do relacionamento:</strong> @ViewBag.Expectativa
+                    </p>
+                </div>
+
+                <div id="contentProfile">
+                    <p style="font-size: 17px;">@Html.DisplayFor(m => m.PerfilViewModel.Descricao, new { @class = "form-control" })</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: right;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <img id="imgAvatarPro" style="width:100%" class="imgMyAvatar" src="@urlImagePerfil" alt="@HttpContext.Current.User.Identity.Name">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- FOTO -->
+<div class="modal fade" id="myModalEnviaFoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Selecionar Imagem</h4>
+            </div>
+
+            <script>
+                var loadFile = function (event) {
+                    var output = document.getElementById('output');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                };
+</script>
+            @using (Html.BeginForm("SalvaFotoGaleria", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="modal-body">
+
+                    <input type="file" accept="image/*" onchange="loadFile(event)" name="file" id="file" /><br><br>
+
+                    <br><br>
+                    <img id="output" style="max-width: 568px;" />
+                    <br><br>
+                    @ViewBag.Message
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar foto</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!--FOTO PRIVADA-->
+<div class="modal fade" id="myModalEnviaFoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Selecionar Imagem</h4>
+            </div>
+
+            <script>
+                var loadFile = function (event) {
+                    var output = document.getElementById('output');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                };
+            </script>
+            @using (Html.BeginForm("SalvaFotoGaleria", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data", @id = "formFotoPrivada" }))
+            {
+                <div class="modal-body">
+
+                    <input type="file" accept="image/*" onchange="loadFile(event)" name="file" id="file" /><br><br>
+
+                    <br><br>
+                    <img id="output" style="width: 100%; max-height: 100%;" />
+                    <br><br>
+                    @ViewBag.Message
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar foto</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="mensagemModal">
+
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="~/modules/js/perfil.js"></script>
+
+<script src="~/modules/js/blueimp-gallery.min.js"></script>
+<script>
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event },
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+</script>

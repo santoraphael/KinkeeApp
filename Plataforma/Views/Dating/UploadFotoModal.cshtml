@@ -1,0 +1,196 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+
+
+<div class="modal-backdrop in " ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}" modal-backdrop="" style="z-index: 1040;"></div>
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal sl-share" ng-style="{'z-index': 1050 + index*10, display: 'block'}" modal-window="" window-class="sl-modal sl-share" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog" ng-class="{'modal-sm': size == 'sm', 'modal-lg': size == 'lg'}">
+        <div class="modal-content" modal-transclude="">
+            <div sl-share="" ng-init="init({ injected: '' })" class="ng-scope">
+
+                <div class="modal-header clearfix">
+                    <button type="button" class="sl-close" ng-click="close()">×</button>
+
+                    <!-- Avatar -->
+                    <div class="avatar">
+                        <img src="https://www.sexlog.com/images/icon/no-avatar.jpg" class="img-circle">
+                    </div>
+
+                    <div class="info">
+                        <div class="info-section title">
+                            menininhateste
+                        </div>
+                        <div class="info-section subtitle">
+                            para                <a ng-click="modalPrivacy()" ng-bind="privacyText()" class="info-section-lists ng-binding">Público</a>
+                            <a ng-show="showAll()" ng-click="ShowAllPrivacy()" class="info-section-lists ng-hide">Mostrar todos</a>
+
+                            <!-- Lápis de edição -->
+                            <div class="edit-container">
+                                <span class="svg-allsite-edit" ng-click="modalPrivacy()" title="Editar"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conteúdo -->
+                <div class="modal-body">
+
+                    <!-- Notificação de privacidade -->
+                    <div class="alert alert-warning ng-hide" role="alert" ng-show="!$privacy.isPublic()">
+                        <strong>Atenção:</strong> Conteúdos com filtros de privacidade não são exibidos nos tops ou no explorar do Sexlog.
+                    </div>
+
+                    <div class="body-container">
+
+                        <!-- Nova postagem -->
+                        <textarea rows="7" placeholder="Compartilhe seu prazer..." maxlength="1024" ng-model="post.text" class="ng-pristine ng-valid"></textarea>
+
+                        <!-- Mensagem de erro -->
+                        <!-- ngIf: error.hasError -->
+                        <!-- Area da imagem -->
+                        <div class="image-container">
+                            <div class="preview">
+                                <span class="image-delete" ng-click="removeImage()">
+                                    <i></i>
+                                </span>
+                                <div class="watermark" style="width: 292px; left: 135.797px;">
+                                    <div class="watermark-elements ">
+                                        <span class="watermark-logo">&nbsp;</span>
+                                        <span class="watermark-login">/menininhateste</span>
+                                    </div>
+                                </div>
+                                <div class="disableTools"></div>
+                                <div class="image"><img src="https://www.sexlog.com/temp/menininhateste_996301820.jpg?t=1480018966487"></div>
+                            </div>
+                            <div id="queuePhoto" class="queue-photo uploadifyQueue">
+                                <button type="button" class="sl-close" ng-click="removeImage()">
+                                    <span>×</span>
+                                </button>
+                                <div id="queuePhotoItem" class="uploadifyQueueItem completed">                                  <div class="icon"></div>                                    <div class="cancel" style="display:none"></div>                                    <span class="fileName">c5ae5a20-f6d8-489e-a... (52.59KB)</span><span class="percentage"></span>                                    <div class="uploadifyProgress">                                            <div id="queuePhotoProgressBar" class="uploadifyProgressBar" style="width: 99%;"><!--Progress Bar--></div>                                    </div>                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Edições da imagem -->
+                        <div class="tools-upload clearfix">
+                            <div class="tools-disabled ng-hide" ng-show="busy"></div>
+
+                            <!-- Marca d'agua -->
+                            <div class="tollsL ng-scope ng-pristine ng-valid" sl-share-watermark="" data-watermark-container=".watermark" ng-model="post.watermark">
+                                <p>Marca d’agua</p>
+                                <ul>
+                                    <li class="tl">
+                                        <a class="tool-btn" ng-click="setMark($event, 'nw')" ng-class="{ selected: post.watermark == 'nw' }" original-title="Superior esquerdo">Superior esquerdo</a>
+                                    </li>
+                                    <li class="tr">
+                                        <a class="tool-btn" ng-click="setMark($event, 'ne')" ng-class="{ selected: post.watermark == 'ne' }" original-title="Superior direito">Superior direito</a>
+                                    </li>
+                                    <li class="bl">
+                                        <a class="tool-btn" ng-click="setMark($event, 'sw')" ng-class="{ selected: post.watermark == 'sw' }" original-title="Inferior esquerdo">Inferior esquerdo</a>
+                                    </li>
+                                    <li class="br">
+                                        <a class="tool-btn" ng-click="setMark($event, 'se')" ng-class="{ selected: post.watermark == 'se' }" original-title="Inferior direito">Inferior direito</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Rotação e crop -->
+                            <div class="tollsR" style="display: none">
+                                <p>Opções de Edição</p>
+                                <ul>
+                                    <!-- Crop -->
+                                    <!-- ngIf: !isMobile -->
+                                    <li class="crop ng-scope" ng-if="!isMobile">
+                                        <a ng-click="openModalCrop()" original-title="Recortar">Recortar</a>
+                                    </li><!-- end ngIf: !isMobile -->
+                                    <!-- Rotate -->
+                                    <li class="rotate ng-scope ng-pristine ng-valid" sl-share-rotate="" data-container=".image" ng-model="post.rotate">
+                                        <a ng-click="rotate()" original-title="Girar para a direita">Girar para a direita</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Editar -->
+                            <div class="edit-container">
+
+                                <p>&nbsp;</p>
+                                <button class="tool-btn" ng-click="openEditor({ editorUrl: 'https://editor.sexlog.com' })">
+                                    <i></i>
+                                    <span>Editar foto</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- Área do vídeo e áudio -->
+                        <div id="queueMedia" class="queue-media uploadifyQueue">
+                            <button type="button" class="sl-close" ng-click="removeFile()">
+                                <span>×</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <fieldset>
+
+                        <div class="icon-container">
+                            <!-- ngIf: !config[$share.UPLOAD_TYPE.PHOTO] && !config[$share.UPLOAD_TYPE.VIDEO] --><span class="icon-plus ng-scope" ng-if="!config[$share.UPLOAD_TYPE.PHOTO] &amp;&amp; !config[$share.UPLOAD_TYPE.VIDEO]">+</span><!-- end ngIf: !config[$share.UPLOAD_TYPE.PHOTO] && !config[$share.UPLOAD_TYPE.VIDEO] -->
+                            <!-- ngIf: config[$share.UPLOAD_TYPE.PHOTO] -->
+                            <!-- ngIf: config[$share.UPLOAD_TYPE.VIDEO] -->
+                        </div>
+
+                        <!-- ngIf: !post.tmpFileName --><div class="icon-actions ng-scope" ng-if="!post.tmpFileName">
+                            <span class="icon-photo" ng-click="choosePhoto($event)">
+                                <span>Foto</span>
+                            </span>
+
+                            <span class="icon-video" ng-click="chooseVideo($event)">
+                                <span>Vídeo</span>
+                            </span>
+                        </div><!-- end ngIf: !post.tmpFileName -->
+                        <!-- ngIf: post.tmpFileName -->
+
+                        <input sl-share-file="" type="file" class="share-file ng-scope" name="files" data-url="https://www.sexlog.com/upload" accept="image/jpg,image/jpeg,image/gif,image/png">
+                        <input sl-share-video="" type="file" class="share-video ng-scope" name="files" data-url="https://www.sexlog.com/upload" accept="video/avi,video/mpg,video/mpeg,video/mov,video/mp4,video/3gp,video/wmv">
+                        <input sl-share-audio="" type="file" class="share-audio ng-scope" name="files" data-url="https://www.sexlog.com/upload" accept="audio/mp3">
+
+                    </fieldset>
+                </div>
+
+                <div class="modal-footer">
+                    <small>
+                        Lembre-se dos <a href="sobre/termos" target="_blank">termos de uso</a>
+                    </small>
+
+                    <!-- Salvar -->
+                    <button type="button" class="sl-btn btn-primary ng-binding" ng-disabled="busy || (!post.text &amp;&amp; !post.tmpFileName)" ng-click="save()" disabled="disabled">
+                        Publicar
+                    </button>
+                </div>
+
+                <!-- Confirmações de troca de conteúdo -->
+                <!-- Backdrop -->
+                <div class="modal-confirm-backdrop"></div>
+
+                <!-- Confirmação -->
+                <div class="modal-confirm">
+                    <div class="modal-confirm-body">
+                        <h4 class="ng-binding"></h4>
+                        <p class="ng-binding"></p>
+                    </div>
+                    <div class="modal-confirm-footer">
+                        <button type="button" class="sl-btn ng-binding" ng-click="closeModalConfirm()"></button>
+                        <button type="button" class="sl-btn btn-primary ng-binding" ng-click="changeFileType()"></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

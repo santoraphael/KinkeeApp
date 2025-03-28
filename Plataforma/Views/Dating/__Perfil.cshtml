@@ -1,0 +1,949 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = @Html.DisplayFor(m => m.PerfilViewModel.Usuario);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/perfil.css" rel="stylesheet" />
+<link href="~/pulsar/Kinkee/assets/css/sl/comum.css" rel="stylesheet" />
+<link href="~/modules/css/blueimp-gallery.min.css" rel="stylesheet" />
+<link href="~/modules/css/bundle.css" rel="stylesheet" media="screen" />
+<link href="~/modules/css/novoPerfil.css" rel="stylesheet" />
+<link href="~/modules/css/perfil_feed.css" rel="stylesheet" />
+<script src="~/modules/js/jquery.stickyalert.js"></script>
+<script type="text/javascript">
+    GetGenero();
+</script>
+
+<style>
+
+
+
+    img {
+        border: 0;
+        vertical-align: middle;
+    }
+
+    .aside.sidebar .sidebar-header input.fake-search {
+        width: calc(100% - 45px) !important;
+    }
+</style>
+
+
+<div class="profile-page">
+    <div>
+
+        <!--Imagem de CAPA-->
+
+        @if (ViewBag.habilitaEdicao)
+        {
+
+        }
+        <div class="profile-cover-container ng-scope">
+            @if (Model.PerfilViewModel.ContaSelectBlack)
+            {
+                <style>
+                    .profile-cover:before {
+                        background: linear-gradient(#000 0,#000 0,#000 70%) !important;
+                    }
+                </style>
+                <div class="profile-cover " style="background: url(@Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString()); background-repeat: no-repeat; background-size: 100% auto; background-position: center top; background-attachment: fixed;"></div>
+            }
+            else
+            {
+                <div class="profile-cover " style="background: url(@Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString()); background-repeat: no-repeat; background-size: 100% auto; background-position: center top; background-attachment: fixed;"></div>
+            }
+
+
+
+
+            @*@<div class="profile-cover owner"     z-index: -999999999999; ng-class="profileCover.coverCss">
+
+
+                           @if (ViewBag.habilitaEdicao)
+                {
+                    <div class="profile-cover-add-container container-flex justify-content-center">
+                        <!-- ngIf: !profileCover.loading --><div class="profile-cover-change ng-scope" ng-if="!profileCover.loading">
+                            <a sl-file-upload-select="cover-upload-input" class="btn-add-cover">
+                                <i class="icon icon-profile-cover-camera"></i>
+                                Adicionar imagem de capa
+                            </a>
+                        </div>
+
+                    </div>
+                }
+
+                        </div>*@
+        </div>
+
+        <div class="container-flex content-container">
+            
+            <div class="profile-navigation">
+
+                <div class="profile-avatar" login="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                    <div>
+                        @{
+                            String urlImagePerfil = Html.DisplayFor(m => m.PerfilViewModel.imagemPerfil).ToString();
+                            HttpCookie urlCookie = new HttpCookie("urlCookie");
+                            urlCookie.Value = Request.Url.AbsoluteUri;
+                            Response.Cookies.Add(urlCookie);
+
+
+                            <div id="links2">
+                                <a href="@urlImagePerfil" onclick="return false;" style="z-index:9999999999999999" title="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                                    <img src="@urlImagePerfil" id="ftPerfil" alt="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)" class="img-circle user-select-none">
+
+                                </a>
+                            </div>
+
+
+                        }
+
+                    </div>
+                    @*<div class="online online_messenger profile-status owner ng-isolate-scope">online</div>*@
+                </div>
+
+
+                <!-- Header -->
+                <div class="profile-header">
+
+                    <!--Username-->
+                    <h1 class="profile-username">
+                        @Html.DisplayFor(m => m.PerfilViewModel.Usuario)
+                    </h1>
+
+                    <!--Gender-->
+                    @*<h2 class="profile-gender">
+                <span>Mulher</span>
+            </h2>*@
+
+                    <!--Location-->
+                    <!--TODO: Link para busca-->
+                    <h3 class="profile-location">
+                        <span>
+                            @Html.DisplayFor(m => m.PerfilViewModel.Endereco.Cidade, new { @type = "text", @name = "cidade", @id = "lblCidade" })
+                            @if ((Model.PerfilViewModel.Endereco != null) && (!String.IsNullOrEmpty(Model.PerfilViewModel.Endereco.Cidade)))
+                            {
+                                @Html.Raw(",");
+                            }
+                            @Html.DisplayFor(m => m.PerfilViewModel.Endereco.Estado, new { @type = "text", @name = "estado", @id = "lblEstado" })
+                        </span>
+                    </h3>
+                </div>
+
+                <!-- Actions -->
+
+                <script>
+                            $(document).on("click", "#btn-mensagem-semgold", function (e) {
+
+                                $.get('@Url.Action("_AssinaturaPartial", "MinhaConta")', function (data) {
+                                    $('#mensagemModal').append("<div class='modal-backdrop in' ng-style='{'z-index': 1040 + (index & amp;&amp; 1 || 0) + index * 10}' modal-backdrop='' style='z- index: 1051;'></div>");
+                                    $('#mensagemModal').append(data);
+                                });
+                                e.preventDefault();
+                            });
+
+                            $(document).on("click", ".js-close-button-assinatura", function (e) {
+
+                                $('#mensagemModal').empty();
+
+                                e.preventDefault();
+                            });
+
+
+                </script>
+                @if (ViewBag.VisaoAceosAmizade == true)
+                {
+            <div class="profile-actions ng-scope">
+
+
+                @*<div class="action-container container-friendship">
+
+            <img src="~/modules/img/loading.gif" class="load-btn-friendship" width="50" style="margin-left:30%; display:none;" />
+
+                <input type="hidden" id="idUsuarioAmizade" value="@ViewBag.IdUsuarioComparation" />
+                if (ViewBag.StatusRelationShip == 1)
+                {
+                    if (ViewBag.RelationShip.ActionUserId == ViewBag.IdUsuarioComparation)
+                    {
+                        <div class="action no-friend send-request" role="button" data-toggle="dropdown" data-target="sl-dropdown">
+                            <i class="icon friend ng-scope" style="margin: 0 auto; margin-bottom: 8px; color: #661577;"></i>
+                            <span>
+                                <span class="text ng-binding ng-scope js_text-btn-relationship">Responder Solicitação</span>
+                                <span class="caret ng-scope"></span>
+                            </span>
+                        </div>
+
+                        <ul class="dropdown-menu sl-dropdown profile-dropdown dropdown-friendship  no-friend" style="height: 100px;">
+                            <li class="item menu-action-undo-friendship js-confirmar-amizade">
+                                <a>
+                                    <span class="request-confirm">
+                                        <b>Confirmar</b>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="item menu-action-undo-friendship js-recusar-amizade">
+                                <a>
+                                    <span class="request-remove">
+                                        Excluir
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <div class="action friend" role="button" data-toggle="dropdown" data-target="sl-dropdown">
+                            <i class="icon friend ng-scope" style="margin: 0 auto; margin-bottom: 8px;"></i>
+                            <span>
+                                <span class="text ng-binding ng-scope js_text-btn-relationship">Solicitação Enviada</span>
+                                <span class="caret ng-scope"></span>
+                            </span>
+                        </div>
+
+                        <ul class="dropdown-menu sl-dropdown profile-dropdown dropdown-friendship friend" style="height: auto;">
+                            <li class="item menu-action-undo-friendship js-recusar-amizade">
+                                <a>
+                                    <span class="">
+                                        Remover
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    }
+
+                }
+                else if (ViewBag.StatusRelationShip == 2)
+                {
+                    <div class="action friend send-request" role="button" data-toggle="dropdown" data-target="sl-dropdown">
+                        <i class="icon friend ng-scope" style="margin: 0 auto; margin-bottom: 8px;"></i>
+                        <span>
+                            <span class="text ng-binding ng-scope js_text-btn-relationship">Amigos</span>
+                            <span class="caret ng-scope"></span>
+                        </span>
+                    </div>
+
+                    <ul class="dropdown-menu sl-dropdown profile-dropdown dropdown-friendship  friend" style="height: auto;">
+                        <li class="item menu-action-undo-friendship js-recusar-amizade">
+                            <a>
+                                <span class="">
+                                    Desfazer Amizade
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                }
+                else if (ViewBag.StatusRelationShip == 0 || ViewBag.StatusRelationShip == 3)
+                {
+                    <div class="action no-friend js-solicitar-amizade" role="button" data-toggle="dropdown" data-target="sl-dropdown">
+                        <i class="icon friend ng-scope" style="margin: 0 auto; margin-bottom: 8px;"></i>
+                        <span>
+                            <span class="text ng-binding ng-scope js_text-btn-relationship">Adicionar como Amigo</span>
+                            <span class="caret ng-scope"></span>
+                        </span>
+                    </div>
+                }
+            }
+        </div>*@
+
+
+                @if (!ViewBag.UsuarioLogadoContaGold && ViewBag.Genero != "Mulher")
+                {
+                    <div class="action-container container-message">
+                        <div id="btn-mensagem-semgold" class="action" role="button">
+
+                            <i class="icon send-messages"></i>
+                            <span class="text">
+                                Enviar <span>mensagem</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <script>
+                            $(document).on("click", "#btn-mensagem-semgold", function (e) {
+
+                                $.get('@Url.Action("_AssinaturaPartial", "MinhaConta")', function (data) {
+                                    $('#mensagemModal').append("<div class='modal-backdrop in' ng-style='{'z-index': 1040 + (index & amp;&amp; 1 || 0) + index * 10}' modal-backdrop='' style='z- index: 1051;'></div>");
+                                    $('#mensagemModal').append(data);
+                                });
+                                e.preventDefault();
+                            });
+
+                            $(document).on("click", ".js-close-button-assinatura", function (e) {
+
+                                $('#mensagemModal').empty();
+
+                                e.preventDefault();
+                            });
+
+
+                    </script>
+                }
+                else
+                {
+                    <div class="action-container container-message">
+                        <div id="btn-mensagem" class="action" role="button">
+
+                            <i class="icon send-messages"></i>
+                            <span class="text">
+                                Enviar <span>mensagem</span>
+                            </span>
+                        </div>
+                    </div>
+                }
+
+                <div class="action-container container-more">
+                    <div class="action" role="button" data-toggle="dropdown" data-target="sl-dropdown">
+                        <i class="icon more"></i>
+                        Mais opções
+                    </div>
+
+                    <ul class="dropdown-menu sl-dropdown profile-dropdown dropdown-more" sl-set-height="" style="height: 300px;">
+
+                        @*<li class="item menu-action-favorite" style="">
+                    <a ng-click="actions.favorite()" ng-class="actions.cssStatusFavorite">
+                        <i class="icon">
+
+                            <svg width="13" height="14" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M.999 0A1 1 0 0 0 0 1.002v12.927l6.5-3.096L13 13.93V1.002A1 1 0 0 0 12.001 0H1zM6.5 8.125L3.771 9.416l.521-2.735-2.208-1.937 3.051-.399L6.5 1.857l1.365 2.488 3.05.4L8.709 6.68l.521 2.735L6.5 8.125z" fill-rule="evenodd"></path>
+                            </svg>
+                        </i>
+                        <span class="add-favorite btn-visualizar-foto-privada" js-usuario="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                            Pedir Acesso a Fotos Privadas
+                        </span>
+                        <span class="remove-favorite">
+                            Remover dos favoritos
+                        </span>
+                    </a>
+
+                </li>*@
+
+                        <li class="item menu-action-real">
+                            <a ng-click="actions.verified()">
+                                <i class="icon">
+                                    <svg width="17" height="13" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.154 8.686l-3.35-3.35-2.012 2.01 4.357 4.356 1.005 1.006L16.208 2.654 14.197.644 6.154 8.686z" fill-rule="evenodd"></path>
+                                    </svg>
+                                </i>
+                                Indicar como usuário real
+                            </a>
+                        </li>
+
+                        <li class="item menu-action-gift">
+                            <a ng-click="actions.gift()">
+                                <i class="icon">
+                                    <svg width="13" height="14" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 4H.999A1 1 0 0 0 0 5v1h13V5c0-.556-.447-1-.999-1H10c.014-.01 2.995-1.994 1-3C9-.009 8 2 7.5 3c-.5-1-1.498-1-2 0C5 2 4-.024 2 1c-1.995 1.022.986 2.99 1 3zM1 7h11v4.994C12 13.102 11.1 14 10.008 14H2.992C1.892 14 1 13.113 1 11.994V7zm5 0h1v7H6V7z" fill-rule="evenodd"></path>
+                                    </svg>
+                                </i>
+                                Presentear
+                            </a>
+                        </li>
+
+                        @*<li class="item menu-action-certification">
+                    <a ng-click="profile.openTestimonialModal()">
+                        <i class="icon">
+                            <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="#666" fill-rule="evenodd"><path d="M8.93 11.284A3.07 3.07 0 0 0 9.513 5.2c-.366-2.329 1.26-3.514 1.26-3.514a.2.2 0 0 0 .093-.122.2.2 0 0 0-.02-.152l-.253-.438a.201.201 0 0 0-.274-.073s-4.58 1.358-4.657 6.556c-.042 2.838 1.64 3.827 3.27 3.827M4.638 9.462c-.213-.61-.315-1.31-.304-2.08a8.473 8.473 0 0 1 .457-2.677 3.048 3.048 0 0 0-.94-.348C3.488 2.027 5.112.843 5.112.843a.2.2 0 0 0 .094-.122.2.2 0 0 0-.02-.152L4.933.13a.201.201 0 0 0-.275-.073S.078 1.416.001 6.614c-.042 2.838 1.64 3.826 3.27 3.826.583 0 1.128-.162 1.593-.445a4.438 4.438 0 0 1-.226-.533"></path></g></svg>
+                        </i>
+
+                        Enviar Depoimento Real
+                        <span class="new">Novo</span>
+                    </a>
+                </li>*@
+                        <li class="divider"></li>
+
+                        <li class="item menu-action-block">
+                            <a ng-click="actions.block()">
+                                <i class="icon">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill-rule="evenodd">
+                                            <path d="M13.266 10.829A6.658 6.658 0 1 0 1.734 4.17a6.658 6.658 0 0 0 11.532 6.658zm-.866-.5A5.658 5.658 0 1 1 2.6 4.67a5.658 5.658 0 0 1 9.8 5.658z"></path>
+                                            <path d="M1.93 4.831l.474-.82 10.665 6.158-.473.82z"></path>
+                                        </g>
+                                    </svg>
+                                </i>
+                                Bloquear
+                            </a>
+                        </li>
+
+                        <li class="item menu-action-report">
+                            <a ng-click="actions.report()">
+                                <i class="icon">
+                                    <svg width="15" height="13" viewBox="0 0 15 13" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.162 9.75c.38-5.13-2.045-6.784-2.045-6.784 4.177 1.692 4.072 5.728 4.033 6.784h.972c.029-.227.038-.463.038-.699 0-3.099-2.142-5.697-5.044-6.415a6.528 6.528 0 0 0-1.628-.199c-.552 0-1.095.066-1.609.199C2.977 3.344.826 5.952.826 9.05c0 .236.019.472.038.699h10.298zM1.39 12.188c-.297 0-.538.181-.538.406 0 .224.242.406.539.406h12.258c.297 0 .537-.182.537-.406 0-.224-.24-.406-.537-.406H1.388h.001zm0-1.626c-.297 0-.538.183-.538.407 0 .224.242.406.539.406h12.258c.297 0 .537-.182.537-.406 0-.224-.24-.406-.537-.406H1.388h.001zM8.24.518c0-.114.107-.205.244-.205.138 0 .245.09.245.205V1.92c.148.024.295.049.442.081V.74C9.17.33 8.778 0 8.278 0H6.72c-.492 0-.883.328-.883.74v1.262a7.912 7.912 0 0 1 1.656-.172c.255 0 .5.008.745.032V.518L8.24.517z" fill-rule="evenodd"></path>
+                                    </svg>
+                                </i>
+                                Denunciar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+                }
+                    <!-- Info -->
+                    <div class="profile-info">
+
+                        @*<p class="profile-description">
+                    “Descrição curta!”
+                 </p>*@
+
+                        @*<ul class="profile-badges badges" style="list-style-type: none; padding-left: 0px;">
+
+                            <li>
+                                <a target="_self" class="profile-badge" href="/Gold/" title="GOLD">
+                                    <img src="/modules/img/perfil_gold.png" width="37" height="37" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_self" class="profile-badge" href="/Dating/Verificados/" title="Verificado">
+                                    <img src="/modules/img/perfil_verificado.png" width="37" height="37" />
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_self" class="profile-badge" href="/Dating/" title="TOP">
+                                    <img src="/modules/img/perfil_top.png" width="37" height="37" />
+                                </a>
+                            </li>
+
+                        </ul>*@
+
+                        <dl class="profile-other-info">
+                            <dt>Genero</dt>
+                            <dd>
+                                <span>@Html.DisplayFor(m => m.PerfilViewModel.Genero).ToString()</span>
+                            </dd>
+
+                            <dt>Visitas recebidas</dt>
+                            <dd>@Html.DisplayFor(m => m.PerfilViewModel.visitasPerfil)</dd>
+                        </dl>
+
+                        <hr>
+
+                    </div>
+
+                </div>
+
+            <!--Conteúdo-->
+            <div class="profile-content">
+
+                <!-- Nav -->
+                <nav class="profile-nav">
+                    <ul>
+                        <!--Postagens-->
+                        <li class="nav-home active">
+                            <a class="nav-item" href="#">
+                                Resumo
+                            </a>
+                        </li>
+
+                        @if (ViewBag.AssinaturaFanClub != null)
+                        {
+                            if (ViewBag.AssinaturaFanClub)
+                            {
+                                <li class="nav-home">
+                                    <a class="nav-item" href="/fanclub/profile/@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                                        Fan Club
+                                    </a>
+                                </li>
+                            }
+                        }
+
+
+                        @if (ViewBag.habilitaEdicao)
+                        {
+                            <!--Sobre-->
+                            <li class="nav-about ">
+                                <a class="nav-item" href="/MinhaConta/EditarPerfil/">Editar Perfil</a>
+                            </li>
+
+                            <li class="nav-home">
+                                <a class="nav-item" href="/fanclub/profile/">
+                                    Seu Fan Club
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+
+                @*<div class="profile-gallery-nocontent">
+
+                        <h5>Que pena!</h5>
+                        <p>Esse usuário ainda não subiu nenhuma foto.</p>
+
+                        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+                    </div>*@
+
+                <!--Aba ativa-->
+                <div class="profile-home profile-container">
+
+                    <!--Fotos e Sobre-->
+                    <div class="home-container widgets">
+
+                        <!--Ultimas fotos-->
+                        <div class="profile-home-photos">
+                            <h2 class="section-header">
+                                <i class="icon icon-profile-home-photos"></i>
+                                Fotos
+                            </h2>
+
+                            <div class="home-photos-list">
+
+                                <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                                    <div class="slides"></div>
+                                    <h3 class="title"></h3>
+                                    <a class="prev">‹</a>
+                                    <a class="next">›</a>
+                                    <a class="close">×</a>
+                                    <a class="play-pause"></a>
+                                    <ol class="indicator"></ol>
+                                </div>
+
+                                @if (ViewBag.habilitaEdicao)
+                                {
+                                    <div id="btEditNoPicture" class="btnEditProfile fileinput-button">
+
+                                        <a style="background-color: #36C959;">
+                                            <p data-toggle="modal" data-target="#myModalEnviaFoto" style="font-size: 16px; background-color: #36C959; border-width: 0; color: #fff; border-radius: 2px;" class="myModalEnviaFoto sl-btn btn-primary-inverse text-uppercase">Clique aqui e Adicione uma Foto</p>
+                                        </a>
+                                    </div>
+                                    <br /><br /><br />
+                                }
+
+                                @if (ViewBag.GaleriaFotos != null && ViewBag.GaleriaFotos.Count > 0)
+                                {
+                            <div id="links">
+
+                                @foreach (var item in ViewBag.GaleriaFotos)
+                                {
+                                    if (!item.isPrivate)
+                                    {
+
+                                        <div style="float: left; margin-left:5px;  margin-bottom:5px;">
+
+                                            <a href="@item.UrlFoto" onclick="return false;" title="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                                                <img src="@item.UrlFoto" id="@item.UrlFoto" width="160" height="auto" ; class="js-img-galeria" alt="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                                            </a>
+
+                                            @if (ViewBag.habilitaEdicao)
+                                            {
+                                                <div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" class="js-privada-foto">
+                                                    <p style="background-color:#2E112D; color:#FFF;">
+                                                        TORNAR FOTO PRIVADA
+                                                    </p>
+                                                </div>
+
+                                                <div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" class="js-exclui-foto">
+                                                    <p style="background-color:#B8273B; color:#FFF;">
+                                                        <img src="~/modules/img/trash.png" width="20" height="20" /> EXCLUIR FOTO
+                                                    </p>
+                                                </div>
+                                            }
+
+                                        </div>
+
+                                    }
+                                }
+
+
+                                @foreach (var item in ViewBag.GaleriaFotos)
+                                {
+                                    if (@ViewBag.Adm)
+                                    {
+
+                                        <div style="float: left; margin-left:5px;  margin-bottom:5px;">
+
+                                            <a href="@item.UrlFoto" onclick="return false;" title="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                                                <img src="@item.UrlFoto" id="@item.UrlFoto" width="160" height="auto" ; class="js-img-galeria" alt="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                                            </a>
+
+                                            @if (ViewBag.habilitaEdicao)
+                                            {
+                                                <div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" class="js-privada-foto">
+                                                    <p style="background-color:#2E112D; color:#FFF;">
+                                                        TORNAR FOTO PRIVADA
+                                                    </p>
+                                                </div>
+
+                                                <div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" class="js-exclui-foto">
+                                                    <p style="background-color:#B8273B; color:#FFF;">
+                                                        <img src="~/modules/img/trash.png" width="20" height="20" /> EXCLUIR FOTO
+                                                    </p>
+                                                </div>
+                                            }
+
+                                        </div>
+
+                                    }
+                                }
+                            </div>
+                                }
+                                else
+                                {
+                                    <h2 class="msgNoFile">Perfil ainda não enviou<br> nenhuma foto.</h2>
+                                }
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--Codigo Promocional-->
+                    <div class="home-content news">
+
+                        <div class="profile-home-news" ng-scope>
+
+                            @if (ViewBag.habilitaEdicao)
+                            {
+
+                                <script type="text/javascript">
+                            
+                                    $(document).on("click", ".js-profile-home-content .card-item", function (e) {
+
+                                        $.get('@Url.Action("_WriteMessagePartial", "Dating")', function (data) {
+                                            $('#WriteMessage').append(data);
+                                        });
+                                        e.preventDefault();
+                                    });
+
+                                </script>
+
+                                <div class="profile-home-content js-profile-home-content">
+
+                                    <h2 class="section-header">
+                                        <i class="icon">
+                                            ?
+                                        </i>
+                                        Pulsar
+                                    </h2>
+
+                                    <div class="card-item" data-fixed="true">
+                                        <div class="card-share">
+                                            <div class="share-body">
+                                                <p>Pulsar algo com até 160 caracteres...</p>
+                                            </div>
+
+                                            <div class="share-footer">
+                                                <button class="sl-btn btn-primary">
+                                                    Pulsar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="card-lists" style="margin-top:20px;">
+                                </div>
+
+                            }
+
+                            <!--Sobre-->
+                           
+                        </div>
+
+                    </div>
+
+                    <div id="WriteMessage">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="container-flex content-container" style="margin-top:10px;">
+            <br /><br /><br />
+            <div id="progress" style="display:none">
+                <a class="sl-btn btn-primary-inverse text-uppercase" title="Assine">CARREGANDO...</a>
+            </div>
+            <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn" title="Assine">CLIQUE AQUI PARA CARREGAR MAIS</a>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+
+    <div class="endpage" style="margin: 30px 0 0px;">
+        <i></i>
+        <div></div>
+    </div>
+    <br /><br />
+</div>
+
+<!-- FOTO -->
+<div class="modal fade" id="myModalEnviaFoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Selecionar Imagem</h4>
+            </div>
+
+            <script>
+                var loadFile = function (event) {
+                    var output = document.getElementById('output');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                };
+            </script>
+            @using (Html.BeginForm("SalvaFotoGaleria", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="modal-body">
+
+                    <input type="file" accept="image/*" onchange="loadFile(event)" name="file" id="file" /><br><br>
+
+                    <br><br>
+                    <img id="output" style="max-width: 568px;" />
+                    <br><br>
+                    @ViewBag.Message
+
+                </div>
+                <div class="modal-footer">
+                    <input type="checkbox" id="isSelectedPrivate" name="isSelectedPrivate" /> FOTO PRIVADA<br />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar foto</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="mensagemModal">
+
+</div>
+
+<script>
+
+    var copy = function (elementId) {
+
+        var input = document.getElementById(elementId);
+        var isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
+
+        if (isiOSDevice) {
+
+            var editable = input.contentEditable;
+            var readOnly = input.readOnly;
+
+            input.contentEditable = true;
+            input.readOnly = false;
+
+            var range = document.createRange();
+            range.selectNodeContents(input);
+
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            input.setSelectionRange(0, 999999);
+            input.contentEditable = editable;
+            input.readOnly = readOnly;
+
+        } else {
+            input.select();
+        }
+
+        document.execCommand('copy');
+    }
+
+
+
+    function copyToClipboard(elementId) {
+
+
+        // Create a "hidden" input
+        var aux = document.createElement("input");
+
+        // Assign it the value of the specified element
+        aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+        // Append it to the body
+        document.body.appendChild(aux);
+
+        // Highlight its content
+        aux.select();
+
+        // Copy the highlighted text
+        document.execCommand("copy");
+
+        // Remove it from the body
+        document.body.removeChild(aux);
+    }
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="~/modules/js/perfil.js"></script>
+
+<script src="~/modules/js/blueimp-gallery.min.js"></script>
+<script>
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event },
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+
+
+    document.getElementById('links2').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event },
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+
+
+    document.getElementById('fotosPrivadas').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event },
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+</script>
+
+<script type="text/javascript">
+
+    var ordenacao = 0;
+    var pageSize = 10;
+    var pageIndex = 0;
+    var pageIndexSearch = 0;
+    var lastInteractionSearch = 0;
+    var lastInteraction = 0;
+
+
+    $(document).ready(function () {
+
+
+
+        $(document).on("click", ".btn-visualizar-foto-privada", function (e) {
+
+            nomeUsuarioFotos = $('.btn-visualizar-foto-privada').attr('js-usuario');
+
+            SolicitarVisualizarFotoPrivada(nomeUsuarioFotos);
+
+            e.preventDefault();
+        });
+
+        function SolicitarVisualizarFotoPrivada(nomeUsuarioSolicitado) {
+            $.ajax({
+                url: "/Dating/SolicitarVisualizarFotoPrivada",
+                data: {
+                    'nomeUsuarioSolicitado': nomeUsuarioSolicitado,
+                },
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+                    //alert("Successfully Inserted!");
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+        }
+
+
+
+        TodasAsPublicacoesAtivas();
+
+        $('.js-carregar-btn').unbind("click").click(function (e) {
+
+            TodasAsPublicacoesAtivas();
+
+            e.preventDefault();
+        });
+
+
+        //$(window).scroll(function () {
+
+        //    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        //        TodasAsPublicacoesAtivas();
+        //    }
+        //});
+
+    });
+
+
+    function TodasAsPublicacoesAtivas() {
+        if ((pageIndex === 0) || (lastInteraction !== pageIndex)) {
+            lastInteractionSearch = pageIndexSearch;
+            $.ajax({
+                type: 'GET',
+                url: '/Dating/TodasAsPublicacoesAtivasDoUsuario',
+                data: { "pageindex": pageIndex, "pagesize": pageSize, "ordenacao": ordenacao },
+                dataType: 'json',
+
+                success: function (data) {
+
+                    //var $getResult = $(data);
+
+                    if (data != null) {
+                        for (var i = 0; i < data.length; i++) {
+                            //console.log($getResult[i].UsuarioPublicacaoID);
+
+                            PreencheTemplatePublicacao(data[i].UsuarioPublicacaoID, data[i].Id);
+
+                        }
+                        pageIndex++;
+                    }
+                },
+                beforeSend: function () {
+                    $("#progress").show();
+                    $(".js-carregar-btn").hide();
+                },
+                complete: function () {
+                    $("#progress").hide();
+                    $(".js-carregar-btn").show();
+                },
+                error: function () {
+                    //('').append('Ops! Ocorreu um erro durante o carregamento.');
+                }
+            });
+        }
+
+    }
+
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+
+    function PreencheTemplatePublicacao(UsuarioPublicacaoID, Id) {
+
+
+        $.ajax({
+            type: 'GET',
+            url: '/Dating/_PulsacaoPublicadaPartial',
+            data: { "UsuarioPublicacaoID": UsuarioPublicacaoID, "Id": Id },
+            dataType: 'html',
+            success: function (data) {
+                $(".card-lists").append(data);
+            },
+            beforeSend: function () {
+
+            },
+            complete: function () {
+
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+</script>

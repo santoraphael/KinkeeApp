@@ -1,0 +1,3 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="20" width="20"><defs><symbol viewBox="0 0 20 14" id="common-boleto-plans" xmlns="http://www.w3.org/2000/svg"><path d="M.91 13.586V.36h2.117v13.225H.911zm5.332 0V.36h2.122v13.225H6.242zm3.214 0V.36h2.122v13.225H9.456zm7.394 0V.36H20v13.225h-3.15zm-12.73 0V.36h1.03v13.225H4.12zm8.487 0V.36h1.028v13.225h-1.028zm2.121 0V.36h1.029v13.225h-1.029z" fill-rule="evenodd"></path></symbol></defs>
+<use xlink:href="#common-boleto-plans" fill="#666666"></use>
+</svg>

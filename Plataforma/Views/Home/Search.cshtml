@@ -1,0 +1,35 @@
+﻿<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<input type="text" id="search" placeholder="Busque pelo nome"  />
+
+<script type="text/javascript">
+
+
+    $('#search').autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '@Url.Action("Autocomplete", "Home")',
+                data: { term: request.term },
+                dataType: 'json',
+                type: 'GET',
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return {
+                            label: item.NomeCompleto,
+                            value: item.Usuario
+                        }
+                    }))
+                }
+            })
+        },
+        select: function (event, ui) {
+            $('#search').val(ui.item.label);
+            return false;
+        },
+        minLength: 3,
+        
+        }
+    });
+</script>

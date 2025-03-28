@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<link href="~/modules/css/FanClubSubscribe.css" rel="stylesheet" />
+
+<br />
+
+Quem são seus assinantes?
+
+
+
+@foreach (var item in ViewBag.ListaUsuarios)
+{
+    <div class="swiper-slide swiper-slide-next" style="margin-top: 0px; width: 100%; background-color: #fff;">
+        <div class="b-recommended__item">
+            <a href="/fanclub/profile/@item.Usuario" class="">
+                <div class="b-recommended__item__cover__wrapper">
+                    <img src="@item.imagemPerfil" alt="Maliah Michel" class="b-recommended__item__cover">
+                </div>
+                <span class="b-avatar online_status_class m-w150">
+                    <img src="@item.imagemPerfil" alt="Maliah Michel">
+                </span>
+                <div class="b-recommended__item__name">
+                    <span class="g-user-name">
+                        @item.Usuario
+                        <svg class="g-icon" aria-hidden="true">
+                            <img src="~/modules/img/perfil_verificado.png" style="width: 30px;" />
+                        </svg>
+                    </span><div class="g-user-username">
+                        @@@item.Usuario
+                    </div>
+                </div>
+            </a>
+
+            <div class="dropdown b-dropdown b-profile__user__settings b-post__tools__more btn-group" id="__BVID__117">
+                <button aria-haspopup="true" aria-expanded="false" type="button" class="btn dropdown-toggle btn-link" id="__BVID__117__BV_toggle_">
+                    <svg class="g-icon has-tooltip" aria-hidden="true" data-original-title="null">
+                        <use xlink:href="#icon-more" href="#icon-more">
+                            <path d="M6 10a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm12 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm-6 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2z"></path>
+                        </use>
+                    </svg>
+                </button>
+                <ul role="menu" tabindex="-1" class="dropdown-menu dropdown-menu-right" aria-labelledby="__BVID__117__BV_toggle_">
+                    <ul>
+                        <li>
+                            <button type="button">
+                                Save for later
+                            </button>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    ga('set', 'page', '/Assinaturas');
+    ga('send', 'pageview');
+</script>

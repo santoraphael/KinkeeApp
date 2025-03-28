@@ -1,0 +1,180 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+<!doctype html>
+<html lang="pt-br" class="pt-br desktop">
+<head>
+   
+    <title>Kinkee - A Rede Social Sugar Baby e Sugar Daddy</title>
+    <base>
+    <meta property="fb:app_id" content="1015030085319888" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="Kinkee é uma rede social de relacionametno Sugar Baby e Sugar Daddy mais inovadora do mundo, que utiliza um algoritimo exclusivo para ajudar a determinar os melhores Daddies do Brasil." name="description">
+    <meta data-react-helmet="true" name="description" content="Kinkee é uma rede social de relacionametno Sugar Baby e Sugar Daddy mais inovadora do mundo, que utiliza um algoritimo exclusivo para ajudar a determinar os melhores Daddies do Brasil.">
+    <meta name="theme-color" content="#74358A" />
+    <meta name="keywords" content="Sugar baby wikipedia, viagens,luxo, Sugar Daddies, Sugar Daddi, Sugar Daddie, Sugar Babies, Sugar Daddy, sugar baby, garotas lindas, gatas, milionário, passeios, namoro, namorar homem rico, homem rico, homens ricos, Meu Patrocínio, seekingarrangement, Seeking Arrangement, site de namoro, relacionamento, mulheres, namorar, sugar, baby, daddy, sugar baby site, rede social de relacionamento ,mulheres bonitas, Babies, Daddies, viagens, luxo, afinidade, camgirl, packs, fotos" />
+    <meta name="author" content="Raphael Santo" />
+    <meta name="language" content="pt-br" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8;no-cache" />
+    <!-- Favicon -->
+    <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css type=text/css>
+    <link id="dynamic-favicon" rel="shortcut icon" type="image/x-icon" href="https://kinkeesugar.com/Content/images/fav-ico.png" />
+
+
+    @*<link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/bundle6514.css?v=1476702930" media="screen" />
+        <link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/bootstrap-sl-common6514.css?v=1476702930" media="screen" />*@
+    @*<link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/app/home/home.css" media="screen" />*@
+    @Styles.Render("~/pulsar/Kinkee/assets/css/sl.css")
+    @Styles.Render("~/pulsar/Kinkee/assets/css/sl/app/home.css")
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @Styles.Render("~/pulsar/Kinkee/css/generalStyle.css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/fancybox-master/dist/jquery.fancybox.min.css" />
+    <script src="~/Scripts/fancybox-master/dist/jquery.fancybox.min.js"></script>
+</head>
+<body id="mainContent" class="promotion-scroll-block" style="padding-top: 0">
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1015030085319888',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.0'
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <header class="js-header-menu">
+        <nav class="sl navbar navbar-fixed navbar-default offline " role="navigation">
+            <div class="container-flex">
+                <!-- Logo e Toggle Button -->
+                <div class="navbar-header">
+                    <a href="https://kinkeesugar.com" class="navbar-brand" target="_self" title="Kinkee">
+                        <span class="logo"></span>
+                    </a>
+                </div>
+                <div class="box-login">
+                    <a class="nav__action-btn ng-scope" href="@Url.Action("Login", "Account")" target="_self">
+                        Login
+                    </a>
+
+                    <a class="visible-md visible-lg btn-register" href="https://kinkeesugar.com/#news" target="_self">Cadastre-se</a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <button class="add-button">Add to home screen</button>
+    <main style="background-color:#e7e7e7" class="no-navbar">
+        @RenderBody()
+    </main>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1015030085319888',
+                xfbml: true,
+                version: 'v3.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    @if (Request.IsAuthenticated) //Se tiver logado
+    {
+        <div id="bannerPrincipal">
+            @Html.Action("BannerPartial", "Dating")
+        </div>
+    }
+    <div id="PanelComprarKoins">
+    </div>
+    @Scripts.Render("~/modules/js/layout")
+    @*<script src="ChatJs/js/jquery.autosize.js"></script>*@
+
+    <script>
+        // This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+        // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            } else {
+                // Register the service worker
+                navigator.serviceWorker
+                    .register("/ServiceWorker.js", {
+                        scope: "./"
+                    })
+                    .then(function (reg) {
+                        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                    });
+            }
+        }
+        let deferredPrompt;
+        const addBtn = document.querySelector('.add-button');
+        addBtn.style.display = 'none';
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            // Update UI to notify the user they can add to home screen
+            addBtn.style.display = 'block';
+            addBtn.addEventListener('click', (e) => {
+                console.log('click');
+                // hide our user interface that shows our A2HS button
+                addBtn.style.display = 'none';
+                // Show the prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+        const actualDomain = "@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)";
+        var hash = "";
+    </script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-pt_BR.min.js type=text/javascript charset=utf-8></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js type=text/javascript charset=utf-8></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js type=text/javascript></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js type=text/javascript></script>
+    @*<script src="~/Scripts/Comun.js"></script>*@
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155191071-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155191071-2');
+    </script>
+    <script>(function (ss, ex) { window.ldfdr = window.ldfdr || function () { (ldfdr._q = ldfdr._q || []).push([].slice.call(arguments)); }; (function (d, s) { fs = d.getElementsByTagName(s)[0]; function ce(src) { var cs = d.createElement(s); cs.src = src; setTimeout(function () { fs.parentNode.insertBefore(cs, fs) }, 1); }; ce('https://sc.lfeeder.com/lftracker_v1_' + ss + (ex ? '_' + ex : '') + '.js'); })(document, 'script'); })('bElvO73w92p7ZMqj');</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAfiliados.cshtml";
+}
+
+
+<h2 class="titleCommon titleSpacer">Relatórios</h2>
+@*<div class="filters">
+    <div class="itemFilter">
+        <label class="labelFilter">Visualizar</label>
+        <div id="boxDropReportPeriod" class="btn dfl drop dropLeft">
+            <span>Últimos 15 dias</span>
+            <div class="boxDrop">
+                <ul class="ulDrop">
+                    <li class="itemDrop"><a class="linkDrop" href="#">Últimos 30 dias</a></li>
+                    <li class="itemDrop select"><a class="linkDrop" href="#">Últimos 15 dias</a></li>
+                    <li class="itemDrop"><a class="linkDrop" href="#">Últimos 7 dias</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>*@
+<table class="report-table">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Cliques</th>
+            <th title="Cadastros / Cadastros confirmados">
+                Cad. / Confirm.
+            </th>
+            <th>Assinaturas</th>
+            <th>Aguardando Liberação</th>
+            <th>Liberado R$ @*<span class="pointHelp helpReport" original-title="Valores ganhos em Reais">?</span>*@</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var first = true;
+            var NumeroClicks = 0;
+            var NumeroCadastros = 0;
+            var NumeroPerfisAprovados = 0;
+            var NumeroPerfisCriados = 0;
+            var NumeroAssinaturas = 0;
+            var ValorLiberado = 0.0;
+            var ValorPremioLiquido = 0.0;
+        }
+        @foreach (var item in ViewBag.Tabela)
+        {
+            <tr>
+                @if (first)
+                {
+                    <td>Hoje</td>
+                }
+                else
+                {
+                    <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                }
+
+                <td>@item.NumeroClicks</td>
+                <td>@item.NumeroCadastros / @item.NumeroPerfisAprovados</td>
+                <td>@item.NumeroAssinaturas</td>
+                <td>@item.ValorPremioLiquido.ToString("C")</td>
+                <td>@item.ValorLiberado.ToString("C")</td>
+            </tr>
+
+
+            first = false;
+
+            NumeroClicks += @item.NumeroClicks;
+            NumeroCadastros += @item.NumeroCadastros;
+            NumeroAssinaturas += @item.NumeroAssinaturas;
+            NumeroPerfisAprovados += @item.NumeroPerfisAprovados;
+            NumeroPerfisCriados += @item.NumeroPerfisCriados;
+            ValorLiberado += @item.ValorLiberado;
+            ValorPremioLiquido += @item.ValorPremioLiquido;
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Totais</td>
+            <td>@NumeroClicks</td>
+            <td>@NumeroCadastros / @NumeroPerfisAprovados</td>
+            <td>@NumeroAssinaturas</td>
+            <td>@ValorPremioLiquido.ToString("C")</td>
+            <td>@ValorLiberado.ToString("C")</td>
+        </tr>
+    </tfoot>
+</table>
+<div style="width: 100%; margin-top: 10px; float: left; text-align: right;">
+    <p style="font-size: 11px;"><span style="color: red">**</span> Os pagamentos são realizados automaticamente no último dia de cada mês, sendo o fechamento realizado 5 dias antes destas datas.</p>
+</div>

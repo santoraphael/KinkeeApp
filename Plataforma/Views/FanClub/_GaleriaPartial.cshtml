@@ -1,0 +1,78 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    Layout = null;
+}
+
+<div class="home-container widgets">
+
+    <!--Ultimas fotos-->
+    <div class="profile-home-photos">
+        <h2 class="section-header">
+            <i class="icon icon-profile-home-photos"></i>
+            Fotos
+        </h2>
+
+        <div class="home-photos-list">
+
+            <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                <div class="slides"></div>
+                <h3 class="title"></h3>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="close">×</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+            </div>
+
+            @if (ViewBag.habilitaEdicao)
+            {
+                <div id="btEditNoPicture" class="btnEditProfile fileinput-button">
+
+                    <a style="background-color: #36C959;">
+                        <p data-toggle="modal" data-target="#myModalEnviaFoto" style="font-size: 16px; background-color: #36C959; border-width: 0; color: #fff; border-radius: 2px;" class="myModalEnviaFoto sl-btn btn-primary-inverse text-uppercase">Clique aqui e Adicione uma Foto</p>
+                    </a>
+                </div>
+                <br /><br /><br />
+            }
+
+            @if (ViewBag.GaleriaFotos != null && ViewBag.GaleriaFotos.Count > 0)
+            {
+
+
+        <div id="links">
+
+            @foreach (var item in ViewBag.GaleriaFotos)
+            {
+                if (item.isPrivate)
+                {
+                    <div style="float: left; margin-left:5px;  margin-bottom:5px;">
+
+                        <a href="https://app.kinkeesugar.com/@item.UrlFoto" onclick="return false;" title="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                            <img src="https://app.kinkeesugar.com/@item.UrlFoto" id="@item.UrlFoto" width="160" height="auto" ; class="js-img-galeria" alt="@Html.DisplayFor(m => m.PerfilViewModel.Usuario)">
+                        </a>
+
+                        @if (ViewBag.habilitaEdicao)
+                        {
+                            <div style="z-index:9999999999; cursor: pointer; margin-top: 6px; text-align: center;" class="js-exclui-foto">
+                                <p style="background-color:#B8273B; color:#FFF;">
+                                    <img src="~/modules/img/trash.png" width="20" height="20" /> EXCLUIR FOTO
+                                </p>
+                            </div>
+                        }
+
+                    </div>
+                }
+            }
+        </div>
+            }
+            else
+            {
+                <h2 class="msgNoFile">Perfil ainda não enviou<br> nenhuma foto.</h2>
+            }
+
+        </div>
+
+    </div>
+
+</div>

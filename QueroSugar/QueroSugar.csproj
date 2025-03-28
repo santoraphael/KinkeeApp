@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E7811D2-2C90-4EA3-BE89-26D752AECBF6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QueroSugar</RootNamespace>
+    <AssemblyName>QueroSugar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="manifest.json" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="static\android-chrome-192x192.png" />
+    <Content Include="static\apple-touch-icon.png" />
+    <Content Include="static\app\css\jQueroSugar.css" />
+    <Content Include="static\app\css\main.css" />
+    <Content Include="static\app\jquery.jQueroSugar.js" />
+    <Content Include="static\app\jquery.maskedinput.min.js" />
+    <Content Include="static\app\jquery.min.js" />
+    <Content Include="static\app\jquery.transform2d.js" />
+    <Content Include="static\app\main.js" />
+    <Content Include="static\app\scripts.home.js" />
+    <Content Include="static\build\58f45cd4e55716be5f25a888dd102c51.svg" />
+    <Content Include="static\build\8f0b7bbb809ef942400994ee3414d06f.svg" />
+    <Content Include="static\build\logo_modal.svg" />
+    <Content Include="static\build\a753bd6970f8e83249ccb835e0bae2ae.svg" />
+    <Content Include="static\build\app.css" />
+    <Content Include="static\build\chunks\async-boost-logic-f296926cbad22e04df46.js" />
+    <Content Include="static\build\chunks\async-bundle-boost-index-js-4c7b28ecd8c2380d2115.js" />
+    <Content Include="static\build\chunks\async-bundle-boost-reducer-ecd2ddb4c644e5a6e723.js" />
+    <Content Include="static\build\chunks\async-bundle-chat-index-js-809f41da198860322824.js" />
+    <Content Include="static\build\chunks\async-bundle-chat-reducer-f5d7fdd17fd38c2e4346.js" />
+    <Content Include="static\build\chunks\async-bundle-consents-index-js-a1d83d3c87478790ade6.js" />
+    <Content Include="static\build\chunks\async-bundle-consents-reducer-24744b84c1ab433cbf79.js" />
+    <Content Include="static\build\chunks\async-bundle-feedback-index-js-3ac0fadbbd3523b3b6b6.js" />
+    <Content Include="static\build\chunks\async-bundle-feedback-reducer-c8ebfde4d3663bc711e6.js" />
+    <Content Include="static\build\chunks\async-bundle-hamburgerMenu-index-js-92742e10194bc9a14ce8.js" />
+    <Content Include="static\build\chunks\async-bundle-hamburgerMenu-reducer-7f97ec49fb8ccd06a91e.js" />
+    <Content Include="static\build\chunks\async-bundle-likesYou-index-js-9333fbab6def9d0f0edd.js" />
+    <Content Include="static\build\chunks\async-bundle-likesYou-reducer-51b0460e21772d038319.js" />
+    <Content Include="static\build\chunks\async-bundle-notifications-index-js-a774eeaefd16e838427a.js" />
+    <Content Include="static\build\chunks\async-bundle-notifications-reducer-9f6c11de345d22778219.js" />
+    <Content Include="static\build\chunks\async-bundle-optimistic-index-js-becc0fe266a7b9a7c7a4.js" />
+    <Content Include="static\build\chunks\async-bundle-optimistic-reducer-b628170a5ad60fa3dc26.js" />
+    <Content Include="static\build\chunks\async-bundle-passport-index-js-381e00a917f6d2467ab2.js" />
+    <Content Include="static\build\chunks\async-bundle-passport-reducer-e685670c3a868e3e84ac.js" />
+    <Content Include="static\build\chunks\async-bundle-photos-index-js-bd5253648eb20321b86f.js" />
+    <Content Include="static\build\chunks\async-bundle-photos-reducer-76bd4e56b74ca5bccb44.js" />
+    <Content Include="static\build\chunks\async-bundle-profile-index-js-f00cf384bf36b36afaad.js" />
+    <Content Include="static\build\chunks\async-bundle-profile-reducer-82247da81ded64920c49.js" />
+    <Content Include="static\build\chunks\async-bundle-purchase-index-js-7f42d8dab321a3655424.js" />
+    <Content Include="static\build\chunks\async-bundle-purchase-reducer-a9c303f08b98a5b51539.js" />
+    <Content Include="static\build\chunks\async-bundle-recs-index-js-2993ef9b6902e0a4924c.js" />
+    <Content Include="static\build\chunks\async-bundle-recs-reducer-07e3a0d49809d7253b6c.js" />
+    <Content Include="static\build\chunks\async-bundle-scroll-index-js-6dddc86c9933030879f0.js" />
+    <Content Include="static\build\chunks\async-bundle-scroll-reducer-74853644723e36e695fd.js" />
+    <Content Include="static\build\chunks\async-bundle-sendMessageForm-index-js-7aff8105ab0160da1ae0.js" />
+    <Content Include="static\build\chunks\async-bundle-sendMessageForm-reducer-cefd47a328c360acd973.js" />
+    <Content Include="static\build\chunks\async-bundle-spotify-index-js-765553c73523330db12a.js" />
+    <Content Include="static\build\chunks\async-bundle-spotify-reducer-3fa42f0acae2da2755b9.js" />
+    <Content Include="static\build\chunks\async-consents-logic-35acc86f583ff7eaac3f.js" />
+    <Content Include="static\build\chunks\async-feedback-logic-2c38d04d9778193cb5ff.js" />
+    <Content Include="static\build\chunks\async-introPricing-logic-bdb141af74e599df4d11.js" />
+    <Content Include="static\build\chunks\async-likes-you-logic-d23705448f925c523498.js" />
+    <Content Include="static\build\chunks\async-match-logic-987c09877f1c8c11091c.js" />
+    <Content Include="static\build\chunks\async-other-users-logic-462fb711f891d0c5e84f.js" />
+    <Content Include="static\build\chunks\async-passport-logic-e2e597be0ea58d388891.js" />
+    <Content Include="static\build\chunks\async-performance-logic-e27a65770bd7119d420d.js" />
+    <Content Include="static\build\chunks\async-photos-logic-677fa3aaaf88cb5cdbca.js" />
+    <Content Include="static\build\chunks\async-report-logic-8afe05b9cb94217237b4.js" />
+    <Content Include="static\build\chunks\async-saga-features-e47344258c2d8916d814.js" />
+    <Content Include="static\build\chunks\async-send-message-logic-e09471e427d9ce393595.js" />
+    <Content Include="static\build\chunks\async-settings-logic-8e7f29969f0d05cacda4.js" />
+    <Content Include="static\build\chunks\async-spotify-logic-8092d6be45b4cfa0d1a4.js" />
+    <Content Include="static\build\chunks\async-websocket-logic-d9ac26204c67e191865d.js" />
+    <Content Include="static\build\chunks\Favicon-a2a82972e0959d0aab02.js" />
+    <Content Include="static\build\chunks\focus-visible-polyfill-ea67156d4187e07d1269.js" />
+    <Content Include="static\build\chunks\main-947fe67ed68b2a92f187.js" />
+    <Content Include="static\build\chunks\ModalManager-505cff44ad8c5adf8f50.js" />
+    <Content Include="static\build\chunks\NotificationManager-9e57dedde1912757b722.js" />
+    <Content Include="static\build\chunks\Onboarding-c2e9e3d0a2b4a1577c92.js" />
+    <Content Include="static\build\chunks\pc-DesktopLayout-246fd3ad3c641bf29285.js" />
+    <Content Include="static\build\chunks\pc-OfflineSwiping-f19ba0dbc5a7d85618ad.js" />
+    <Content Include="static\build\chunks\pc-r-Chat-499106075eb9e359e429.js" />
+    <Content Include="static\build\chunks\pc-r-DesktopChat-8cfecfbf473d893781c9.js" />
+    <Content Include="static\build\chunks\pc-r-DesktopMessageList-e98e71e9329b767c7340.js" />
+    <Content Include="static\build\chunks\pc-r-LikesYou-a50e86101adac9c3170c.js" />
+    <Content Include="static\build\chunks\pc-r-LikesYou_pc-r-RecsPage-df982bd9b3692481e5de.js" />
+    <Content Include="static\build\chunks\pc-r-LoginDesktop-f62ada2d7e56362589c2.js" />
+    <Content Include="static\build\chunks\pc-r-MatchlistPage-e2bacae9964b6a442289.js" />
+    <Content Include="static\build\chunks\pc-r-ProfileCover-328b6077083cfdf29dba.js" />
+    <Content Include="static\build\chunks\pc-r-ProfilePage-282872cc3a6ba2798cbf.js" />
+    <Content Include="static\build\chunks\pc-r-RecProfile-245ef6884ab7cc1bbc96.js" />
+    <Content Include="static\build\chunks\pc-r-RecsPage-72a1db1e4e4864101f64.js" />
+    <Content Include="static\build\chunks\pc-r-Settings-10e775e3e7d1023b5020.js" />
+    <Content Include="static\build\chunks\pc-RecsGamepad-8b27a942336d5e03c5c6.js" />
+    <Content Include="static\build\chunks\polyfill-intl-displaynames-54d43ea4ee4372b1a0a7.js" />
+    <Content Include="static\build\chunks\precache-common-async-fc86e9badf60bb2628fc.js" />
+    <Content Include="static\build\chunks\protobuf-schema-c95dfbf8650f149774d4.js" />
+    <Content Include="static\build\chunks\style-75934ee55096373ce93d.js" />
+    <Content Include="static\build\chunks\vendor-6c33175abda121a9aeec.js" />
+    <Content Include="static\build\chunks\vendors_crypto-js-ae12cb6073e8f3b9beb8.js" />
+    <Content Include="static\build\chunks\vendors_EditPhoto_pc-r-Settings-4c268523f0b82ad3e6f0.js" />
+    <Content Include="static\build\chunks\vendors_pc-r-Chat_pc-r-DesktopChat-98d47b4b0708e34fc999.js" />
+    <Content Include="static\build\chunks\vendors_pc-r-EditProfileMenuPage_pc-r-LikesYou_pc-r-RecsPage-e49fce3eed814e1ed221.js" />
+    <Content Include="static\build\chunks\vendors_polyfill-intl-displaynames_polyfill-intl-pluralrules_polyfill-intl-relativetimeformat-5d9c833ddafa942c8fd5.js" />
+    <Content Include="static\build\chunks\vendors_protobuf-schema-30d78673a208c9e965f2.js" />
+    <Content Include="static\build\chunks\workbox-window-8ce796dd7a808255cc5a.js" />
+    <Content Include="static\build\d016ec7f0329254a088970214658e936.svg" />
+    <Content Include="static\build\f47b82e9067493016d36940e121542e1.svg" />
+    <Content Include="static\build\images\45055441_2931118716914053_7859152572374843392_n.jpg" />
+    <Content Include="static\build\images\LOGO_APP_CENTER.png" />
+    <Content Include="static\build\images\querosugar_ico.png" />
+    <Content Include="static\build\images\querosugar_ico_notification.png" />
+    <Content Include="static\build\images\Quero_Sugar_SugarBaby.png" />
+    <Content Include="static\build\images\Quero_Sugar_SugarBaby_calcinha.png" />
+    <Content Include="static\build\images\Quero_Sugar_SugarBaby_praia.png" />
+    <Content Include="static\build\images\S_LOGO.png" />
+    <Content Include="static\build\precache-common-async.d5aba75c3108f7db5c3e.css" />
+    <Content Include="static\build\runtime_main-83d410c03e767f600a42.js" />
+    <Content Include="static\build\style.083d1661a3b3d3dbcd59.css" />
+    <Content Include="static\ipadpro1_splash.png" />
+    <Content Include="static\ipadpro2_splash.png" />
+    <Content Include="static\ipadpro3_splash.png" />
+    <Content Include="static\ipad_splash.png" />
+    <Content Include="static\iphone5_splash.png" />
+    <Content Include="static\iphoneplus_splash.png" />
+    <Content Include="static\iphonexr_splash.png" />
+    <Content Include="static\iphonexsmax_splash.png" />
+    <Content Include="static\iphonex_splash.png" />
+    <Content Include="static\locale-data\intl-displaynames\pt.js" />
+    <Content Include="static\pt.js" />
+    <Content Include="static\safari-pinned-tab.svg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="static\597c17405b6a44bc3591ab4a9763692c.woff2" />
+    <Content Include="static\build\fonts\597c17405b6a44bc3591ab4a9763692c.woff2" />
+    <Content Include="Views\App\profile.cshtml" />
+    <Content Include="Views\App\__Index.cshtml" />
+    <Content Include="static\build\fonts\54460ea503fd65c9bb26cac92011031e.woff" />
+    <Content Include="static\build\fonts\bcf3bb1b7f7a3436181788e748bae013.woff2" />
+    <Content Include="static\5c92d5d3e39a260d5dd06ced7eca070d.woff2" />
+    <Content Include="static\908e9587777b28f67d6ea6375585f64e.woff" />
+    <Content Include="static\b796339b324ec08006ca04dca90284cf.woff2" />
+    <Content Include="static\c25c6cfc30268615faf0b2c1a0b5a141.woff" />
+    <Content Include="static\build\fonts\5c92d5d3e39a260d5dd06ced7eca070d.woff2" />
+    <Content Include="static\build\fonts\908e9587777b28f67d6ea6375585f64e.woff" />
+    <Content Include="static\build\fonts\b796339b324ec08006ca04dca90284cf.woff2" />
+    <Content Include="static\build\fonts\c25c6cfc30268615faf0b2c1a0b5a141.woff" />
+    <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\Home\_ModalLoginPartial.cshtml" />
+    <Content Include="Views\Home\_ModalRecuperaContaPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutModal.cshtml" />
+    <Content Include="Views\Home\_ModalRecuperaPorEmailPartial.cshtml" />
+    <Content Include="Views\Home\_ModalCadastrarCelularPartial.cshtml" />
+    <Content Include="Views\Home\_ModalCadastrarEmailPartial.cshtml" />
+    <Content Include="Views\Home\_ModalCadastrarInformacoesPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65371</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44340/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

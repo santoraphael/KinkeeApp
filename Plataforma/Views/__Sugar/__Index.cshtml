@@ -1,0 +1,160 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <link href="~/modules/match/css/jTinder.css" rel="stylesheet" />
+
+<style>
+    main{
+            height: 80%;
+
+    }
+</style>
+    <div class="ng-scope" style="height: 100%;">
+
+        <!-- start padding container -->
+        <div class="wrap" style="height: 100%;">
+            <!-- start jtinder container -->
+            <div id="tinderslide">
+                <ul>
+                    <li class="pane5">
+                        <div class="img"></div>
+                        <div>Miami Beach</div>
+                        <div class="like"></div>
+                        <div class="dislike"></div>
+                    </li>
+                    @*<li class="pane5">
+                        <div class="img"></div>
+                        <div>San Francisco</div>
+                        <div class="like"></div>
+                        <div class="dislike"></div>
+                    </li>
+                    <li class="pane5">
+                        <div class="img"></div>
+                        <div>Chicago</div>
+                        <div class="like"></div>
+                        <div class="dislike"></div>
+                    </li>
+                    <li class="pane5">
+                        <div class="img"></div>
+                        <div>New York</div>
+                        <div class="like"></div>
+                        <div class="dislike"></div>
+                    </li>
+                    <li class="pane5">
+                        <div class="img"></div>
+                        <div>Beach</div>
+                        <div class="like"></div>
+                        <div class="dislike"></div>
+                    </li>*@
+                </ul>
+            </div>
+            <!-- end jtinder container -->
+        </div>
+        <!-- end padding container -->
+        <!-- jTinder trigger by buttons  -->
+        <div class="actions">
+            <a href="#" class="dislike"><i></i></a>
+            <a href="#" class="like"><i></i></a>
+        </div>
+
+        <!-- jTinder status text  -->
+        <div id="status"></div>
+
+        <!-- jQuery lib -->
+        <script src="~/modules/match/js/jquery.min.js"></script>
+        <!-- transform2d lib -->
+        <script src="~/modules/match/js/jquery.transform2d.js"></script>
+        <!-- jTinder lib -->
+        <script src="~/modules/match/js/jquery.jTinder.js"></script>
+        <!-- jTinder initialization script -->
+        <script src="~/modules/match/js/main.js"></script>
+
+    </div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link href="~/modules/css/index.css" rel="stylesheet" />
+@*@Scripts.Render("~/index/css")*@
+
+
+
+<script>
+    $(document).ready(function () {
+        
+
+        function GetData() {
+            var urlFinal = document.URL;
+            pageIndexSearch = 0;
+            lastInteractionSearch = 0;
+
+            if ((pageIndex === 0) || (lastInteraction !== pageIndex)) {
+                lastInteractionSearch = pageIndexSearch;
+                $.ajax({
+                    type: 'GET',
+                    url: '/Sugar/LoadProfiles',
+                    data: { "pageindex": pageIndex, "pagesize": pageSize, "url": urlFinal },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data != null) {
+
+                            PreencheCard(data);
+                        }
+                    },
+                    beforeSend: function () {
+                        $("#progress").show();
+
+                        $(".js-carregar-btn").hide();
+                    },
+                    complete: function () {
+                        $("#progress").hide();
+                        $(".js-carregar-btn").show();
+                    },
+                    error: function () {
+                        $('#btnCarregando').append('Ops! Ocorreu um erro durante o carregamento.');
+                    }
+                });
+            }
+        }
+
+
+        function PreencheCard() {
+
+
+            $.ajax({
+                type: 'GET',
+                url: '/Sugar/_TinderCardPartial',
+                data: { "DataUser": DataUser},
+                dataType: 'json',
+                success: function (data) {
+                    if (data != null) {
+
+                        $("#container").append(data);
+                    }
+                },
+                beforeSend: function () {
+                    $("#progress").show();
+
+                    $(".js-carregar-btn").hide();
+                },
+                complete: function () {
+                    $("#progress").hide();
+                    $(".js-carregar-btn").show();
+                },
+                error: function () {
+                    $('#btnCarregando').append('Ops! Ocorreu um erro durante o carregamento.');
+                }
+            });
+        }
+
+
+
+    });
+</script>
+
+
+
+
+<div class="fb-customerchat"
+     page_id="1105956872821807">
+</div>

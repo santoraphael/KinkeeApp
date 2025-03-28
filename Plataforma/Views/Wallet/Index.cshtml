@@ -1,0 +1,206 @@
+﻿@using Plataforma.Models
+@model WalleteViewModel
+@{
+    ViewBag.Title = "Kinkee - A Rede Social Sugar Baby e Sugar Daddy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <input type="number" id="cardano-offer" name="Offer" min="10" max="1000000" step="1" placeholder="Place your bid here" size="10" style="width:100%;   font-size:24px;">
+    </div>
+    <div><button onclick="pay()">Pay!</button></div>
+
+    <h id="amount"></h>
+    <div class="col-md-6">
+        <table id="firstTabOverall" class="table table-striped" style="font-size:13px;   border: 1px solid black; ">
+            <tr>
+                <th>TX</th>
+                <th>ADA</th>
+                <th>ASSETS</th>
+            </tr>
+        </table>
+    </div>
+
+
+    <script type="module" src="~/modules/getTxs/bech32.js"></script>
+    <script type="module" src="~/modules/getTxs/cardano_serialization_lib_bg.js"></script>
+    <script type="module" src="~/modules/getTxs/cardano_serialization_lib.js"></script>
+    <script src="chrome-extension://lpfcbjknijpeeillifnkikgncikgfhdo/injected.bundle.js"></script>
+    <script src="https://ipfs.io/ipfs/QmdZwDrQckKBbSStbTKCFiGtc8zaQTtstevN9wo5Kwn6BP"></script>
+
+
+    <script>
+
+        function buf2hex(buffer) { // buffer is an ArrayBuffer
+            return [...new Uint8Array(buffer)]
+                .map(x => x.toString(16).padStart(2, '0'))
+                .join('');
+        }
+
+        async function pay() {
+            cardano.enable();
+            var user = await cardano.getUsedAddresses();
+
+            var address = "addr1qxyt3x0pnrxzufzf6frwkspzpj97huycfmenfk50akllc5qjvr3cp8rlzvy48unsrj8vkemzfswfk4qnk4dk6uc70hzqe3408w"
+            var offer = parseInt(document.getElementById("cardano-offer").value)
+
+            let response = await fetch('https://mggvf9rnnh.execute-api.eu-west-2.amazonaws.com/default/makeTx',
+                { method: 'POST', body: JSON.stringify({ "address": user[0], "amount": offer, "recipient": address }) });
+
+
+            console.log(JSON.stringify({ "address": user[0], "amount": offer, "recipient": address }));
+            console.log(response);
+
+            let data = await response.json();
+            console.log(data);
+            let cborRaw = data['cborHex'];
+            const decoded = cbor.decode(cborRaw)
+            decoded.splice(1, 1, new Map());
+            let buffer = cbor.encode(decoded)
+            cborCorrect = buf2hex(buffer);
+
+            const signedTx = await cardano.signTx(cborCorrect);
+            const decoded_complete = cbor.decode(cborCorrect)
+            const decoded_signed = cbor.decode(signedTx)
+            decoded_complete.splice(1, 1, decoded_signed);
+            const encoded_final = cbor.encode(decoded_complete)
+            const output = buf2hex(encoded_final)
+            const hash = await cardano.submitTx(output)
+            alert("Tx submitted correctly hash:" + hash)
+        }
+
+
+        //import { TransactionUnspentOutput } from '../modules/getTxs/cardano_serialization_lib.js';
+
+        //function toHexString(byteArray) {
+        //    return Array.from(byteArray, function (byte) {
+        //        return ('0' + (byte & 0xFF).toString(16)).slice(-2);
+        //    }).join('')
+        //}
+
+        //function parseHexString(str) {
+        //    var result = [];
+        //    while (str.length >= 2) {
+        //        result.push(parseInt(str.substring(0, 2), 16));
+
+        //        str = str.substring(2, str.length);
+        //    }
+
+        //    return result;
+        //}
+
+        //function hex2a(hexx) {
+        //    var hex = hexx.toString();//force conversion
+        //    var str = '';
+        //    for (var i = 0; i < hex.length; i += 2)
+        //        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        //    return str;
+        //}
+
+        //cardano.enable()
+
+        //function vaiiiii() {
+
+        //    const paymentAddr = S.Address.from_bytes(_Buffer.from(await cardano.getChangeAddress(), 'hex')).to_bech32()
+        //    const rawUtxo = await cardano.getUtxos()
+        //    const utxos = rawUtxo.map(u => TransactionUnspentOutput.TransactionUnspentOutput.from_bytes(_Buffer.from(u, 'hex')))
+        //    const outputs = S.TransactionOutputs.new()
+
+        //    outputs.add(
+        //        S.TransactionOutput.new(
+        //            S.Address.from_bech32(addr),
+        //            S.Value.new(
+        //                S.BigNum.from_str(lovelace)
+        //            )
+        //        )
+        //    )
+        //}
+
+
+
+        //test();
+
+
+        //async function test() {
+
+        //    console.log('test');
+
+        //    let utxos = (await window.cardano.getUtxos()).map((utxo) =>
+        //        TransactionUnspentOutput.from_bytes(
+        //            Buffer.Buffer.from(utxo, "hex")
+        //        )
+        //    )
+
+        //    console.log('utxos');
+        //    console.log(utxos);
+
+        //    var balance = 0
+        //    utxos.forEach((tx) => {
+
+        //        var table = document.getElementById("firstTabOverall");
+        //        function addCell(tr, text) {
+        //            var td = tr.insertCell();
+        //            td.bored = "1 px"
+        //            td.textContent = text;
+        //            return td;
+        //        }
+
+
+        //        var txid = toHexString(tx.input().transaction_id().to_bytes()) + " #" + tx.input().index()
+        //        var ada = tx.output().amount().coin().to_str()
+        //        var assets = ""
+
+        //        var money = toHexString(tx.input().transaction_id().to_bytes()) + " #" + tx.input().index() + "  " + tx.output().amount().coin().to_str() + " adalace"
+
+        //        try {
+        //            for (let i = 0; i < tx.output().amount().multiasset().len(); i++) {
+        //                var key = tx.output().amount().multiasset().keys().get(i).to_bytes()
+        //                var key_raw = tx.output().amount().multiasset().keys().get(i)
+        //                for (let j = 0; j < tx.output().amount().multiasset().get(key_raw).len(); j++) {
+        //                    var asset_key = tx.output().amount().multiasset().get(key_raw).keys().get(j)
+        //                    var asset = hex2a(toHexString(tx.output().amount().multiasset().get(key_raw).keys().get(j).name()))
+        //                    var amount = tx.output().amount().multiasset().get(key_raw).get(asset_key).to_str()
+        //                    assets = assets + " +" + amount + " " + toHexString(key) + "." + asset
+        //                    money = money + " +" + amount + " " + toHexString(key) + "." + asset
+        //                }
+
+        //            }
+        //        } catch (error) {
+        //            console.log("no assets")
+        //        }
+        //        console.log(money)
+        //        balance = balance + parseInt(tx.output().amount().coin().to_str())
+
+        //        var row = table.insertRow();
+        //        addCell(row, txid);
+        //        addCell(row, ada);
+        //        addCell(row, assets);
+
+
+        //    });
+        //    balance = balance / 1000000
+        //    var address = utxos[0].output().address().to_bech32()
+        //    document.getElementById("amount").innerHTML = "Total ADA= " + balance + " address: " + address
+
+        //    console.log("Total ADA= " + balance + " address: " + address)
+
+
+        //}
+
+
+    </script>
+
+
+</body>
+</html>
+
+

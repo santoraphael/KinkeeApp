@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Assinatura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1 {
+        font-size: 37px;
+    }
+</style>
+<div class="myaccount">
+
+    <div class="container-fluid myaccount-header">
+
+        <div class="container-flex">
+
+            <div class="row">
+
+                <div class="col-md-4 hidden-xs hidden-sm">
+
+                    <h2>Minha conta</h2>
+
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="myaccount-options dropdown">
+
+                        <button class="sl-btn btn-link myaccount-button-options js-click-menu">
+                            Assinatura<i></i>
+                        </button>
+
+                        <ul class="myaccount-nav dropdown-menu js-mostra-esconde-menu">
+
+                            <li class="">
+                                <a href="/MinhaConta/ConfiguracoesAvancadas/">
+                                    Configurações<i></i>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#">
+                                    Assinatura<i></i>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="/MinhaConta/Privacidade/">
+                                    Segurança e privacidade<i></i>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-flex" id="firstdata">
+
+        <div class="row ng-scope">
+
+
+            <div class="non-subscribers-main">
+
+                <div class="row">
+
+                    <div class="col-md-7" id="divslideone">
+                        <div subscribe-injected="" remove-fix-screen="xl hd">
+                            <div class="sl-modal sl-subscription-modal  undefined injected ng-scope">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header ng-scope">
+                                            <button type="button" class="sl-close" data-dismiss="modal">×</button>
+
+                                            <h4 class="modal-title ng-binding large primary text-center">
+                                                Status de assinatura
+                                            </h4>
+                                        </div>
+
+                                        <ul class="nav nav-pills nav-justified">
+                                            <!-- Dados do usuario -->
+
+                                            @if (ViewBag.ContaGold == true)
+                                            {
+                                                <li class="active">
+                                                    <a>
+                                                        Assinatura ativa!
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="active">
+                                                    <a>
+                                                        Você não tem uma assinatura
+                                                    </a>
+                                                </li>
+                                            }
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <div class="container-flex" id="process">
+
+    </div>
+
+
+
+
+
+
+
+    <div class="container-flex">
+
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+    </div>
+
+</div>
+
+<script>
+
+    $('.js-click-menu').click(function () {
+
+        $('.js-mostra-esconde-menu').css("display", "block");
+
+    });
+</script>
+
+
+<div class="fb-customerchat"
+     page_id="1105956872821807">
+</div>

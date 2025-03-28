@@ -1,0 +1,435 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee - A Rede Social Sugar Baby e Sugar Daddy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link type="text/css" rel="stylesheet" href="~/pulsar/Kinkee/assets/css/sl/app/myaccount/myaccount834d.css?v=262076f14fa0aa8d37cb1b48c8f2f68036" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://www.sexlog.com/assets/css/sl/app/institute/institute.css?v=301d856a5863c1ac3bce090aaf978cac" media="screen" />
+
+
+
+<style>
+    body {
+        color: #B8273B;
+    }
+
+    .ng-cloak {
+        display: block !important;
+    }
+
+    .myaccount .myaccount-header .myaccount-options .myaccount-nav li.active a {
+        border-bottom: 5px solid #B8273B;
+    }
+</style>
+
+<style>
+
+
+    .col-sm-4 {
+        width: calc(50%) !important;
+        padding-top: calc(50%);
+        margin-bottom: 10px;
+        margin-right: 10px !important;
+    }
+
+
+    .css-108pdyg {
+        position: relative;
+        display: inline-flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        box-sizing: border-box;
+        font-family: "Source Sans Pro", HelveticaNeue, Helvetica, Arial, Sans;
+        flex-direction: row-reverse;
+        -webkit-box-align: center;
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+        cursor: default;
+        height: 16px;
+        border-width: 1px;
+        border-style: solid;
+        font-size: 12px;
+        border-radius: 100px;
+        padding: 0px 8px;
+        color: rgb(255, 255, 255);
+        background: rgb(235, 160, 14);
+        border-color: rgb(235, 160, 14);
+    }
+
+    .css-s7mszz span {
+        text-transform: uppercase !important;
+    }
+
+    .css-1wdxkcl {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height: 16px;
+    }
+
+    .css-120v7t4 {
+        display: flex;
+        align-items: flex-end;
+        border-radius: 0px 0px 6px 6px;
+        margin-left: -5px;
+        background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 80%);
+        width: 105%;
+        color: #fff;
+    }
+
+    .css-4uzq6t {
+        width: 100%;
+        padding: 0px 16px 8px;
+    }
+
+    .css-1o52zj5 {
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .css-bxksh3 {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        line-height: 15px;
+    }
+
+    .css-ukdp28 {
+        width: 150px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        opacity: 0.7;
+        color: rgb(255, 255, 255);
+        font-size: 14px;
+    }
+
+    .css-1rhxoew {
+        white-space: nowrap;
+        margin-left: 4px;
+    }
+
+    .css-1c4r4zv::before {
+        content: " · ";
+    }
+
+    /* fallback */
+    @@font-face {
+        font-family: 'Material Icons';
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://fonts.gstatic.com/s/materialicons/v81/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+    }
+
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+    }
+
+    .online-tip {
+        position: absolute;
+        left: 10px;
+        top: 16px;
+        width: 7px;
+        height: 7px;
+        background-color: #4fd463;
+        border-radius: 50%;
+    }
+
+    ul.attributes-list {
+        padding: 7px !important;
+        margin-top: 5px !important;
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+        white-space: inherit !important;
+        position: absolute !important;
+        left: 82% !important;
+        right: 0 !important;
+        top: 0 !important;
+        width: 40px !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    .attributes-list li {
+        width: 100%;
+        height: 26px;
+        float: none;
+        margin-bottom: 3px;
+        margin-top: 0;
+        padding: 0;
+        position: relative;
+    }
+
+        .attributes-list li img {
+            right: 5px;
+            width: 26px;
+            height: 26px;
+            box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+            border-radius: 50%;
+        }
+
+    .support {
+        display: none;
+    }
+</style>
+
+
+<div class="myaccount institute">
+
+
+    <script>
+        
+    </script>
+
+
+    <br />
+    <div class="container-flex">
+
+        
+
+        @if (ViewBag.ListaUsuarios != null)
+        {
+        <h1>Fila de espera: (@ViewBag.ListaUsuarios.Count)</h1>
+
+            foreach (var usuario in ViewBag.ListaUsuarios)
+            {
+                
+
+    <div class="panel panel-default @usuario.userModel.Usuario" @*style="width:40%; float:left; margin-right:40px;"*@>
+        @{
+            if (usuario.userModel.Genero == "Homem")
+            {
+                <div class="panel-heading" style="background-color:#B8273B; color:#fff">
+                    <h4>
+                        <label>Sugar Daddy</label>
+                    </h4>
+                </div>
+            }
+            else
+            {
+                <div class="panel-heading">
+                    <h4>
+                        <label>Sugar Baby</label>
+                    </h4>
+                </div>
+            }
+        }
+
+
+
+        <div class="panel-body">
+
+            <div class="box box-info">
+
+                <div class="box-body">
+                    <div class="col-sm-6">
+                        <div align="center">
+                            @{
+                                var UrlImagem = "https://app.kinkeesugar.com" + @usuario.userModel.imagemPerfil;
+                            }
+
+                            <div class='col-sm-4 container-img-list' style='background-image: url(@UrlImagem);'>
+                                <a href='/Dating/Perfil/{Usuario}' target='_self' style='color: #fff;'>
+
+                                    <div class='online-tip'></div>
+
+
+                                    <div class=''>
+                                        <div class='css-4uzq6t'>
+                                            <div class='css-1o52zj5'>
+                                                <span>{Usuario}</span>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </a>
+                                <div class='action css-120v7t4' style='margin-top: 7px;'>
+                                    <div style='margin-left: 20px'>
+                                        <i aria-hidden='true' class='material-icons'>  </i>
+                                        <div class='sr-only'> Enviar Mensagem </div>
+                                    </div>
+                                    <div style='margin-left: auto; margin-right: 20px;'>
+                                        <i aria-hidden='true' class='material-icons'></i>
+                                        <div class='sr-only'> Favoritar </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 style="color:#00b1b1;">
+                            <a href='https://app.kinkeesugar.com/Dating/Perfil/@usuario.userModel.Usuario' target='_blank' style='color: #000;'>
+                                @usuario.userModel.Name @usuario.userModel.Lastname
+                            </a>
+
+                        </h4>
+                        <span></span>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <hr style="margin:5px 0 5px 0;">
+
+
+                    @if (@usuario.userModel.GaleriaFotos != null)
+                    {
+                        foreach (var galeria in @usuario.userModel.GaleriaFotos)
+                        {
+
+                            if (!galeria.isApproved)
+                            {
+                                var imagemGaleria = "https://app.kinkeesugar.com" + @galeria.UrlFoto;
+
+
+                                <div class='col-sm-4 container-img-list' style='background-image: url(@imagemGaleria);'>
+                                    <a href='@imagemGaleria' target='_self' style='color: #fff;'>
+
+                                    </a>
+                                </div>
+
+                                <div class="js-container-validacao">
+                                    <input hidden class="js-usuario-validacao @usuario.userModel.Usuario" data-name="@usuario.userModel.Usuario" value="@usuario.userModel.Usuario" />
+                                    <br />
+
+                                    <div style="align-items: right; /* height: 100px; */ padding-bottom: 20px; text-align: right; margin: 20px; ">
+
+                                        <button class="onboarding-button-primary sl-btn btn-primary-inverse js-btn-reprovar" style="" data-url-foto="@galeria.UrlFoto" data-name="@usuario.userModel.Usuario" @*disabled="disabled"*@>
+                                            <span class="text">REPROVAR</span>
+                                            <div class="spinner" spinner="" data-color="#fff" style="display:none;">
+                                                <div class="one" style="background-color: rgb(255, 255, 255);"></div>
+                                                <div class="two" style="background-color: rgb(255, 255, 255);"></div>
+                                                <div class="three" style="background-color: rgb(255, 255, 255);"></div>
+                                            </div>
+                                        </button>
+
+                                        <button class="onboarding-button-primary sl-btn btn-primary-inverse js-btn-Aprovar" style="background-color: lightgreen;" data-url-foto="@galeria.UrlFoto" data-name="@usuario.userModel.Usuario" @*disabled="disabled"*@>
+                                            <span class="text">APROVAR</span>
+                                            <div class="spinner" spinner="" data-color="#fff" style="display:none;">
+                                                <div class="one" style="background-color: rgb(255, 255, 255);"></div>
+                                                <div class="two" style="background-color: rgb(255, 255, 255);"></div>
+                                                <div class="three" style="background-color: rgb(255, 255, 255);"></div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+
+
+                        }
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+   
+        
+
+    </div>
+            }
+        }
+
+    </div>
+</div>
+
+<script>
+
+
+    $(document).ready(function () {
+
+        $(document).on("click", ".js-btn-Aprovar", function (e) {
+           
+            $(this).html("Enviando...");
+            $(this).attr('disabled', 'disabled');
+
+            var usuario = $(this).attr("data-name");
+            var urlFoto = $(this).attr("data-url-foto");
+
+            $.ajax({
+                url: '@Url.Action("AprovarFotoGaleria", "GestaoPerfis")',
+                data: { NomeUsuario: usuario, urlfoto: urlFoto},
+                dataType: 'json',
+                type: 'POST',
+                success: function (data) {
+
+
+                }
+            });
+
+            $(".panel." + usuario).remove();
+
+            e.preventDefault();
+
+        });
+
+
+        $(document).on("click", ".js-btn-reprovar", function (e) {
+
+            $(this).html("Enviando...");
+            $(this).attr('disabled', 'disabled');
+
+            var usuario = $(this).attr("data-name");
+            var urlFoto = $(this).attr("data-url-foto");
+
+            $.ajax({
+                url: '@Url.Action("RecusarFotoGaleria", "GestaoPerfis")',
+                data: { NomeUsuario: usuario, urlfoto: urlFoto},
+                dataType: 'json',
+                type: 'POST',
+                success: function (data) {
+
+
+                }
+            });
+
+            $(".panel." + usuario).remove();
+
+            e.preventDefault();
+
+        });
+        
+
+    });
+
+
+
+</script>

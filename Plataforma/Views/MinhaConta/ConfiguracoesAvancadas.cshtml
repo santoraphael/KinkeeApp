@@ -1,0 +1,642 @@
+﻿
+@{
+    ViewBag.Title = "Assinatura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1{
+        font-size: 37px;
+    }
+    
+</style>
+<div class="myaccount">
+
+    <div class="container-fluid myaccount-header">
+
+        <div class="container-flex">
+
+            <div class="row">
+
+                <div class="col-md-4 hidden-xs hidden-sm">
+
+                    <h2>Minha conta</h2>
+
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="myaccount-options dropdown">
+
+                        <button class="sl-btn btn-link myaccount-button-options js-click-menu">
+                            Configurações<i></i>
+                        </button>
+
+                        <ul class="myaccount-nav dropdown-menu js-mostra-esconde-menu">
+
+                            <li class="active">
+                                <a href="#">
+                                    Configurações<i></i>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="/MinhaConta/Assinatura/">
+                                    Assinatura<i></i>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="/MinhaConta/Privacidade/">
+                                    Segurança e privacidade<i></i>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-flex">
+        <div class="row ng-scope">
+            <div class="col-sm-12 col-md-8">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Informações da conta</h3>
+                            </div>
+                            <div class="panel-body account-info">
+                                
+                                <div role="form" class="myaccount-edit myaccount-username">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header js-edit-username-header">
+                                            <h6>Kinkee.me/</h6>
+                                            <div class="myaccount-label">
+                                                <h4>
+                                                    @ViewBag.Usuario.Usuario
+                                                </h4>
+                                                
+                                                @*<button type="button" class="sl-btn btn-link btn-open-edit js-btn-open-edit-username">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>*@
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body js-edit-username">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="alert alert-info js-alert-username" role="alert">
+                                                        O nome de usuário deve ser sem espaços e caracteres especiais como (&%$!). Exemplo de Nome de usuário <strong>Válido:</strong> RAPHAELSANTO, BABYLINDA123.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><h6>Nome de Usuário</h6></th>
+                                                                    <th><h6></h6></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-email ng-hide" ng-show="account.email.new">
+                                                        <form name="form" class="css-form ng-pristine ng-valid ng-valid-email ng-valid-maxlength" novalidate="">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                    <input type="email" id="inputEnterUsername" name="uEmail" style="text-transform: uppercase;" maxlength="100" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="Digite o Nome de Usuário...">
+                                                                </div>
+                                                                <div class="hidden-xs col-sm-1 col-md-1 js-load-username" style="display:none;">
+                                                                    <span class="sl-svg-inline loading sl-svg-inline ng-hide" ng-show="account.email.savingEmail" svg-icon="loading-inline" width="36" height="36" data-fill="#CC6FC5">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="36" height="36" fill="#CC6FC5">
+                                                                            <circle transform="translate(8 0)" cx="0" cy="16" r="0.0515466">
+                                                                                <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                            </circle>
+                                                                            <circle transform="translate(16 0)" cx="0" cy="16" r="1.0161">
+                                                                                <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                            </circle>
+                                                                            <circle transform="translate(24 0)" cx="0" cy="16" r="3.85623">
+                                                                                <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                            </circle>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-5 col-md-5 text-right">
+                                                                    <button class="sl-btn btn-default js-btn-cancel-edit-username" type="button" tabindex="3">
+                                                                        Cancelar
+                                                                    </button>
+                                                                    @if (ViewBag.Usuario.ContaGold)
+                                                                    {
+                                                                        <button class="sl-btn btn-primary js-btn-salvar-Username-Gold" onclick="SalvarUsuario()"   disabled="disabled" type="button" tabindex="2">
+                                                                            Salvar
+                                                                        </button>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <button class="sl-btn btn-primary js-btn-salvar-Username" onclick="ChamarPainelAssinatura()" type="button" tabindex="2">
+                                                                            Salvar
+                                                                        </button>
+                                                                    }
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div role="form" class="myaccount-edit myaccount-email">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header js-edit-email-header">
+                                            <h6>E-mail</h6>
+                                            <div class="myaccount-label">
+                                                <h4>
+                                                    <span ng-if="account.email.mainSelected" class="ng-binding ng-scope">
+                                                        <strong class="ng-binding">@ViewBag.Usuario.Email</strong>
+                                                    </span>
+                                                </h4>
+                                                @*<button type="button" class="sl-btn btn-link btn-open-edit js-btn-open-edit-email">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>*@
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body js-edit-email">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="alert alert-success" role="alert">
+                                                        Este e-mail não será divulgado publicamente. Ele é apenas o meio de contato da Kinkee com você.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><h6>E-mail</h6></th>
+                                                                    <th><h6></h6></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="ng-scope main">
+                                                                    <td bo-text="item.email">@ViewBag.Usuario.Email</td>
+                                                                    <td>
+                                                                        
+                                                                    </td>
+                                                                    <td>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-email ng-hide" ng-show="account.email.new">
+                                                        <form name="form" class="css-form ng-pristine ng-valid ng-valid-email ng-valid-maxlength" novalidate="">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                                                    <input type="email" id="inputEnterEmail" name="uEmail" maxlength="100" class="form-control input-enter-email ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" tabindex="1" placeholder="Digite o e-mail...">
+                                                                </div>
+                                                                <div class="hidden-xs col-sm-1 col-md-1">
+                                                                    <span class="sl-svg-inline loading sl-svg-inline ng-hide" ng-show="account.email.savingEmail" svg-icon="loading-inline" width="36" height="36" data-fill="#CC6FC5">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="36" height="36" fill="#CC6FC5">
+                                                                            <circle transform="translate(8 0)" cx="0" cy="16" r="0.0515466">
+                                                                                <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                            </circle>
+                                                                            <circle transform="translate(16 0)" cx="0" cy="16" r="1.0161">
+                                                                                <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                            </circle>
+                                                                            <circle transform="translate(24 0)" cx="0" cy="16" r="3.85623">
+                                                                                <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                                            </circle>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-5 col-md-5 text-right">
+                                                                    <button class="sl-btn btn-default js-btn-cancel-edit-email" type="button" tabindex="3">
+                                                                        Cancelar
+                                                                    </button>
+                                                                    <button class="sl-btn btn-primary" type="button" ng-click="account.validateEmail()" ng-disabled=" account.email.savingEmail" tabindex="2">
+                                                                        Salvar
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <form role="form" class="myaccount-edit myaccount-last-access  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        @*<div class="myaccount-edit-header">
+                                            <h6>Último acesso em</h6>
+                                            <div class="myaccount-label">
+                                                <h4>
+                                                    19/04/2018 às 23:06
+                                                </h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-view" ng-disabled="account.lastAccess.loading" ng-click="account.toggleLastAccess();">
+                                                    <i></i>
+                                                    Visualizar
+                                                </button>
+                                                <span class="sl-svg-inline last-access-loading sl-svg-inline ng-hide" ng-show="account.lastAccess.loading" svg-icon="loading-inline" width="30" height="30" data-fill="#CC6FC5">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="30" height="30" fill="#CC6FC5">
+                                                        <circle transform="translate(8 0)" cx="0" cy="16" r="0.0515466">
+                                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                        </circle>
+                                                        <circle transform="translate(16 0)" cx="0" cy="16" r="1.0161">
+                                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                        </circle>
+                                                        <circle transform="translate(24 0)" cx="0" cy="16" r="3.85623">
+                                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                                        </circle>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>*@
+                                        @*<div class="myaccount-edit-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table" sl-prevent-scroll="" bindonce="">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><h6>Último acesso em</h6></th>
+                                                                    <th><h6>IP</h6></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" >Fechar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                </form>
+
+
+                                <form role="form" class="myaccount-edit myaccount-since  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <h6>Usuário desde</h6>
+                                            <div class="myaccount-label">
+                                                <h4>
+                                                    @ViewBag.Usuario.DateCreate.ToString("dd/MM/yyyy")
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="row">
+                    <div class=" col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Senha</h3>
+                            </div>
+                            <div class="panel-body ">
+                                <form role="form" class="myaccount-edit myaccount-password  ng-pristine ng-valid ng-valid-maxlength">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header js-edit-email-header">
+                                            <div class="myaccount-label">
+                                                <h4>
+                                                    ●●●●●●●●●●
+                                                </h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit js-btn-open-edit-senha">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body js-edit-senha">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="currentPass">Senha atual</label>
+                                                        <input type="password" maxlength="30" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength js-senha" ng-change="password.change()" id="currentPass" ng-model="password.values.current" tabindex="1">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="newPass">Nova senha</label>
+                                                        <input type="password" maxlength="30" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength js-nova-senha" id="newPass" ng-model="password.values.new" tabindex="2">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div class="alert alert-success js-alert-password" style="display:none;" role="alert">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="confirmPass">Confirme a nova senha</label>
+                                                        <input type="password" maxlength="30" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength js-nova-senha-confirmacao" id="confirmPass" tabindex="3" disabled="disabled">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default js-btn-cancel-edit-senha" type="button" tabindex="5">Cancelar</button>
+                                                        <button class="sl-btn btn-primary js-btn-salvar-senha" disabled="disabled" type="button" tabindex="4">
+                                                            Salvar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>*@
+
+
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <!--<div class="row">
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="panel myaccount-panel" id="/edit-location">
+                            <div class="panel-heading">
+                                <h3>
+                                    Localização
+                                </h3>
+                                <span class="sl-svg-inline loading sl-svg-inline ng-hide js-load-location" style="display:none; margin-left: 125px;" width="36" height="36" data-fill="#CC6FC5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="36" height="36" fill="#CC6FC5">
+                                        <circle transform="translate(8 0)" cx="0" cy="16" r="0.0515466">
+                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                        </circle>
+                                        <circle transform="translate(16 0)" cx="0" cy="16" r="1.0161">
+                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                        </circle>
+                                        <circle transform="translate(24 0)" cx="0" cy="16" r="3.85623">
+                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                        </circle>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="panel-body ">
+                                <form role="form" class="myaccount-edit myaccount-location  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header js-edit-location-header">
+                                            <div class="myaccount-label">
+                                                <div class="myaccount-label-title">
+                                                    @{ 
+                                                        var Cidade = "Não Localizado";
+                                                        var Estado = "";
+                                                        var Pais = "";
+                                                    }
+
+                                                    @if (ViewBag.Usuario.Endereco != null)
+                                                    {
+                                                        if (!String.IsNullOrEmpty(ViewBag.Usuario.Endereco.Cidade))
+                                                        {
+                                                            Cidade = ViewBag.Usuario.Endereco.Cidade;
+                                                        }
+
+                                                        if (!String.IsNullOrEmpty(ViewBag.Usuario.Endereco.Estado))
+                                                        {
+                                                            Estado = ViewBag.Usuario.Endereco.Estado;
+                                                        }
+
+                                                        if (!String.IsNullOrEmpty(ViewBag.Usuario.Endereco.Pais))
+                                                        {
+                                                            Pais = ViewBag.Usuario.Endereco.Pais;
+                                                        }
+
+                                                        <h4 class="ng-binding">@Cidade, @Estado, @Pais</h4>
+                                                    }
+
+                                                </div>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit js-btn-open-edit-location" >
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body js-edit-location">
+                                            <div class="row">
+                                                <div class="col-md-12" style="padding: 0px; margin: 0px;">
+                                                    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBzFkxL-QYACDN6I63zfhGwKObLi_24Krs"></script>
+                                                    <script src="~/modules/js/semantic-ui.min.js"></script>
+                                                    <script src="~/modules/js/jquery.geocomplete.js"></script>
+
+                                                    <div class="form-group ng-scope" >
+                                                        <button type="button" class="sl-btn btn-link js-btn-location" placeholder="Qual é sua Cidade?" style="float:left; padding: 0px; margin-right:5px;">
+                                                            <img src="~/modules/img/location.png" width="30" height="30" title="Use Current Location">
+                                                        </button>
+
+                                                        <input id="txtAddress" type="text" style="width: 70%; margin-left:2px; float:left;" class="form-control ng-valid ng-not-empty ng-touched ng-dirty ng-valid-parse js-input-location" value="@ViewBag.Usuario.Endereco.Cidade, @ViewBag.Usuario.Endereco.Estado, @ViewBag.Usuario.Endereco.Pais" >
+                                                        
+                                                        <span class="LocationInput-cross js-btn-cancel-auto-location" style="z-index: 900; margin-left:10px; cursor: pointer;font-size: 25px;">✖</span>
+                                                        <input type="hidden" class="js-input-cidade-location-hidden">
+                                                        <input type="hidden" class="js-input-estado-location-hidden">
+                                                        <input type="hidden" class="js-input-pais-location-hidden">
+                                                        <input type="hidden" class="js-input-latitude-location-hidden">
+                                                        <input type="hidden" class="js-input-longitude-location-hidden">
+                                                        <input type="hidden" class="js-input-ipv4-location-hidden">
+                                                    </div>-->
+
+                                                    @*Country: <span id="country2"></span>
+                                                    State: <span id="state"></span>
+                                                    City: <span id="city"></span>
+                                                    Latitude: <span id="latitude"></span>
+                                                    Longitude: <span id="longitude"></span>
+                                                    IP: <span id="IPv4"></span>*@
+                                                
+                                                <!--</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default js-btn-cancel-edit-location">Cancelar</button>
+                                                        <button class="sl-btn btn-primary js-btn-salvar-location" disabled="disabled">
+                                                            Atualizar Local
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>-->
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Idioma</h3>
+                            </div>
+                            <div class="panel-body ">
+                                <form role="form" class="myaccount-edit myaccount-language  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <div class="myaccount-label">
+                                                <div class="myaccount-label-title">
+                                                    <h4 class="ng-binding">Português (Brasil)</h4>
+                                                    <h6 class="ng-binding">pt-br</h6>
+                                                </div>
+                                                @*<button type="button" class="sl-btn btn-link btn-open-edit" ng-click="$myaccount.$collapse('myaccount-language')">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>*@
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+                                                    <div class="form-group">
+                                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="language.selected" ng-change="language.change()" ng-options="item.name for item in language.list track by item.cultureid "><option label="Italiano (Italia)" value="5">Italiano (Italia)</option><option label="Português (Brasil)" value="1" selected="selected">Português (Brasil)</option><option label="English (US)" value="2">English (US)</option><option label="Español (España)" value="4">Español (España)</option></select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" ng-click="language.close()">Cancelar</button>
+                                                        <button class="sl-btn btn-primary" ng-click="language.save()">Salvar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Gerenciar conta </h3>
+                                <span class="sl-svg-inline loading sl-svg-inline ng-hide" style="display:none;" width="36" height="36" data-fill="#CC6FC5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="36" height="36" fill="#CC6FC5">
+                                        <circle transform="translate(8 0)" cx="0" cy="16" r="0.0515466">
+                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                        </circle>
+                                        <circle transform="translate(16 0)" cx="0" cy="16" r="1.0161">
+                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                        </circle>
+                                        <circle transform="translate(24 0)" cx="0" cy="16" r="3.85623">
+                                            <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                        </circle>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="panel-body ">
+                                <form role="form" class="myaccount-edit myaccount-block  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header ng-scope">
+                                            <div class="myaccount-label">
+                                                <h4>
+                                                    Desativar conta
+                                                </h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit js-btn-desativarConta">
+                                                    Desativar
+                                                </button>
+                                            </div>
+                                            <p>
+                                                Ao desativar sua conta, ela deixa de aparecer na Kinkee. A qualquer momento você pode reativá-la, basta acessar novamente o seu perfil inserindo login e senha. Importante: Desativar a sua conta não irá restituir dias de assinatura, caso você seja assinante.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </form>
+                                @*<form role="form" class="myaccount-edit myaccount-remove  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <div class="myaccount-label">
+                                                <h4>
+                                                    Excluir conta
+                                                </h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit">
+                                                    Excluir
+                                                </button>
+                                            </div>
+                                            <p>
+                                                Ao excluir a sua conta, todas as suas informações, fotos e publicações serão removidos do sistema em definitivo. Para voltar a utilizar a plataforma será preciso criar um novo usuário. Caso você seja um assinante, dias de assinatura não serão restituídos.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container-flex">
+
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+    </div>
+
+</div>
+
+<div id="mensagemModal">
+
+</div>
+
+<script src="~/modules/js/configuracoes_avancadas.js"></script>
+
+
+<div class="fb-customerchat"
+     page_id="1105956872821807">
+</div>

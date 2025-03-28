@@ -1,0 +1,1191 @@
+﻿@using Plataforma.Models
+
+@model CreateProfileModel
+
+
+@{
+    Layout = null;
+}
+
+
+<link href="~/modules/css/Wizard.css" rel="stylesheet" />
+<div class="modal-backdrop in " modal-backdrop=""></div>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/additional-methods.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+@if (Model.ProfileCreated && !Model.ApprovedProfile)
+{
+
+    <style>
+        .sl-onboarding-modal .step-welcome {
+            background-image: radial-gradient(circle at 50% 32%,#B7133C,#810E2A)
+        }
+
+            .sl-onboarding-modal .step-welcome .title {
+                color: #000;
+            }
+
+            .sl-onboarding-modal .step-welcome .subtitle {
+                color: #000;
+            }
+
+            .sl-onboarding-modal .step-welcome .message-bottom {
+                color: #000;
+            }
+    </style>
+    <div class="onboarding-page ng-scope wizard-create-profile" style="z-index: 1050; display: block;">
+
+        <div class="modal sl-modal sl-modal-flex sl-onboarding-modal" style="visibility: visible;">
+            <div class="modal-dialog" style="margin-top: 20px;">
+                <div class="modal-content">
+
+                    <div sl-onboarding="" class="onboarding-content">
+                        <div class="modal-body js-modal-body" vl-data="0" vl-step="1" style="transform: translateX(0px);">
+
+                            @*INTRO*@
+                            <div class="step-welcome wizard-step active" bindonce="" style="width: 100%;">
+                                @*<i class="icon"></i>*@
+
+                                <img src="~/pulsar/Kinkee/assets/images/modules/sobre/kinkee_logo_preto.png" style="width:165px; margin-bottom:20px;" />
+                                <h2 class="title">Oi, @Html.DisplayTextFor(m => m.PrimeiroNome)!</h2>
+                                <p class="subtitle">Ainda estamos analisando o seu pefil</p>
+
+                                <p class="message-bottom">Recebemos inúmeros cadastros por dia, e validamos um por um.</p>
+                            </div>
+
+                            @*MUITAS PESSOAS*@
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%;">
+                                @*<i class="icon"></i>*@
+
+                                <h2 class="title">Uma alternativa.</h2>
+                                <p class="subtitle">Você pode furar a fila e já ter o seu perfil Aprovado.</p>
+
+                                <p class="message-bottom">Vou te mostrar algumas opções.</p>
+                            </div>
+
+                            @*ASSINATURA*@
+                            <div class="step-welcome wizard-step step-subscribed" bindonce="" style="width: 100%;">
+                                <img src="~/modules/img/simbolo_premium.png" style="width:40px; margin-bottom:20px;" />
+                                <h2 class="title">Seja Premium</h2>
+                                <p class="subtitle">Seu perfil aprovado automáticamente.</p>
+                                <p class="message-bottom">Além disso tenha acesso ao Concierge o serviço mais VIP que você já viu.</p>
+                            </div>
+
+                            @*FINAL*@
+                            <div class="step-login wizard-step cad-validate" style="width: 100%;">
+                                <div class="onboarding-header">
+                                    <p class="info">Convide pessoas para a kinkee</p>
+                                    <p class="step">Pode ser baby ou daddy.</p>
+                                </div>
+                                <div class="onboarding-container">
+                                    <div class="login-checkbox">
+                                        <p>Quanto mais pessoas que você indicar cadastrarem-se na kinkee, mais você aumenta suas chances de ter o perfil parovado.</p>
+                                    </div>
+                                    <div class="login-area">
+
+                                        <div class="area-email">
+                                            <input type="email" maxlength="100" class="login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength js-email-to-invite" placeholder="nomedoamigo@email.com">
+                                            <br />
+                                            <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-send-invite" style="width: 100%; border-radius: 5px;">
+                                                Enviar convite
+                                            </button>
+                                            <br />
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="modal-footer" style="position: absolute; bottom: -3px; width: 100%;">
+                            <div class="onboarding-steps">
+                                <span class="step active"></span>
+
+                            </div>
+
+                            <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-btn-avancar">
+                                Avançar
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (!Model.ProfileCreated)
+{
+    <div class="onboarding-page ng-scope wizard-create-profile" style="z-index: 1050; display: block;">
+
+        <div class="modal sl-modal sl-modal-flex sl-onboarding-modal" style="visibility: visible;">
+            <div class="modal-dialog" style="margin-top: 20px;">
+                <div class="modal-content">
+
+                    @using (Html.BeginForm("CreateNewProfile", "Wizard", FormMethod.Post, new { @class = "sl-form ng-pristine ng-invalid ng-invalid-required", @name = "forgetForm", enctype = "multipart/form-data" }))
+                    {
+
+                        @Html.HiddenFor(m => m.GeneroUsuario)
+                        @Html.HiddenFor(m => m.NomeUsuario)
+                        @Html.HiddenFor(m => m.PrimeiroNome)
+                        @Html.HiddenFor(m => m.ProfileCreated)
+                        @Html.HiddenFor(m => m.ApprovedProfile)
+
+
+                        <div sl-onboarding="" class="onboarding-content">
+                            <div class="modal-body js-modal-body" vl-data="0" vl-step="1" style="transform: translateX(0px);">
+
+
+                                @*INTRO*@
+                                <div class="step-welcome wizard-step active" bindonce="" style="width: 100%;">
+                                    @*<i class="icon"></i>*@
+
+                                    <img src="~/pulsar/Kinkee/assets/images/modules/sobre/kinkee_logo_branco.png" style="width:165px; margin-bottom:20px;" />
+                                    @if (Model.GeneroUsuario == "Homem")
+                                    {
+                                        <h2 class="title">Hello, @Html.DisplayTextFor(m => m.PrimeiroNome)!</h2>
+                                        <p class="subtitle">Prepare-se para encontrar mulheres incríveis, que buscam um daddy como você.</p>
+                                    }
+                                    else
+                                    {
+                                        <h2 class="title">Hi, @Html.DisplayTextFor(m => m.PrimeiroNome)!</h2>
+                                        <p class="subtitle">Prepare-se para ser uma baby incrível.</p>
+                                    }
+
+                                    <p class="message-bottom">Vamos criar o seu perfil? É rapidinho!</p>
+                                </div>
+
+
+                                @*LOCALIZACAO*@
+                                <div class="step-location wizard-step cad-validate" style="width: 100%;">
+                                    <div class="onboarding-header">
+                                        <i class="icon"></i>
+                                        <p class="info">Passo 1 de 6</p>
+                                        <p class="step">De onde você é?</p>
+                                    </div>
+                                    <div class="onboarding-container">
+                                        <p class="location-info">Fica mais fácil encontrar pessoas próximas a você.</p>
+                                        <div class="location-search-container">
+                                            <div sl-location-search="" data-name="onboarding-location" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty">
+
+                                                <div class="location-search">
+                                                    @*<input id="txtAddress" type="text" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location" placeholder="Cidade" autocomplete="new-password">*@
+
+                                                    @Html.DropDownListFor(m => m.Country_str_code, ViewData["Countries"] as SelectList, "-- Escolha um País --", new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location" })
+                                                    <br />
+                                                    <select id="Estados" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Estados --</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.Admin1_str_code)
+                                                    @Html.HiddenFor(m => m.Admin1_str_name)
+                                                    <br />
+
+                                                    <select id="Cidades" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Cidades --</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.Feature_int_id)
+                                                    @Html.HiddenFor(m => m.Feature_str_name)
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @*PHOTO*@
+                            <div class="step-ssss wizard-step cad-validate" style="width: 100%;">
+                                <div class="onboarding-header">
+                                    <i class="icon"></i>
+                                    <p class="info">Passo 2 de 6</p>
+                                    <p class="step">Precisamos de uma foto sua.</p>
+                                </div>
+                                <div class="onboarding-container">
+                                    <br />
+                                    <p class="location-info">Sua foto é importante para que seu perfil seja aprovado. Então capriche no clique!</p>
+
+                                    <div class="location-search-container">
+                                        <div sl-location-search="" data-name="onboarding-location" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty">
+                                            <div class="spinner" spinner="" data-size="12" style="display:none">
+                                                <div class="one" style="width: 12px; height: 12px;"></div>
+                                                <div class="two" style="width: 12px; height: 12px;"></div>
+                                                <div class="three" style="width: 12px; height: 12px;"></div>
+                                            </div>
+                                            <br />
+                                            <script>
+                                                        var loadFile = function (event) {
+                                                            //var output = document.getElementById('output');
+
+                                                            var file = event.target.files[0], img;
+
+                                                            getBase64(file).then(
+                                                                data => GravarImgBase64(data)
+                                                            );
+
+
+                                                            if (Math.round(file.size / (1024 * 1024)) > 3) { // make it in MB so divide by 1024*1024
+
+
+                                                                alert('A foto deve ter entre 5 kB e 3 MB de tamanho. E essa tem ' + Math.round(file.size / (1024 * 1024))+' MB');
+                                                                return false;
+                                                            }
+                                                            else {
+                                                                var formdata = new FormData($('form').get(0));
+
+                                                                //CallService(formdata);
+                                                                //output.src = URL.createObjectURL(event.target.files[0]);
+                                                            }
+
+                                                            $('.js-btn-avancar').removeAttr('disabled');
+                                                        };
+
+                                                        function getBase64(file) {
+                                                            return new Promise((resolve, reject) => {
+                                                                const reader = new FileReader();
+                                                                reader.readAsDataURL(file);
+                                                                reader.onload = () => resolve(reader.result);
+                                                                reader.onerror = error => reject(error);
+                                                            });
+                                                        }
+
+                                                        function GravarImgBase64(data) {
+
+                                                            console.log(JSON.stringify(data.split(',')[1]));
+
+                                                            var imagem = data.split(',')[1];
+
+                                                            var params = new window.URLSearchParams(window.location.search);
+                                                            var id = params.get('user_id');
+
+                                                            $('.spinner').css('display', 'block');
+                                                            //$('.js-btn-avancar').removeAttr('disabled');
+
+
+                                                            $.ajax({
+                                                                url: '@Url.Action("SalvaFotoGaleriaBase64", "FileUpload")?user_id=' + id,
+                                                                data: {
+                                                                    'file': imagem,
+                                                                },
+                                                                type: 'POST',
+                                                                dataType: "html",
+                                                                success: function (resultado) {
+
+                                                                    var output = document.getElementById('output');
+                                                                    output.src = resultado;
+
+
+                                                                    if (resultado.FotoSalva === "") {
+                                                                        $('.js-btn-avancar').attr('disabled', 'disabled');
+                                                                    }
+                                                                    else {
+                                                                        $('.js-btn-avancar').removeAttr('disabled');
+                                                                    }
+
+                                                                    $('.spinner').css('display', 'none');
+
+                                                                },
+                                                                error: function () {
+                                                                    alert('Error occured');
+                                                                }
+                                                            });
+                                                        }
+
+
+                                                        function CallService(file) {
+
+                                                            var params = new window.URLSearchParams(window.location.search);
+                                                            var id = params.get('user_id');
+
+                                                            $('.spinner').css('display', 'block');
+                                                            //$('.js-btn-avancar').removeAttr('disabled');
+
+
+
+                                                            $.ajax({
+                                                                url: '@Url.Action("CadastroSalvaFotoGaleria", "FileUpload")?user_id=' + id,
+                                                                type: 'POST',
+                                                                data: file,
+                                                                cache: false,
+                                                                processData: false,
+                                                                contentType: false,
+                                                                success: function (resultado) {
+
+                                                                    if (resultado.FotoSalva === false) {
+                                                                        $('.js-btn-avancar').attr('disabled', 'disabled');
+                                                                    }
+                                                                    else {
+                                                                        $('.js-btn-avancar').removeAttr('disabled');
+                                                                    }
+
+                                                                    $('.spinner').css('display', 'none');
+
+                                                                },
+                                                                error: function () {
+                                                                    alert('Error occured');
+                                                                }
+                                                            });
+                                                        }
+
+                                            </script>
+                                            <div class="modal-body">
+
+                                                @*<input type="file" accept="image/*" onchange="loadFile(event)" name="file" id="file" class="picture" />*@
+                                                @Html.TextBoxFor(m => m.Foto, new { type = "file", accept = "image/*", name = "file", onchange = "loadFile(event)", id = "file", @class = "picture" })<br><br>
+                                                <img id="output" style="max-width: 230px;" />
+                                                @ViewBag.Message
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                                @*ESTADO CIVIL*@
+                                <div class="step-location wizard-step cad-validate" style="width: 100%;">
+                                    <div class="onboarding-header">
+                                        <i class="icon"></i>
+                                        <p class="info">Passo 3 de 6</p>
+                                        <p class="step">Qual seu estado civil</p>
+                                    </div>
+                                    <div class="onboarding-container">
+                                        <br />
+                                        <p class="location-info">Ser honesto ao buscar um relacionamento sugar, pode ajudar no sigilo dessa realação.</p>
+                                        <br />
+                                        <div class="location-search-container">
+                                            <div sl-location-search="" data-name="onboarding-location" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty">
+
+                                                <div class="location-search">
+
+                                                    <select id="EstadoCivil" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Estado Civil --</option>
+                                                        <option value="1">Solteiro(a)</option>
+                                                        <option value="2">Numa Relação</option>
+                                                        <option value="3">Noivo(a)</option>
+                                                        <option value="4">Casado(a)</option>
+                                                        <option value="5">Numa Relação Aberta</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.StatusRelacionamento)
+                                                    @Html.HiddenFor(m => m.NomeStatusRelacionamento)
+                                                    <br />
+                                                    <p class="location-info lbl-descricao" style="display:none;">Descreva como ter uma relação sugar sigilosa com você.</p>
+                                                    @*<textarea id="txtDescricaoRelacionamento" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength" style="height:200px; display:none;" placeholder="" autocomplete="new-password"></textarea>*@
+                                                    @Html.TextAreaFor(m => m.DescricaoRelacionamento, new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength", @style = "height:200px; display:none;", @placeholder = "" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*PROFISSÃO*@
+                                <div class="step-ssss wizard-step cad-validate" style="width: 100%;">
+                                    <div class="onboarding-header">
+                                        <i class="icon"></i>
+                                        <p class="info">Passo 4 de 6</p>
+                                        <p class="step">Profissão</p>
+                                    </div>
+                                    <div class="onboarding-container">
+                                        <br />
+                                        <p class="location-info">Dê mais alguns deralhes sobre você. Além de ajudar a entender qual seu perfil, também pode ajudar ao iniciar um bate-papo com alguém.</p>
+
+                                        <div class="location-search-container">
+                                            <div class="location-search">
+
+                                                <select id="ProfissoesCategoria" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                    <option selected="selected" value="">-- Profissão --</option>
+                                                    <option value="1">Administração, Negócios e Serviços</option>
+                                                    <option value="2">Artes e Design</option>
+                                                    <option value="3">Ciências Biológicas e da Terra</option>
+                                                    <option value="4">Ciências e Tecnologia</option>
+                                                    <option value="5">Ciências Sociais e Humanas</option>
+                                                    <option value="6">Comunicação e Informação</option>
+                                                    <option value="7">Engenharia e Produção</option>
+                                                    <option value="8">Saúde e Bem-estar</option>
+                                                </select>
+                                                @Html.HiddenFor(m => m.IdGrupoProfissao)
+                                                @Html.HiddenFor(m => m.NomeGrupoProfissao)
+                                                <br />
+                                                <select id="ProfissoesSubcategorias" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                    <option selected="selected" value="">-- Ecolha --</option>
+                                                </select>
+                                                @Html.HiddenFor(m => m.IdProfissao)
+                                                @Html.HiddenFor(m => m.NomeProfissao)
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*INFORMAÇÕES EXTRAS*@
+                                @if (Model.GeneroUsuario == "Homem")
+                                {
+                                    <div class="step-ssss wizard-step cad-validate" style="width: 100%;">
+                                        <div class="onboarding-header">
+                                            <i class="icon"></i>
+                                            <p class="info">Passo 5 de 6</p>
+                                            <p class="step">Informações extras</p>
+                                        </div>
+                                        <div class="onboarding-container">
+                                            <br />
+                                            <p class="location-info">Precisamos de mais algumas informações.</p>
+
+                                            <div class="location-search-container">
+                                                <div class="location-search">
+
+                                                    <select id="RendaMensal" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Qual sua renda mensal --</option>
+                                                        <option value="1">Até R$ 10 mil</option>
+                                                        <option value="2">De R$ 10 mil a R$ 20 mil</option>
+                                                        <option value="3">De R$ 20 mil a R$ 30 mil</option>
+                                                        <option value="4">De R$ 30 mil a R$ 40 mil</option>
+                                                        <option value="5">De R$ 40 mil a R$ 50 mil</option>
+                                                        <option value="6">De R$ 50 mil a R$ 100 mil</option>
+                                                        <option value="7">De R$ 100 mil a R$ 500 mil</option>
+                                                        <option value="8">Acima de R$500 mil</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.IdRenaMensal)
+                                                    @Html.HiddenFor(m => m.DescricaoRenaMensal)
+                                                    <br />
+                                                    <select id="Patrimonio" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Seu patrimômio pessoal declarado --</option>
+                                                        <option value="1">Menos de R$ 100 mil</option>
+                                                        <option value="2">De R$ 100 mil a R$ 250 mil</option>
+                                                        <option value="3">De R$ 250 mil a R$ 500 mil</option>
+                                                        <option value="4">De R$ 500 mil a R$ 750 mil</option>
+                                                        <option value="5">De R$ 750 mil a R$ 1 milhão</option>
+                                                        <option value="6">De R$ 1 milhão a R$ 2 mihões</option>
+                                                        <option value="7">De R$ 2 mihões a R$ 5 mihões</option>
+                                                        <option value="8">De R$ 5 mihões a R$ 10 mihões</option>
+                                                        <option value="9">De R$ 10 mihões a R$ 50 mihões</option>
+                                                        <option value="9">De R$ 50 mihões a R$ 100 mihões</option>
+                                                        <option value="9">Mais de R$ 100 mihões</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.IdPatrimonio)
+                                                    @Html.HiddenFor(m => m.DescricaoPatrimonio)
+                                                    <br />
+                                                    <br />
+                                                    <p class="location-info"><strong>AS INFORMAÇÕES ABAIXO DESSA LINHA NUNCA FICARÃO VISÍVEIS PARA OUTROS USUÁRIOS, MAS SERVIRÃO PARA NOSSA EQUIPE VALIDAR SEU PERFIL.</strong></p>
+                                                    <hr style="width:100%; color:#000; height:2px" />
+                                                    @Html.TextBoxFor(m => m.LinkFacebook, new { @maxlength = "100", @class = "login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength", placeholder = "Ex: https://www.facebook.com/raphaelsanto" })
+                                                    <div class="onboarding-tooltip" style="background-color:#3B5998">
+
+                                                        <div class="tip">Você pode adicionar se preferir apenas o @@ seguido do nome de usuário, como por exemplo: @@raphaelsanto</div>
+                                                    </div>
+                                                    <br />
+                                                    @Html.TextBoxFor(m => m.LinkInstagram, new { @maxlength = "100", @class = "login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength", placeholder = "Ex: https://www.instagram.com/raphaelsanto" })
+                                                    <div class="onboarding-tooltip" style="background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%); ">
+                                                        <div class="tip">Você pode adicionar se preferir apenas o @@ seguido do nome de usuário, como por exemplo: @@raphaelsanto</div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+
+                                    <div class="step-interests wizard-step js-categoria-step" bindonce="" style="width: 100%;">
+                                        <div class="onboarding-header">
+                                            <i class="icon"></i>
+                                            <p class="info">Passo 5 de 6</p>
+                                            <p class="step">Informações extras</p>
+                                        </div>
+                                        <div class="onboarding-container">
+                                            <p class="location-info">Precisamos de mais algumas informações.</p>
+                                            <ul class="interests-list">
+                                                <li id="CategoriaRelacionamentSugar" class="interest ng-scope">
+                                                    <div class="toggleable">
+                                                        <span class="check"></span>
+                                                        <span class="description" bo-text="interest.name">Eu tenho total disponibilidade para viajar e encontrar com meu daddy</span>
+                                                    </div>
+                                                    @Html.CheckBoxFor(m => m.DisponibilidadeViagens, new { id = "CheckCategoriaRelacionamentSugar" })
+
+                                                    <br />
+                                                    <br />
+                                                    <p class="location-info"><strong>AS INFORMAÇÕES ABAIXO DESSA LINHA NUNCA FICARÃO VISÍVEIS PARA OUTROS USUÁRIOS, MAS SERVIRÃO PARA NOSSA EQUIPE VALIDAR SEU PERFIL.</strong></p>
+                                                    <hr style="width:100%; color:#000; height:2px" />
+                                                    @Html.TextBoxFor(m => m.LinkFacebook, new { @maxlength = "100", @class = "login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength", placeholder = "Ex: https://www.facebook.com/raphaelsanto" })
+                                                    <div class="onboarding-tooltip" style="background-color:#3B5998">
+
+                                                        <div class="tip">Você pode adicionar se preferir apenas o @@ seguido do nome de usuário, como por exemplo: @@raphaelsanto</div>
+                                                    </div>
+                                                    <br />
+                                                    @Html.TextBoxFor(m => m.LinkInstagram, new { @maxlength = "100", @class = "login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength", placeholder = "Ex: https://www.instagram.com/raphaelsanto" })
+                                                    <div class="onboarding-tooltip" style="background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%); ">
+                                                        <div class="tip">Você pode adicionar se preferir apenas o @@ seguido do nome de usuário, como por exemplo: @@raphaelsanto</div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                }
+
+                                @*TIPO SUGAR*@
+                                @if (Model.GeneroUsuario == "Homem")
+                                {
+                                    <div class="step-ssss wizard-step cad-validate" style="width: 100%;">
+                                        <div class="onboarding-header">
+                                            <i class="icon"></i>
+                                            <p class="info">Passo 6 de 6</p>
+                                            <p class="step">Quão generoso você é?</p>
+                                        </div>
+                                        <div class="onboarding-container">
+                                            <br />
+                                            <p class="location-info">Responder com honestidade irá ajudar a alinhar as expectativas das babies que falarem com você com as suas.</p>
+
+                                            <div class="location-search-container">
+                                                <div class="location-search">
+
+                                                    <select id="Generosidade" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Você acha que é... --</option>
+                                                        <option value="1">Eu sou pouco generoso</option>
+                                                        <option value="2">Para eu ser generoso, preciso receber algo em troca</option>
+                                                        <option value="3">Eu sou generoso, mas com cautela</option>
+                                                        <option value="4">Eu sou muito generoso</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.IdGenerosidade)
+                                                    @Html.HiddenFor(m => m.DescricaoGenerosidade)
+                                                    <br />
+
+                                                    <div class="location-search">
+                                                        @Html.TextAreaFor(m => m.DetalheGenerosidade, new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength", @style = "height:200px;", @placeholder = "Fale um pouco como quer sua relação sugar" })
+                                                        @*<textarea id="txtDescricao" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength" style="height:200px" placeholder="Fale um pouco como quer sua relação sugar" autocomplete="new-password"></textarea>*@
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+
+                                    <div class="step-interests wizard-step js-categoria-step cad-validate" bindonce="" style="width: 100%;">
+                                        <div class="onboarding-header">
+                                            <i class="icon"></i>
+                                            <p class="info">Passo 6 de 6</p>
+                                            <p class="step">Você quer um daddy porque?</p>
+                                        </div>
+                                        <div class="onboarding-container">
+                                            <p class="location-info">Responda com honestidade.</p>
+
+                                            <div class="location-search-container">
+                                                <div class="location-search">
+
+                                                    <select id="MotivoBaby" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength js-input-location">
+                                                        <option selected="selected" value="">-- Você é baby porque.. --</option>
+                                                        <option value="1">Socorro! Contas atrasadas</option>
+                                                        <option value="2">Quero viver o Estilo de vida Sugar</option>
+                                                        <option value="3">Quero alguém para ajudar na minha evolução</option>
+                                                    </select>
+                                                    @Html.HiddenFor(m => m.IdMotivoBaby)
+                                                    @Html.HiddenFor(m => m.DescricaoMotivoBaby)
+                                                    <br />
+
+                                                    <div class="location-search">
+                                                        @Html.TextAreaFor(m => m.DetalheMotivoBaby, new { @class = "form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength", @style = "height:200px;", @placeholder = "Fale um pouco como quer sua relação sugar" })
+                                                        @*<textarea id="txtDescricao" class="form-control input-lg ng-pristine ng-untouched ng-valid ng-valid-editable ng-empty ng-valid-maxlength" style="height:200px" placeholder="Fale um pouco como quer sua relação sugar" autocomplete="new-password"></textarea>*@
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                                @*ASSINATURA*@
+                                @*<div class="step-welcome wizard-step step-subscribed" bindonce="" style="width: 100%;">
+                                    <img src="~/modules/img/simbolo_premium.png" style="width:40px; margin-bottom:20px;" />
+                                    <h2 class="title">Seja Premium</h2>
+                                    @if (ViewBag.GeneroUsuario == "Homem")
+                                    {
+                                        <p class="subtitle">Ser um assinante tem inúmeras vantagens</p>
+                                        <p class="message-bottom">Você tem desconto em produtos e serviços por todo o site.</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="message-bottom">Ser uma assinante tem inúmeras vantagens.</p>
+                                        <p class="message-bottom">Você pode fazer mais de um resgate de Koins por mês e tem muito mais.</p>
+                                    }
+
+
+                                </div>*@
+
+
+                                <div class="step-login wizard-step cad-validate" style="width: 100%;">
+                                    <div class="onboarding-header">
+                                        <p class="info">Para finalizar</p>
+                                        <p class="step">Indique pessoas incríveis como você</p>
+                                    </div>
+                                    <div class="onboarding-container">
+
+                                        <div class="login-area">
+
+                                            <div class="area-email">
+                                                <input type="email" maxlength="100" class="login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength js-email-to-invite" placeholder="nomedoamigo@email.com">
+                                                <br />
+                                                <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-send-invite" style="width: 100%; border-radius: 5px;">
+                                                    Enviar convite
+                                                </button>
+                                                <br />
+                                                @*<input type="email" maxlength="100" class="login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength" value="https://app.kinkeesugar.com/Dating/perfil/@Html.DisplayTextFor(m=> m.NomeUsuario)">
+                                    <div class="onboarding-tooltip">
+                                        Você também pode compartilhar seu link com outras pessoas. Clique no link para copiar!
+                                        <div class="tip"></div>
+                                    </div>*@
+                                            </div>
+                                        </div>
+
+                                        <div class="login-checkbox">
+                                            @*<div class="check-row">
+                                    <span class="check active">
+                                        <svg class="check--green" ng-if="onboardingController.onboarding.terms">
+                                            <use xlink:href="~/modules/img/onboarding-tour.svg#green-check"></use>
+                                        </svg>
+                                    </span>
+                                    <p>Desejo receber comunicação da kinkee em meu email. (Fique tranquilo(a), nossa comunicação é discreta).</p>
+                                </div>*@
+                                            @*<div class="check-row">
+                                    <span class="check">
+
+                                    </span>
+                                    <p>Ao finalizar seu cadastro você aceita os <a target="_blank" href="/sobre/termos">Termos de uso</a> e a <a target="_blank" href="/sobre/seguranca">Política de privacidade</a> da kinkee.</p>
+                                </div>*@
+
+                                            <p>Ao finalizar seu cadastro você aceita os <a target="_blank" href="/sobre/termos">Termos de uso</a> e a <a target="_blank" href="/sobre/seguranca">Política de privacidade</a> da kinkee.</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="modal-footer" style="position: absolute; bottom: -3px; width: 100%;">
+                                <div class="onboarding-steps">
+                                    <span class="step active"></span>
+
+                                </div>
+                                <div class="spinner" spinner="" data-size="12" style="display:none">
+                                    <p>Foto sendo carregada</p>
+                                    <div class="one" style="width: 12px; height: 12px;"></div>
+                                    <div class="two" style="width: 12px; height: 12px;"></div>
+                                    <div class="three" style="width: 12px; height: 12px;"></div>
+                                </div>
+                                <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-btn-avancar" disabled="disabled">
+                                    Aguarde...
+                                </button>
+                                <a href="#" class="js-btn-voltar" style="display:none;">Voltar a configuração anterior</a>
+
+                                <button type="submit" class="onboarding-button-primary sl-btn btn-primary-inverse js-btn-enviar-wizard" @*disabled="disabled"*@>
+                                    <span class="text">Finalizar</span>
+                                    <div class="spinner" spinner="" data-size="12" style="display:none">
+                                        <div class="one" style="width: 12px; height: 12px;"></div>
+                                        <div class="two" style="width: 12px; height: 12px;"></div>
+                                        <div class="three" style="width: 12px; height: 12px;"></div>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (Model.ProfileCreated && Model.ApprovedProfile)
+{
+    <style>
+        .sl-onboarding-modal .step-welcome {
+            background-image: radial-gradient(circle at 50% 32%,#green,#810E2A)
+        }
+
+            .sl-onboarding-modal .step-welcome .title {
+                color: #000;
+            }
+
+            .sl-onboarding-modal .step-welcome .subtitle {
+                color: #000;
+            }
+
+            .sl-onboarding-modal .step-welcome .message-bottom {
+                color: #000;
+            }
+    </style>
+
+    <div class="onboarding-page ng-scope wizard-create-profile" style="z-index: 1050; display: block;">
+
+        <div class="modal sl-modal sl-modal-flex sl-onboarding-modal" style="visibility: visible;">
+            <div class="modal-dialog" style="margin-top: 20px;">
+                <div class="modal-content">
+
+                    <div sl-onboarding="" class="onboarding-content">
+                        <div class="modal-body js-modal-body" vl-data="0" vl-step="1" style="transform: translateX(0px);">
+
+                            @*INTRO*@
+                            <div class="step-welcome wizard-step active" bindonce="" style="width: 100%;">
+                                @*<i class="icon"></i>*@
+
+                                <img src="~/pulsar/Kinkee/assets/images/modules/sobre/kinkee_logo_preto.png" style="width:165px; margin-bottom:20px;" />
+                                <h2 class="title">Oi, @Html.DisplayTextFor(m => m.PrimeiroNome)!</h2>
+                                @if (Model.GeneroUsuario == "Homem")
+                                {
+                                    <p class="subtitle">Você está aprovado</p>
+                                }
+                                else
+                                {
+                                    <p class="subtitle">Você está aprovada</p>
+                                }
+                                
+
+                                <p class="message-bottom">Aguarde a inaguração oficial do nosso site.</p>
+                            </div>
+
+
+                            @*FINAL*@
+                            <div class="step-login wizard-step cad-validate" style="width: 100%;">
+                                <div class="onboarding-header">
+                                    <p class="info">Convide pessoas para a kinkee</p>
+                                    <p class="step">Pode ser baby ou daddy.</p>
+                                </div>
+                                <div class="onboarding-container">
+                                    <div class="login-checkbox">
+                                        <p>Convide pessoas para conhecer a kinkee.</p>
+                                    </div>
+                                    <div class="login-area">
+
+                                        <div class="area-email">
+                                            <input type="email" maxlength="100" class="login form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-maxlength js-email-to-invite" placeholder="nomedoamigo@email.com">
+                                            <br />
+                                            <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-send-invite" style="width: 100%; border-radius: 5px;">
+                                                Enviar convite
+                                            </button>
+                                            <br />
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="modal-footer" style="position: absolute; bottom: -3px; width: 100%;">
+                            <div class="onboarding-steps">
+                                <span class="step active"></span>
+
+                            </div>
+
+                            <button class="onboarding-button-primary sl-btn btn-primary-inverse visible js-btn-avancar">
+                                Avançar
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+
+@*@Html.Action("_CheckoutPartial", "Pagamento", new { user_id = @ViewBag.vbUser_id })*@
+
+
+<script src="~/modules/js/wizard.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+
+
+        $('.js-btn-avancar').removeAttr('disabled');
+        $('.js-btn-avancar').html("Avançar");
+        
+        
+        $(document).on("click", ".js-btn-enviar-wizard", function (e) {
+            $(this).children('.text').css('display', 'nome');
+            $(this).children('.spinner').css('display', 'block');
+        });
+
+
+        $("#Country_str_code").change(function () {
+            listaEstados($(this).val());
+        });
+
+
+        $("#Estados").change(function () {
+
+            $('#Admin1_str_code').val($(this).val());
+            $('#Admin1_str_name').val($('#Estados option:selected').text());
+
+            listaCidades($(this).val());
+        });
+
+
+        $("#ProfissoesCategoria").change(function () {
+
+            $('#IdGrupoProfissao').val($(this).val());
+            $('#NomeGrupoProfissao').val($('#ProfissoesCategoria option:selected').text());
+
+            listaProfissoes($(this).val());
+        });
+
+
+
+
+        $(document).on("click", ".js-send-invite", function (e) {
+
+
+            $(this).html("Enviando...");
+            $(this).attr('disabled', 'disabled');
+            var email = $('.js-email-to-invite').val();
+
+
+            $.ajax({
+                url: '@Url.Action("SendEmailConviteCadastro", "Wizard")',
+                data: { email: email },
+                dataType: 'json',
+                type: 'POST',
+                success: function (data) {
+
+                    $('.js-send-invite').html("Enviar outro");
+                    $('.js-send-invite').removeAttr('disabled');
+                    $('.js-email-to-invite').val("");
+                }
+            });
+
+            e.preventDefault();
+
+        });
+
+    });
+    //chamada ajax para a Action ListaCidade
+    //passando como parâmetro a Estado selecionado
+    function listaEstados(pais) {
+
+        $.getJSON('@Url.Action("ListaEstados", "Wizard")/' + pais, listaEstadosCallBack);
+    }
+    //função que irá ser chamada quando terminar
+    //a chamada ajax
+    function listaEstadosCallBack(json) {
+        //Limpar os itens que são maiores que 0
+        //Ou seja: não retirar o primeiro item
+        $("#Estados :gt(0)").remove();
+        $(json).each(function () {
+            //adicionando as opções de acordo com o retorno
+            $("#Estados").append("<option value='" + this.Admin1_str_code + "'>" + this.Admin1_str_name + "</option>");
+        });
+    }
+
+    function listaCidades(estado) {
+
+        $.getJSON('@Url.Action("ListaCidades", "Wizard")/' + estado, listaCidadesCallBack);
+    }
+
+    function listaCidadesCallBack(json) {
+
+        $("#Cidades :gt(0)").remove();
+        $(json).each(function () {
+
+            $("#Cidades").append("<option value='" + this.Feature_int_id + "'>" + this.Feature_str_name + "</option>");
+        });
+        }
+
+
+
+    function listaProfissoes(profissoes) {
+
+        $.getJSON('@Url.Action("ListaProfissoes", "Wizard")/' + profissoes, listaProfissoesCallBack);
+    }
+
+    function listaProfissoesCallBack(json) {
+
+        $("#ProfissoesSubcategorias :gt(0)").remove();
+        $(json).each(function () {
+
+            $("#ProfissoesSubcategorias").append("<option value='" + this.group + "'>" + this.name + "</option>");
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="step-welcome wizard-step" bindonce="" style="width: 100%;">
+                                <h2 class="title">..mas primeiro</h2>
+                                <p class="subtitle">Conheça as novidades da nova <b>Kinkee</b>.</p>
+                                <p class="message-bottom">Você vai amar.</p>
+                            </div>
+
+
+                            <div class="step-welcome wizard-step" bindonce="" style="width: 100%;">-->
+@*<i class="icon"></i>*@
+<!--<h2 class="title">Aqui, tudo é exclusivo.</h2>
+    @if (ViewBag.GeneroUsuario == "Homem")
+    {
+        <p class="subtitle">Todas as babies foram aprovadas...</p>
+        <p class="message-bottom">Uma a uma.</p>
+    }
+    else
+    {
+        <p class="subtitle">Todos os daddies foram aprovados...</p>
+        <p class="message-bottom">Um a um.</p>
+    }
+
+</div>
+
+
+<div class="step-welcome wizard-step" bindonce="" style="width: 100%;">-->
+@*<img src="~/modules/img/fan_club.png" />*@
+
+<!--<h2 class="title">Esse é o seu momento.</h2>
+<p class="subtitle">Queremos promover encontros reais.</p>
+<p class="message-bottom">E você pode usar a funcionalidade Momentos™ para convidar ou aceitar convites para sair.</p>-->
+@*@if (ViewBag.GeneroUsuario == "Homem")
+    {
+
+    }
+    else
+    {
+        <p class="subtitle">O que seus fãs pagariam para ver?</p>
+        <p class="message-bottom">Defina um valor de assinatura mensal e receba dos seus fãs para publicar conteúdos exclusivos e privados.</p>
+
+    }*@
+
+<!--</div>
+
+
+<div class="step-welcome wizard-step" bindonce="" style="width: 100%;">
+    <h2 class="title">Saiba quem são os melhores</h2>
+    <p class="subtitle">O <b>Sugar Score</b> é uma pontução que mede os melhores daddies e babies.</p>
+    <p class="message-bottom">Atualize uma foto e você ganha pontos, publique um momento e você ganha ainda mais.</p>-->
+@*@if (ViewBag.GeneroUsuario == "Homem")
+    {
+
+        <p class="message-bottom">Essa categoria ainda será lançada, mas fique tranquilo, nós te avisaremos.</p>
+    }
+    else
+    {
+        <p class="message-bottom">Conheça Doms, Submissos, Cuckolds, Money Slaves, Swingers e realize todos os seus fetiches.</p>
+        <p class="message-bottom">Essa categoria ainda será lançada, mas fique tranquila, nós te avisaremos.</p>
+    }*@
+<!--</div>
+
+
+<div class="step-welcome wizard-step" bindonce="" style="width: 100%;">-->
+@*<img src="~/modules/img/logo_koins.png" style="width:40px; margin-bottom:20px;" />*@
+<!--<h2 class="title">Pronto, vamos finalizar seu perfil.</h2>
+<p class="subtitle">Quanto melhores forem as informações que nos der, mais rápido e mais fácil de ter o perfil aprovado.</p>-->
+@*@if (ViewBag.GeneroUsuario == "Homem")
+    {
+        <p class="message-bottom">Você pode comprar produtos e serviços, e transferir Koins para outros usuários.</p>
+        <p class="message-bottom">Quanto mais usar a Kinkee mais você ganha, mas você também pode comprar quantas Koins você quiser.</p>
+    }
+    else
+    {
+        <p class="message-bottom">Você pode resgatar Koins que será convertido e depositado em reais na sua conta bancária.</p>
+        <p class="message-bottom">Quanto mais usar a Kinkee mais você ganha, mas você também pode comprar quantas Koins você quiser.</p>
+    }*@
+<!--</div>-->
+@*PERFIS--- SE QUISER USAR SO COLOCAR ENTRE AS OUTRAS DIVS*@
+@*<div class="step-genders step-interests wizard-step" bindonce="" style="width: 100%;">
+        <div class="onboarding-header">
+            <i class="icon"></i>
+            <p class="info">Conheça algumas pessoas</p>
+            <p class="step">Adicione alguns perfis que são destaque.</p>
+        </div>
+
+        <div class="onboarding-container ">
+            <ul class="interests-list">
+                @if (ViewBag.GeneroUsuario == "Homem")
+                {
+                    <li class="interest ng-scope">
+                        <div class="toggleable">
+                            <span class="check"></span>
+                            <span class="description" bo-text="interest.name">Também quero ver Homens</span>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="interest ng-scope">
+                        <div class="toggleable">
+                            <span class="check"></span>
+                            <span class="description" bo-text="interest.name">Também quero ver Mulheres</span>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+
+            <p class="message-bottom">Você só poderá mudar isso depois se for assinante <b>Premium</b></p>
+
+        </div>
+        <br /><br />
+        <div class="onboarding-container">
+
+            <ul class="genders-list">
+
+                <li class="gender ng-scope">
+                    <div class="gender-image">
+                        <img src="">
+                    </div>
+                    <div class="gender-actions">
+                        <span class="description" bo-bind="gender.name">Homem</span>
+                        <span class="check"></span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>*@
+
+
+
+
+
+
+@*CATEGORIAS*@
+@*<div class="step-interests wizard-step js-categoria-step" bindonce="" style="width: 100%;">
+        <div class="onboarding-header">
+            <i class="icon"></i>
+            <p class="info">Vamos lá</p>
+            <p class="step">Quais categorias você tem interesse?</p>
+        </div>
+        <div class="onboarding-container">
+            <ul class="interests-list">
+                <li id="CategoriaRelacionamentSugar" class="interest ng-scope">
+                    <div class="toggleable">
+                        <span class="check"></span>
+                        <span class="description" bo-text="interest.name">Relacionamento Sugar</span>
+                    </div>
+                    @Html.CheckBoxFor(m => m.CategoriaRelacionamentSugar, new { id = "CheckCategoriaRelacionamentSugar" })
+                </li>
+
+                <li id="CategoriaPacksFotosFas" class="interest ng-scope">
+                    <div class="toggleable">
+                        <span class="check"></span>
+                        <span class="description" bo-text="interest.name">Packs de Fotos e Fãs</span>
+                    </div>
+                    @Html.CheckBoxFor(m => m.CategoriaPacksFotosFas, new { id = "CheckCategoriaPacksFotosFas" })
+                </li>
+
+                <li id="CategoriaBDSM" class="interest ng-scope">
+                    <div class="toggleable">
+                        <span class="check"></span>
+                        <span class="description" bo-text="interest.name">BDSM & Fetiches</span>
+                    </div>
+                    @Html.CheckBoxFor(m => m.CategoriaBDSM, new { id = "CheckCategoriaBDSM" })
+                </li>
+            </ul>
+
+            <p class="message-bottom">Você só poderá mudar isso depois se for assinante <b>Premium</b></p>
+            <a class="interest-skip location-jump">
+                Ainda não sei responder
+            </a>
+        </div>
+    </div>*@
+
+@*AMIGOS*@
+@*<div class="step-friends step-interests wizard-step" bindonce="" style="width: 100%;">
+        <div class="onboarding-header">
+            <i class="icon"></i>
+            <p class="info">Preparando o seu perfil</p>
+            <p class="step">Conheça novas pessoas!</p>
+        </div>
+        <div class="onboarding-container">
+            <ul class="interests-list">
+                @if (ViewBag.GeneroUsuario == "Homem")
+                {
+                    <li class="interest ng-scope">
+                        <div class="toggleable">
+                            <span class="check"></span>
+                            <span class="description" bo-text="interest.name">Também quero ver Homens</span>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="interest ng-scope">
+                        <div class="toggleable">
+                            <span class="check"></span>
+                            <span class="description" bo-text="interest.name">Também quero ver Mulheres</span>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+
+            <p class="friends-info">
+                Esses são alguns perfis que acreditamos serem seu tipo:
+            </p>
+            <ul class="friends-list ng-scope">
+
+                @if (ViewBag.Destaques != null)
+                {
+                    foreach (var item in ViewBag.Destaques)
+                    {
+                        <li class="friend ng-scope">
+                            <div class="friend-content">
+                                <div class="friend-avatar">
+                                    <img bo-src="friend.avatar" class="img-circle" src="@item.imagemPerfil">
+                                </div>
+                                <div class="friend-info">
+                                    <span class="login" bo-bind="friend.login" bo-class="onboardingController.getCssFriendSubscriber(friend)">@item.Usuario</span>
+                                    @if (@item.Endereco != null)
+                                    {
+                                        <span class="gender" bo-bind="friend.gender">@item.Endereco.Cidade</span>
+                                    }
+
+                                </div>
+                                <div class="friend-actions">
+                                    <img src="~/modules/img/loading.gif" class="load-btn-friendship" width="50" style="margin-left:30%; display:none;" />
+                                    <button class="js-add-user-wizard" data-user-id="@item.Id" data-user-name="@item.Usuario">
+                                        <span>Adicionar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                }
+
+            </ul>
+        </div>
+    </div>*@

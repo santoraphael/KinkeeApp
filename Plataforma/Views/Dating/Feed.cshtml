@@ -1,0 +1,277 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+@{
+    ViewBag.Title = "Kinkee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/perfil.css" rel="stylesheet" />
+<link href="~/pulsar/Kinkee/assets/css/sl/comum.css" rel="stylesheet" />
+<link href="~/modules/css/blueimp-gallery.min.css" rel="stylesheet" />
+<link href="~/modules/css/bundle.css" rel="stylesheet" media="screen" />
+<link href="~/modules/css/novoPerfil.css" rel="stylesheet" />
+<link href="~/modules/css/perfil_feed.css" rel="stylesheet" />
+<link href="~/modules/css/index.css" rel="stylesheet" />
+<style>
+    img {
+        border: 0;
+        vertical-align: middle;
+    }
+
+    .aside.sidebar .sidebar-header input.fake-search {
+        width: calc(100% - 45px) !important;
+    }
+</style>
+
+
+<div class="ng-scope">
+
+
+    <div class="profile-page" style="padding-top:0;">
+
+        <!-- Filter -->
+        <div>
+            @*@Html.Action("_SugestaoPartial", "Dating")*@
+            <div class="container-flex content-container">
+
+                <!--Conteúdo-->
+                <div class="profile-content" style="padding-top:20px; max-width:650px; margin: 0 auto;">
+
+                    <!--Aba ativa-->
+                    <div class="profile-home profile-container">
+
+                        <script type="text/javascript">
+
+                            $(document).on("click", ".js-profile-home-content .card-item", function (e) {
+
+                                $.get('@Url.Action("_WriteMessagePartial", "Dating")', function (data) {
+                                    $('#WriteMessage').append(data);
+                                });
+                                e.preventDefault();
+                            });
+
+                        </script>
+
+
+                        <!--Codigo Promocional-->
+                        <div class="home-content news">
+                            <div class="profile-home-news" ng-scope>
+
+                                <div class="profile-home-content js-profile-home-content">
+
+                                    <h2 class="section-header">
+                                        <i class="icon" style=" padding-left: 6px; padding-top: 3px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 17 14">
+                                                <path fill="#FFF" fill-rule="evenodd" d="M2.643 3.806l9.486-2.684a.407.407 0 0 1 .371.077.453.453 0 0 1 .169.355v8.498c0 .14-.062.271-.169.356a.42.42 0 0 1-.37.076L7.061 9.051c.164.817.273 1.75.273 2.811 0 .812-.631 1.471-1.407 1.471s-1.408-.66-1.408-1.47c0-1.673-.309-2.887-.634-3.71L2.643 7.8a.443.443 0 0 1-.317-.431V4.238c0-.203.13-.38.317-.432zM14.157 0c.465 0 .843.274.843.613v10.38c0 .34-.378.614-.843.614-.466 0-.843-.275-.843-.614V.613c0-.339.377-.613.843-.613zM0 5.833c0-.965.748-1.746 1.67-1.746.051 0 .1.01.15.016v3.46c-.05.006-.099.016-.15.016C.748 7.58 0 6.798 0 5.833z"></path>
+                                            </svg>
+
+                                        </i>
+                                        Publicar
+                                    </h2>
+
+                                    <div class="card-item" data-fixed="true">
+                                        <div class="card-share">
+                                            <div class="share-body">
+                                                <p>Publique algo para que seus seguidores vejam</p>
+                                            </div>
+
+                                            <div class="share-footer">
+                                                <button class="sl-btn btn-primary">
+                                                    Publicar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="container-flex gutter-small">
+            @Html.Action("_SugestaoPartial", "Sugar")
+        </div>*@
+
+                        <div id="WriteMessage">
+
+                        </div>
+
+
+                        @Html.Action("_SugestaoAssinaturaPartial", "FanClub")
+                        
+                        <div class="card-lists" style="margin-top:20px;">
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr class="ng-scope">
+
+
+
+            </div>
+            <div class="container-flex content-container" style="margin-top:10px;">
+                <br /><br /><br />
+                <div id="progress" style="display:none">
+                    <a class="sl-btn btn-primary-inverse text-uppercase" title="Assine">CARREGANDO...</a>
+                </div>
+                <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn" title="Assine">CLIQUE AQUI PARA CARREGAR MAIS</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="text-center">
+
+    <div class="endpage" style="margin: 30px 0 0px;">
+        <i></i>
+        <div></div>
+    </div>
+    <br /><br />
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    var ordenacao = 0;
+    var pageSize = 10;
+    var pageIndex = 0;
+    var pageIndexSearch = 0;
+    var lastInteractionSearch = 0;
+    var lastInteraction = 0;
+
+
+    $(document).ready(function () {
+
+
+        TodasAsPublicacoesAtivas();
+
+        $('.js-carregar-btn').unbind("click").click(function (e) {
+
+            $.ajax({
+            type: 'GET',
+            url: '/FanClub/_SugestaoAssinaturaPartial',
+            dataType: 'html',
+            success: function (data) {
+                $(".card-lists").append(data);
+            },
+            beforeSend: function () {
+
+            },
+            complete: function () {
+
+            },
+            error: function () {
+
+            }
+        });
+
+
+            TodasAsPublicacoesAtivas();
+
+            e.preventDefault();
+        });
+
+
+        //$(window).scroll(function () {
+
+        //    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        //        TodasAsPublicacoesAtivas();
+        //    }
+        //});
+
+    });
+
+
+    function TodasAsPublicacoesAtivas() {
+        if ((pageIndex === 0) || (lastInteraction !== pageIndex)) {
+            lastInteractionSearch = pageIndexSearch;
+            $.ajax({
+                type: 'GET',
+                url: '/Dating/TodasAsPublicacoesAtivas',
+                data: { "pageindex": pageIndex, "pagesize": pageSize, "ordenacao": ordenacao },
+                dataType: 'json',
+
+                success: function (data) {
+
+                    //var $getResult = $(data);
+
+                    if (data != null) {
+                        for (var i = 0; i < data.length; i++) {
+                            console.log(data);
+
+                            PreencheTemplatePublicacao(data[i].UsuarioPublicacaoID, data[i].Id);
+
+                        }
+                        pageIndex++;
+                    }
+                },
+                beforeSend: function () {
+                    $("#progress").show();
+                    $(".js-carregar-btn").hide();
+                },
+                complete: function () {
+                    $("#progress").hide();
+                    $(".js-carregar-btn").show();
+                },
+                error: function () {
+                    //('').append('Ops! Ocorreu um erro durante o carregamento.');
+                }
+            });
+        }
+
+    }
+
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+
+    function PreencheTemplatePublicacao(UsuarioPublicacaoID, Id) {
+
+
+        $.ajax({
+            type: 'GET',
+            url: '/Dating/_PulsacaoPublicadaPartial',
+            data: { "UsuarioPublicacaoID": UsuarioPublicacaoID, "Id": Id },
+            dataType: 'html',
+            success: function (data) {
+                $(".card-lists").append(data);
+            },
+            beforeSend: function () {
+
+            },
+            complete: function () {
+
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+</script>
+
+<script>
+        // Use the variables below to include the name and email address of the user who is currently logged in.
+        window.scupSettings = {
+            channelAccount: "LVC_813cbb10-19eb-11e8-a2af-3549d24b25e4",
+            userName: "@HttpContext.Current.User.Identity.Name",
+            userEmail: ""
+        }
+</script>
+
+@if (ViewBag.ConfiguracoesIniciais == false)
+{
+    @Html.Action("_IntroPartial", "Wizard")
+}

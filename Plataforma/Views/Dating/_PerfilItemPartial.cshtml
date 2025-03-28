@@ -1,0 +1,113 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<div class='col-sm-4 container-img-list' style='background-image: url(https://app.kinkeesugar.com{imagemPerfil});'>
+
+    @if (ViewBag.usuarioAprovado)
+    {
+        <a href='/Dating/Perfil/{Usuario}' target='_self' style='color: #fff;'>
+            <ul class='attributes-list'>
+                @*<li><img src='/modules/img/gema_Opala.png' alt='Diamante' /></li>*@
+                {UserPremium}
+                {UserElo}
+                {UserVerify}
+                {UserNewProfile}
+            </ul>
+
+            {UserOnline}
+            @*<div class='online-tip'></div>*@
+
+
+            @*<div class='css-s7mszz'>
+                    <label data-cy-badge='premium' class='nux-premium-member-card css-108pdyg'>
+                        <span class='css-1wdxkcl'>PREMIUM</span>
+                    </label>
+                </div>*@
+            <div class='{CssCompensaActions}'>
+                <div class='css-4uzq6t'>
+                    <div class='css-1o52zj5'>
+                        <span>{Usuario}</span>
+                    </div>
+                    <div class='css-bxksh3'>
+                        <div class='css-ukdp28'>
+                            <span>{IdadeUsuario}</span>
+                            <span class='css-1c4r4zv'>{CidadeUsuario}</span>
+                        </div>
+                        <div class='css-1rhxoew'>
+                            <img src='~/modules/img/7adf78a9b5ff5bd35517615b46488ddf.svg' alt='Avatar'>
+                            <span>{QntFotos}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </a>
+    }
+    else
+    {
+        <a href='#' target='_self' class="js-display-assinatura-itemperfil-button" style='color: #fff;'>
+            <ul class='attributes-list'>
+                @*<li><img src='/modules/img/gema_Opala.png' alt='Diamante' /></li>*@
+                {UserPremium}
+                {UserElo}
+                {UserVerify}
+                {UserNewProfile}
+            </ul>
+
+            {UserOnline}
+            @*<div class='online-tip'></div>*@
+
+
+            @*<div class='css-s7mszz'>
+                    <label data-cy-badge='premium' class='nux-premium-member-card css-108pdyg'>
+                        <span class='css-1wdxkcl'>PREMIUM</span>
+                    </label>
+                </div>*@
+            <div class='{CssCompensaActions}'>
+                <div class='css-4uzq6t'>
+                    <div class='css-1o52zj5'>
+                        <span>{Usuario}</span>
+                    </div>
+                    <div class='css-bxksh3'>
+                        <div class='css-ukdp28'>
+                            <span>{IdadeUsuario}</span>
+                            <span class='css-1c4r4zv'>{CidadeUsuario}</span>
+                        </div>
+                        <div class='css-1rhxoew'>
+                            <img src='~/modules/img/7adf78a9b5ff5bd35517615b46488ddf.svg' alt='Avatar'>
+                            <span>{QntFotos}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+    }
+
+
+
+    @if (ViewBag.usuarioAprovado)
+    {
+        <div class='action css-120v7t4 {CssDisplayActions}' style='margin-top: 7px;'>
+            <div style='margin-left: 20px'>
+                <span class='material-icons js-click-dislike {CssDisplayActions}' style='cursor: pointer' data-user-name='{Usuario}'>
+                    thumb_down_alt
+                </span>
+            </div>
+            <div style='margin-left: auto; margin-right: 20px;'>
+                <span class='material-icons js-click-like {CssDisplayActions}' style='cursor: pointer' data-user-name='{Usuario}'>
+                    thumb_up_alt
+                </span>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+
+

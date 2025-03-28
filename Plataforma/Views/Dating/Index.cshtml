@@ -1,0 +1,1083 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    var pageSize = 8;
+    var pageIndex = 0;
+    var pageIndexSearch = 0;
+    var lastInteractionSearch = 0;
+    var lastInteraction = 0;
+    $(document).ready(function () {
+        @*if (@ViewBag.IsBusca == "0") {
+            GetData();
+        }*@
+        GetGenero();
+        PixRecebido();
+        //$(window).scroll(function () {
+        //    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        //        if ($('#identSearch').val() === undefined) {
+        //            GetData();
+        //        }
+        //        else {
+        //            GetDataSearch();
+        //        }
+        //    }
+        //});
+        //$('.js-carregar-btn').unbind("click").click(function (e) {
+        //    if ($('#identSearch').val() === undefined) {
+        //        GetData();
+        //    }
+        //    else {
+        //        GetDataSearch();
+        //    }
+        //    e.preventDefault();
+        //});
+    });
+
+
+
+    function PixRecebido() {
+
+        $.ajax({
+            url: "@Url.Action("ConsultaPixRecebido", "Dating")",
+            dataType: "json",
+            type: 'GET',
+            success: function (data) {
+
+                if (data != null) {
+                    //alert(data.DadosQRCode.valor)
+                    MostraPix(data);
+                }
+
+            },
+            error: function () {
+                //Notification();
+            }
+        });
+    }
+
+    function MostraPix(data) {
+        $('#ShareModal').empty();
+        $('#preLoadModal').css('display', 'block');
+
+
+        $.ajax({
+            url: "@Url.Action("_ProfileModalPixRecebimento", "Dating")",
+            data: {
+                'valor': data.Pix.DadosQRCode.valor,
+                'IdPix': data.IdPix,
+            },
+            dataType: "html",
+            type: 'POST',
+            success: function (data) {
+                $('#preLoadModal').css('display', 'none');
+                $('#ShareModal').append(data);
+            },
+            error: function () {
+                //Notification();
+            }
+        });
+
+        e.preventDefault();
+    }
+
+
+    $(document).on("click", ".js-btn-envia-pix", function (e) {
+            $('#ShareModal').empty();
+            $('#preLoadModal').css('display', 'block');
+
+            nomeUsuarioRecebedor = $('.js-btn-envia-pix').attr('user-modal-pix');
+
+            $.ajax({
+                url: "@Url.Action("_ProfileModalPix","Dating")",
+                data: {
+                    'nomeUsuarioRecebedor': nomeUsuarioRecebedor,
+                },
+                dataType: "html",
+                type: 'POST',
+                success: function (data) {
+                    $('#preLoadModal').css('display', 'none');
+                    $('#ShareModal').append(data);
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+
+            e.preventDefault();
+        });
+
+
+    var format = function (str, col) {
+        col = typeof col === 'object' ? col : Array.prototype.slice.call(arguments, 1);
+
+        return str.replace(/\{\{|\}\}|\{(\w+)\}/g, function (m, n) {
+            if (m == "{{") { return "{"; }
+            if (m == "}}") { return "}"; }
+            return col[n];
+        });
+    };
+
+    function GetGenero() {
+        $.ajax({
+            url: '@Url.Action("GetGenero", "Home")',
+            dataType: 'json',
+            type: 'GET',
+            success: function (data) {
+                    $('#genero').val(data);
+                    return false;
+                }
+            });
+    }
+    function GetUsuariosOnline() {
+        $.ajax({
+            url: '@Url.Action("GetUsuariosOnline", "Home")',
+            dataType: 'json',
+            type: 'GET',
+            success: function (data) {
+                $('.online-count').empty();
+                $('.online-count').append(data);
+                    return false;
+                }
+            });
+    }
+
+    function GetData(e) {
+
+        var pageURL = $(location).attr("href");
+        var param = pageURL.split('#');
+
+
+        if (e != undefined) {
+
+            var btn = $(e).attr('href').split("#");
+            var urlFinal = btn[1];
+
+            //$('.js-menu-destaques').css("background-color", "#B8273A");
+            //var urlFinal = "destaques";
+            //console.log(urlFinal);
+        }
+        else {
+
+
+            if (param[1] === undefined || param[1] === "" || param[1] === " ") {
+                $('.js-menu-destaques').css("background-color", "#B8273A");
+                var urlFinal = "destaques";
+            }
+            else if (param[1] === "destaques") {
+                $('.js-menu-destaques').css("background-color", "#B8273A");
+                var urlFinal = "destaques";
+            }
+            else if (param[1] === "proximos") {
+                $('.js-menu-proximos').css("background-color", "#B8273A");
+                var urlFinal = "proximos";
+            }
+            else if (param[1] === "novos") {
+                $('.js-menu-novos').css("background-color", "#B8273A");
+                var urlFinal = "novos";
+            }
+            else {
+
+            }
+
+
+
+        }
+
+
+        //else if (param[1] === "destaques") {
+
+        //    $('.js-menu-destaques').css("background-color", "#B8273A");
+        //    var urlFinal = "destaques";
+        //    console.log(urlFinal);
+        //}
+        //else if (param[1] === "proximos") {
+
+        //    $('.js-menu-proximos').css("background-color", "#B8273A");
+        //    var urlFinal = "proximos";
+        //    console.log(urlFinal);
+        //}
+        //else if (param[1] === "novos") {
+
+        //    $('.js-menu-novos').css("background-color", "#B8273A");
+        //    var urlFinal = "novos";
+        //    console.log(urlFinal);
+        //}
+
+        if (navigator.userAgent.indexOf('kinkeeapp') > -1) {
+            pageSize = 4;
+        }
+
+
+        pageIndexSearch = 0;
+        lastInteractionSearch = 0;
+        if ((pageIndex === 0) || (lastInteraction !== pageIndex)) {
+            lastInteractionSearch = pageIndexSearch;
+            $.ajax({
+                type: 'GET',
+                url: '/Dating/LoadProfilesLaunch',
+                data: { "pageindex": pageIndex, "pagesize": pageSize, "url": urlFinal },
+                dataType: 'json',
+                success: function (data) {
+                    if (data != null) {
+
+                        $("#container").empty();
+                        var html = $('.support .report-page').html();
+
+                        for (var i = 0; i < data.length; i++) {
+
+
+                            console.log(data[i].displayActions);
+
+                            //alert(data[i].displayActions);
+
+                            var htmlFormat = format(html, {
+                                imagemPerfil: String(data[i].imagemPerfil).replace(/\\/g, "/"),
+                                Usuario: data[i].Usuario,
+                                IdadeUsuario: data[i].IdadeUsuario,
+                                CidadeUsuario: data[i].CidadeUsuario,
+                                QntFotos: data[i].QntFotos,
+                                UserElo: SelectEloUser(data[i].url_image_score, data[i].sugar_score),
+                                UserVerify: UserVerify(data[i].Verify),
+                                UserNewProfile: UserNewProfile(data[i].NewProfile),
+                                UserPremium: UserPremium(data[i].Premium),
+                                UserOnline: UserOnline(data[i].Online),
+                                CssDisplayActions: DisplayActions(data[i].displayActions),
+                                CssCompensaActions: CompensaActions(data[i].displayActions),
+                            });
+
+
+                            $("#container").append(htmlFormat);
+
+                        }
+                        pageIndex++;
+                    }
+                },
+                beforeSend: function () {
+                    $("#progress").show();
+                    $(".js-carregar-btn").hide();
+                },
+                complete: function () {
+                    $("#progress").hide();
+                    $(".js-carregar-btn").show();
+                },
+                error: function () {
+                    $('#btnCarregando').append('Ops! Ocorreu um erro durante o carregamento.');
+                }
+            });
+        }
+    }
+
+    function SelectEloUser(Elo, EloScore) {
+
+
+        imgElo = "<li><img src='" + Elo + "' /><br /> " + EloScore +"</li>";
+
+        return imgElo;
+    }
+
+    function UserVerify(Verify) {
+
+
+        if (Verify) {
+            var imgVerify = "<li><img src='/modules/img/verificado.svg' alt='Verificado'></li>";
+        }
+        else {
+            var imgVerify = "";
+        }
+
+
+        return imgVerify;
+    }
+
+    function UserNewProfile(NewProfile) {
+
+        if (NewProfile) {
+            var imgNewProfile = "<li><img src='/modules/img/novo.png' alt='Novo'></li>";
+        }
+        else {
+            var imgNewProfile = "";
+        }
+
+        return imgNewProfile;
+    }
+
+    function UserPremium (Premium) {
+
+        if (Premium) {
+            var userPremium = "<li><img src='/modules/img/premium.svg' alt='Novo'></li>";
+        }
+        else {
+            var userPremium = "";
+        }
+
+        return userPremium;
+    }
+
+    function UserOnline(Online) {
+
+        if (Online) {
+            var userOnline = "<div class='online-tip'></div>";
+        }
+        else {
+            var userOnline = "";
+        }
+
+        return userOnline;
+    }
+
+    function DisplayActions(CssDisplayActions) {
+
+        if (CssDisplayActions) {
+            var css = "CssDisplayActions";
+        }
+        else {
+            var css = "";
+        }
+
+        return css;
+    }
+
+    function CompensaActions(CssDisplayActions) {
+
+        if (CssDisplayActions) {
+            var css = "CssCompensaActions";
+        }
+        else {
+            var css = "";
+        }
+
+        return css;
+    }
+
+
+
+    function GetDataSearchZeraIndex() {
+        pageIndexSearch = 0;
+        lastInteractionSearch = 0;
+        GetDataSearch();
+    }
+
+    function GetDataSearch() {
+        pageIndex = 0;
+        lastInteraction = 0;
+        var busca = $('#searchResult').val() ? $('#searchResult').val() : $('#resultadoBusca').val();
+        if ((pageIndexSearch === 0) || (lastInteractionSearch !== pageIndexSearch)) {
+            lastInteractionSearch = pageIndexSearch;
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetDataSearch", "Dating")',
+                data: { pageindex: pageIndexSearch, pageSize: pageSize, busca: busca },
+                dataType: 'json',
+                success: function (data) {
+                    if (data != null) {
+                        if ($('#identSearch').val() === undefined) {
+                            $("#container").html("");
+                            $("#container").append("<input type='hidden' id='identSearch' value='true' />")
+                        }
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].Endereco === null) {
+                                var Endereco = new Object; //[Cidade, Estado];
+                                var Cidade = "Cidade";
+                                var Estado = "Estado";
+                                Endereco[Cidade] = "";
+                                Endereco[Estado] = "";
+                                data[i].Endereco = Endereco;
+                            }
+                            if (data[i].Endereco.Cidade == null) {
+                                data[i].Endereco.Cidade = "";
+                                data[i].Endereco.Estado = ""
+                            }
+                            var contaGold = "";
+                            var PerfilVerificado = "";
+                            var PerfilBlack = "";
+                            if (data[i].ContaGold === true) {
+                                contaGold = "<img src='https://kinkeesugar.com/modules/img/perfil_gold.png' style='width: 34px; position: absolute; margin-left: -100px;' alt='Perfil Gold' tooltip='Perfil Gold' />";
+                            }
+                            if (data[i].PerfilVerificado === true) {
+                                PerfilVerificado = "<img src='https://kinkeesugar.com/modules/img/perfil_verificado.png' style='width: 34px; position: absolute; margin-left: -85px; alt='Pefil Veificado' tooltip='Pefil Veificado' />";
+                            }
+                            if (data[i].ContaSelectBlack === true) {
+                                PerfilBlack = "<img src='https://kinkeesugar.com/modules/img/Kinkee_select_black_diamond_ico.png' style='width: 34px; position: absolute; margin-left: -70px; alt='Pefil Black' tooltip='Pefil Black' />";
+                            }
+                            if (data[i].TipoSugar == "1") {
+                                if (data[i].ContaSelectBlack) {
+                                    data[i].TipoSugar = "( Daddy Black )"
+                                }
+                                else {
+                                    data[i].TipoSugar = "( Daddy )"
+                                }
+                            }
+                            if (data[i].TipoSugar == "2") {
+                                if (data[i].ContaSelectBlack) {
+                                    data[i].TipoSugar = "( Baby Select )"
+                                }
+                                else {
+                                    data[i].TipoSugar = "( Baby )"
+                                }
+                            }
+                            if (data[i].TipoSugar == "3") {
+                                if (data[i].ContaSelectBlack) {
+                                    data[i].TipoSugar = "( Mommy Black )"
+                                }
+                                else {
+                                    data[i].TipoSugar = "( Mommy )"
+                                }
+                            }
+                            if (data[i].TipoSugar == null) {
+                                data[i].TipoSugar = ""
+                            }
+                            if (data[i].Adm === true) {
+                                data[i].TipoSugar = "( Coach )"
+                            }
+                            var cidade = "";
+                            if (data[i].Endereco.Cidade) {
+                                cidade = data[i].Endereco.Cidade + ", ";
+                            }
+                            if (data[i].Adm === true) {
+                                $("#container").append("<div class='col-sm-4'><div class='box-info text-center user-profile-2' style='background: #B8273B;'>" + contaGold + " " + PerfilVerificado + " " + PerfilBlack + "<div class='header-cover'><a target='_self' href='/Dating/Perfil/" + data[i].Usuario + "'><div class='container-img-list' style='background-image: url(" + String(data[i].imagemPerfil).replace(/\\/g, "/") + ")'></div>​</a ></div > <div><a target='_blank' style='color: #fff;' href='/Dating/Perfil/" + data[i].Usuario + "'><h4 class='white'>" + data[i].Usuario + " </h4><br><h5 style='margin: 0; margin-top: -26px;'>" + data[i].TipoSugar + "</h5><h5>" + data[i].Endereco.Cidade + "</h5></a></div></div ></div > ");
+                            }
+                            else if (data[i].ContaSelectBlack === true) {
+                                $("#container").append("<div class='col-sm-4'><div class='box-info text-center user-profile-2' style='background: #000000;'>" + contaGold + " " + PerfilVerificado + " " + PerfilBlack + "<div class='header-cover'><a target='_self' href='/Dating/Perfil/" + data[i].Usuario + "'><div class='container-img-list' style='background-image: url(" + String(data[i].imagemPerfil).replace(/\\/g, "/") + ")'></div>​</a ></div > <div><a target='_blank' style='color: #fff;' href='/Dating/Perfil/" + data[i].Usuario + "'><h4 class='white'>" + data[i].Usuario + " </h4><br><h5 style='margin: 0; margin-top: -26px;'>" + data[i].TipoSugar + "</h5><h5>" + data[i].Endereco.Cidade + "</h5></a></div></div ></div > ");
+                            }
+                            else {
+                                $("#container").append("<div class='col-sm-4'><div class='box-info text-center user-profile-2'>" + contaGold + " " + PerfilVerificado + "<div class='header-cover'><a target='_self' href='/Dating/Perfil/" + data[i].Usuario + "'><div class='container-img-list' style='background-image: url(" + String(data[i].imagemPerfil).replace(/\\/g, "/") + ")'></div>​</a ></div > <div><a target='_self' href='/Dating/Perfil/" + data[i].Usuario + "'><h4 class='white'>" + data[i].Usuario + " </h4><br><h5 style='margin: 0; margin-top: -26px;'>" + data[i].TipoSugar + "</h5><h5>" + data[i].Endereco.Cidade + "</h5></a></div></div ></div > ");
+                            }
+                            //$("#container").append("<div class='col-sm-4'><div class='box-info text-center user-profile-2'>" + contaGold + " " + PerfilVerificado + "<div class='header-cover'><a target='_blank' href='/Dating/Perfil/" + data[i].Usuario + "'><div class='container-img-list' style='background-image: url(" + String(data[i].imagemPerfil).replace(/\\/g, "/") + ")'></div>​</a ></div > <div><a target='_blank' href='/Dating/Perfil/" + data[i].Usuario + "'><h4 class='white'>" + data[i].Usuario + "</h4><br><h5>(" + data[i].Usuario +")</h5><h5>" + cidade + data[i].Endereco.Estado + "</h5></a></div></div ></div > ");
+                        }
+                        pageIndexSearch++;
+                    }
+                },
+                beforeSend: function () {
+                    $("#progress").show();
+                    $(".js-carregar-btn").hide();
+                },
+                complete: function () {
+                    $("#progress").hide();
+                    $(".js-carregar-btn").show();
+                },
+                error: function () {
+                    ('#btnCarregando').append('Ops! Ocorreu um erro durante o carregamento.');
+                }
+            });
+        }
+    }
+</script>
+
+
+<div class="ng-scope">
+
+    <!-- Filter -->
+    @*<div class="container-fluid explore-filter">
+
+            <div class="container-flex">
+                <div class="row">
+                    <div class="col-xs-10 col-md-6">
+
+
+                        @if (!ViewBag.MostrarAvisoBloqueio)
+                        {
+                            if (ViewBag.EloGenero != null)
+                            {
+                                <h3>Você está vendo perfis com Sugar Score entre 0 e  @(ViewBag.EloGenero.rangeMaximo+500)</h3>
+                            }
+
+                        }
+                        else
+                        {
+                            <h3>Seu perfil não está sendo mostrado para ninguém pois ele ainda não foi aprovado. Se não quiser esperar, você pode assinar Premium e liberá-lo agora mesmo.</h3>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>*@
+
+
+    <div class="container-flex gutter-small">
+        <section sl-online="" class="ng-scope online">
+
+                <div class="row">
+                    <div class="col-xs-7 col-sm-8 col-md-8">
+                        <div class="online-title">
+                            <h3 class="text-uppercase">
+                                <span class="online-title-info">Pessoas</span>
+                                <strong>Online</strong>
+                                ( <span class="online-count" auto-remove="">1016</span>
+                                <span class="online-count ng-binding ng-hide"></span> )
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        @*@Html.Action("_ComplementoPartial", "Dating")*@
+        @if (ViewBag.usuarioAprovado)
+            {
+                @Html.Action("_DestaquesPartial", "Dating")
+            }
+
+        @*@Html.Action("_SugestaoPartial", "Dating")*@
+        <div class="container-flex gutter-small" style="padding-bottom: 60px;">
+
+            <section class="last-photos  " auto-visible="">
+
+                <!-- Ultimas Fotos Title -->
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-10">
+                        <div class="last-photos-title">
+                            <h3 class="text-uppercase">
+                                <span>Perfis</span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List -->
+                <div class="last-photos-list ">
+
+                    <div class="bootstrap snippet">
+
+                        <style>
+
+                            .CssCompensaActions {
+                                height: 81px;
+                            }
+
+                            .col-sm-4 {
+                                width: calc(100%) !important;
+                                padding-top: calc(100%);
+                                margin-bottom: 10px;
+                                margin-right: 10px !important;
+                            }
+
+                            @@media (min-width: 360px) {
+                                .col-sm-4 {
+                                    width: calc(46%) !important;
+                                    padding-top: calc(44%);
+                                    margin-bottom: 10px;
+                                    margin-right: 10px !important;
+                                }
+
+                                .CssCompensaActions {
+                                    height: 40px;
+                                }
+                            }
+
+
+                            @@media (min-width: 600px) {
+                                .col-sm-4 {
+                                    width: calc(23%) !important;
+                                    padding-top: calc(15%);
+                                    margin-bottom: 10px;
+                                    margin-right: 10px !important;
+                                }
+                            }
+
+                            @@media (min-width: 715px) {
+
+                                .col-sm-4 {
+                                    width: calc(23%) !important;
+                                    padding-top: calc(22%);
+                                    margin-bottom: 10px;
+                                    margin-right: 10px !important;
+                                }
+                            }
+
+
+                            .css-108pdyg {
+                                position: relative;
+                                display: inline-flex;
+                                -webkit-box-pack: center;
+                                justify-content: center;
+                                box-sizing: border-box;
+                                font-family: "Source Sans Pro", HelveticaNeue, Helvetica, Arial, Sans;
+                                flex-direction: row-reverse;
+                                -webkit-box-align: center;
+                                align-items: center;
+                                text-align: center;
+                                max-width: 100%;
+                                cursor: default;
+                                height: 16px;
+                                border-width: 1px;
+                                border-style: solid;
+                                font-size: 12px;
+                                border-radius: 100px;
+                                padding: 0px 8px;
+                                color: rgb(255, 255, 255);
+                                background: rgb(235, 160, 14);
+                                border-color: rgb(235, 160, 14);
+                            }
+
+                            .css-s7mszz span {
+                                text-transform: uppercase !important;
+                            }
+
+                            .css-1wdxkcl {
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                line-height: 16px;
+                            }
+
+                            .css-120v7t4 {
+                                display: flex;
+                                align-items: flex-end;
+                                border-radius: 0px 0px 6px 6px;
+                                margin-left: -5px;
+                                background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 80%);
+                                width: 105%;
+                                color: #fff;
+                            }
+
+                            .css-4uzq6t {
+                                width: 100%;
+                                padding: 0px 16px 8px;
+                            }
+
+                            .css-1o52zj5 {
+                                width: 100%;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                color: rgb(255, 255, 255);
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+
+                            .css-bxksh3 {
+                                display: flex;
+                                -webkit-box-pack: justify;
+                                justify-content: space-between;
+                                -webkit-box-align: center;
+                                align-items: center;
+                                line-height: 15px;
+                            }
+
+                            .css-ukdp28 {
+                                width: 150px;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                opacity: 0.7;
+                                color: rgb(255, 255, 255);
+                                font-size: 14px;
+                            }
+
+                            .css-1rhxoew {
+                                white-space: nowrap;
+                                margin-left: 4px;
+                            }
+
+                            .css-1c4r4zv::before {
+                                content: " · ";
+                            }
+
+                            /* fallback */
+                            @@font-face {
+                                font-family: 'Material Icons';
+                                font-style: normal;
+                                font-weight: 400;
+                                src: url(https://fonts.gstatic.com/s/materialicons/v81/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+                            }
+
+                            .material-icons {
+                                font-family: 'Material Icons';
+                                font-weight: normal;
+                                font-style: normal;
+                                font-size: 24px;
+                                line-height: 1;
+                                letter-spacing: normal;
+                                text-transform: none;
+                                display: inline-block;
+                                white-space: nowrap;
+                                word-wrap: normal;
+                                direction: ltr;
+                                -webkit-font-feature-settings: 'liga';
+                                -webkit-font-smoothing: antialiased;
+                            }
+
+                            .sr-only {
+                                position: absolute;
+                                width: 1px;
+                                height: 1px;
+                                padding: 0;
+                                margin: -1px;
+                                overflow: hidden;
+                                clip: rect(0,0,0,0);
+                                border: 0;
+                            }
+
+                            .online-tip {
+                                position: absolute;
+                                left: 10px;
+                                top: 16px;
+                                width: 7px;
+                                height: 7px;
+                                background-color: #4fd463;
+                                border-radius: 50%;
+                            }
+
+                            ul.attributes-list {
+                                padding: 7px !important;
+                                margin-top: 5px !important;
+                                overflow-x: hidden !important;
+                                overflow-y: hidden !important;
+                                white-space: inherit !important;
+                                position: absolute !important;
+                                left: 82% !important;
+                                right: 0 !important;
+                                top: 0 !important;
+                                width: 40px !important;
+                                display: block !important;
+                                margin: 0 !important;
+                                height: 100px;
+                            }
+
+                            .attributes-list li {
+                                width: 100%;
+                                height: 26px;
+                                float: none;
+                                margin-bottom: 3px;
+                                margin-top: 0;
+                                padding: 0;
+                                position: relative;
+                            }
+
+                                .attributes-list li img {
+                                    right: 5px;
+                                    width: 26px;
+                                    height: 26px;
+                                    box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                                    border-radius: 50%;
+                                }
+
+                            .support {
+                                display: none;
+                            }
+
+                            /*.material-icons.js-click-like.CssDisplayActions {
+                                color: rgb(22, 11, 222);
+                            }
+
+                            .material-icons.js-click-dislike.CssDisplayActions {
+                                color: rgb(240, 22, 36);
+                            }*/
+
+                            .CssDisplayActions {
+                                display: none !important;
+                            }
+                        </style>
+
+                        <div class="support">
+                            <div class="report-page">
+                                @Html.Action("_PerfilItemPartial", "Dating")
+                                @*@Html.Action("ReportPage", new { id = Model.GoalId })*@
+                            </div>
+                        </div>
+
+                        <div id="container">
+                            @*@Html.Action("_PerfilItemPartial", "Dating")
+                                @Html.Action("_PerfilItemPartial", "Dating")*@
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr class="ng-scope">
+                <div id="progress" style="display:none">
+                    <a class="sl-btn btn-primary-inverse text-uppercase" id="btnCarregando" title="Assine">BLEEEND...</a>
+                </div>
+
+                <input hidden id="contagold" value="@Html.Raw(ViewBag.ContaGold)" />
+
+                @if(ViewBag.ContaGold)
+                {
+                    <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn">VOCÊ TEM BLENDS ILIMITADOS</a>
+                }
+                else
+                {
+                    if (ViewBag.PermissaoBlend)
+                    {
+                        <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn">VOCÊ TEM @ViewBag.QtdClicks BLENDS</a>
+                    }
+                    else if (ViewBag.usuarioAprovado)
+                    {
+                        <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn" disabled="disabled">
+                            <p id="demo">@Html.Raw(ViewBag.DataLiberacaoClicks)</p>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="" class="sl-btn btn-primary-inverse text-uppercase js-carregar-btn" disabled="disabled">
+                            SEU PERFIL AINDA NÃO ESTÁ APROVADO
+                        </a>
+                    }
+                }
+
+
+                <input hidden id="DataLiberacaoClicks" value="@Html.Raw(ViewBag.DataLiberacaoClicks)" />
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link href="~/modules/css/index.css" rel="stylesheet" />
+@*@Scripts.Render("~/index/css")*@
+
+
+<script>
+    $(document).ready(function () {
+
+        //"background-color: #B8273A;"
+
+        GetData();
+
+        //$(window).scroll(function (e) {
+
+        //    console.log("ScrollTop: " + $(window).scrollTop() + " " + "Scrollheight: " + $(document).height() + " " + "windowheight: " + $(window).height());
+
+        //    if ($(document).height() - $(this).height() == $(this).scrollTop()) {
+        //            pageIndexSearch = 0;
+        //            lastInteractionSearch = 0;
+
+        //            GetData();
+
+        //            e.preventDefault();
+        //        }
+        //});
+
+        $(document).on('click', '.js-click-like', function (e) {
+            $(this).css('color', 'rgb(22, 11, 222)');
+
+            var nomeUsuarioFavorito = $(this).attr('data-user-name');
+
+            AddUserFavorite(nomeUsuarioFavorito);
+
+
+            $(this).parent('div').parent('div').css('display', 'none');
+
+            e.preventDefault();
+        });
+
+        $(document).on('click', '.js-click-dislike', function () {
+            $(this).css('color', 'rgb(240, 22, 36)');
+
+            var nomeUsuarioFavorito = $(this).attr('data-user-name');
+            RemoveUserFavorite(nomeUsuarioFavorito);
+
+            $(this).parent('div').parent('div').css('display', 'none');
+
+            e.preventDefault();
+        });
+
+        function AddUserFavorite(nomeUsuarioFavorito) {
+
+            $.ajax({
+                url: "@Url.Action("AddUserFavorite", "Dating")",
+                data: {
+                    'nomeUsuarioFavorito': nomeUsuarioFavorito,
+                },
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+                    //alert("Successfully Inserted!");
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+        }
+
+        function RemoveUserFavorite(nomeUsuarioFavorito) {
+
+            $.ajax({
+                url: "@Url.Action("RemoveUserFavorite", "Dating")",
+                data: {
+                    'nomeUsuarioFavorito': nomeUsuarioFavorito,
+                },
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+                    //alert("Successfully Inserted!");
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+        }
+
+
+
+        $('.js-menu-proximos').click(function () {
+            resetMenu();
+            $(this).css("background-color", "#B8273A");
+            $("#container").html("");
+            GetData(this);
+
+        });
+
+        $('.js-menu-destaques').click(function () {
+            resetMenu();
+            $(this).css("background-color", "#B8273A");
+            $("#container").html("");
+            GetData(this);
+        });
+
+        $('.js-menu-novos').click(function () {
+            resetMenu();
+            $(this).css("background-color", "#B8273A");
+            $("#container").html("");
+            GetData(this);
+        });
+
+        function resetMenu() {
+            $('.js-menu-proximos').css("background-color", "transparent");
+            $('.js-menu-destaques').css("background-color", "transparent");
+            $('.js-menu-novos').css("background-color", "transparent");
+        }
+
+
+
+        function CallData(e) {
+            var link = $(e).attr('href');
+            text = $(e).text();
+            alert(link + "----" + text);
+        }
+
+        $('.js-carregar-btn').click(function (e) {
+            pageIndexSearch = 0;
+            lastInteractionSearch = 0;
+            if ($('#identSearch').val() === undefined) {
+
+                if ($('#contagold').val() === 'True') {
+                    GetData();
+                }
+                else {
+                    BlendClick();
+                    GetData();
+                }
+
+
+            }
+            else {
+                GetDataSearch();
+            }
+            e.preventDefault();
+        });
+
+
+
+
+
+        function BlendClick() {
+
+            $.ajax({
+                url: "@Url.Action("BlendClick", "Dating")",
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+
+                    if (data > 0) {
+                        $(".sl-btn.btn-primary-inverse.text-uppercase.js-carregar-btn").empty()
+                        $(".sl-btn.btn-primary-inverse.text-uppercase.js-carregar-btn").append("VOCÊ TEM " + data + " BLENDS");
+                    }
+                    else {
+                        AtualizaBlendClick();
+                    }
+
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+        }
+
+        function AtualizaBlendClick() {
+
+            $.ajax({
+                url: "@Url.Action("BlendClick", "Dating")",
+                dataType: "json",
+                type: 'POST',
+                success: function (data) {
+
+                    $(".sl-btn.btn-primary-inverse.text-uppercase.js-carregar-btn").empty()
+                    $(".sl-btn.btn-primary-inverse.text-uppercase.js-carregar-btn").append("VOCÊ TEM " + data + " BLENDS");
+                    location.reload();
+                },
+                error: function () {
+                    //Notification();
+                }
+            });
+        }
+
+        var datatime = $('#DataLiberacaoClicks').val();
+        contagem(datatime);
+
+        function contagem(datatime) {
+
+
+            var datecountdown = new Date(datatime).getTime();
+
+            // Set the date we're counting down to
+            var countDownDate = new Date(datecountdown).getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function () {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result in an element with id="demo"
+                document.getElementById("demo").innerHTML = "FALTAM "+hours + " HORAS " + minutes + " MINUTOS " + seconds+" SEGUNDOS PARA O PRÓXIMO BLEND";
+
+                // If the count down is over, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    AtualizaBlendClick();
+                }
+            }, 1000);
+        }
+
+
+    });
+</script>
+
+
+
+@Html.Action("_IntroPartial", "Wizard")
+
+<div class="fb-customerchat"
+     page_id="1105956872821807">
+</div>
+
+
+@*<script>
+            // Use the variables below to include the name and email address of the user who is currently logged in.
+            window.scupSettings = {
+                channelAccount: "LVC_813cbb10-19eb-11e8-a2af-3549d24b25e4",
+                userName: "@HttpContext.Current.User.Identity.Name",
+                userEmail: ""
+            }
+    </script>
+    <script>!function (t) { var e = t.createElement("script"); e.src = "https://api-live-chat.care.scup.com/widget", t.body.appendChild(e) }(document);</script>*@
+

@@ -1,0 +1,626 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<div class="tab-pane ng-hide" ng-show="$subscribe.isDebit()">
+    <form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-valid ng-invalid-flag" data-errors="subscribeCard" name="subscribeFormDebit" novalidate="">
+
+        <label>Bandeiras aceitas</label>
+        <div class="cards debit">
+            <div class="btn-group">
+                <label for="visa" class="btn visa noclick"></label>
+                <label for="master" class="btn master noclick"></label>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="form-group has-feedback">
+                    <label>Número do cartão</label>
+                    <span class="cards-position selected-card debit" ng-class="subscription.flag"></span>
+                    <input ng-model="subscription.card.number" type="text" class="form-control ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-flag" autotab="19" name="number" credit-card="" required="" card-type="debit" subscribe-validator="" maxlength="19" autocomplete="off">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-5">
+                <label>Validade</label>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group has-feedback">
+                            <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-change="checkYears(subscription.card.month)" ng-model="subscription.card.month" required="" subscribe-validator="" name="month" ng-options="item for item in months track by item"><option value="" class="" selected="selected">Mês</option><option label="01" value="01">01</option><option label="02" value="02">02</option><option label="03" value="03">03</option><option label="04" value="04">04</option><option label="05" value="05">05</option><option label="06" value="06">06</option><option label="07" value="07">07</option><option label="08" value="08">08</option><option label="09" value="09">09</option><option label="10" value="10">10</option><option label="11" value="11">11</option><option label="12" value="12">12</option></select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group has-feedback">
+                            <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="subscription.card.year" required="" subscribe-validator="" name="year" ng-options="item for item in years track by item"><option value="" class="" selected="selected">Ano</option><option label="2021" value="2021">2021</option><option label="2022" value="2022">2022</option><option label="2023" value="2023">2023</option><option label="2024" value="2024">2024</option><option label="2025" value="2025">2025</option><option label="2026" value="2026">2026</option><option label="2027" value="2027">2027</option><option label="2028" value="2028">2028</option><option label="2029" value="2029">2029</option><option label="2030" value="2030">2030</option><option label="2031" value="2031">2031</option><option label="2032" value="2032">2032</option></select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="form-group has-feedback">
+                    <label>Nome do Titular do cartão</label>
+                    <input ng-model="subscription.card.name" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="name" maxlength="50" autocomplete="off">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="form-group has-feedback">
+                    <label>Código de segurança</label>
+                    <i class="icon-helper" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="popoverSecurity">?</i>
+                    <input ng-model="subscription.card.securityCode" type="text" class="form-control ng-pristine ng-untouched ng-scope ng-empty ng-invalid ng-invalid-required ng-invalid-valid" subscribe-validator="" name="securityCode" placeholder="000" required="" ng-mask="999" clear-if-not-match="true" card-security-code="" flag="" valid="" maxlength="3">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+        </div>
+        <hr class="separate">
+
+
+        <div class="renewal-text renewal-text--debit">
+            A cobrança será feita em nome de <strong>"eSapiens Internet"</strong>.
+        </div>
+        <div class="liberation-time">
+            Liberação de assinatura em até 24h
+        </div>
+
+        <div class="box-submit">
+            <div class="box-submit__infos">
+                <small class="termos-uso">
+                    Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                </small>
+                <small class="termos-uso flag-br ng-hide" ng-show="$subscribe.isDebitOnline()">
+                    Essa compra está sendo feita no Brasil
+                </small>
+            </div>
+            <div class="box-submit__btn" ng-class="{'injected': injected}">
+                <button class="sl-btn btn-primary btn-lg" ng-class="{'next-icon': !isLastStep}" ng-click="injected ? actionButton() : $subscribe.save()" ng-disabled="disabledButton()">
+                    <span ng-bind="getButtonText()" class="ng-binding">Assinar Semestral</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="tab-pane ng-hide" ng-show="$subscribe.isBankTransfer()" ng-init="initTokenPlansValues([{&quot;productid&quot;:&quot;1&quot;,&quot;name&quot;:&quot;ASSINATURA MENSAL&quot;,&quot;category&quot;:&quot;subscription&quot;,&quot;price&quot;:&quot;6300&quot;,&quot;oldprice&quot;:&quot;0&quot;,&quot;planid&quot;:&quot;2&quot;,&quot;title&quot;:&quot;Assinatura Mensal&quot;,&quot;description&quot;:&quot;\u003Cp\u003ETroque Tokens por um pacote mensal de assinatura e desfrute de todas as vantagens de ser VIP!\u003C\/p\u003E\u003Cp\u003EO Sexlog ser\u00e1 seu camarote especial! Voc\u00ea vai se destacar, circular por todas as \u00e1reas, ter acesso a todas as funcionalidades e realizar as mais deliciosas fantasias.\u003C\/p\u003E\u003Cp\u003EAlguns benef\u00edcios Exclusivos Assinante VIP:\u003Cul\u003E\u003Cli\u003EEnvie e receba mensagens\u003C\/li\u003E\u003Cli\u003E Veja quem visitou o seu perfil e outras informa\u00e7\u00f5es de popularidade\u003C\/li\u003E\u003Cli\u003E Assista os v\u00eddeos mais picantes\u003C\/li\u003E\u003Cli\u003E Acesso ilimitado \u00e0s fotos mais ousadas\u003C\/li\u003E\u003Cli\u003E Publique conte\u00fado ilimitado\u003C\/li\u003E\u003Cli\u003E Customize seu perfil\u003C\/li\u003E\u003Cli\u003E Exiba-se na Livecam\u003C\/li\u003E\u003Cli\u003E Bloqueie Perfis Indesejados\u003C\/li\u003E\u003Cli\u003E Exiba seu Selo Real (caso tenha)\u003C\/li\u003E\u003Cli\u003E Suporte personalizado atrav\u00e9s de telefone e Chat com a \/EquipeSexlog\u003C\/li\u003E\u003C\/ul\u003E&quot;,&quot;thumb&quot;:&quot;images\/store\/prod-30dias-pt-br.jpg&quot;,&quot;hasstock&quot;:true,&quot;mintitle&quot;:&quot;Assinatura Mensal&quot;,&quot;subtitle&quot;:&quot;&quot;,&quot;email&quot;:&quot;cp-asssinatura@sexlog.zendesk.com&quot;,&quot;secondprice&quot;:null,&quot;period&quot;:&quot;30&quot;,&quot;priceformat&quot;:&quot;6.300&quot;,&quot;oldpriceformat&quot;:&quot;0&quot;,&quot;MENSAL&quot;:&quot;6.300&quot;},{&quot;productid&quot;:&quot;2&quot;,&quot;name&quot;:&quot;ASSINATURA TRIMESTRAL&quot;,&quot;category&quot;:&quot;subscription&quot;,&quot;price&quot;:&quot;15000&quot;,&quot;oldprice&quot;:&quot;37800&quot;,&quot;planid&quot;:&quot;3&quot;,&quot;title&quot;:&quot;Assinatura Trimestral - PRE\u00c7O ESPECIAL&quot;,&quot;description&quot;:&quot;\u003Cp\u003ETroque Tokens por um pacote trimestral de assinatura e desfrute de todas as vantagens de ser VIP!\u003C\/p\u003E\u003Cp\u003EO Sexlog ser\u00e1 seu camarote especial! Voc\u00ea vai se destacar, circular por todas as \u00e1reas, ter acesso a todas as funcionalidades e realizar as mais deliciosas fantasias.\u003C\/p\u003E\u003Cp\u003EAlguns benef\u00edcios Exclusivos Assinante VIP:\u003Cul\u003E\u003Cli\u003EEnvie e receba mensagens\u003C\/li\u003E\u003Cli\u003EVeja quem visitou o seu perfil e outras informa\u00e7\u00f5es de popularidade\u003C\/li\u003E\u003Cli\u003EAssista os v\u00eddeos mais picantes\u003C\/li\u003E\u003Cli\u003EAcesso ilimitado \u00e0s fotos mais ousadas\u003C\/li\u003E\u003Cli\u003EPublique conte\u00fado ilimitado\u003C\/li\u003E\u003Cli\u003ECustomize seu perfil\u003C\/li\u003E\u003Cli\u003EExiba-se na Livecam\u003C\/li\u003E\u003Cli\u003EBloqueie Perfis Indesejados\u003C\/li\u003E\u003Cli\u003EExiba seu Selo Real (caso tenha)\u003C\/li\u003E\u003Cli\u003ESuporte personalizado atrav\u00e9s de telefone e Chat com a \/EquipeSexlog\u003C\/li\u003E\u003C\/ul\u003E&quot;,&quot;thumb&quot;:&quot;images\/store\/prod-90dias-pt-br.jpg&quot;,&quot;hasstock&quot;:true,&quot;mintitle&quot;:&quot;Assinatura Trimestral&quot;,&quot;subtitle&quot;:&quot;PRE\u00c7O ESPECIAL&quot;,&quot;email&quot;:&quot;cp-asssinatura@sexlog.zendesk.com&quot;,&quot;secondprice&quot;:null,&quot;period&quot;:&quot;90&quot;,&quot;priceformat&quot;:&quot;15.000&quot;,&quot;oldpriceformat&quot;:&quot;37.800&quot;,&quot;TRIMESTRAL&quot;:&quot;15.000&quot;},{&quot;productid&quot;:&quot;3&quot;,&quot;name&quot;:&quot;ASSINATURA SEMESTRAL&quot;,&quot;category&quot;:&quot;subscription&quot;,&quot;price&quot;:&quot;22500&quot;,&quot;oldprice&quot;:&quot;75600&quot;,&quot;planid&quot;:&quot;4&quot;,&quot;title&quot;:&quot;Assinatura Semestral - Melhor Custo-Benef\u00edcio para voc\u00ea!&quot;,&quot;description&quot;:&quot;\u003Cp\u003ETroque Tokens por um pacote trimestral de assinatura e desfrute de todas as vantagens de ser VIP!\u003C\/p\u003E\u003Cp\u003EO Sexlog ser\u00e1 seu camarote especial! Voc\u00ea vai se destacar, circular por todas as \u00e1reas, ter acesso a todas as funcionalidades e realizar as mais deliciosas fantasias.\u003C\/p\u003E\u003Cp\u003EAlguns benef\u00edcios Exclusivos Assinante VIP:\u003Cul\u003E\u003Cli\u003EEnvie e receba mensagens\u003Cli\u003EVeja quem visitou o seu perfil e outras informa\u00e7\u00f5es de popularidade\u003C\/li\u003E\u003Cli\u003EAssista os v\u00eddeos mais picantes\u003C\/li\u003E\u003Cli\u003EAcesso ilimitado \u00e0s fotos mais ousadas\u003C\/li\u003E\u003Cli\u003EPublique conte\u00fado ilimitado\u003C\/li\u003E\u003Cli\u003ECustomize seu perfil\u003C\/li\u003E\u003Cli\u003EExiba-se na Livecam\u003C\/li\u003E\u003Cli\u003EBloqueie Perfis Indesejados\u003C\/li\u003E\u003Cli\u003EExiba seu Selo Real (caso tenha)\u003C\/li\u003E\u003Cli\u003ESuporte personalizado atrav\u00e9s de telefone e Chat com a \/EquipeSexlog\u003C\/li\u003E\u003C\/ul\u003E&quot;,&quot;thumb&quot;:&quot;images\/store\/prod-180dias-pt-br.jpg&quot;,&quot;hasstock&quot;:true,&quot;mintitle&quot;:&quot;Assinatura Semestral&quot;,&quot;subtitle&quot;:&quot;Melhor Custo-Benef\u00edcio para voc\u00ea&quot;,&quot;email&quot;:&quot;cp-asssinatura@sexlog.zendesk.com&quot;,&quot;secondprice&quot;:null,&quot;period&quot;:&quot;180&quot;,&quot;priceformat&quot;:&quot;22.500&quot;,&quot;oldpriceformat&quot;:&quot;75.600&quot;,&quot;SEMESTRAL&quot;:&quot;22.500&quot;}])">
+    <div class="subscribe-payment__bank-transfer-container" ng-init="getBanksForTransfer({&quot;bancodobrasil&quot;:&quot;Banco do Brasil&quot;,&quot;bradesco&quot;:&quot;Bradesco&quot;,&quot;itau&quot;:&quot;Ita\u00fa&quot;,&quot;caixa&quot;:&quot;Caixa Econ\u00f4mica Federal&quot;,&quot;original&quot;:&quot;Banco Original&quot;,&quot;santander&quot;:&quot;Santander&quot;,&quot;inter&quot;:&quot;Banco Inter&quot;,&quot;bs2&quot;:&quot;Banco BS2&quot;}); isWaitingForTransfer()" ng-show="!$subscribe.waitingForTransfer">
+        <div class="subscribe-payment__bank-flags" ng-hide="$screen.isMobile()">
+            <!-- ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/bancodobrasil.png" src="assets/images/modules/subscribe/banksForTransfer/bancodobrasil.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/bradesco.png" src="assets/images/modules/subscribe/banksForTransfer/bradesco.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/itau.png" src="assets/images/modules/subscribe/banksForTransfer/itau.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/caixa.png" src="assets/images/modules/subscribe/banksForTransfer/caixa.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/original.png" src="assets/images/modules/subscribe/banksForTransfer/original.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/santander.png" src="assets/images/modules/subscribe/banksForTransfer/santander.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/inter.png" src="assets/images/modules/subscribe/banksForTransfer/inter.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer --><div class="subscribe-payment__flag-image-container ng-scope" ng-repeat="(key, value) in banksForTransfer" ng-click="selectTransferBank(key)">
+                <img class="subscribe-payment__flag-image" ng-src="assets/images/modules/subscribe/banksForTransfer/bs2.png" src="assets/images/modules/subscribe/banksForTransfer/bs2.png">
+            </div><!-- end ngRepeat: (key, value) in banksForTransfer -->
+        </div>
+        <div class="subscribe-payment__bank-flags">
+        </div>
+        <p class="subscribe-payment__title">Selecione o Banco e informe os dados da sua conta:</p>
+        <form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" data-errors="subscribeCard" name="subscribeFormTransfer" novalidate="">
+            <div class="form-group has-feedback bank-transfer__left-form">
+                <label>Seu Banco</label>
+                <select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="subscription.bankTransfer.cCFlag" required="" subscribe-validator="" name="cCFlag" ng-options="key as item for (key, item) in banksForTransfer"><option value="" class="" selected="selected">Selecione um banco</option><option label="Banco do Brasil" value="string:bancodobrasil">Banco do Brasil</option><option label="Bradesco" value="string:bradesco">Bradesco</option><option label="Itaú" value="string:itau">Itaú</option><option label="Caixa Econômica Federal" value="string:caixa">Caixa Econômica Federal</option><option label="Banco Original" value="string:original">Banco Original</option><option label="Santander" value="string:santander">Santander</option><option label="Banco Inter" value="string:inter">Banco Inter</option><option label="Banco BS2" value="string:bs2">Banco BS2</option></select>
+                <span class="help-block"></span>
+            </div>
+            <div class="form-group has-feedback bank-transfer__right-form">
+                <label>Seu CPF/CNPJ</label>
+                <input ng-model="subscription.bankTransfer.cpfcnpj" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" subscribe-validator="" name="cpfcnpj" cpf-cnpj-validator="" autocomplete="off" maxlength="18" type="text">
+                <span class="help-block"></span>
+            </div>
+            <div class="form-group has-feedback bank-transfer__left-form">
+                <label>Sua Agência</label>
+                <input ng-model="subscription.bankTransfer.agency" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" name="agency" subscribe-validator="" maxlength="4" required="" autocomplete="off" only-numbers-mask="" type="text">
+                <span class="help-block"></span>
+            </div>
+            <div class="form-group has-feedback bank-transfer__right-form">
+                <label>Sua conta</label>
+                <input ng-model="subscription.bankTransfer.account" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" name="account" subscribe-validator="" maxlength="16" required="" autocomplete="off" bank-agency-mask="">
+                <span class="help-block"></span>
+            </div>
+        </form>
+    </div>
+    <hr class="separate" ng-show="!$subscribe.waitingForTransfer">
+    <div class="box-submit" ng-show="!$subscribe.waitingForTransfer">
+        <div class="box-submit__infos">
+            <small class="termos-uso">
+                Cobrança feita pela <strong class="privacy-info__strong">PayMee</strong>.
+            </small>
+            <small class="termos-uso">
+                A liberação da assinatura leva até 30 minutos após o pagamento
+            </small>
+            <small class="termos-uso">
+                Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+            </small>
+        </div>
+        <div class="box-submit__btn" ng-class="{'injected': injected}">
+            <button class="sl-btn btn-primary btn-lg" ng-class="{'next-icon': !isLastStep}" ng-click="$subscribe.save()" ng-disabled="disabledButton()">
+                <span ng-bind="getButtonText()" class="ng-binding">Assinar Semestral</span>
+            </button>
+        </div>
+    </div>
+    <div class="subscribe-payment__bank-transfer-waiting-container ng-hide" ng-show="$subscribe.waitingForTransfer">
+        <h2 class="subscribe-payment__bank-transfer-waiting-title">
+            Aguardando Transferência
+        </h2>
+        <h4 class="subscribe-payment__bank-transfer-waiting-subtitle">
+            Já existe uma solicitação de transferência bancária em andamento.
+        </h4>
+        <a class="subscribe-payment__bank-transfer-waiting-link" href="https://www.sexlog.com/minha-conta/assinatura">
+            Ver os dados para transferência
+        </a>
+    </div>
+</div>
+
+<div class="tab-pane ng-hide" ng-show="$subscribe.isPix()">
+    <form class="sl-form subscribe-pix__form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" data-errors="subscribeCard" name="subscribeFormPix" novalidate="">
+
+        <div class="subscribe-pix">
+            <div class="form-group has-feedback subscribe-pix__input">
+                <label>Nome</label>
+                <input ng-model="subscription.bankTransfer.cCName" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="nome" maxlength="50" autocomplete="off">
+                <span class="help-block"></span>
+            </div>
+            <div class="form-group subscribe-pix__input  has-feedback">
+                <label>CPF</label>
+                <input ng-model="subscription.bankTransfer.cpfcnpj" type="text" ng-blur="cpfInteractionMetric()" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 123.123.123-12" cpf="" subscribe-validator="" name="cpf" maxlength="14" autocomplete="off" ng-mask="999.999.999-99">
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="box-submit" ng-show="!$subscribe.waitingForTransfer">
+            <div class="box-submit__infos">
+                <small class="termos-uso">
+                    Cobrança feita pela <strong class="privacy-info__strong">PayMee</strong>.
+                </small>
+                <small class="termos-uso">
+                    A liberação da assinatura leva até 30 minutos após o pagamento
+                </small>
+                <small class="termos-uso">
+                    Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                </small>
+            </div>
+            <div class="box-submit__btn" ng-class="{'injected': injected}">
+                <button class="sl-btn btn-primary btn-lg" ng-class="{'next-icon': !isLastStep}" ng-click="$subscribe.save()" ng-disabled="disabledButton()">
+                    <span ng-bind="getButtonText()" class="ng-binding">Assinar Semestral</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="tab-pane tab-pane-boleto ng-hide" ng-show="$subscribe.isInvoice()">
+    <div ng-show="$subscribe.isInvoice()" class="ng-hide">
+        <form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" data-errors="subscribeCard" name="subscribeFormInvoice" novalidate="">
+            <div>
+                <div class="boleto-info" bindonce="">
+                    <div class="boleto-info__subtitle">
+                        <p>
+                            Informe seus dados:
+                            <i class="icon-help" popover-placement="bottom" ng-mouseover="cpfInfoMetric()" popover-trigger="'mouseenter outsideClick'" uib-popover-html="'<b>Por que estamos pedindo seu CPF?</b><br>Novas regras foram estabelecidas para a geração de boletos no Brasil e a partir de agora todo boleto deve incluir o CPF dos clientes como forma de evitar fraudes.'">?</i>
+                        </p>
+                    </div>
+                    <div class="boleto-info__cpf form-group has-feedback">
+                        <label>CPF</label>
+                        <input ng-model="subscription.invoice.cpf" type="text" ng-blur="cpfInteractionMetric()" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 123.123.123-12" cpf="" subscribe-validator="" name="cpf" maxlength="14" autocomplete="off" ng-mask="999.999.999-99">
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="boleto-info__tip">
+                        <!-- ngIf: ::!$subscribe.isTokenModal() --><small ng-if="::!$subscribe.isTokenModal()" class="ng-scope">A liberação da assinatura leva até 72h após o pagamento do boleto.</small><!-- end ngIf: ::!$subscribe.isTokenModal() -->
+                        <!-- ngIf: ::$subscribe.isTokenModal() -->
+                    </div>
+                    <div class="boleto-info__box" ng-hide="::$subscribe.isTokenModal()">
+                        <div class="boleto-info__icon">
+                            <svg class="boleto-info__svg">
+                                <use xlink:href="assets/icons/_common/_common.svg?#common-open-lock"></use>
+                            </svg>
+                        </div>
+                        <div class="boleto-info__box-description">
+                            Libere sua assinatura mais rápido enviando uma foto nítida do comprovante de pagamento para o email: <a href="mailto:contato@sexlog.com.br">contato@sexlog.com.br</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box-submit">
+                    <div class="box-submit__infos">
+                        <small class="termos-uso">
+                            Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                        </small>
+                        <small class="termos-uso flag-br ng-hide" ng-show="$subscribe.isDebitOnline()">
+                            Essa compra está sendo feita no Brasil
+                        </small>
+                    </div>
+                    <div class="box-submit__btn" ng-class="{'injected': injected}">
+                        <button class="sl-btn btn-primary btn-lg" ng-class="{'next-icon': !isLastStep}" ng-click="injected ? actionButton() : $subscribe.save()" ng-disabled="disabledButton()">
+                            <span ng-bind="getButtonText()" class="ng-binding">Assinar Semestral</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="tab-pane ng-hide" ng-show="$subscribe.isDebitOnline()">
+    <div ng-show="$subscribe.isDebitOnline()" ng-init="urlPagSeguro = 'https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js'" class="ng-hide">
+        <form class="sl-form ng-pristine ng-valid-email ng-valid-maxlength ng-invalid ng-invalid-required" data-errors="subscribeCard" name="subscribeFormDebitOnline" novalidate="">
+            <div ng-init="subscription.debitonline.email = subscription.debitonline.email == null ? 'iraphael.esanto@gmail.com' : subscription.debitonline.email">
+
+                <div class="row form-inline ng-hide" ng-show="$subscribe.waiting">
+                    <div class="col-md-12">
+                        <label>Verificando bancos disponíveis</label>
+                        <div class="form-group">
+                            <span class="sl-loading sl-svg-inline" svg-icon="loading-inline" width="60" height="60" data-fill="#CC6FC5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="60" height="60" fill="#CC6FC5">
+                                    <circle transform="translate(8 0)" cx="0" cy="16" r="0">
+                                        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                    </circle>
+                                    <circle transform="translate(16 0)" cx="0" cy="16" r="0">
+                                        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                    </circle>
+                                    <circle transform="translate(24 0)" cx="0" cy="16" r="0">
+                                        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keyTimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline"></animate>
+                                    </circle>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards online" ng-hide="$subscribe.waiting">
+                    <label>Selecione um banco:</label>
+                    <div class="cards online subscribe-flags-container">
+                        <div class="btn-group" ng-class="{'subscribe-error-block': $subscribe.showFlagBankError}">
+                            <label for="bancodobrasil" class="btn bancodobrasil subscribe-btn-flag ng-hide" ng-class="[{ 'flag-disabled': $subscribe.waiting }, getSelectedBank('bancodobrasil')]" ng-show="$subscribe.isAvailableDebitOnline('bancodobrasil')">
+                                <input type="radio" name="card" ng-model="subscription.flagBank" id="bancodobrasil" value="bancodobrasil" ng-disabled="$subscribe.waiting" class="ng-pristine ng-untouched ng-valid ng-empty">
+                            </label>
+                            <label for="banrisul" class="btn banrisul subscribe-btn-flag ng-hide" ng-class="[{ 'flag-disabled': $subscribe.waiting }, getSelectedBank('banrisul')]" ng-show="$subscribe.isAvailableDebitOnline('banrisul')">
+                                <input type="radio" name="card" ng-model="subscription.flagBank" id="banrisul" value="banrisul" ng-disabled="$subscribe.waiting" class="ng-pristine ng-untouched ng-valid ng-empty">
+                            </label>
+                            <label for="bradesco" class="btn bradesco subscribe-btn-flag ng-hide" ng-class="[{ 'flag-disabled': $subscribe.waiting }, getSelectedBank('bradesco')]" ng-show="$subscribe.isAvailableDebitOnline('bradesco')">
+                                <input type="radio" name="card" ng-model="subscription.flagBank" id="bradesco" value="bradesco" ng-disabled="$subscribe.waiting" class="ng-pristine ng-untouched ng-valid ng-empty">
+                            </label>
+                            <label for="itau" class="btn itau subscribe-btn-flag ng-hide" ng-class="[{ 'flag-disabled': $subscribe.waiting }, getSelectedBank('itau')]" ng-show="$subscribe.isAvailableDebitOnline('itau')">
+                                <input type="radio" name="card" ng-model="subscription.flagBank" id="itau" value="itau" ng-disabled="$subscribe.waiting" class="ng-pristine ng-untouched ng-valid ng-empty">
+                            </label>
+                        </div>
+                        <span class="subscribe-error-message ng-binding ng-hide" ng-show="$subscribe.showFlagBankError" ng-bind="$subscribe.flagBankErrorMessage"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="form-group has-feedback">
+                            <label>E-mail</label>
+                            <input ng-model="subscription.debitonline.email" type="email" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-email ng-valid-required ng-valid-maxlength" required="" subscribe-validator="" name="email" maxlength="60" autocomplete="off">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <div class="form-group has-feedback">
+                            <label>Nome completo</label>
+                            <input ng-model="subscription.debitonline.name" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" fullname="" subscribe-validator="" name="nome" maxlength="50" autocomplete="off">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="form-group has-feedback">
+                            <label>CPF</label>
+                            <input ng-model="subscription.debitonline.cpf" type="text" ng-mask="999.999.999-99" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" cpf="" subscribe-validator="" name="cpf" maxlength="14" autocomplete="off" placeholder="Ex: 123.123.123-12">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="antifraude-complete">
+
+                    <div class="row" ng-hide="showAddress">
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group has-feedback">
+                                <label>CEP</label>
+                                <input ng-model="subscription.address.zipCode" type="text" ng-change="getAddress('7')" ng-blur="getAddressBlur('7')" ng-mask="99999999" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode" placeholder="Ex: 12345-123">
+                                <i ng-show="loadingAddress" class="icon-loading ng-hide"></i>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8">
+                            <span class="cep-help" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="'Dados pessoais do titular e endereço são solicitados para garantir a segurança da sua transação.&nbsp;Fique tranquilo, essas informações são sigilosas e não serão disponibilizadas para nenhum outro fim.'">
+                                Por que meu CEP ? <span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div ng-show="subscription.address.city &amp;&amp; !showAddress" class="ng-hide">
+                        <div class="address-auto">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="address-ajax">
+                                        <strong ng-bind="subscription.address.street" class="ng-binding"></strong>
+                                        <span ng-bind="subscription.address.formatedAddress" class="ng-binding"></span>
+                                        <a ng-click="showAddressFields()">- Editar</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bgdark">
+                            <div class="row">
+
+                                <div class="col-xs-4 col-sm-3">
+                                    <div class="form-group has-feedback">
+                                        <label>Número</label>
+                                        <input ng-model="subscription.address.number" type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNumFixed" ng-mask="99999">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-8 col-sm-9">
+                                    <div class="form-group">
+                                        <label>Complemento</label><small> (Opcional)</small>
+                                        <input ng-model="subscription.address.adjunct" type="text" maxlength="40" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group has-feedback">
+                                        <label>DDD</label>
+                                        <input ng-model="subscription.address.area" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-5">
+                                    <div class="form-group has-feedback">
+                                        <label>Telefone</label>
+                                        <input ng-model="subscription.address.phone" maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="showAddress" class="ng-hide">
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group has-feedback">
+                                <label for="">CEP</label>
+                                <input ng-model="subscription.address.zipCode" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" ng-blur="getAddressBlur()" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode" ng-mask="99999999">
+                                <i ng-show="loadingAddress" class="icon-loading full ng-hide"></i>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-7">
+                            <div class="form-group has-feedback">
+                                <label for="">Cidade</label>
+                                <input ng-model="subscription.address.city" type="text" maxlength="50" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="city">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="form-group has-feedback">
+                                <label for="">UF</label>
+                                <input ng-model="subscription.address.state" type="text" maxlength="2" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" state="" subscribe-validator="" name="state">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-7">
+                            <div class="form-group has-feedback">
+                                <label for="">Endereço</label>
+                                <input ng-model="subscription.address.street" type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="address">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group has-feedback">
+                                <label for="">Bairro</label>
+                                <input ng-model="subscription.address.neighborhood" maxlength="60" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="neighborhood">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="form-group has-feedback">
+                                <label for="">Número</label>
+                                <input ng-model="subscription.address.number" type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNum" ng-mask="99999">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-7">
+                            <div class="form-group">
+                                <label for="">Complemento</label><small> (Opcional)</small>
+                                <input ng-model="subscription.address.adjunct" type="text" maxlength="40" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="form-group has-feedback">
+                                <label for="">DDD</label>
+                                <input ng-model="subscription.address.area" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group has-feedback">
+                                <label for="">Telefone</label>
+                                <input ng-model="subscription.address.phone" maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="separate">
+
+                <div class="privacy__text privacy__text--pagseguro">
+                    Pagamento e cobrança processados em nome de <label class="flags pagseguro"></label>
+                </div>
+
+                <div class="box-submit">
+                    <div class="box-submit__infos">
+                        <small class="termos-uso">
+                            Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                        </small>
+                        <small class="termos-uso flag-br ng-hide" ng-show="$subscribe.isDebitOnline()">
+                            Essa compra está sendo feita no Brasil
+                        </small>
+                    </div>
+                    <div class="box-submit__btn" ng-class="{'injected': injected}">
+                        <button class="sl-btn btn-primary btn-lg" ng-class="{'next-icon': !isLastStep}" ng-click="injected ? actionButton() : $subscribe.save()" ng-disabled="disabledButton()">
+                            <span ng-bind="getButtonText()" class="ng-binding">Assinar Semestral</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="tab-pane ng-hide" ng-show="$subscribe.isVerotel()">
+    <div ng-show="$subscribe.isVerotel()" class="ng-hide">
+        <form class="sl-form ng-pristine ng-valid">
+
+            <div class="privacy__text privacy__text--verotel">
+                Pagamento processado pela <label class="flags verotel"></label>
+            </div>
+            <div class="renewal-text">
+                <span>Cobrança feita em nome de <strong>vtsup.com*Klantenbeh</strong>.</span>
+            </div>
+
+            <div class="box-submit">
+                <div class="box-submit__infos">
+                    <small class="termos-uso">
+                        Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+                    </small>
+                    <small class="termos-uso flag-br ng-hide" ng-show="$subscribe.isDebitOnline()">
+                        Essa compra está sendo feita no Brasil
+                    </small>
+                </div>
+                <div class="box-submit__btn" ng-class="{'injected': injected}">
+                    <button class="sl-btn btn-primary btn-lg" ng-class="{'next-icon': !isLastStep}" ng-click="injected ? actionButton() : $subscribe.save()" ng-disabled="disabledButton()">
+                        <span ng-bind="getButtonText()" class="ng-binding">Assinar Semestral</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="tab-pane ng-hide" ng-show="$subscribe.isTokens()" ng-init="initTokenPlansValues([{&quot;productid&quot;:&quot;1&quot;,&quot;name&quot;:&quot;ASSINATURA MENSAL&quot;,&quot;category&quot;:&quot;subscription&quot;,&quot;price&quot;:&quot;6300&quot;,&quot;oldprice&quot;:&quot;0&quot;,&quot;planid&quot;:&quot;2&quot;,&quot;title&quot;:&quot;Assinatura Mensal&quot;,&quot;description&quot;:&quot;\u003Cp\u003ETroque Tokens por um pacote mensal de assinatura e desfrute de todas as vantagens de ser VIP!\u003C\/p\u003E\u003Cp\u003EO Sexlog ser\u00e1 seu camarote especial! Voc\u00ea vai se destacar, circular por todas as \u00e1reas, ter acesso a todas as funcionalidades e realizar as mais deliciosas fantasias.\u003C\/p\u003E\u003Cp\u003EAlguns benef\u00edcios Exclusivos Assinante VIP:\u003Cul\u003E\u003Cli\u003EEnvie e receba mensagens\u003C\/li\u003E\u003Cli\u003E Veja quem visitou o seu perfil e outras informa\u00e7\u00f5es de popularidade\u003C\/li\u003E\u003Cli\u003E Assista os v\u00eddeos mais picantes\u003C\/li\u003E\u003Cli\u003E Acesso ilimitado \u00e0s fotos mais ousadas\u003C\/li\u003E\u003Cli\u003E Publique conte\u00fado ilimitado\u003C\/li\u003E\u003Cli\u003E Customize seu perfil\u003C\/li\u003E\u003Cli\u003E Exiba-se na Livecam\u003C\/li\u003E\u003Cli\u003E Bloqueie Perfis Indesejados\u003C\/li\u003E\u003Cli\u003E Exiba seu Selo Real (caso tenha)\u003C\/li\u003E\u003Cli\u003E Suporte personalizado atrav\u00e9s de telefone e Chat com a \/EquipeSexlog\u003C\/li\u003E\u003C\/ul\u003E&quot;,&quot;thumb&quot;:&quot;images\/store\/prod-30dias-pt-br.jpg&quot;,&quot;hasstock&quot;:true,&quot;mintitle&quot;:&quot;Assinatura Mensal&quot;,&quot;subtitle&quot;:&quot;&quot;,&quot;email&quot;:&quot;cp-asssinatura@sexlog.zendesk.com&quot;,&quot;secondprice&quot;:null,&quot;period&quot;:&quot;30&quot;,&quot;priceformat&quot;:&quot;6.300&quot;,&quot;oldpriceformat&quot;:&quot;0&quot;,&quot;MENSAL&quot;:&quot;6.300&quot;},{&quot;productid&quot;:&quot;2&quot;,&quot;name&quot;:&quot;ASSINATURA TRIMESTRAL&quot;,&quot;category&quot;:&quot;subscription&quot;,&quot;price&quot;:&quot;15000&quot;,&quot;oldprice&quot;:&quot;37800&quot;,&quot;planid&quot;:&quot;3&quot;,&quot;title&quot;:&quot;Assinatura Trimestral - PRE\u00c7O ESPECIAL&quot;,&quot;description&quot;:&quot;\u003Cp\u003ETroque Tokens por um pacote trimestral de assinatura e desfrute de todas as vantagens de ser VIP!\u003C\/p\u003E\u003Cp\u003EO Sexlog ser\u00e1 seu camarote especial! Voc\u00ea vai se destacar, circular por todas as \u00e1reas, ter acesso a todas as funcionalidades e realizar as mais deliciosas fantasias.\u003C\/p\u003E\u003Cp\u003EAlguns benef\u00edcios Exclusivos Assinante VIP:\u003Cul\u003E\u003Cli\u003EEnvie e receba mensagens\u003C\/li\u003E\u003Cli\u003EVeja quem visitou o seu perfil e outras informa\u00e7\u00f5es de popularidade\u003C\/li\u003E\u003Cli\u003EAssista os v\u00eddeos mais picantes\u003C\/li\u003E\u003Cli\u003EAcesso ilimitado \u00e0s fotos mais ousadas\u003C\/li\u003E\u003Cli\u003EPublique conte\u00fado ilimitado\u003C\/li\u003E\u003Cli\u003ECustomize seu perfil\u003C\/li\u003E\u003Cli\u003EExiba-se na Livecam\u003C\/li\u003E\u003Cli\u003EBloqueie Perfis Indesejados\u003C\/li\u003E\u003Cli\u003EExiba seu Selo Real (caso tenha)\u003C\/li\u003E\u003Cli\u003ESuporte personalizado atrav\u00e9s de telefone e Chat com a \/EquipeSexlog\u003C\/li\u003E\u003C\/ul\u003E&quot;,&quot;thumb&quot;:&quot;images\/store\/prod-90dias-pt-br.jpg&quot;,&quot;hasstock&quot;:true,&quot;mintitle&quot;:&quot;Assinatura Trimestral&quot;,&quot;subtitle&quot;:&quot;PRE\u00c7O ESPECIAL&quot;,&quot;email&quot;:&quot;cp-asssinatura@sexlog.zendesk.com&quot;,&quot;secondprice&quot;:null,&quot;period&quot;:&quot;90&quot;,&quot;priceformat&quot;:&quot;15.000&quot;,&quot;oldpriceformat&quot;:&quot;37.800&quot;,&quot;TRIMESTRAL&quot;:&quot;15.000&quot;},{&quot;productid&quot;:&quot;3&quot;,&quot;name&quot;:&quot;ASSINATURA SEMESTRAL&quot;,&quot;category&quot;:&quot;subscription&quot;,&quot;price&quot;:&quot;22500&quot;,&quot;oldprice&quot;:&quot;75600&quot;,&quot;planid&quot;:&quot;4&quot;,&quot;title&quot;:&quot;Assinatura Semestral - Melhor Custo-Benef\u00edcio para voc\u00ea!&quot;,&quot;description&quot;:&quot;\u003Cp\u003ETroque Tokens por um pacote trimestral de assinatura e desfrute de todas as vantagens de ser VIP!\u003C\/p\u003E\u003Cp\u003EO Sexlog ser\u00e1 seu camarote especial! Voc\u00ea vai se destacar, circular por todas as \u00e1reas, ter acesso a todas as funcionalidades e realizar as mais deliciosas fantasias.\u003C\/p\u003E\u003Cp\u003EAlguns benef\u00edcios Exclusivos Assinante VIP:\u003Cul\u003E\u003Cli\u003EEnvie e receba mensagens\u003Cli\u003EVeja quem visitou o seu perfil e outras informa\u00e7\u00f5es de popularidade\u003C\/li\u003E\u003Cli\u003EAssista os v\u00eddeos mais picantes\u003C\/li\u003E\u003Cli\u003EAcesso ilimitado \u00e0s fotos mais ousadas\u003C\/li\u003E\u003Cli\u003EPublique conte\u00fado ilimitado\u003C\/li\u003E\u003Cli\u003ECustomize seu perfil\u003C\/li\u003E\u003Cli\u003EExiba-se na Livecam\u003C\/li\u003E\u003Cli\u003EBloqueie Perfis Indesejados\u003C\/li\u003E\u003Cli\u003EExiba seu Selo Real (caso tenha)\u003C\/li\u003E\u003Cli\u003ESuporte personalizado atrav\u00e9s de telefone e Chat com a \/EquipeSexlog\u003C\/li\u003E\u003C\/ul\u003E&quot;,&quot;thumb&quot;:&quot;images\/store\/prod-180dias-pt-br.jpg&quot;,&quot;hasstock&quot;:true,&quot;mintitle&quot;:&quot;Assinatura Semestral&quot;,&quot;subtitle&quot;:&quot;Melhor Custo-Benef\u00edcio para voc\u00ea&quot;,&quot;email&quot;:&quot;cp-asssinatura@sexlog.zendesk.com&quot;,&quot;secondprice&quot;:null,&quot;period&quot;:&quot;180&quot;,&quot;priceformat&quot;:&quot;22.500&quot;,&quot;oldpriceformat&quot;:&quot;75.600&quot;,&quot;SEMESTRAL&quot;:&quot;22.500&quot;}])">
+    <div class="subscribe-payment__tokens-container">
+        <div class="subscribe-payment__tokens-title">
+            Para adquirir este plano com Tokens:
+        </div>
+        <div class="subscribe-payment__tokens-price">
+            <div class="subscribe-payment__tokens-price-block subscribe-payment__tokens-need">
+                <div class="subscribe-payment__tokens-price-title">
+                    você precisa de:
+                </div>
+                <div class="subscribe-payment__tokens-numbers-container">
+                    <div class="subscribe-payment__tokens-numbers subscribe-payment__tokens-need-numbers ng-binding" ng-bind="$subscribe.tokenPlanValue">22.500</div>
+                    <svg class="subscribe-payment__tokens-numbers-icon">
+                        <use xlink:href="assets/icons/_common/_common.svg?#common-token"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="subscribe-payment__tokens-price-block">
+                <div class="subscribe-payment__tokens-price-title">
+                    você tem:
+                </div>
+                <div class="subscribe-payment__tokens-numbers-container">
+                    <div class="subscribe-payment__tokens-numbers subscribe-payment__tokens-have-numbers ng-binding" ng-bind="$token.asyncBalance">0</div>
+                    <svg class="subscribe-payment__tokens-numbers-icon">
+                        <use xlink:href="assets/icons/_common/_common.svg?#common-token"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="subscribe-payment__tokens-price-block subscribe-payment__tokens-total" ng-show="!isTokenEnough()">
+                <div class="subscribe-payment__tokens-price-title subscribe-payment__tokens-total-title">
+                    faltam:
+                </div>
+                <div class="subscribe-payment__tokens-numbers-container">
+                    <div class="subscribe-payment__tokens-numbers subscribe-payment__tokens-total-numbers ng-binding" ng-bind="$subscribe.finalTokens">22.500</div>
+                    <svg class="subscribe-payment__tokens-numbers-icon">
+                        <use xlink:href="assets/icons/_common/_common.svg?#common-token"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe-payment__tokens-message" ng-show="!isTokenEnough()">
+            <div class="subscribe-payment__tokens-message-text subscribe-payment__tokens-error-text">
+                * Seu Saldo de Tokens é insuficiente para adquirir este plano.
+            </div>
+            <a class="subscribe-payment__tokens-error-button" ng-click="openTokensModal()">
+                Comprar +Tokens
+            </a>
+        </div>
+        <div class="subscribe-payment__tokens-message ng-hide" ng-show="isTokenEnough()">
+            <div class="subscribe-payment__tokens-message-text subscribe-payment__tokens-success-text">
+                * Oba! Você tem saldo o suficiente, assine e aproveite!
+            </div>
+        </div>
+    </div>
+
+    <div class="box-submit">
+        <div class="box-submit__infos">
+            <small class="termos-uso">
+                Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+            </small>
+            <small class="termos-uso flag-br ng-hide" ng-show="$subscribe.isDebitOnline()">
+                Essa compra está sendo feita no Brasil
+            </small>
+        </div>
+        <div class="box-submit__btn" ng-class="{'injected': injected}">
+            <button class="sl-btn btn-primary btn-lg" ng-class="{'next-icon': !isLastStep}" ng-click="injected ? actionButton() : $subscribe.save()" ng-disabled="disabledButton()">
+                <span ng-bind="getButtonText()" class="ng-binding">Assinar Semestral</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+
+
+    });
+
+</script>

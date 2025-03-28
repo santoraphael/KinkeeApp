@@ -1,0 +1,198 @@
+﻿
+@{
+    Layout = null;
+}
+
+    <div class="profile-content" style="padding-top:20px; max-width:650px;">
+
+        
+
+        <!--Aba ativa-->
+        <div class="profile-home profile-container">
+
+            <script type="text/javascript">
+
+                function copyToClipboard(element) {
+                    var $temp = $("<input>");
+                    $("body").append($temp);
+                    $temp.val($(element).text()).select();
+                    document.execCommand("copy");
+                    $temp.remove();
+
+                    alert('Copiado!');
+                }
+
+
+                $(document).on("click", ".js-profile-home-content .card-item", function (e) {
+
+                    $.get('@Url.Action("_WriteMessagePartial", "FanClub")', function (data) {
+                        $('#WriteMessage').append(data);
+                    });
+                    e.preventDefault();
+                });
+
+            </script>
+
+            <div class="home-content news">
+                <div class="profile-home-news" ng-scope>
+
+                    <div class="profile-home-content js-profile-home-content">
+
+                        <h2 class="section-header">
+                            <i class="icon" style=" padding-left: 6px; padding-top: 3px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 17 14">
+                                    <path fill="#FFF" fill-rule="evenodd" d="M2.643 3.806l9.486-2.684a.407.407 0 0 1 .371.077.453.453 0 0 1 .169.355v8.498c0 .14-.062.271-.169.356a.42.42 0 0 1-.37.076L7.061 9.051c.164.817.273 1.75.273 2.811 0 .812-.631 1.471-1.407 1.471s-1.408-.66-1.408-1.47c0-1.673-.309-2.887-.634-3.71L2.643 7.8a.443.443 0 0 1-.317-.431V4.238c0-.203.13-.38.317-.432zM14.157 0c.465 0 .843.274.843.613v10.38c0 .34-.378.614-.843.614-.466 0-.843-.275-.843-.614V.613c0-.339.377-.613.843-.613zM0 5.833c0-.965.748-1.746 1.67-1.746.051 0 .1.01.15.016v3.46c-.05.006-.099.016-.15.016C.748 7.58 0 6.798 0 5.833z"></path>
+                                </svg>
+
+                            </i>
+                            Publicar para os seus Fãs
+                        </h2>
+
+                        <div class="card-item" data-fixed="true">
+                            <div class="card-share">
+                                <div class="share-body">
+                                    <p>Publique algo para que seus seguidores vejam</p>
+                                </div>
+
+                                <div class="share-footer">
+                                    <button class="sl-btn btn-primary">
+                                        Publicar Privada
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="WriteMessage">
+
+            </div>
+            <div class="col-md-12">
+                <div class="panel myaccount-panel">
+                    <div class="panel-heading">
+                        <h3>Compartilhe seu link com pessoas que possam assinar seu fan club</h3>
+                    </div>
+                    <div class="panel-body account-info">
+
+                        <div role="form" class="myaccount-edit myaccount-username">
+                            <div class="form-group">
+                                <div class="myaccount-edit-body js-edit-username">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4 id="jsclipboardlink" class="js-fanclub-username" style="cursor:pointer;">https://kinkeesugar.com/fanclub/u/@System.Web.HttpContext.Current.User.Identity.Name.ToLower()</h4>
+                                            <button onclick="copyToClipboard('#jsclipboardlink')">Copiar Link</button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="alert alert-info js-alert-username" role="alert">
+                                                Compartilhe seu link de <b>Fan Club</b> para que seus fans assinem e vejam suas atualizações. <a href="">Clique aqui e leia nosso artigo</a> que fala as melhores formas de compartilhar seu link e obter melhores resultados.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-lists" style="margin-top:20px;">
+
+
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function () {
+
+        var ordenacao = 0;
+        var pageSize = 10;
+        var pageIndex = 0;
+        var pageIndexSearch = 0;
+        var lastInteractionSearch = 0;
+        var lastInteraction = 0;
+
+        $(window).scroll(function () {
+
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                TodasAsPublicacoesAtivas();
+            }
+        });
+
+
+        TodasAsPublicacoesAtivas();
+
+        function TodasAsPublicacoesAtivas() {
+
+            var usuario = $('.profile-username').html();
+
+            if ((pageIndex === 0) || (lastInteraction !== pageIndex)) {
+                lastInteractionSearch = pageIndexSearch;
+                $.ajax({
+                    type: 'GET',
+                    url: '/FanClub/TodasAsPublicacoesAtivasDoUsuario',
+                    data: { "usuario": usuario ,"pageindex": pageIndex, "pagesize": pageSize, "ordenacao": ordenacao },
+                    dataType: 'json',
+
+                    success: function (data) {
+
+                        //var $getResult = $(data);
+
+                        if (data != null) {
+                            for (var i = 0; i < data.length; i++) {
+                                //console.log($getResult[i].UsuarioPublicacaoID);
+
+                                PreencheTemplatePublicacao(data[i].UsuarioPublicacaoID, data[i].Id);
+
+                            }
+                            pageIndex++;
+                        }
+                    },
+                    beforeSend: function () {
+                        $("#progress").show();
+                        $(".js-carregar-btn").hide();
+                    },
+                    complete: function () {
+                        $("#progress").hide();
+                        $(".js-carregar-btn").show();
+                    },
+                    error: function () {
+                        //('').append('Ops! Ocorreu um erro durante o carregamento.');
+                    }
+                });
+            }
+
+        }
+
+        function PreencheTemplatePublicacao(UsuarioPublicacaoID, Id) {
+
+            $.ajax({
+                type: 'GET',
+                url: '/FanClub/_PulsacaoPublicadaPartial',
+                data: { "UsuarioPublicacaoID": UsuarioPublicacaoID, "Id": Id },
+                dataType: 'html',
+                success: function (data) {
+                    $(".card-lists").append(data);
+                },
+                beforeSend: function () {
+
+                },
+                complete: function () {
+
+                },
+                error: function () {
+
+                }
+            });
+
+        }
+
+    });
+</script>

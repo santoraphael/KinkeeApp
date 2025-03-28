@@ -1,0 +1,87 @@
+﻿@using Plataforma.Models
+@model SharedViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+
+
+<div class="modal-backdrop in " ng-style="{'z-index': 1040 + (index &amp;&amp; 1 || 0) + index*10}" modal-backdrop="" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal send-message" ng-style="{'z-index': 1050 + index*10, display: 'block'}" modal-window="" window-class="sl-modal send-message" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content" modal-transclude="">
+            <div class="modal-header ng-scope">
+                <button type="button" class="sl-close js-mensagem-close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Envie sua mensagem</h4>
+            </div>
+
+            @{ 
+                //HttpCookie cookieUser = Request.Cookies["urlCookie"];
+                //Request.Cookies["urlCookie"].Value = Convert.ToString(Request.UrlReferrer);
+                //var url = Request.UrlReferrer;
+
+                var user = ViewBag.Usuario;
+            }
+
+            <div class="modal-body ng-scope">
+                @using (Html.BeginForm("EnviarMensagem", "Dating", FormMethod.Post, new { enctype = "multipart/form-data", @class="formMessage ng-pristine ng-valid", @role="form" }))
+                {
+                   
+                    <!-- Sucesso -->
+                    <div class="alert alert-success ng-hide hide">Mensagem enviada com sucesso!</div>
+
+
+                    <!-- Login predefinido -->
+                    @*<div class="form-group">
+                        <label>
+                            Para:
+                        </label>
+                        <span class="has-user"></span>
+                    </div>*@
+
+
+                    <div class="form-group has-feedback">
+                        <label for="cmpMensagem">Apresente-se dizendo algo gentil! <span></span></label>
+                        @Html.TextAreaFor(m => m.MessageViewModel.Mensagem, new { @name = "cmpMensagem", @id = "cmpMensagem", @cols = "30", @rows = "10", @class="form-control ng-pristine ng-valid", @maxlength="512" })
+                        @Html.HiddenFor(m => m.MessageViewModel.Para, new { @Value = user })
+
+
+                    </div>
+
+                    <!-- Campo obrigatório -->
+                    <span class="required">* Campo obrigatório</span>
+                    <div class="clear"></div>
+
+                <!-- Erros -->
+                    <span class="help-block ng-binding "></span>
+
+                    <div class="clear"></div>
+                
+
+                
+
+                <div class="modal-footer ng-scope">
+                    <button type="submit" class="btn btn-primary btn-sm ng-binding">
+                        Enviar mensagem
+                    </button>
+                </div>
+
+                }
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.js-mensagem-close').click(function () {
+
+            $('#mensagemModal').empty();
+
+        });
+    });
+
+</script>

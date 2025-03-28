@@ -1,0 +1,827 @@
+﻿
+@{
+    ViewBag.Title = "Privacidade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1 {
+        font-size: 37px;
+    }
+</style>
+
+<div class="myaccount">
+    <div class="container-fluid myaccount-header">
+        <div class="container-flex">
+            <div class="row">
+                <div class="col-md-4 hidden-xs hidden-sm">
+                    <h2>Minha conta</h2>
+                </div>
+                <div class="col-md-8">
+                    <div class="myaccount-options dropdown">
+                        <button class="sl-btn btn-link myaccount-button-options js-click-menu" data-toggle="dropdown">
+                            Segurança e privacidade <i></i>
+                        </button>
+                        <ul class="myaccount-nav dropdown-menu js-mostra-esconde-menu">
+
+                            <li class="">
+                                <a href="/MinhaConta/ConfiguracoesAvancadas/">
+                                    Configurações<i></i>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="/MinhaConta/Assinatura/">
+                                    Assinatura<i></i>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#">
+                                    Segurança e privacidade<i></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-flex">
+        <div class="row ng-scope" ng-controller="PrivacyController" ng-init="init({&quot;emailsys&quot;:false,&quot;emailnews&quot;:false,&quot;emailothers&quot;:true,&quot;whocanaddfriend&quot;:{&quot;1&quot;:true,&quot;2&quot;:true,&quot;3&quot;:true,&quot;4&quot;:true,&quot;5&quot;:true,&quot;6&quot;:true},&quot;showemailto&quot;:&quot;2&quot;,&quot;showsocialnetworksto&quot;:&quot;2&quot;,&quot;receivephotocommentsfrom&quot;:1,&quot;receivevideocommentsfrom&quot;:1,&quot;receivenewscommentsfrom&quot;:1,&quot;disablesearchengine&quot;:false,&quot;AppSLTalkAndroidModal&quot;:&quot;1&quot;,&quot;closepromoteappmessenger&quot;:&quot;1&quot;,&quot;closepromoteappsltalkios&quot;:&quot;1&quot;,&quot;webpush-send-notification&quot;:&quot;1&quot;,&quot;webpush-general&quot;:&quot;1&quot;,&quot;closepromoteapp&quot;:&quot;1&quot;,&quot;webpush-comment-photos-view-modal&quot;:&quot;1&quot;});">
+            <div class="col-sm-6 col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Recebimento de e-mail e Notificações</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" class="form-horizontal myaccount-form ng-pristine ng-valid" ng-class="{'active': receivingEmailActive}">
+                                    <div class="checkbox">
+                                        <label for="system">
+                                            <input type="checkbox" id="system" ng-change="ObserveReceivingEmail()" ng-checked="privacy.email.emailsys" ng-model="privacy.email.emailsys" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                            Receber avisos do sistema
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="newsletter">
+                                            <input type="checkbox" id="newsletter" ng-change="ObserveReceivingEmail()" ng-checked="privacy.email.emailnews" ng-model="privacy.email.emailnews" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                            Quero receber promoções e ofertas exclusivas por e-mail (fique tranquilo, seremos discretos)
+                                        </label>
+                                    </div>
+                                </form>
+                                <div class="row ng-hide" ng-show="receivingEmailActive">
+                                    <div class="col-md-12">
+                                        <div class="myaccount-action">
+                                            <button class="sl-btn btn-default">Cancelar</button>
+                                            <button class="sl-btn btn-primary">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Divulgação</h3>
+                            </div>
+                            <div class="panel-body ">
+                                <div class="component-switch">
+                                    @if (ViewBag.PermiteDivulgacaoPerfil)
+                                    {
+                                        <label class="switch switch-default">
+                                            <input type="checkbox" checked="checked" class="ng-pristine ng-untouched ng-valid ng-not-empty js-checkbox-divulgacao">
+                                            <span></span>
+                                        </label>
+                                        <span class="text-success text-uppercase js-divulgacao-ativada" style="display:block;">
+                                            Ativada
+                                        </span>
+                                        <span class="text-muted text-uppercase ng-hide js-divulgacao-desativada" style="display:none;">
+                                            Desativada
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <label class="switch switch-default">
+                                            <input type="checkbox" class="ng-pristine ng-untouched ng-valid ng-not-empty js-checkbox-divulgacao">
+                                            <span></span>
+                                        </label>
+                                        <span class="text-success text-uppercase js-divulgacao-ativada" style="display:none;">
+                                            Ativada
+                                        </span>
+                                        <span class="text-muted text-uppercase ng-hide js-divulgacao-desativada" style="display:block;">
+                                            Desativada
+                                        </span>
+                                    }
+                                </div>
+                                <br>
+                                <p>
+                                    Com a <strong>Divulgação</strong> ativada você permite que divulguemos dados do seu perfil como <strong>fotos</strong>,
+                                    <strong>descrição</strong> e&nbsp;<strong>link de perfil</strong>, em nossas mídias sociais (Facebook e grupos, WhatsApp, Instagram e etc);
+                                </p>
+                                <p>
+                                    Ao ativar a divulgação você terá seu perfil com ainda mais visibilidade, aumentando suas chances de ser encontrar seu Sugar. Não esqueça de manter os seus dados sempre atualizados.
+                                </p>
+                                <p>
+                                    Ao desabilitar sua <strong>Divulgação</strong> seus dados não estarão mais disponíveis para serem mostrandos em nossas mídias,
+                                    mas toda e qualquer divulgação já feita no passado <strong>não</strong> será apagada.
+                                </p>
+                                <p>
+                                    Você pode desabilitar essa opção a qualquer momento.&nbsp;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Quem pode</h3>
+                            </div>
+                            <div class="panel-body who-can">
+                                <form role="form" class="myaccount-edit myaccount-add-me  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <h6>Me adicionar</h6>
+                                            <div class="myaccount-label">
+                                                <h4  class="ng-binding ng-scope">Homem, Mulher, Casal (Ele/Ela), Casal (Ele/Ele), Casal (Ela/Ela), Transexual</h4>
+
+                                                <button type="button" class="sl-btn btn-link btn-open-edit">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body" ng-init="setGenders({&quot;1&quot;:&quot;Homem&quot;,&quot;2&quot;:&quot;Mulher&quot;,&quot;3&quot;:&quot;Casal (Ele\/Ela)&quot;,&quot;4&quot;:&quot;Casal (Ele\/Ele)&quot;,&quot;5&quot;:&quot;Casal (Ela\/Ela)&quot;,&quot;6&quot;:&quot;Transexual&quot;});">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h6>Me adicionar</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="myaccount-checkbox-list">
+                                                        <!-- ngRepeat: item in gender.firstList --><div class="checkbox ng-scope" ng-repeat="item in gender.firstList">
+                                                            <label for="Homem" class="ng-binding">
+                                                                <input type="checkbox" id="Homem" ng-checked="privacy.whocanaddfriend[item.id]" ng-model="privacy.whocanaddfriend[item.id]" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                                                Homem
+                                                            </label>
+                                                        </div><!-- end ngRepeat: item in gender.firstList --><div class="checkbox ng-scope" ng-repeat="item in gender.firstList">
+                                                            <label for="Mulher" class="ng-binding">
+                                                                <input type="checkbox" id="Mulher" ng-checked="privacy.whocanaddfriend[item.id]" ng-model="privacy.whocanaddfriend[item.id]" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                                                Mulher
+                                                            </label>
+                                                        </div><!-- end ngRepeat: item in gender.firstList --><div class="checkbox ng-scope" ng-repeat="item in gender.firstList">
+                                                            <label for="Casal (Ele/Ela)" class="ng-binding">
+                                                                <input type="checkbox" id="Casal (Ele/Ela)" ng-checked="privacy.whocanaddfriend[item.id]" ng-model="privacy.whocanaddfriend[item.id]" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                                                Casal (Ele/Ela)
+                                                            </label>
+                                                        </div><!-- end ngRepeat: item in gender.firstList -->
+                                                    </div>
+                                                    <div class="myaccount-checkbox-list">
+                                                        <!-- ngRepeat: item in gender.secondList --><div class="checkbox ng-scope" ng-repeat="item in gender.secondList">
+                                                            <label for="Casal (Ele/Ele)" class="ng-binding">
+                                                                <input type="checkbox" id="Casal (Ele/Ele)" ng-checked="privacy.whocanaddfriend[item.id]" ng-model="privacy.whocanaddfriend[item.id]" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                                                Casal (Ele/Ele)
+                                                            </label>
+                                                        </div><!-- end ngRepeat: item in gender.secondList --><div class="checkbox ng-scope" ng-repeat="item in gender.secondList">
+                                                            <label for="Casal (Ela/Ela)" class="ng-binding">
+                                                                <input type="checkbox" id="Casal (Ela/Ela)" ng-checked="privacy.whocanaddfriend[item.id]" ng-model="privacy.whocanaddfriend[item.id]" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                                                Casal (Ela/Ela)
+                                                            </label>
+                                                        </div><!-- end ngRepeat: item in gender.secondList --><div class="checkbox ng-scope" ng-repeat="item in gender.secondList">
+                                                            <label for="Transexual" class="ng-binding">
+                                                                <input type="checkbox" id="Transexual" ng-checked="privacy.whocanaddfriend[item.id]" ng-model="privacy.whocanaddfriend[item.id]" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                                                Transexual
+                                                            </label>
+                                                        </div><!-- end ngRepeat: item in gender.secondList -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" ng-click="CancelAddMe()">Cancelar</button>
+                                                        <button class="sl-btn btn-primary" ng-click="SaveAddMe()">Salvar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form role="form" class="myaccount-edit myaccount-comment-photos ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <h6>Comentar em fotos</h6>
+                                            <div class="myaccount-label">
+                                                <h4 class="ng-binding"></h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit" ng-click="myaccount.$collapse('myaccount-comment-photos')">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body  ">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h6>Comentar em fotos</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" id="selectCommentPhotos" ng-model="privacy.comment.receivephotocommentsfrom">
+                                                            <option value="? number:1 ?" selected="selected"></option>
+                                                            <option value="1">Todos (Usuários do Sexlog)</option>
+                                                            <option value="2">Apenas amigos e favoritos</option>
+                                                            <option value="-1">Ninguém</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" ng-click="CancelCommentsPhoto()" ng-disabled="actionActive">Cancelar</button>
+                                                        <button class="sl-btn btn-primary" ng-click="SaveCommentsPhoto()" ng-disabled="actionActive">Salvar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form role="form" class="myaccount-edit myaccount-comment-videos ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <h6>Comentar em vídeos</h6>
+                                            <div class="myaccount-label">
+                                                <h4 class="ng-binding"></h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit" ng-click="myaccount.$collapse('myaccount-comment-videos')">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body ">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h6>Comentar em vídeos</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" id="selectCommentVideos" ng-model="privacy.comment.receivevideocommentsfrom">
+                                                            <option value="? number:1 ?" selected="selected"></option>
+                                                            <option value="1">Todos (Usuários do Sexlog)</option>
+                                                            <option value="2">Apenas amigos e favoritos</option>
+                                                            <option value="-1">Ninguém</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" ng-click="CancelCommentsVideo()" ng-disabled="actionActive">Cancelar</button>
+                                                        <button class="sl-btn btn-primary" ng-click="SaveCommentsVideo()" ng-disabled="actionActive">Salvar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form role="form" class="myaccount-edit myaccount-comment-news ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <h6>Comentar em novidades</h6>
+                                            <div class="myaccount-label">
+                                                <h4 class="ng-binding"></h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit" ng-click="myaccount.$collapse('myaccount-comment-news')">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body  ">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h6>Comentar em novidades</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" id="selectCommentNews" ng-model="privacy.comment.receivenewscommentsfrom">
+                                                            <option value="? number:1 ?" selected="selected"></option>
+                                                            <option value="1">Apenas amigos e favoritos</option>
+                                                            <option value="-1">Ninguém</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" ng-click="CancelCommentsNews()" ng-disabled="actionActive">Cancelar</button>
+                                                        <button class="sl-btn btn-primary" ng-click="SaveCommentsNews()" ng-disabled="actionActive">Salvar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form role="form" class="myaccount-edit myaccount-show-mail ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <h6>Ver meu e-mail público</h6>
+                                            <div class="myaccount-label">
+                                                <h4 class="ng-binding">Apenas amigos e favoritos</h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit" ng-click="myaccount.$collapse('myaccount-show-mail')">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body  ">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h6>Ver meu e-mail público</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" id="selectShowMail" ng-model="privacy.showemailto">
+                                                            <option value="1">Todos (Usuários do Sexlog)</option>
+                                                            <option value="2" selected="selected">Apenas amigos e favoritos</option>
+                                                            <option value="-1">Ninguém</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" ng-click="CancelShowMail()" ng-disabled="actionActive">Cancelar</button>
+                                                        <button class="sl-btn btn-primary" ng-click="SaveShowEmail()" ng-disabled="actionActive">Salvar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form role="form" class="myaccount-edit myaccount-social  ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <div class="myaccount-edit-header">
+                                            <h6>Ver minhas redes sociais</h6>
+                                            <div class="myaccount-label">
+                                                <h4 class="ng-binding">Apenas amigos e favoritos</h4>
+                                                <button type="button" class="sl-btn btn-link btn-open-edit" ng-click="myaccount.$collapse('myaccount-social')">
+                                                    <i></i>
+                                                    Alterar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="myaccount-edit-body  ">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h6>Ver minhas redes sociais</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" id="selectShowNetwork" ng-model="privacy.showsocialnetworksto">
+                                                            <option value="1">Todos (Usuários do Sexlog)</option>
+                                                            <option value="2" selected="selected">Apenas amigos e favoritos</option>
+                                                            <option value="-1">Ninguém</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="myaccount-action">
+                                                        <button class="sl-btn btn-default" ng-click="CancelShowNetwork()" ng-disabled="actionActive">Cancelar</button>
+                                                        <button class="sl-btn btn-primary" ng-click="SaveShowNetwork();" ng-disabled="actionActive">Salvar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+            <div class="col-sm-6 col-md-4">
+                @*<div class="row">
+                    <div class="col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Ferramentas de busca</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" class="form-horizontal myaccount-form ng-pristine ng-valid active" ng-class="{'active': $privacy.disablesearchengine !== tempData.disablesearchengine}">
+                                    <div class="checkbox">
+                                        <label for="index">
+                                            <input type="checkbox" id="index" ng-model="privacy.disablesearchengine" ng-checked="privacy.disablesearchengine" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                            Não indexar minha conta em ferramentas de busca (Google, Yahoo, Bing e outros).
+                                        </label>
+                                    </div>
+                                </form>
+                                <div class="row ng-hide" ng-show="privacy.disablesearchengine !== tempData.disablesearchengine">
+                                    <div class="col-md-12">
+                                        <div class="myaccount-action">
+                                            <button class="sl-btn btn-default" ng-click="closeIndexSearch()" ng-disabled="actionActive">Cancelar</button>
+                                            <button class="sl-btn btn-primary" ng-click="SaveIndexSearch();" ng-disabled="actionActive">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Fotos Privadas</h3>
+                            </div>
+                            <div class="panel-body">
+                                <button class="sl-btn btn-default js-open-PrivatePanel">Abrir lista de solicitacoes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel myaccount-panel">
+                            <div class="panel-heading">
+                                <h3>Bloqueados</h3>
+                            </div>
+                            <div class="panel-body">
+                                <button class="sl-btn btn-default js-open-blockedPanel">Abrir lista de usuários bloqueados</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="usuarios-fotosPrivadas-panel" style="display: none;">
+            <div class="modal-backdrop in" style="z-index: 910;"></div>
+
+
+            <div class="modal sl-modal ng-scope in" id="fotosPrivadas" style="display: block; z-index:1040;">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content" style="overflow: auto;">
+                        <div class="modal-header">
+                            <button type="button" class="sl-close js-close-PrivadasPanel" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">
+                                Solicitacoes de Usuários
+                            </h4>
+                        </div>
+                        <div class="modal-body modal-body-scrollable no-padding scroll-pane" style=" padding: 0px; width: 348px; overflow-y: scroll; overflow-x: hidden;">
+
+
+                            <div class="jspContainer" style="width: 345px;">
+                                <div class="jspPane" style="padding: 0px; top: 0px; width: 345px;">
+                                    <ul class="accountModalList list-striped">
+                                        @foreach (var item in ViewBag.usuariosSolicitacoes)
+                                        {
+                                            <li class="media js-row-user" user-id="@item.Id">
+
+
+
+                                                <a class="pull-left overlayContentCard media-thumb" login="@item.Usuario" href="#" style="position: relative">
+                                                    <img src="@item.imagemPerfil" class="img-circle sl-safe" sl-safe=""><div class="sl-safe-glass"></div>
+                                                </a>
+
+                                                <h4 class="media-heading">
+                                                    <a class="overlayContentCard" login="@item.Usuario">
+                                                        @item.Usuario
+                                                    </a>
+                                                </h4>
+
+                                                <div class="media-body">
+                                                </div>
+
+                                                <button class="sl-btn btn-default sl-btn-unblock ng-scope js-btn-permitir-user" title="Permitir" user-id="@item.Id" login="@item.Usuario">
+                                                    <i></i>Permitir
+                                                </button>
+                                            </li>
+                                        }
+
+                                        @foreach (var item in ViewBag.usuariosPermitidos)
+                                        {
+                                            <li class="media js-row-user" user-id="@item.Id">
+
+
+
+                                                <a class="pull-left overlayContentCard media-thumb" login="@item.Usuario" href="#" style="position: relative">
+                                                    <img src="@item.imagemPerfil" class="img-circle sl-safe" sl-safe=""><div class="sl-safe-glass"></div>
+                                                </a>
+
+                                                <h4 class="media-heading">
+                                                    <a class="overlayContentCard" login="@item.Usuario">
+                                                        @item.Usuario
+                                                    </a>
+                                                </h4>
+
+                                                <div class="media-body">
+                                                </div>
+
+                                                <button class="sl-btn btn-default sl-btn-unblock ng-scope js-btn-tirarPermissao-user" title="Tirar Permissao" user-id="@item.Id" login="@item.Usuario">
+                                                    <i></i>Tirar Permissao
+                                                </button>
+                                            </li>
+                                        }
+
+                                    </ul>
+
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+
+
+                $('.js-open-PrivatePanel').on("click", function (e) {
+                    //alert('eet');
+                    $('#usuarios-fotosPrivadas-panel').css('display', 'block');
+                });
+
+                $('.js-close-PrivadasPanel').on("click", function (e) {
+
+                    $('#usuarios-fotosPrivadas-panel').css('display', 'none');
+                });
+
+                $('.js-btn-permitir-user').on("click", function (e) {
+
+                    userId = $(this).attr('user-id');
+                    //alert(userId);
+                    PermitirFotosPrivadas(userId, this);
+                    //$(this).parent('.js-row-user').remove();
+                });
+
+                function PermitirFotosPrivadas(Solicitacao, list) {
+                    $.ajax({
+                        url: "/MinhaConta/AceitaSolicitacao",
+                        data: {
+                            'Solicitacao': Solicitacao
+                        },
+
+                        type: 'POST',
+                        complete: function (jqXHR) {
+                            if (jqXHR.readyState === 4) {
+
+                                $(list).parent('.js-row-user').remove();
+                            }
+                        },
+                        success: function (jqXHR) {
+                            //$(list).parent('.js-row-user').remove();
+                        },
+                        error: function () {
+                            //Notification();
+                        }
+                    });
+                }
+
+
+
+                $('.js-btn-tirarPermissao-user').on("click", function (e) {
+
+                    userId = $(this).attr('user-id');
+                    //alert(userId);
+                    RetirarPermissaoFotoPrivadas(userId, this);
+                    //$(this).parent('.js-row-user').remove();
+                });
+
+                function RetirarPermissaoFotoPrivadas(Solicitacao, list) {
+                    $.ajax({
+                        url: "/MinhaConta/RetiraPermissao",
+                        data: {
+                            'Solicitacao': Solicitacao
+                        },
+
+                        type: 'POST',
+                        complete: function (jqXHR) {
+                            if (jqXHR.readyState === 4) {
+
+                                $(list).parent('.js-row-user').remove();
+                            }
+                        },
+                        success: function (jqXHR) {
+                            //$(list).parent('.js-row-user').remove();
+                        },
+                        error: function () {
+                            //Notification();
+                        }
+                    });
+                }
+
+            </script>
+        </div>
+
+        <div id="usuarios-bloqueados-panel" style="display: none;">
+            <div class="modal-backdrop in" style="z-index: 910;"></div>
+
+
+            <div class="modal sl-modal ng-scope in" id="blockedUsers" style="display: block; z-index:1040;">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content" style="overflow: auto;">
+                        <div class="modal-header">
+                            <button type="button" class="sl-close js-close-blockedPanel" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">
+                                Usuários bloqueados
+                            </h4>
+                        </div>
+                        <div class="modal-body modal-body-scrollable no-padding scroll-pane" style=" padding: 0px; width: 348px; overflow-y: scroll; overflow-x: hidden;">
+
+
+                            <div class="jspContainer" style="width: 345px;">
+                                <div class="jspPane" style="padding: 0px; top: 0px; width: 345px;">
+
+
+                                    @if (ViewBag.usuariosBloqueados.Count > 0)
+                                    {
+                                        <ul class="accountModalList list-striped">
+                                            @foreach (var item in ViewBag.usuariosBloqueados)
+                                            {
+                                                <li class="media js-row-user" user-id="@item.Id">
+
+
+
+                                                    <a class="pull-left overlayContentCard media-thumb" login="@item.Usuario" href="#" style="position: relative">
+                                                        <img src="@item.imagemPerfil" class="img-circle sl-safe" sl-safe=""><div class="sl-safe-glass"></div>
+                                                    </a>
+
+                                                    <h4 class="media-heading">
+                                                        <a class="overlayContentCard" login="@item.Usuario">
+                                                            @item.Usuario
+                                                        </a>
+                                                    </h4>
+
+                                                    <div class="media-body">
+                                                    </div>
+
+                                                    <button class="sl-btn btn-default sl-btn-unblock ng-scope js-debloquear-user" title="Desbloquear" user-id="@item.Id" login="@item.Usuario">
+                                                        <i></i>Desbloquear
+                                                    </button>
+
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        @*<div id="btnMoreAccounts" action="https://www.sexlog.com/panel/events/friends/"></div>
+                                        <div id="waitMoreAccounts" class="waitMore running" style="margin-top: 10px; display: block;">
+                                            <img src="https://www.sexlog.com/images/icon/load.gif">
+                                        </div>*@
+                                        <h4 id="lbList_empty" style="display: block;">Você não possui usuários bloqueados.</h4>
+
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+
+                
+
+                $('.js-close-blockedPanel').on("click", function (e) {
+
+                    $('#usuarios-bloqueados-panel').css('display', 'none');
+                });
+
+                $('.js-debloquear-user').on("click", function (e) {
+
+                    userId = $(this).attr('user-id');
+                    //alert(userId);
+                    RemoveUserBlocked(userId, this);
+                    //$(this).parent('.js-row-user').remove();
+                });
+
+                function RemoveUserBlocked(BlockedUser, list) {
+                    $.ajax({
+                        url: "/MinhaConta/RemoveBlocked",
+                        data: {
+                            'BlockedUser': BlockedUser
+                        },
+
+                        type: 'POST',
+                        complete: function (jqXHR) {
+                            if (jqXHR.readyState === 4) {
+
+                                $(list).parent('.js-row-user').remove();
+                            }
+                        },
+                        success: function (jqXHR) {
+                            //$(list).parent('.js-row-user').remove();
+                        },
+                        error: function () {
+                            //Notification();
+                        }
+                    });
+                }
+
+
+                
+            </script>
+        </div>
+
+    </div>
+    <div class="container-flex">
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+    </div>
+</div>
+
+<script>
+
+    $('.js-checkbox-divulgacao').on("change", function (e) {
+        var checked = $(this).is(":checked");
+        resetJsDivulgacao();
+        AddRemoveDivulgacaoPerfil(checked);
+        //alert(checked);
+    });
+
+    function resetJsDivulgacao() {
+        $('.js-divulgacao-ativada').css('display', 'none');
+        $('.js-divulgacao-desativada').css('display', 'none');
+    }
+
+    function AddRemoveDivulgacaoPerfil(permissao) {
+        $.ajax({
+            url: "/MinhaConta/AddRemoveDivulgacaoPerfil",
+            data: {
+                'permissao': permissao
+            },
+
+            type: 'POST',
+            complete: function (jqXHR) {
+                if (jqXHR.readyState === 4) {
+
+                    //resetJsDivulgacao();
+                    if (permissao) {
+                        $('.js-divulgacao-ativada').css('display', 'block');
+                    }
+                    else {
+
+                        $('.js-divulgacao-desativada').css('display', 'block');
+                    }
+
+                }
+            },
+            success: function (jqXHR) {
+                //$(list).parent('.js-row-user').remove();
+            },
+            error: function () {
+                //Notification();
+            }
+        });
+    }
+
+    $('.js-open-blockedPanel').on("click", function (e) {
+        //alert('eet');
+        $('#usuarios-bloqueados-panel').css('display', 'block');
+    });
+
+
+
+    $('.js-click-menu').click(function () {
+
+        $('.js-mostra-esconde-menu').css("display", "block");
+
+    });
+
+
+</script>

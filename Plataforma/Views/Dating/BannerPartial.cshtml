@@ -1,0 +1,149 @@
+﻿@using Plataforma.Models
+@model BannerViewModel
+@{
+    Layout = null;
+}
+
+
+@Styles.Render("~/modules/css/banner")
+@{
+    if (ViewBag.ComBanner)
+    {
+        <style>
+            @@media (min-width: 992px) {
+                .js-header-menu {
+                    margin-top: 114px !important;
+                }
+
+                .js-banner-principal {
+                    height: 114px !important;
+                }
+            }
+        </style>
+
+        <script>
+            $(document).ready(function () {
+
+
+
+
+                $('.js-btn-fechar').click(function (e) {
+
+                    idBanner = $('.js-btn-fechar').attr("id");
+                    FecharBanner(idBanner);
+                    $('#bannerPrincipal').html("");
+                    e.preventDefault();
+                });
+
+
+                function FecharBanner(idBanner) {
+
+                    $.ajax({
+                        url: "/Dating/AddNewViewerBanner",
+                        data: {
+                            'idBanner': idBanner,
+                        },
+                        dataType: "json",
+                        type: 'POST',
+                        success: function (data) {
+                            //alert("Successfully Inserted!");
+                        },
+                        error: function () {
+                            //Notification();
+                        }
+                    });
+                }
+            });
+
+            $(document).ready(function () {
+
+                $('.js-btn-voltar').click(function (e) {
+
+                    $('.js-banner-principal').removeClass("active");
+
+                    e.preventDefault();
+                });
+            });
+
+            $(document).ready(function () {
+
+                $('.js-btn-sobe').click(function (e) {
+
+                    $('.js-banner-principal').addClass("active");
+
+                    e.preventDefault();
+                });
+            });
+
+        </script>
+
+        <div class="sl-promotion closeable toggleable promotion-conversion ng-scope js-banner-principal active">
+            
+            <div class="promotion-header">
+
+                @*MAX 50 CARACTERES*@
+                <h1 style="text-shadow: none !important; color: #efda09;">@Html.DisplayFor(model => model.h1Text)</h1>
+
+                @*MAX 140 CARACTERES*@
+                <p style="text-shadow:none !important;">@Html.DisplayFor(model => model.pText) <b class="subtitle-highlight" style="color:#efda09">@Html.DisplayFor(model => model.Preco)</b></p>
+
+
+                <!--<button class="back js-btn-voltar" type="button">-->
+                    <!-- Voltar -->
+                    <!--<span class="sl-svg-back" svg-icon="back">
+                        <svg viewBox="0 0 12 10" xmlns="http://www.w3.org/2000/svg" fill="#D8D8D8" width="12" height="10">
+                            <path d="M3.77817459,4 L6.36396103,1.41421356 L4.94974747,1.24344979e-14 L-2.85549362e-13,4.94974747 L0.707106781,5.65685425 L4.94974747,9.89949494 L6.36396103,8.48528137 L3.87867966,6 L12,6 L12,4 L3.77817459,4 Z"></path>
+                        </svg>
+                    </span>
+                </button>-->
+
+
+                <button class="up js-btn-sobe" type="button">
+                    <span class="sl-svg-up" svg-icon="up">
+                        <svg viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="#D8D8D8" width="11" height="7">
+                            <path d="M7,4 L7,9 L9,9 L9,2 L8,2 L2,2 L2,4 L7,4 Z" transform="translate(5.500000, 5.500000) rotate(-45.000000) translate(-5.500000, -5.500000) "></path>
+                        </svg>
+                    </span>
+                </button>
+
+
+                <button id='@Html.DisplayFor(model => model.Id)' class="close js-btn-fechar" type="button">
+                    <span class="sl-svg-close" svg-icon="close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10" fill="#D8D8D8">
+                            <g stroke-width="1">
+                                <path d="M4.8890873,6.36396103 L1.62652416,9.62652416 L0.212310601,8.2123106 L3.47487373,4.94974747 L-1.77635684e-15,1.47487373 L1.41421356,0.0606601718 L4.8890873,3.53553391 L8.4246212,2.04281037e-13 L9.83883476,1.41421356 L6.30330086,4.94974747 L9.83883476,8.48528137 L8.4246212,9.89949494 L4.8890873,6.36396103 Z"></path>
+                            </g>
+                        </svg>
+                    </span>
+                </button>
+
+            </div>
+
+            <div class="promotion-body">
+
+                <!-- Countdown -->
+                <!-- Usar sempre desta forma -->
+                <!-- Promoção combo -->
+                @if (ViewBag.MostraBotao)
+                {
+
+                    <button class="sl-btn btn-lg btn-default call-to-action" onclick="location.href='@Html.DisplayFor(model => model.UrlBotao)'">@Html.DisplayFor(model => model.TextoBotao)</button>
+                }
+
+
+                <small></small>
+
+
+
+            </div>
+
+        </div>
+
+    }
+    else
+    {
+
+    }
+
+
+}

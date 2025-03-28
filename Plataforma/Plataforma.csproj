@@ -1,0 +1,1170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11BA61BE-7434-4EE6-B08B-7369E9932B5A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Plataforma</RootNamespace>
+    <AssemblyName>Plataforma</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44327</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/fd2d0397-a3c0-4cee-9376-bf922a96b2cc/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/Plataforma</ApplicationInsightsResourceId>
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CloudinaryDotNet, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.3.0\lib\net40\CloudinaryDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DnsClient, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.6.1\lib\net471\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.4.0.5\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedFusion.Rewriter, Version=3.7.0.17161, Culture=neutral, PublicKeyToken=37fded21d1a8502d, processorArchitecture=MSIL">
+      <HintPath>..\packages\ManagedFusion.Rewriter.3.7\lib\net35\ManagedFusion.Rewriter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=3.2.1.0, Culture=neutral, PublicKeyToken=94992a530f44e321, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.3.2.1\lib\net472\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.3.0\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OneSignal.CSharp.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OneSignal.CSharp.SDK.0.10\lib\net45\OneSignal.CSharp.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Twilio, Version=5.35.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.35.0\lib\net451\Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="Uol.PagSeguro, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Eklesia.Uol.PagSeguro.3.0.2\lib\netstandard2.0\Uol.PagSeguro.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="App_Start\CustAuthFilter.cs" />
+    <Compile Include="Controllers\GestaoPerfisController.cs" />
+    <Compile Include="Controllers\FanClubController.cs" />
+    <Compile Include="Controllers\ContaDigitalController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\EnviarConviteController.cs" />
+    <Compile Include="Controllers\BDSMAndFetichesController.cs" />
+    <Compile Include="Controllers\ErrorPagesController.cs" />
+    <Compile Include="Controllers\WalletController.cs" />
+    <Compile Include="Controllers\__SugarController.cs" />
+    <Compile Include="Controllers\PagamentoController.cs" />
+    <Compile Include="Controllers\InstitucionalController.cs" />
+    <Compile Include="Controllers\WizardController.cs" />
+    <Compile Include="Controllers\MinhaContaController.cs" />
+    <Compile Include="Controllers\MobileController.cs" />
+    <Compile Include="Controllers\FriendsController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\PulsacoesController.cs" />
+    <Compile Include="Controllers\AfiliadosController.cs" />
+    <Compile Include="Controllers\InboxController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\DatingController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\EloHelper.cs" />
+    <Compile Include="Helper\LocationHelper.cs" />
+    <Compile Include="Helper\SendGridAPIHelper.cs" />
+    <Compile Include="Helper\CommonHelper.cs" />
+    <Compile Include="Helper\AuthenticationHelper.cs" />
+    <Compile Include="Helper\PagamentoProcess.cs" />
+    <Compile Include="Helper\LocationCidade.cs" />
+    <Compile Include="Helper\LocationUf.cs" />
+    <Compile Include="Hubs\ChatHub.cs" />
+    <Compile Include="Hubs\Notifications .cs" />
+    <Compile Include="Hubs\ConnectionMapping.cs" />
+    <Compile Include="Models\ConciliacaoFechamentoViewModel.cs" />
+    <Compile Include="Models\PaymentViewModel.cs" />
+    <Compile Include="Models\ConfiguracaoPagamentoViewModel.cs" />
+    <Compile Include="Models\UserListViewModel.cs" />
+    <Compile Include="Models\NotificationViewModel.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EstadoModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Models\SendGridModels.cs" />
+    <Compile Include="Models\CreateProfileModel.cs" />
+    <Compile Include="Models\WalletModel.cs" />
+    <Compile Include="Models\WizardViewModel.cs" />
+    <Compile Include="Models\SharedViewModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Cidades\AC.txt" />
+    <Content Include="App_Data\Cidades\AL.txt" />
+    <Content Include="App_Data\Cidades\AM.txt" />
+    <Content Include="App_Data\Cidades\AP.txt" />
+    <Content Include="App_Data\Cidades\BA.txt" />
+    <Content Include="App_Data\Cidades\CE.txt" />
+    <Content Include="App_Data\Cidades\DF.txt" />
+    <Content Include="App_Data\Cidades\ES.txt" />
+    <Content Include="App_Data\Cidades\GO.txt" />
+    <Content Include="App_Data\Cidades\MA.txt" />
+    <Content Include="App_Data\Cidades\MG.txt" />
+    <Content Include="App_Data\Cidades\MS.txt" />
+    <Content Include="App_Data\Cidades\MT.txt" />
+    <Content Include="App_Data\Cidades\PA.txt" />
+    <Content Include="App_Data\Cidades\PB.txt" />
+    <Content Include="App_Data\Cidades\PE.txt" />
+    <Content Include="App_Data\Cidades\PI.txt" />
+    <Content Include="App_Data\Cidades\PR.txt" />
+    <Content Include="App_Data\Cidades\RJ.txt" />
+    <Content Include="App_Data\Cidades\RN.txt" />
+    <Content Include="App_Data\Cidades\RO.txt" />
+    <Content Include="App_Data\Cidades\RR.txt" />
+    <Content Include="App_Data\Cidades\RS.txt" />
+    <Content Include="App_Data\Cidades\SC.txt" />
+    <Content Include="App_Data\Cidades\SE.txt" />
+    <Content Include="App_Data\Cidades\SP.txt" />
+    <Content Include="App_Data\Cidades\TO.txt" />
+    <Content Include="App_Data\Estados.txt" />
+    <Content Include="Configurations\PagSeguroConfig.xml" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Events\events.js" />
+    <Content Include="modules\afiliados\css\allplugins.css" />
+    <Content Include="modules\afiliados\css\common.css" />
+    <Content Include="modules\afiliados\css\allsites.css" />
+    <Content Include="modules\afiliados\img\back_black.png" />
+    <Content Include="modules\afiliados\img\kinkee-afiliados.png" />
+    <Content Include="modules\css\bootstrap.css" />
+    <Content Include="modules\css\certification-modal-intro.css" />
+    <Content Include="modules\css\profile.css" />
+    <Content Include="modules\getTxs\bech32.js" />
+    <Content Include="modules\getTxs\cardano_serialization_lib.asm.js" />
+    <Content Include="modules\getTxs\cardano_serialization_lib.js" />
+    <Content Include="modules\getTxs\cardano_serialization_lib_bg.js" />
+    <Content Include="modules\getTxs\index.html" />
+    <Content Include="modules\img\1519541328276.png" />
+    <Content Include="modules\img\1_cartao_nacional.svg" />
+    <Content Include="modules\img\1_gema_opala.svg" />
+    <Content Include="modules\img\2_cartao_internacional.svg" />
+    <Content Include="modules\img\2_gema_esmeralda.svg" />
+    <Content Include="modules\img\3_cartao_gold.svg" />
+    <Content Include="modules\img\3_gema_espinela.svg" />
+    <Content Include="modules\img\4_cartao_platinum.svg" />
+    <Content Include="modules\img\4_gema_safira.svg" />
+    <Content Include="modules\img\5_cartao_black.svg" />
+    <Content Include="modules\img\5_gema_rubi.svg" />
+    <Content Include="modules\img\6_cartao_infinity.svg" />
+    <Content Include="modules\img\6_gema_turmalina.svg" />
+    <Content Include="modules\img\7adf78a9b5ff5bd35517615b46488ddf.svg" />
+    <Content Include="modules\img\7_cartao_unlimited.svg" />
+    <Content Include="modules\img\7_gema_diamante.svg" />
+    <Content Include="modules\img\background-wizard-cad.jpg" />
+    <Content Include="modules\img\bandeiras-cartoes.png" />
+    <Content Include="modules\img\boleto-bancario.svg" />
+    <Content Include="modules\img\cartao-credito.svg" />
+    <Content Include="modules\img\cartao_credito.svg" />
+    <Content Include="modules\img\fan_club.png" />
+    <Content Include="modules\img\fan_club_ico.png" />
+    <Content Include="modules\img\gema_Diamante.png" />
+    <Content Include="modules\img\gema_Esmeralda.png" />
+    <Content Include="modules\img\gema_Espinela.png" />
+    <Content Include="modules\img\gema_Opala.png" />
+    <Content Include="modules\img\gema_Rubi.png" />
+    <Content Include="modules\img\gema_Safira.png" />
+    <Content Include="modules\img\gema_teste.svg" />
+    <Content Include="modules\img\gema_Turmalina.png" />
+    <Content Include="modules\img\icone_app.png" />
+    <Content Include="modules\img\iconfinder_ic_location_on_48px_352521.png" />
+    <Content Include="modules\img\imagem_pix.png" />
+    <Content Include="modules\img\kinkee_points.svg" />
+    <Content Include="modules\img\kinkee_points_compra_1.svg" />
+    <Content Include="modules\img\logo_kinkee_branco.png" />
+    <Content Include="modules\img\momentos\icone_beber.png" />
+    <Content Include="modules\img\momentos\icone_cinema.png" />
+    <Content Include="modules\img\momentos\icone_dancar.png" />
+    <Content Include="modules\img\momentos\icone_jantar.png" />
+    <Content Include="modules\img\momentos\icone_momentos.png" />
+    <Content Include="modules\img\momentos\icone_viajar.png" />
+    <Content Include="modules\img\no-avatar.svg" />
+    <Content Include="modules\img\novo.png" />
+    <Content Include="modules\img\novo.svg" />
+    <Content Include="modules\img\onboarding-tour.svg" />
+    <Content Include="modules\img\premium.svg" />
+    <Content Include="modules\img\seja_premium.png" />
+    <Content Include="modules\img\simbolo_premium.png" />
+    <Content Include="modules\css\Loja.css" />
+    <Content Include="modules\css\Wizard.css" />
+    <Content Include="modules\img\al_extract2a.gif" />
+    <Content Include="modules\img\backdrop_wizard.png" />
+    <Content Include="modules\img\banner-closet-desktop.jpg" />
+    <Content Include="modules\img\banner-closet-tablet.jpg" />
+    <Content Include="modules\img\credit-koins.png" />
+    <Content Include="modules\img\dribble_rewards.gif" />
+    <Content Include="modules\img\image_processing20191007-13676-13tco5z.gif" />
+    <Content Include="modules\img\loading.gif" />
+    <Content Include="modules\img\location.png" />
+    <Content Include="modules\img\logo_kinkee_emails.png" />
+    <Content Include="modules\img\logo_koins.png" />
+    <Content Include="modules\img\pulsee_logo_pequeno.png" />
+    <Content Include="modules\img\Kinkee_select_black_diamond.png" />
+    <Content Include="modules\img\pulsee_select_black_diamond_ico.png" />
+    <Content Include="modules\img\split_icons.png" />
+    <Content Include="modules\img\split_icons2.png" />
+    <Content Include="modules\img\split_icons_principal.png" />
+    <Content Include="modules\img\transferencia.svg" />
+    <Content Include="modules\img\verificado.svg" />
+    <Content Include="modules\img\vip-promo-bg-desktop.png" />
+    <Content Include="modules\img\vip-promo-bg-mobile.png" />
+    <Content Include="modules\js\cloudinary-jquery-file-upload.js" />
+    <Content Include="modules\js\configuracoes_avancadas.js" />
+    <Content Include="modules\js\MaskedInput.js" />
+    <Content Include="modules\js\wizard.js" />
+    <Content Include="modules\js\jquery.fileupload-image.js" />
+    <Content Include="modules\js\jquery.fileupload-process.js" />
+    <Content Include="modules\js\jquery.fileupload-validate.js" />
+    <Content Include="modules\js\jquery.fileupload.js" />
+    <Content Include="modules\js\jquery.geocomplete.js" />
+    <Content Include="modules\js\jquery.iframe-transport.js" />
+    <Content Include="modules\js\jquery.stickyalert.js" />
+    <Content Include="modules\js\jquery.ui.widget.js" />
+    <Content Include="modules\js\main_upload.js" />
+    <Content Include="modules\js\notify.js" />
+    <Content Include="modules\js\semantic-ui.min.js" />
+    <Content Include="modules\match\css\jTinder.css" />
+    <Content Include="modules\match\img\dislike_button.png" />
+    <Content Include="modules\match\img\liked.png" />
+    <Content Include="modules\match\img\like_button.png" />
+    <Content Include="modules\match\img\nope.png" />
+    <Content Include="modules\match\img\pane\pane1.jpg" />
+    <Content Include="modules\match\img\pane\pane2.jpg" />
+    <Content Include="modules\match\img\pane\pane3.jpg" />
+    <Content Include="modules\match\img\pane\pane4.jpg" />
+    <Content Include="modules\match\img\pane\pane5.jpg" />
+    <Content Include="modules\match\js\jquery.jTinder.js" />
+    <Content Include="modules\match\js\jquery.min.js" />
+    <Content Include="modules\match\js\jquery.transform2d.js" />
+    <Content Include="modules\match\js\main.js" />
+    <Content Include="modules\plugins\fileupload\dist\font\font-fileuploader.css" />
+    <Content Include="modules\plugins\fileupload\dist\font\font-fileuploader.svg" />
+    <Content Include="modules\plugins\fileupload\dist\jquery.fileuploader.min.css" />
+    <Content Include="modules\plugins\fileupload\dist\jquery.fileuploader.min.js" />
+    <Content Include="OneSignalSDKUpdaterWorker.js" />
+    <Content Include="OneSignalSDKWorker.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="googlee07bfcf4ac3a769a.html" />
+    <Content Include="imgPulsacoes\34c2ae865400cd2037522caf12135f21.jpg" />
+    <Content Include="ManagedFusion.Rewriter.txt" />
+    <Content Include="modules\css\banner.css" />
+    <Content Include="modules\css\blueimp-gallery.min.css" />
+    <Content Include="modules\css\assinatura.css" />
+    <Content Include="modules\css\chat.css" />
+    <Content Include="modules\css\perfil_feed.css" />
+    <Content Include="modules\css\conta.css" />
+    <Content Include="modules\css\fonts.css" />
+    <Content Include="modules\css\index.css" />
+    <Content Include="modules\css\bundle.css" />
+    <Content Include="modules\css\main.css" />
+    <Content Include="modules\css\EditarPerfil.css" />
+    <Content Include="modules\css\novoPerfil.css" />
+    <Content Include="modules\css\perfil.css" />
+    <Content Include="modules\css\reset.css" />
+    <Content Include="modules\css\search.css" />
+    <Content Include="modules\css\site.css" />
+    <Content Include="modules\css\style.css" />
+    <Content Include="modules\img\assinatura.png" />
+    <Content Include="modules\img\baby.png" />
+    <Content Include="modules\img\koins_icon.png" />
+    <Content Include="modules\img\blog.png" />
+    <Content Include="modules\img\daddy.png" />
+    <Content Include="modules\img\destaques.png" />
+    <Content Include="modules\img\icone-publicacao.png" />
+    <Content Include="modules\img\imgcover.png" />
+    <Content Include="modules\img\lupabusca.png" />
+    <Content Include="modules\img\mesnagem.png" />
+    <Content Include="modules\img\nave_espacial.png" />
+    <Content Include="modules\img\novo_perfil.png" />
+    <Content Include="modules\img\pefil-gold.png" />
+    <Content Include="modules\img\perfil_top.png" />
+    <Content Include="modules\img\perfil_gold.png" />
+    <Content Include="modules\img\perfil_verificado.png" />
+    <Content Include="modules\img\perfil_verificado_menu.fw.png" />
+    <Content Include="modules\img\principal.png" />
+    <Content Include="modules\img\sprite.svg" />
+    <Content Include="modules\img\sprite_2.svg" />
+    <Content Include="modules\img\sugar_dating.png" />
+    <Content Include="modules\img\topperfis.png" />
+    <Content Include="modules\img\trash.png" />
+    <Content Include="modules\img\visitasrecebidas.png" />
+    <Content Include="modules\img\whatsapp.png" />
+    <Content Include="modules\js\blueimp-gallery.min.js" />
+    <Content Include="modules\js\Chat.js" />
+    <Content Include="modules\js\clipboard.min.js" />
+    <Content Include="modules\js\jquery.maskedinput.min.js" />
+    <Content Include="modules\js\main.js" />
+    <Content Include="modules\js\perfil.js" />
+    <Content Include="modules\js\layout.js" />
+    <Content Include="modules\js\home.js" />
+    <Content Include="modules\js\modernizr.js" />
+    <Content Include="modules\views\form_login.html" />
+    <Content Include="modules\views\form_cadastro.html" />
+    <Content Include="modules\views\ViewMensagem.html" />
+    <Content Include="PagSeguroConfig.xml" />
+    <Content Include="pulsar\Kinkee\assets\css\images\icon\logo_endpage.svg" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\kinkee_logo.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\kinkee_logo_branco.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\kinkee_logo_preto.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\monstrinho-01.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\monstrinho-02.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\monstrinho-03.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\monstrinho-04.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\monstrinho-05.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\monstrinho-06.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\pulsee_logo.png" />
+    <Content Include="pulsar\Kinkee\css\generalStyle.css" />
+    <Content Include="Scripts\aditionals\assinaturafanclub.js" />
+    <Content Include="Scripts\aditionals\comprakoins.js" />
+    <Content Include="Scripts\aditionals\finalizacompra.js" />
+    <Content Include="Scripts\aditionals\PagamentoPagseguro.js" />
+    <Content Include="Scripts\Cloudinary\cloudinary-jquery-file-upload.js" />
+    <Content Include="Scripts\Cloudinary\fileUpload.js" />
+    <Content Include="Scripts\Comun.js" />
+    <Content Include="Scripts\fancybox-master\dist\jquery.fancybox.css" />
+    <Content Include="Scripts\fancybox-master\dist\jquery.fancybox.js" />
+    <Content Include="Scripts\fancybox-master\dist\jquery.fancybox.min.css" />
+    <Content Include="Scripts\fancybox-master\dist\jquery.fancybox.min.js" />
+    <Content Include="Scripts\fancybox-master\docs\index.html" />
+    <Content Include="Scripts\fancybox-master\gulpfile.js" />
+    <Content Include="Scripts\fancybox-master\src\css\core.css" />
+    <Content Include="Scripts\fancybox-master\src\css\fullscreen.css" />
+    <Content Include="Scripts\fancybox-master\src\css\share.css" />
+    <Content Include="Scripts\fancybox-master\src\css\slideshow.css" />
+    <Content Include="Scripts\fancybox-master\src\css\thumbs.css" />
+    <Content Include="Scripts\fancybox-master\src\js\core.js" />
+    <Content Include="Scripts\fancybox-master\src\js\fullscreen.js" />
+    <Content Include="Scripts\fancybox-master\src\js\guestures.js" />
+    <Content Include="Scripts\fancybox-master\src\js\hash.js" />
+    <Content Include="Scripts\fancybox-master\src\js\media.js" />
+    <Content Include="Scripts\fancybox-master\src\js\share.js" />
+    <Content Include="Scripts\fancybox-master\src\js\slideshow.js" />
+    <Content Include="Scripts\fancybox-master\src\js\thumbs.js" />
+    <Content Include="Scripts\fancybox-master\src\js\wheel.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\dist\jquery.fancybox.css" />
+    <Content Include="Scripts\Plugins\fancybox-master\dist\jquery.fancybox.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\dist\jquery.fancybox.min.css" />
+    <Content Include="Scripts\Plugins\fancybox-master\dist\jquery.fancybox.min.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\docs\index.html" />
+    <Content Include="Scripts\Plugins\fancybox-master\gulpfile.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\css\core.css" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\css\fullscreen.css" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\css\share.css" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\css\slideshow.css" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\css\thumbs.css" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\core.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\fullscreen.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\guestures.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\hash.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\media.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\share.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\slideshow.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\thumbs.js" />
+    <Content Include="Scripts\Plugins\fancybox-master\src\js\wheel.js" />
+    <Content Include="Templates_emails\betaTesters.html" />
+    <Content Include="Templates_emails\Confirmacao_Criacao_Perfil.html" />
+    <Content Include="Templates_emails\Convite_Enviado_Cadastro.html" />
+    <Content Include="Templates_emails\Foto_Aprovada.html" />
+    <Content Include="Templates_emails\Nova_Visita_Privada_Recebida.html" />
+    <Content Include="Templates_emails\ModeloNovoEmail.html" />
+    <Content Include="Templates_emails\Nova_Mensagem_Recebida.html" />
+    <Content Include="Templates_emails\Nova_Visita_Recebida.html" />
+    <Content Include="Templates_emails\Resposta_Solicitacao_Amizade.html" />
+    <Content Include="Templates_emails\Nova_Solicitacao_Amizade.html" />
+    <Content Include="Templates_emails\Novo_Comentario_Publicacao.html" />
+    <Content Include="Templates_emails\Retorno_Validacao_Perfil.html" />
+    <Content Include="Templates_emails\Seu_Convite_Chegou.html" />
+    <Content Include="Templates_emails\Boas_Vindas_Novo_Usuario.html" />
+    <Content Include="termos-condicoes.html" />
+    <Content Include="politica-de-privacidade.html" />
+    <Content Include="pulsar\accounts\css\allsites834d.css" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_flat_75_faf2ff_40x100.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_glass_55_abd5f2_1x400.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_glass_65_faf2ff_1x400.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_glass_75_faf2ff_1x400.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_glass_75_ffffff_1x400.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-bg_inset-soft_95_ffb3b3_1x100.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-icons_0497fe_256x240.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-icons_454545_256x240.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-icons_5e4e43_256x240.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-icons_85067b_256x240.png" />
+    <Content Include="pulsar\accounts\css\ui\sl\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="pulsar\accounts\images\ajax-loader.gif" />
+    <Content Include="pulsar\accounts\images\arrows_tuor862a.png" />
+    <Content Include="pulsar\accounts\images\assinatura\img01.png" />
+    <Content Include="pulsar\accounts\images\background\back_meu-prazer.jpg" />
+    <Content Include="pulsar\accounts\images\background\dest_carnaval.jpg" />
+    <Content Include="pulsar\accounts\images\background\sprite_meu-prazer.png" />
+    <Content Include="pulsar\accounts\images\back_white862a.png" />
+    <Content Include="pulsar\accounts\images\icoerror-upload.png" />
+    <Content Include="pulsar\accounts\images\icon\99x61-pagar-assina.png" />
+    <Content Include="pulsar\accounts\images\icon\card_flags.png" />
+    <Content Include="pulsar\accounts\images\icon\closeProducts.png" />
+    <Content Include="pulsar\accounts\images\icon\delete.png" />
+    <Content Include="pulsar\accounts\images\icon\ico-error.png" />
+    <Content Include="pulsar\accounts\images\icon\icoerror.png" />
+    <Content Include="pulsar\accounts\images\icon\icoInfo.png" />
+    <Content Include="pulsar\accounts\images\icon\icook.png" />
+    <Content Include="pulsar\accounts\images\icon\load_large.gif" />
+    <Content Include="pulsar\accounts\images\icon\nice_check.png" />
+    <Content Include="pulsar\accounts\images\icon\nice_error.png" />
+    <Content Include="pulsar\accounts\images\icon\pag_seguro.jpg" />
+    <Content Include="pulsar\accounts\images\icon\photoEditor862a.png" />
+    <Content Include="pulsar\accounts\images\icon\searchLocaly862a.png" />
+    <Content Include="pulsar\accounts\images\icon\sendfiles.png" />
+    <Content Include="pulsar\accounts\images\icon\seta_infoCard.png" />
+    <Content Include="pulsar\accounts\images\icon\sprite_selectcard.png" />
+    <Content Include="pulsar\accounts\images\icon\sprite_sign.png" />
+    <Content Include="pulsar\accounts\images\icon\sprite_sl862a.png" />
+    <Content Include="pulsar\accounts\images\icon\sprite_subscribe.png" />
+    <Content Include="pulsar\accounts\images\load.gif" />
+    <Content Include="pulsar\accounts\images\loader862a.gif" />
+    <Content Include="pulsar\accounts\images\loader_dark.gif" />
+    <Content Include="pulsar\accounts\images\load_orange.gif" />
+    <Content Include="pulsar\accounts\images\logos.png" />
+    <Content Include="pulsar\accounts\images\sprite-notification862a.png" />
+    <Content Include="pulsar\accounts\images\sprite_acc.png" />
+    <Content Include="pulsar\accounts\images\sprite_acc14862a.png" />
+    <Content Include="pulsar\accounts\images\sprite_acc862a.png" />
+    <Content Include="pulsar\accounts\images\watermark-small.png" />
+    <Content Include="pulsar\ajax.googleapis.com\ajax\libs\jquery\2.1.4\jquery.min.js" />
+    <Content Include="pulsar\ajax.googleapis.com\ajax\libs\jquery\3.1.1\jquery.min.js" />
+    <Content Include="pulsar\Kinkee\assets\css\images\icon\closeProducts.png" />
+    <Content Include="pulsar\Kinkee\assets\css\images\icon\icook.html" />
+    <Content Include="pulsar\Kinkee\assets\css\images\icon\photoEditor.png" />
+    <Content Include="pulsar\Kinkee\assets\css\images\icon\photoEditor862a.png" />
+    <Content Include="pulsar\Kinkee\assets\css\images\icon\sprite_sl862a.png" />
+    <Content Include="pulsar\Kinkee\assets\css\images\messenger\accepted.html" />
+    <Content Include="pulsar\Kinkee\assets\css\images\messenger\calling.html" />
+    <Content Include="pulsar\Kinkee\assets\css\images\messenger\cancel.html" />
+    <Content Include="pulsar\Kinkee\assets\css\images\messenger\emoticons.html" />
+    <Content Include="pulsar\Kinkee\assets\css\images\messenger\sprite.html" />
+    <Content Include="pulsar\Kinkee\assets\css\images\sprite_acc862a.png" />
+    <Content Include="pulsar\Kinkee\assets\css\images\watermark-small.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\blank.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancybox-x.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancybox-y.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancybox.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_close.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_loading.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_nav_left.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_nav_right.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_e.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_n.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_ne.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_nw.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_s.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_se.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_sw.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_shadow_w.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_title_left.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_title_main.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_title_over.html" />
+    <Content Include="pulsar\Kinkee\assets\css\js\common\libs\fancybox\fancy_title_right.html" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\icoerror.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\icoInfo.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\icook.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\img\ui-icons.html" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\jcrop.gif" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\legacy6514.css" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\nice_check.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\nice_error.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\searchLocaly.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\sendfiles.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\sprite_sign.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_flat_75_faf2ff_40x100.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_glass_55_abd5f2_1x400.html" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_glass_65_faf2ff_1x400.html" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_glass_75_faf2ff_1x400.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_glass_75_ffffff_1x400.html" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-bg_inset-soft_95_ffb3b3_1x100.html" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-icons_0497fe_256x240.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-icons_454545_256x240.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-icons_5e4e43_256x240.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-icons_85067b_256x240.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="pulsar\Kinkee\assets\css\legacy\watermark-small.png" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\authentication\authentication834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\explore\explore834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\flash\flash834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\home\home.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\institute\institute834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\livecam\livecam834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\myaccount\myaccount834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\promote\promote834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\app\search\search834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\bootstrap-sl-common6514-2 .css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\bootstrap-sl-common6514.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\bootstrap-sl-common834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\bootstrap-sobre-common6514.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\bundle6514.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\comum.css" />
+    <Content Include="pulsar\Kinkee\assets\css\sl\icons\badges\badges834d.css" />
+    <Content Include="pulsar\Kinkee\assets\css\vendor\plugins\lightgallery\img\loading.gif" />
+    <Content Include="pulsar\Kinkee\assets\css\vendor\plugins\lightgallery\img\video-play.png" />
+    <Content Include="pulsar\Kinkee\assets\css\vendor\plugins\lightgallery\img\vimeo-play.png" />
+    <Content Include="pulsar\Kinkee\assets\css\vendor\plugins\lightgallery\img\youtube-play.png" />
+    <Content Include="pulsar\Kinkee\assets\css\vendor\plugins\pulsee.plugins6514.css" />
+    <Content Include="pulsar\Kinkee\assets\images\banner\non-subscriber_header.jpg" />
+    <Content Include="pulsar\Kinkee\assets\images\banner\non-subscriber_testimony.jpg" />
+    <Content Include="pulsar\Kinkee\assets\images\flash\flash-install-default.png" />
+    <Content Include="pulsar\Kinkee\assets\images\icons\png\browsers\chrome.png" />
+    <Content Include="pulsar\Kinkee\assets\images\icons\png\browsers\firefox.png" />
+    <Content Include="pulsar\Kinkee\assets\images\icons\png\loginho_Kinkee.png" />
+    <Content Include="pulsar\Kinkee\assets\images\icons\png\non-subscriber_star.png" />
+    <Content Include="pulsar\Kinkee\assets\images\icons\png\pulsee_seguranca.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\background-pattern.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\pulsee-background-pattern.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\pulsee_logo.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\real-people-softhome\image-near-dates30f4.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\real-people-softhome\image-real-people30f4.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\tecnologia\azure.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\tecnologia\bizspark.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\home\Vinho-luxo_-2.jpg" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\promotion-valentine\promo-300.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\promotion-valentine\promo-600.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\ico_mensagens.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\ico_mensagens_b.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\ico_notificacao.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\ico_notificacao_b.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\ico_pessoas.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\ico_pessoas_b.png" />
+    <Content Include="pulsar\Kinkee\assets\images\modules\sobre\profile.png" />
+    <Content Include="pulsar\Kinkee\assets\images\sprites\svg\common\sprite.svg" />
+    <Content Include="pulsar\Kinkee\assets\js\legacy\legacy.min834d.js" />
+    <Content Include="pulsar\Kinkee\assets\js\legacy\_plugins\allplugins6514.js" />
+    <Content Include="pulsar\Kinkee\assets\js\vendor\angular\pulsee.angular.bundle.min.js" />
+    <Content Include="pulsar\Kinkee\assets\js\vendor\angular\pulsee.angular.min.js" />
+    <Content Include="pulsar\Kinkee\assets\js\vendor\angular\pulsee.angular.mind.js" />
+    <Content Include="pulsar\Kinkee\assets\js\vendor\angular\pulsee.bundle.min.js" />
+    <Content Include="pulsar\Kinkee\assets\js\vendor\plugins\moment\moment.pt-br6514.js" />
+    <Content Include="pulsar\Kinkee\css\allplugins834d.css" />
+    <Content Include="pulsar\Kinkee\css\common834d.css" />
+    <Content Include="pulsar\Kinkee\css\event834d.css" />
+    <Content Include="pulsar\Kinkee\css\profile834d.css" />
+    <Content Include="pulsar\Kinkee\images\backgound-luxo.jpg" />
+    <Content Include="pulsar\Kinkee\images\background\bgGrpReld28d.png" />
+    <Content Include="pulsar\Kinkee\images\background\btn_profiled28d.png" />
+    <Content Include="pulsar\Kinkee\images\background\btn_profile_photod28d.png" />
+    <Content Include="pulsar\Kinkee\images\background\fancy_loading.png" />
+    <Content Include="pulsar\Kinkee\images\background\gradiente_profile.png" />
+    <Content Include="pulsar\Kinkee\images\background\lock-meeting.png" />
+    <Content Include="pulsar\Kinkee\images\conquest\sprite_modal_conquest.png" />
+    <Content Include="pulsar\Kinkee\images\icon\closeBar.png" />
+    <Content Include="pulsar\Kinkee\images\icon\fundo_selectd28d.png" />
+    <Content Include="pulsar\Kinkee\images\icon\icoerror-upload.png" />
+    <Content Include="pulsar\Kinkee\images\icon\ico_casald28d.png" />
+    <Content Include="pulsar\Kinkee\images\icon\imgDflGrp235.png" />
+    <Content Include="pulsar\Kinkee\images\icon\imgDflGrp60.png" />
+    <Content Include="pulsar\Kinkee\images\icon\jcrop.gif" />
+    <Content Include="pulsar\Kinkee\images\icon\load.gif" />
+    <Content Include="pulsar\Kinkee\images\icon\loaderCep.jpg" />
+    <Content Include="pulsar\Kinkee\images\icon\nice_check.png" />
+    <Content Include="pulsar\Kinkee\images\icon\nice_error.png" />
+    <Content Include="pulsar\Kinkee\images\icon\pag_seguro.jpg" />
+    <Content Include="pulsar\Kinkee\images\icon\photoEditord28d.png" />
+    <Content Include="pulsar\Kinkee\images\icon\sendfiles.png" />
+    <Content Include="pulsar\Kinkee\images\icon\seta_remover.png" />
+    <Content Include="pulsar\Kinkee\images\icon\seta_skin.png" />
+    <Content Include="pulsar\Kinkee\images\icon\sprite_acc14.png" />
+    <Content Include="pulsar\Kinkee\images\icon\sprite_groupd28d.png" />
+    <Content Include="pulsar\Kinkee\images\icon\sprite_signd28d.png" />
+    <Content Include="pulsar\Kinkee\images\icon\sprite_sl.png" />
+    <Content Include="pulsar\Kinkee\images\icon\sprite_sle2eb.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\blank.gif" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancybox-x.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancybox-y.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancybox.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_close.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_loading.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_nav_left.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_nav_right.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_e.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_n.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_ne.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_nw.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_s.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_se.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_sw.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_shadow_w.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_title_left.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_title_main.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_title_over.png" />
+    <Content Include="pulsar\Kinkee\js\common\libs\fancybox\fancy_title_right.png" />
+    <Content Include="Relacionamento-Sugar\index.html" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="manifest.json" />
+    <Content Include="favicon.ico" />
+    <Content Include="modules\js\simple.money.format.js" />
+    <Content Include="modules\plugins\fileupload\dist\font\font-fileuploader.eot" />
+    <Content Include="modules\plugins\fileupload\dist\font\font-fileuploader.ttf" />
+    <Content Include="modules\plugins\fileupload\dist\font\font-fileuploader.woff" />
+    <Content Include="modules\img\ic_location_on_48px-512.webp" />
+    <Content Include="modules\getTxs\Readme.md" />
+    <Content Include="libman.json" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="pulsar\Kinkee\font\AndrogyneMedium %281%29.eot" />
+    <Content Include="pulsar\Kinkee\font\AndrogyneMedium %281%29.ttf" />
+    <Content Include="pulsar\Kinkee\font\AndrogyneMedium %281%29.woff" />
+    <Content Include="pulsar\Kinkee\font\AndrogyneMedium.eot" />
+    <Content Include="pulsar\Kinkee\font\AndrogyneMedium.ttf" />
+    <Content Include="pulsar\Kinkee\font\AndrogyneMedium.woff" />
+    <Content Include="pulsar\Kinkee\font\Antonio-Bold %281%29.eot" />
+    <Content Include="pulsar\Kinkee\font\Antonio-Bold %281%29.ttf" />
+    <Content Include="pulsar\Kinkee\font\Antonio-Bold %281%29.woff" />
+    <Content Include="pulsar\Kinkee\font\Antonio-Bold.eot" />
+    <Content Include="pulsar\Kinkee\font\Antonio-Bold.ttf" />
+    <Content Include="pulsar\Kinkee\font\Antonio-Bold.woff" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-light %281%29.woff" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-light.eot" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-light.ttf" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-light.woff" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-regular-webfont.ttf" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-regular-webfont.woff" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-semibold-webfont.eot" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-semibold-webfont.ttf" />
+    <Content Include="pulsar\Kinkee\font\signikanegative-semibold-webfont.woff" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-bold-webfont.eot" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-bold-webfont.ttf" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-bold-webfont.woff" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-bold-webfont.woff2" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-light-webfont.eot" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-light-webfont.ttf" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-light-webfont.woff" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-light-webfont.woff2" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-regular-webfont.eot" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-regular-webfont.ttf" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-regular-webfont.woff" />
+    <Content Include="pulsar\Kinkee\font\sourcesanspro-regular-webfont.woff2" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\fancybox-master\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <Content Include="Scripts\fancybox-master\.github\ISSUE_TEMPLATE\feature_request.md" />
+    <Content Include="Scripts\fancybox-master\.github\ISSUE_TEMPLATE\question.md" />
+    <Content Include="Scripts\fancybox-master\.gitignore" />
+    <Content Include="Scripts\fancybox-master\bower.json" />
+    <Content Include="Scripts\fancybox-master\package.json" />
+    <Content Include="Scripts\fancybox-master\README.md" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.MultiFile.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="sobre\privacidade.html" />
+    <Content Include="sobre\sobre.html" />
+    <Content Include="sobre\termos.html" />
+    <Content Include="Styles\styles.css" />
+    <Content Include="__Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="__Web.Debug.config">
+      <DependentUpon>__Web.config</DependentUpon>
+    </Content>
+    <Content Include="__Web.Release.config">
+      <DependentUpon>__Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Dating\_PerfilListPartial.cshtml" />
+    <Content Include="Views\ContaDigital\Index.cshtml" />
+    <Content Include="Views\ContaDigital\Extrato.cshtml" />
+    <Content Include="Views\ContaDigital\Transferencias.cshtml" />
+    <Content Include="Views\Friends\Index.cshtml" />
+    <Content Include="Views\Friends\Find.cshtml" />
+    <Content Include="Views\Wizard\_IntroPartial.cshtml" />
+    <Content Include="Views\EnviarConvite\Index.cshtml" />
+    <Content Include="Views\FanClub\_TimelinePartial.cshtml" />
+    <Content Include="Views\FanClub\_PulsacaoPublicadaPartial.cshtml" />
+    <Content Include="Views\FanClub\_WriteMessagePartial.cshtml" />
+    <Content Include="Views\FanClub\_ConfiguracoesPartial.cshtml" />
+    <Content Include="Views\Dating\Post.cshtml" />
+    <Content Include="Views\FanClub\_ConfiguracoesPartial - Copy.cshtml" />
+    <Content Include="Views\FanClub\_GaleriaPartial.cshtml" />
+    <Content Include="Views\FanClub\_AssinaturasPartial.cshtml" />
+    <Content Include="Views\FanClub\_BloqueioSemAssinaturaPartial.cshtml" />
+    <Content Include="Views\FanClub\_AssinaturasMeusFansPartial.cshtml" />
+    <Content Include="Views\FanClub\_SugestaoAssinaturaPartial.cshtml" />
+    <Content Include="Views\Account\CreateProfile.cshtml" />
+    <Content Include="Views\ErrorPages\Oops.cshtml" />
+    <Content Include="Views\GestaoPerfis\index.cshtml" />
+    <Content Include="Views\Dating\Index.cshtml" />
+    <Content Include="Views\Dating\_PerfilItemPartial.cshtml" />
+    <Content Include="Views\Dating\Perfil.cshtml" />
+    <Content Include="Views\Dating\_ProfileResumoPartial.cshtml" />
+    <Content Include="Views\Dating\_ProfileModalCertificado.cshtml" />
+    <Content Include="Views\GestaoPerfis\AprovacaoFotos.cshtml" />
+    <Content Include="Views\GestaoPerfis\AprovacaoFotosGaleria.cshtml" />
+    <Content Include="Views\Dating\_EditarPerfilModal.cshtml" />
+    <Content Include="Views\Shared\_LayoutAfiliados.cshtml" />
+    <Content Include="Views\Afiliados\Index.cshtml" />
+    <Content Include="Views\Afiliados\MaterialApoio.cshtml" />
+    <Content Include="Views\Afiliados\Relatorios.cshtml" />
+    <Content Include="Views\Afiliados\Referencias.cshtml" />
+    <Content Include="Views\Afiliados\Pagamentos.cshtml" />
+    <Content Include="Views\Afiliados\Ajuda.cshtml" />
+    <Content Include="Views\Afiliados\ConfiguracaoPagamento.cshtml" />
+    <Content Include="Views\Dating\_ProfileModalClassificacaoHomem.cshtml" />
+    <Content Include="Views\Dating\_ProfileModalClassificacaoMulher.cshtml" />
+    <Content Include="Views\Afiliados\ConciliacaoFechamento.cshtml" />
+    <Content Include="Views\Afiliados\ListaOperacoesFechamento.cshtml" />
+    <Content Include="Views\Afiliados\OperacaoRelacionada.cshtml" />
+    <Content Include="Views\Dating\_ProfileModalPix.cshtml" />
+    <Content Include="Views\Dating\_ProfileModalPixRecebimento.cshtml" />
+    <Content Include="Views\Afiliados\LotesFechados.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Reset.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Shared\_LayoutLogedOut.cshtml" />
+    <Content Include="Views\Home\GetConvite.cshtml" />
+    <Content Include="Views\Home\LoginModal.cshtml" />
+    <Content Include="Views\Home\EsqueciSenhaModal.cshtml" />
+    <Content Include="Views\Home\CadastroModal.cshtml" />
+    <Content Include="Views\Shared\_LayoutModal.cshtml" />
+    <Content Include="Views\Account\Register - Copy.cshtml" />
+    <Content Include="Views\Dating\Dating.cshtml" />
+    <Content Include="Views\Dating\__Perfil.cshtml" />
+    <Content Include="Views\Dating\Inbox.cshtml" />
+    <Content Include="Views\Dating\Wishlist.cshtml" />
+    <Content Include="Views\MinhaConta\Index.cshtml" />
+    <Content Include="Views\MinhaConta\Assinatura.cshtml" />
+    <Content Include="Views\MinhaConta\Privacidade.cshtml" />
+    <Content Include="Views\MinhaConta\Feedback.cshtml" />
+    <Content Include="Views\MinhaConta\EditarPerfil.cshtml" />
+    <Content Include="Views\Dating\MensagemModal.cshtml" />
+    <Content Include="Views\Dating\BannerPartial.cshtml" />
+    <Content Include="Views\Dating\UploadFotoModal.cshtml" />
+    <Content Include="Views\Dating\MensagensPartial.cshtml" />
+    <Content Include="Views\Dating\OnlineRecentemente.cshtml" />
+    <Content Include="Views\Dating\NovosPerfis.cshtml" />
+    <Content Include="Views\Dating\Verificados.cshtml" />
+    <Content Include="Views\Dating\Search.cshtml" />
+    <Content Include="Views\MinhaConta\TrocarKoins.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Dating\ResultadoBusca.cshtml" />
+    <Content Include="Views\Dating\__BACKUP_Perfil.cshtml" />
+    <Content Include="Views\Dating\Gold.cshtml" />
+    <Content Include="Views\Dating\VisitasRecebidas.cshtml" />
+    <Content Include="Views\Dating\_DestaquesPartial.cshtml" />
+    <Content Include="Views\Dating\_SugestaoPartial.cshtml" />
+    <Content Include="Views\Home\_CadastroPartial.cshtml" />
+    <Content Include="Views\Mobile\MagicLink.cshtml" />
+    <Content Include="Views\Dating\_ComplementoPartial.cshtml" />
+    <Content Include="Views\MinhaConta\Configuracoes.cshtml" />
+    <Content Include="Views\Dating\_WriteMessagePartial.cshtml" />
+    <Content Include="Views\MinhaConta\_AssinaturaPartial.cshtml" />
+    <Content Include="Views\Dating\Feed.cshtml" />
+    <Content Include="Views\Dating\_PulsacaoPublicadaPartial.cshtml" />
+    <Content Include="Views\MinhaConta\NotificacaoTransacao.cshtml" />
+    <Content Include="Views\MinhaConta\ConfiguracoesAvancadas.cshtml" />
+    <Content Include="Views\Dating\WhatsApp.cshtml" />
+    <Content Include="Views\Dating\Black.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Cadastro.cshtml" />
+    <Content Include="Views\MinhaConta\Loja.cshtml" />
+    <Content Include="Views\MinhaConta\_ComprarKoinsPartial.cshtml" />
+    <Content Include="Views\Notification\_CardFriendNotificationListPartial.cshtml" />
+    <Content Include="Views\Notification\_CardMessageNotificationListPartial.cshtml" />
+    <Content Include="Views\Notification\_CardNotificationListPartial.cshtml" />
+    <Content Include="Views\Notification\Index.cshtml" />
+    <Content Include="Views\__Sugar\Index.cshtml" />
+    <Content Include="Views\__Sugar\_DestaquesPartial.cshtml" />
+    <Content Include="Views\__Sugar\_SugestaoPartial.cshtml" />
+    <Content Include="Views\BDSMAndFetiches\_DestaquesPartial.cshtml" />
+    <Content Include="Views\BDSMAndFetiches\_SugestaoPartial.cshtml" />
+    <Content Include="Views\BDSMAndFetiches\Index.cshtml" />
+    <Content Include="Views\Steps\_PerfilFotoStepPartial.cshtml" />
+    <Content Include="Views\FanClub\profile.cshtml" />
+    <Content Include="Views\Shared\_LayoutVazio.cshtml" />
+    <Content Include="Views\__Sugar\__Index.cshtml" />
+    <Content Include="Views\__Sugar\_TinderCardPartial.cshtml" />
+    <Content Include="Views\Wizard\_CreateProfileWizardPartial.cshtml" />
+    <Content Include="Views\Pagamento\_CheckoutPartial.cshtml" />
+    <Content Include="Views\Institucional\Sobre.cshtml" />
+    <Content Include="Views\Institucional\_SubMenuInstitucionalPartial.cshtml" />
+    <Content Include="Views\Institucional\_FooterInstitucionalPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutDeslogado.cshtml" />
+    <Content Include="Views\Shared\_backup_Layout.cshtml" />
+    <Content Include="Views\MinhaConta\_ModalPremiumPartial.cshtml" />
+    <Content Include="Views\MinhaConta\_TabPagamentoCartaoCreditoPartial.cshtml" />
+    <Content Include="Views\MinhaConta\_TabPagamentoMetodosPartial.cshtml" />
+    <Content Include="Views\MinhaConta\RetornoAssinatura.cshtml" />
+    <Content Include="Views\MinhaConta\_ModalPointsPartial.cshtml" />
+    <Content Include="Views\MinhaConta\_TabPagamentoCompraCartaoCreditoPartial.cshtml" />
+    <Content Include="Views\Modal\_ProfileModalFotoPerfil.cshtml" />
+    <Content Include="Views\MinhaConta\_RetornoCompraPartial.cshtml" />
+    <Content Include="Views\MinhaConta\_TabPagamentoCompraBoletoCreditoPartial.cshtml" />
+    <Content Include="Views\MinhaConta\_RetornoCompraBoletoPartial.cshtml" />
+    <Content Include="Views\MinhaConta\_TabPagamentoPointsPartial.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Wallet\Index.cshtml" />
+    <Content Include="Views\MinhaConta\_ModalLovrPartial.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ImagesChat\" />
+    <Folder Include="ImagesPosts\" />
+    <Folder Include="modules\afiliados\js\" />
+    <Folder Include="Users\" />
+    <Folder Include="Views\FileUpload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Miscellaneous\Miscellaneous.csproj">
+      <Project>{f15ca941-a3d8-4513-a552-2a6779b0a1ab}</Project>
+      <Name>Miscellaneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mongo\Mongo.csproj">
+      <Project>{5a81a1dc-95fa-44b3-b983-6676b5d4214c}</Project>
+      <Name>Mongo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Typings\autosize\autosize.d.ts" />
+    <TypeScriptCompile Include="Scripts\Typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\Typings\signalr\signalr.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3178</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44398/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

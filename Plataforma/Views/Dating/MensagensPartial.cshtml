@@ -1,0 +1,79 @@
+﻿@using System.Net;
+@{
+    Layout = null;
+}
+
+
+@{
+
+    if (ViewBag.Messages != null)
+    {
+        foreach (var item in ViewBag.Messages)
+        {
+            if (ViewBag.Me == item.SenderId)
+            {
+                <li class="group-message clearfix ng-scope me show-status" data-group-id="@item.Id">
+                    <ul class="me">
+                        <li class="clearfix ng-scope seen">
+
+                            <div class="container-message-text ng-scope">
+
+                                <div tabindex="0" class="container-message-sent ng-scope">
+
+                                    <span class="message-text ng-binding">@Html.Raw(item.Message_Body)</span>
+                                    @*@WebUtility.HtmlDecode(@item.Message)*@
+
+                                    <!-- Excluir-->
+                                    @*<span class="message-icon-trash" data-trash-id="@item.Id"></span>*@
+                                </div>
+
+                                <span class="message-time">@item.DateLastInteraction</span>
+
+                            </div>
+
+                            @*<span class="message-status ng-scope">
+                                <span class="message-sent" style="display:block;">
+                                    <i></i>
+                                    Enviada
+                                </span>
+
+                                <span class="message-seen" style="display:block;">
+                                    <i></i>
+                                    Visualizada
+                                </span>
+                            </span>*@
+                        </li>
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li class="group-message clearfix ng-scope" data-group-id="@item.Id">
+
+                    <ul class="other">
+
+                        <li class="clearfix ng-scope seen">
+
+                            <div class="container-message-text ng-scope">
+
+                                <div tabindex="0" class="container-message-sent ng-scope">
+
+                                    <span class="message-text ng-binding">@Html.Raw(item.Message_Body)</span>
+                                    @*<span class="message-icon-trash" data-trash-id="@item.Id"></span>*@
+                                </div>
+
+                                <span class="message-time" bo-text="item.timestamp | moment:'l LT' ">@item.DateLastInteraction</span>
+
+                            </div>
+
+                        </li>
+
+                        <li class="message-thumb">
+                            <img alt="@ViewBag.NomeTo" class="js-img-perfil-circle" src="@ViewBag.urlImage">
+                        </li>
+                    </ul>
+                </li>
+            }
+        }
+    }
+}

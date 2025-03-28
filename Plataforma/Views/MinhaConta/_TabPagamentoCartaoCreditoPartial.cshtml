@@ -1,0 +1,402 @@
+﻿@using Plataforma.Models
+@model PagamentoCartao
+
+@{
+    Layout = null;
+}
+
+
+<div class="tab-pane">
+
+    @using (Ajax.BeginForm("ComprarAssinatura", "MinhaConta", new AjaxOptions
+    {
+        OnSuccess = "OnSuccess",
+        //UpdateTargetId = "TargetUpdate",
+        //InsertionMode = InsertionMode.Replace
+    }, new { @id = "SubmitFormSubscription", @class = "sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-valid ng-invalid-flag" }))
+    {
+
+        @Html.HiddenFor(m => m.plan_id)
+        <div></div>
+        <div id="TargetUpdate">
+
+            <p style="color:darkred;" class="js-validator-label">Todos os campos são obrigatórios!</p>
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                    <div class="form-group has-feedback">
+                        <label>Número do cartão (apenas números)</label>
+                        <span class="cards-position selected-card credit"></span>
+                        @Html.TextBoxFor(m => m.numeroCartaoCredito, new { @id = "NumeroCartao", @class = "form-control ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-flag", @name = "number", @autotab = "19", @maxlength = "16", @required = "", @autocomplete = "off" })
+
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-5">
+                    <label>Validade</label>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <select id="SelectMesValidade" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" subscribe-validator="" name="month">
+                                    <option value="" class="" selected="selected">
+                                        Mês
+                                    </option>
+                                    <option label="01" value="01">01</option>
+                                    <option label="02" value="02">02</option>
+                                    <option label="03" value="03">03</option>
+                                    <option label="04" value="04">04</option>
+                                    <option label="05" value="05">05</option>
+                                    <option label="06" value="06">06</option>
+                                    <option label="07" value="07">07</option>
+                                    <option label="08" value="08">08</option>
+                                    <option label="09" value="09">09</option>
+                                    <option label="10" value="10">10</option>
+                                    <option label="11" value="11">11</option>
+                                    <option label="12" value="12">12</option>
+                                </select>
+                                @Html.HiddenFor(m => m.mesValidadeCartao, new { @id = "mesValidadeCartao" })
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group has-feedback">
+                                <select id="SelectAnoValidade" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" subscribe-validator="" name="year">
+                                    <option value="" class="" selected="selected">
+                                        Ano
+                                    </option>
+                                    <option label="2021" value="21">2021</option>
+                                    <option label="2022" value="22">2022</option>
+                                    <option label="2023" value="23">2023</option>
+                                    <option label="2024" value="24">2024</option>
+                                    <option label="2025" value="25">2025</option>
+                                    <option label="2026" value="26">2026</option>
+                                    <option label="2027" value="27">2027</option>
+                                    <option label="2028" value="28">2028</option>
+                                    <option label="2029" value="29">2029</option>
+                                    <option label="2030" value="30">2030</option>
+                                    <option label="2031" value="31">2031</option>
+                                    <option label="2032" value="32">2032</option>
+                                </select>
+                                @Html.HiddenFor(m => m.anoValidadeCartao, new { @id = "anoValidadeCartao" })
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                    <div class="form-group has-feedback">
+                        <label>Nome do Titular do cartão</label>
+                        @Html.TextBoxFor(m => m.nomeTitularCartao, new { @class = "form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength", @name = "number", @autotab = "19", @maxlength = "50", @required = "", @autocomplete = "off" })
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 ng-scope kinkee-codigo-seguranca" style="padding-top: 0 !important;">
+                    <div class="form-group has-feedback">
+                        <label>Código de segurança</label>
+                        @*<i class="icon-helper" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="popoverSecurity">?</i>*@
+                        @*<input type="text" class="form-control ng-pristine ng-untouched ng-scope ng-empty ng-invalid ng-invalid-required ng-invalid-valid" placeholder="000" required="" card-security-code="" subscribe-validator="" name="securityCode" flag="" valid="" maxlength="3">*@
+                        @Html.TextBoxFor(m => m.codigoSeguranca, new { @id = "CodigoSeguranca", @class = "form-control ng-pristine ng-untouched ng-scope ng-empty ng-invalid ng-invalid-required ng-invalid-valid", @placeholder = "000", @name = "securityCode", @autotab = "3", @maxlength = "3", @flag = "", @valid = "", @required = "", @autocomplete = "off" })
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-3">
+                    <div class="form-group has-feedback">
+                        <label>CEP</label>
+                        @*<input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 12345-123" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode">*@
+                        @Html.TextBoxFor(m => m.cep, new { @id = "CEP", @class = "form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength", @placeholder = "Ex: 12345-123", @autotab = "9", @maxlength = "9", @zipcode = "", @name = "zipCode" })
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                    <div class="form-group has-feedback">
+                        <label>Numero do CPF ou CNPJ(apenas números)</label>
+                        @*<input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 12345-123" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode">*@
+                        @Html.TextBoxFor(m => m.numeroDocumento, new { @id = "NumeroDocumento", @class = "form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength", @placeholder = "Ex: 12345-123", @zipcode = "", @name = "zipCode" })
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                @*<div class="col-xs-12 col-sm-8 ng-scope">
+                <div class="form-group">
+                    <label for="">Parcelas</label>
+                    @Html.DropDownListFor(m => m.parcelas, new SelectList(Model.parcelas, "Value", "Text", Model.parcelas.Count()), new { @class = "form-control ng-pristine ng-untouched ng-valid ng-not-empty" })
+
+                </div>
+            </div>*@
+            </div>
+            <p style="color:darkred;" class="js-validator-label">Todos os campos são obrigatórios!</p>
+        </div>
+    }
+
+
+
+
+
+
+    @*<form class="sl-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" data-errors="subscribeCard" name="subscribeFormCreditAntifraude">
+            <div class="antifraude-complete">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="form-group has-feedback">
+                            <label>CEP</label>
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 12345-123" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode">
+                            <i class="icon-loading ng-hide"></i>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                        <span class="cep-help" popover-append-to-body="true" popover-placement="bottom" popover-trigger="'mouseenter click'" uib-popover-html="'Para garantir sua <strong>segurança</strong> as operadoras de cartão solicitam endereço e dados pessoais do titular. Fique tranquilo, essas informações são sigilosas e não serão disponibilizadas para nenhum outro fim.'">
+                            Por que meu CEP ? <span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ng-hide">
+                    <div class="address-auto">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p class="address-ajax">
+                                    <strong class="ng-binding"></strong>
+                                    <span class="ng-binding"></span>
+                                    <a href="#">- Editar</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bgdark">
+                        <div class="row">
+
+                            <div class="col-xs-4 col-sm-3">
+                                <div class="form-group has-feedback">
+                                    <label>Número</label>
+                                    <input type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNumFixed" ng-mask="99999">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-8 col-sm-9">
+                                <div class="form-group">
+                                    <label>Complemento</label><small> (Opcional)</small>
+                                    <input type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3">
+                                <div class="form-group has-feedback">
+                                    <label>DDD</label>
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-5">
+                                <div class="form-group has-feedback">
+                                    <label>Telefone</label>
+                                    <input maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ng-hide">
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="form-group has-feedback">
+                            <label for="">CEP</label>
+                            <input ng-model="subscription.address.zipCode" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" placeholder="Ex: 12345-123" ng-blur="getAddressBlur('7')" autotab="8" maxlength="8" zipcode="" subscribe-validator="" name="zipCode" ng-mask="99999999">
+                            <i ng-show="loadingAddress" class="icon-loading full ng-hide"></i>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-7">
+                        <div class="form-group has-feedback">
+                            <label for="">Cidade</label>
+                            <input ng-model="subscription.address.city" type="text" maxlength="50" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="city">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-2">
+                        <div class="form-group has-feedback">
+                            <label for="">UF</label>
+                            <input ng-model="subscription.address.state" type="text" maxlength="2" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="state">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-7">
+                        <div class="form-group has-feedback">
+                            <label for="">Endereço</label>
+                            <input ng-model="subscription.address.street" type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="address">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="form-group has-feedback">
+                            <label for="">Bairro</label>
+                            <input ng-model="subscription.address.neighborhood" maxlength="60" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" required="" subscribe-validator="" name="neighborhood">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-2">
+                        <div class="form-group has-feedback">
+                            <label for="">Número</label>
+                            <input ng-model="subscription.address.number" type="text" maxlength="5" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" addressnum="" subscribe-validator="" name="addressNum" ng-mask="99999">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-7">
+                        <div class="form-group">
+                            <label for="">Complemento</label><small> (Opcional)</small>
+                            <input ng-model="subscription.address.adjunct" type="text" maxlength="60" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-2">
+                        <div class="form-group has-feedback">
+                            <label for="">DDD</label>
+                            <input ng-model="subscription.address.area" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" maxlength="2" ddd="" subscribe-validator="" name="ddd" ng-mask="99">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="form-group has-feedback">
+                            <label for="">Telefone</label>
+                            <input ng-model="subscription.address.phone" maxlength="9" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-empty ng-valid-maxlength" phone="" subscribe-validator="" name="phone" ng-mask="999999999">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>*@
+
+    @*<div class="info">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="checkbox">
+                        <label for="indexSaveOneBuy">
+                            <input class="onebuy__checkbox ng-pristine ng-untouched ng-valid ng-not-empty" type="checkbox" id="indexSaveOneBuy" name="saveonebuy">
+                            Salvar dados para compra rápida <i class="icon-help" sl-tooltip="" title="" data-original-title="Ative a compra rápida para armazenar seus dados com segurança e garantir mais rapidez nas próximas transações, comprando com apenas um clique. Você pode desativar essa opção a qualquer momento.">?</i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <hr class="separate">
+    <div class="privacy__text">
+        <span>Cobrança processada pela <strong class="privacy-info__strong">Pagar.Me</strong>.</span>
+    </div>
+    <div class="renewal-text">
+        <span class="ng-binding">Sua assinatura será renovada automaticamente até que seja cancelada.</span>
+    </div>
+
+
+    <div class="box-submit">
+        <div class="box-submit__infos">
+            <small class="termos-uso">
+                Ao concluir, você aceita nossos <a href="sobre/termos" target="_blank">termos de uso</a>
+            </small>
+            <small class="termos-uso flag-br ng-hide">
+                Essa compra está sendo feita no Brasil
+            </small>
+        </div>
+        <div class="box-submit__btn">
+            <button class="sl-btn btn-primary btn-lg js-button-submit-subscription">
+                <span class="ng-binding">Assinar Premium</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+@*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+<script>
+    $(document).ready(function () {
+
+        $("input[id*='CEP']").inputmask({
+            mask: ['99999-999', '99999999'],
+            keepStatic: true
+        });
+
+        $("input[id*='NumeroCartao']").inputmask({
+            mask: ['9999999999999999999', '9999999999999999999'],
+            keepStatic: true
+        });
+
+        $("input[id*='CodigoSeguranca']").inputmask({
+            mask: ['999', '999'],
+            keepStatic: true
+        });
+
+        $("#SelectMesValidade").change(function () {
+
+            $('#mesValidadeCartao').val($(this).val());
+        });
+
+        $("#SelectAnoValidade").change(function () {
+
+            $('#anoValidadeCartao').val($(this).val());
+        });
+
+
+        $('.js-button-submit-subscription').click(function () {
+
+           
+
+            //if (!FormValidate()) {
+            //    $('.js-validator-label').css("display", "block");
+            //}
+            //else {
+            //    $("#SubmitFormSubscription").submit();
+            //}
+
+            $("#SubmitFormSubscription").submit();
+           
+        });
+
+
+        //function FormValidate() {
+        //    var retorno = true;
+
+            
+        //}
+
+        //function validaNumeroCartao() {
+        //    var valor = $('#NumeroCartao');
+
+            
+
+        //    if (valor.replace("_", "").length)
+        //}
+
+    });
+
+</script>

@@ -1,0 +1,190 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutAfiliados.cshtml";
+}
+
+<h2 class="titleCommon titleSpacer">Relatórios</h2>
+@*<div class="filters">
+        <div class="itemFilter">
+            <label class="labelFilter">Visualizar</label>
+            <div id="boxDropReportPeriod" class="btn dfl drop dropLeft">
+                <span>Últimos 15 dias</span>
+                <div class="boxDrop">
+                    <ul class="ulDrop">
+                        <li class="itemDrop"><a class="linkDrop" href="#">Últimos 30 dias</a></li>
+                        <li class="itemDrop select"><a class="linkDrop" href="#">Últimos 15 dias</a></li>
+                        <li class="itemDrop"><a class="linkDrop" href="#">Últimos 7 dias</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<style>
+    .report-table td:first-child, .report-table th:first-child {
+        border-right: 1px solid #d3d3d3;
+        width: 3%;
+    }
+
+    #container .main, #container #main {
+        width: 1300px;
+    }
+</style>
+
+<p class="textCommission"><label style="font-size: 60px;">@ViewBag.NomeUsuario</label></p>
+<br />
+<p class="textCommission"><label style="font-size: 50px;">Valor Total Liberado: @ViewBag.valorTotalLiberado.ToString("C")</label></p>
+<br />
+<p class="textCommission"><strong>Total de cliques em seu link:</strong> <label style="font-size: 70px;">@ViewBag.NumeroClicks</label></p>
+
+
+<button class="FecharLote" data-fechar-lote="@ViewBag.IdUsuario">Fechar Lote</button>
+
+<table class="report-table">
+    <thead>
+        <tr>
+            <th>DETALHE</th>
+            <th>T. Op</th>
+            <th>D. Op</th>
+            <th title="Cadastros / Cadastros confirmados">
+                Data Alt
+            </th>
+            <th>Lib.</th>
+            <th>Perfil</th>
+            <th>Tx Cartão</th>
+            <th>Tx ISS</th>
+            <th>Cus Fixo</th>
+            <th>Cus Boleto</th>
+            <th>Vl Bruto</th>
+            <th>Vl Liquido</th>
+            <th>Vl Premio</th>
+            <th>Vl Comissao</th>
+            <th>Vl AReceber</th>
+            <th>Fechado</th>
+            <th>D. Fech</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ 
+
+            var NumeroClicks = 0;
+            var ValorBruto = 0.0;
+            var ValorLiquido = 0.0;
+            var ValorPremio = 0.0;
+            var ValorComissao = 0.0;
+            var ValorAReceber = 0.0;
+        }
+        @foreach (var item in ViewBag.ListaOperacoes)
+        {
+            <tr>
+                <td>@Html.ActionLink("VER", "OperacaoRelacionada", "Afiliados", new { id_operacao = item.IdOperacaoRelacionada.ToString(), tipo = item.TipoOperacao }, null)</td>
+                <td>@item.TipoOperacao</td>
+                <td>@item.DataOperacao.ToString("dd/MM/yyyy")</td>
+                <td>@(item.DataAlteracao != null ? item.DataAlteracao.ToString("dd/MM/yyyy") : "-")</td>
+                <td>@(item.OperacaoLiberada ? "SIM": "NÃO")</td>
+                <td>@item.NomePerfil</td>
+                <td>@item.TaxaCartao.ToString("")%</td>
+                <td>@item.TaxaISS.ToString("")%</td>
+                <td>@item.CustoFixo.ToString("C")</td>
+                <td>@item.CustoBoleto.ToString("C")</td>
+                <td>@item.ValorBruto.ToString("C")</td>
+                <td>@item.ValorLiquido.ToString("C")</td>
+                <td>@item.ValorPremio.ToString("C")</td>
+                <td>@item.ValorComissao.ToString("C")</td>
+                <td>@item.ValorAReceber.ToString("C")</td>
+                <td>@(item.LoteFechado ? "SIM": "NÃO")</td>
+                <td>@item.DataFechamento</td>
+                <td>
+                    @if (!item.OperacaoLiberada)
+                    {
+                        <button class="liberarOperacao" data-operacao-liberar="@item.Id">Liberar</button>
+                    }
+                </td>  
+                    
+            </tr>
+
+            //NumeroClicks += @item.NumeroClicks;
+            //ValorBruto += @item.ValorBruto;
+            //ValorLiquido += @item.ValorLiquido;
+            //ValorPremio += @item.ValorPremio;
+            //ValorComissao += @item.ValorComissao;
+            //ValorAReceber += @item.ValorAReceber;
+            }
+    </tbody>
+    @*<tfoot>
+        <tr>
+            <td></td>
+            <td>Totais</td>
+            <td>@NumeroClicks</td>
+            <td>@ValorBruto.ToString("C")</td>
+            <td>@ValorLiquido.ToString("C")</td>
+            <td>@ValorPremio.ToString("C")</td>
+            <td>@ValorComissao.ToString("C")</td>
+            <td>@ValorAReceber.ToString("C")</td>
+        </tr>
+    </tfoot>*@
+</table>
+<div style="width: 100%; margin-top: 10px; float: left; text-align: right;">
+    <p style="font-size: 11px;"><span style="color: red">**</span> Os pagamentos são realizados automaticamente no último dia de cada mês, sendo o fechamento realizado 5 dias antes destas datas.</p>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $('.liberarOperacao').click(function () {
+
+
+            $(this).prop("disabled", true);
+
+            var operacaoLiberar = $(this).attr("data-operacao-liberar");
+
+             $.ajax({
+                url: "@Url.Action("LiberarOperacao", "Afiliados")",
+                data: {
+                    'OperacaoId': operacaoLiberar,
+                },
+                dataType: "html",
+                type: 'POST',
+                 success: function (data) {
+                     $(this).attr('disabled', true)
+                },
+                error: function () {
+                    //Notification();
+                }
+             });
+
+        });
+
+        $('.FecharLote').click(function () {
+
+
+            $(this).prop("disabled", true);
+
+            var UsuarioId = $(this).attr("data-fechar-lote");
+
+             $.ajax({
+                url: "@Url.Action("FecharLote", "Afiliados")",
+                data: {
+                    'UsuarioId': UsuarioId,
+                },
+                dataType: "html",
+                type: 'POST',
+                 success: function (data) {
+                     $(this).attr('disabled', true)
+                },
+                error: function () {
+                    //Notification();
+                }
+             });
+
+        });
+
+    });
+
+
+</script>

@@ -1,0 +1,362 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $(".js-close-publicacao").click(function () {
+
+            $('#WriteMessage').empty();
+        });
+
+    });
+
+    function countTextAreaChar(txtarea) {
+        var len = $(txtarea).val().length;
+
+        if (len > 0) {
+            $('.js-btn-publicacao').removeAttr('disabled');
+        }
+        else {
+            $('.js-btn-publicacao').attr('disabled', 'disabled');
+        }
+
+        if (len > 100) {
+            $('.js-text-publicacao').css('font-size', '14px');
+            $('.js-text-publicacao').css('line-height', '18px');
+        }
+        else {
+            $('.js-text-publicacao').css('font-size', '24px');
+            $('.js-text-publicacao').css('line-height', '28px');
+        }
+    }
+
+    $(document).on("click", ".js-btn-publicacao", function (e) {
+
+        //$.get('../../MinhaConta/_AssinaturaPartial', function (data) {
+        //    $('#AssinaturaPartial').append(data);
+        //});
+
+
+        //var KinkeeGold = $("#InpuptKinkeeGold").data("value");
+
+
+        //if (KinkeeGold == "True")
+        //{
+        //    $('.modal-confirm-backdrop').css('display', 'block');
+        //    $('.js-modal-confirm').css('display', 'block');
+        //}
+
+        $('.modal-confirm-backdrop').css('display', 'block');
+        $('.js-modal-confirm').css('display', 'block');
+
+        e.preventDefault();
+    });
+
+    $(document).on("click", ".js-close-button-assinatura", function (e) {
+        $('#AssinaturaPartial').empty();
+
+        e.preventDefault();
+    });
+
+
+    $(document).on("click", ".js-cancelar-publicar", function (e) {
+
+        $('.modal-confirm-backdrop').css('display', 'none');
+        $('.js-modal-confirm').css('display', 'none');
+        $('.js-modal-select-privacidade').css('display', 'none');
+
+        e.preventDefault();
+    });
+
+    $(document).on("click", ".js-edit-privacidade", function (e) {
+
+        $('.modal-confirm-backdrop').css('display', 'block');
+        $('.js-modal-select-privacidade').css('display', 'block');
+
+        e.preventDefault();
+    });
+
+
+    $(document).on("click", ".js-enviar-publicar", function (e) {
+
+        //var KinkeeGold = $("#InpuptKinkeeGold").data("value");
+        var txtPublicacao = $('.js-text-publicacao').val();
+        var outputImg = $('#outputImg').attr('src');
+        //alert(outputImg);
+        if (outputImg != undefined) {
+                    if (outputImg != undefined) {
+                        txtPublicacao = txtPublicacao+'<br><br><img alt="" src=' + outputImg + ' style="width:100%;">';
+                    }
+                }
+
+        $.ajax({
+            type: 'POST',
+            url: '/FanClub/EnviarPublicacao',
+            data: { "txtPublicacao": txtPublicacao },
+            dataType: 'json',
+            success: function (data) {
+
+                //alert(data);
+                $('#WriteMessage').empty();
+                TodasAsPublicacoesAtivas();
+            },
+            beforeSend: function () {
+
+            },
+            complete: function () {
+
+            },
+            error: function (data) {
+                $('.js-error-publicar').append('Ops! Um erro ocorreu.');
+            }
+        });
+
+        e.stopImmediatePropagation();
+        e.preventDefault();
+
+        return false;
+    });
+
+
+
+
+    //$(document).on("change", ".js-text-publicacao", function (e) {
+
+    //    alert("Handler for .change() called.");
+    //    e.preventDefault();
+    //});
+
+
+
+</script>
+
+<style>
+    .js-text-publicacao
+    {
+        font-size: 24px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 28px;
+    }
+
+    
+</style>
+<input type="hidden" id="InpuptKinkeeGold" data-value="@ViewBag.KinkeeGold" />
+
+<div class="modal-backdrop in" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal sl-share" style="z-index: 1050; display: block;">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div sl-share="">
+                <div class="modal-header clearfix">
+                    <button type="button" class="sl-close js-close-publicacao">×</button>
+                    <div class="avatar">
+                        <img src="@ViewBag.imagemPerfil" class="img-circle">
+                    </div>
+                    <div class="info">
+                        <div class="info-section title">
+                            @ViewBag.UserName
+                        </div>
+                        @*<div class="info-section subtitle js-edit-privacidade">
+                    para <a class="info-section-lists ng-binding">Público</a>
+                    <a class="info-section-lists ng-hide">Mostrar todos</a>
+
+                    <div class="edit-container">
+                        <span class="svg-allsite-edit" title="Editar"></span>
+                    </div>
+                </div>*@
+                    </div>
+                </div>
+
+                <script>
+
+                    $(document).ready(function () {
+
+
+                        $('.image-delete').click(function () {
+
+                            $('.preview').css('display', 'none');
+                            var output = document.getElementById('outputImg');
+                            output.src = "";
+                            var text = $('.js-text-publicacao');
+                            countTextAreaChar(text);
+                        });
+
+                        $('#js-uploadImage-icon').click(function () {
+                            $('#js-uploadImagePost').trigger('click');
+                        });
+
+
+                        $("#js-uploadImagePost").change(function () {
+
+                            //$('.chat-upload-list').css('display', 'block');
+
+                            var output = document.getElementById('outputImg');
+
+
+                            var add_photo_url = "@Url.Action("UploadImagePost", "Dating")";
+                            var model = new FormData();
+
+                            model.append("File", $("#js-uploadImagePost").prop('files')[0]);
+
+                            $.ajax({
+                                url: add_photo_url,
+                                    type: "POST",
+                                    data: model,
+                                    dataType: "json",
+                                    cache: false,
+                                    contentType: false,
+                                    processData: false
+
+                                }).always(function (result) {
+                                    output.src = result.responseText;
+                                    $('.preview').css('display', 'block');
+                                    $('.js-text-publicacao').css('font-size', '14px');
+                                    $('.js-text-publicacao').css('line-height', '18px');
+                                });
+                        });
+                    });
+
+
+                    function convertFileToBase64viaFileReader(url, callback){
+                        var xhr = new XMLHttpRequest();
+                        xhr.responseType = 'blob';
+                        xhr.onload = function() {
+                          var reader  = new FileReader();
+                          reader.onloadend = function () {
+                              callback(reader.result);
+                          }
+                          reader.readAsDataURL(xhr.response);
+                        };
+                        xhr.open('GET', url);
+                        xhr.send();
+                    }
+
+                </script>
+
+                <div class="modal-body">
+                    <div class="content">
+
+                        <div class="alert alert-warning ng-hide">
+                            <strong>PRIVADO:</strong> Tudo o que você postar aqui será privado e só poderá ser visto por quem pagar uma assinatura para você.
+                        </div>
+
+                        <div class="body-container">
+                            <textarea onkeyup="countTextAreaChar(this)" placeholder="Publique algo para que as pessoas vejam" class="ng-pristine ng-valid js-text-publicacao"></textarea>
+
+                            <div class="image-container">
+                                <div class="preview">
+                                    <span class="image-delete">
+                                        <i></i>
+                                    </span>
+
+                                    <div class="image"><img id="outputImg" src="" style="max-height: 200px;"></div>
+                                </div>
+
+                            </div>
+
+                            <style>
+                                .modal-body fieldset {
+                                    border: 1px solid #ddd;
+                                    height: 62px;
+                                }
+                            </style>
+                            <fieldset>
+                                <div class="icon-container">
+                                    <span class="icon-plus ng-scope">+</span>
+
+                                </div>
+                                <div class="icon-actions ng-scope">
+                                    <span id="js-uploadImage-icon" class="icon-photo">
+                                        <span>Foto</span>
+                                    </span>
+                                    @*<span id="js-uploadVideo-icon" class="icon-video">
+                                        <span>Vídeo</span>
+                                    </span>*@
+                                </div>
+
+                                <input id="js-uploadImagePost" type="file" class="share-file ng-scope " name="files" accept="image/jpg,image/jpeg,image/gif,image/png">
+                                @*<input id="js-uploadVideoPost" type="file" class="share-video ng-scope" name="files" data-url="https://www.sexlog.com/upload" accept="video/avi,video/mpg,video/mpeg,video/mov,video/mp4,video/3gp,video/wmv">*@
+                            </fieldset>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <small>
+                            Lembre-se dos <a href="#" target="_blank">termos de uso</a>
+                        </small>
+
+                        <button type="button" class="sl-btn btn-primary ng-binding js-btn-publicacao" disabled="disabled">
+                            Publicar
+                        </button>
+                    </div>
+
+
+                    <div class="modal-confirm-backdrop"></div>
+
+                    <div class="modal-confirm js-modal-confirm">
+                        <div class="modal-confirm-body">
+                            <h4 class="ng-binding">Deseja Confirmar a Publicação?</h4>
+                            <p class="ng-binding">Todos os seus amigos irão ver sua publicação.</p>
+                        </div>
+                        <div class="modal-confirm-footer">
+                            <p class="js-error-publicar" style="float:left;"></p>
+                            <button type="button" class="sl-btn ng-binding js-cancelar-publicar">Cancelar</button>
+                            <button type="button" class="sl-btn btn-primary ng-binding js-enviar-publicar">Publicar</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-confirm js-modal-select-privacidade">
+                        <div class="modal-confirm-body">
+                            <div class="modal-header ng-scope">
+                                <h4>Configure a privacidade da sua postagem</h4>
+                                <br />
+                                <ul class="row">
+                                    <li class="col-sm-6 ng-scope" title="Público">
+                                        <div class="permission-box active">
+                                            <span class="permission-icon ico-public"><i></i></span>
+                                            <div class="permission-info">
+                                                <span class="title ng-binding">Público</span>
+                                            </div>
+                                            <span class="permission-check"><i></i></span>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-6 ng-scope" title="Amigos">
+                                        <div class="permission-box">
+                                            <span class="permission-icon ico-friends"><i></i></span>
+                                            <div class="permission-info">
+                                                <span class="title ng-binding">Amigos</span>
+                                            </div>
+                                            <span class="permission-check"><i></i></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-confirm-footer">
+                            <p class="js-error-publicar" style="float:left;"></p>
+                            <button type="button" class="sl-btn ng-binding js-cancelar-publicar">Cancelar</button>
+                            <button type="button" class="sl-btn btn-primary ng-binding js-enviar-editar-privacidade">Editar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+</div>
+
+<div id="AssinaturaPartial">
+
+</div>
+
+

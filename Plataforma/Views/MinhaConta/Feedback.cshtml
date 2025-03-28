@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .container-flex.authentication {
+        -webkit-transform: translateY(10%);
+        -ms-transform: translateY(10%);
+        transform: translateY(10%);
+    }
+
+    @@media (min-width:600px) {
+        .container-flex.authentication {
+            -webkit-transform: translateY(calc(20% - 48px));
+            -ms-transform: translateY(calc(20% - 48px));
+            transform: translateY(calc(20% - 48px));
+        }
+    }
+
+    .sl-modal.login.injected, .sl-modal.signup.injected, .panel.confirm-email {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    @@media (min-width:600px) {
+        .sl-modal.login.injected, .sl-modal.signup.injected, .panel.confirm-email {
+            width: 500px;
+        }
+    }
+
+    .panel.confirm-email {
+        border: 1px solid #d4d4d4;
+    }
+
+    @@media (min-width:992px) {
+        .panel.confirm-email {
+            width: 700px;
+        }
+    }
+
+    .panel.confirm-email .alert {
+        margin: -41px -20px 20px;
+    }
+
+    .panel.confirm-email .mobile-validation .alert {
+        margin: -20px -20px -5px;
+    }
+
+    .panel.confirm-email .mobile-validation + .hide-resend-email {
+        margin-top: 30px;
+    }
+
+    @@media (min-width:600px) {
+        .panel.confirm-email .mobile-validation + .hide-resend-email {
+            margin-top: 0;
+        }
+    }
+
+    .panel.confirm-email .panel-heading {
+        padding: 20px;
+    }
+
+        .panel.confirm-email .panel-heading h3 {
+            margin: 0;
+            color: #661577;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+    .panel.confirm-email .panel-body {
+        padding: 50px 20px 0;
+        border-top: 1px solid #d4d4d4;
+        font-size: 14px;
+    }
+
+        .panel.confirm-email .panel-body p {
+            font-size: 16px;
+        }
+
+            .panel.confirm-email .panel-body p.small {
+                font-size: 13px;
+                margin-top: 50px;
+            }
+
+        .panel.confirm-email .panel-body .text-or {
+            margin-left: 12px;
+        }
+
+        .panel.confirm-email .panel-body .btn-link {
+            font-size: 14px;
+        }
+
+        .panel.confirm-email .panel-body .keep-browsing {
+            margin: 10px 0;
+        }
+
+    .panel.change-password .panel-body {
+        padding: 40px;
+    }
+
+        .panel.change-password .panel-body .alert.alert-danger {
+            margin: -41px -41px 20px;
+        }
+
+    form.change-email {
+        background-color: #f5f5f5;
+        padding: 20px;
+        margin: 5px -20px;
+    }
+
+    form.change-password .form-control.input-lg {
+        margin-bottom: 20px;
+        border-radius: 3px;
+    }
+</style>
+
+<div ng-controller="AuthenticationController" class="container-flex authentication ng-scope">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="bordered sl-modal login injected" login-injected="" data-resend-password="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                           
+                            <h4 class="modal-title">
+                                <span bo-text="options.title">O que achou do Sexlog?</span>
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-message" bo-text="options.message">Relate problemas, ideias de recursos e comentários em geral sobre o site.</p>
+                            <!-- ngIf: options.info -->
+                            <!-- ngIf: options.html --><div class="modal-html ng-scope ng-binding" bind-html-compile="options.html" ng-if="options.html">
+                                <form ng-class="{'text-center': !options.noConflict}" class="ng-scope ng-pristine ng-valid text-center">
+
+                                    <select class="form-control ng-pristine ng-valid" ng-model="options.category">
+                                        <option value="">Categoria (opcional)</option>
+                                        <option value="9">Amigos e Favoritos</option>
+                                        <option value="8">Assinatura</option>
+                                        <option value="10">Busca</option>
+                                        <option value="11">Closet</option>
+                                        <option value="12">Denúncia</option>
+                                        <option value="13">Eventos e Grupos</option>
+                                        <option value="14">Fotos e Vídeos</option>
+                                        <option value="15">Livecam</option>
+                                        <option value="16">Mensagens</option>
+                                        <option value="17">Presentes</option>
+                                        <option value="18">Selo Real</option>
+                                        <option value="19">Tokens</option>
+                                        <option value="20">Top Sexlog</option>
+                                    </select>
+                                    <br>
+
+                                    <textarea class="form-control ng-pristine ng-valid" maxlength="1024" ng-model="options.feedback" placeholder=""></textarea>
+                                    <br>
+
+                                    <!-- ngIf: !options.hideLike --><div class="btn-group btn-group-radio ng-scope" ng-if="!options.hideLike">
+                                        <label class="sl-btn btn-default active" ng-class="{active: options.status == 1}" title="Gostei" ng-init="options.status = 1">
+                                            <input type="radio" name="status" value="1" ng-model="options.status" class="ng-pristine ng-valid">
+                                            <img src="https://www.sexlog.com/images/icon/hand_pos.png">
+                                            <span>Gostei</span>
+                                        </label>
+
+                                        <label class="sl-btn btn-default" ng-class="{active: options.status == 0 || !options.status}" title="Não gostei">
+                                            <input type="radio" name="status" value="0" ng-model="options.status" class="ng-pristine ng-valid">
+                                            <img src="https://www.sexlog.com/images/icon/hand_neg.png">
+                                            <span>Não gostei</span>
+                                        </label>
+                                    </div><!-- end ngIf: !options.hideLike -->
+                                    <!-- ngIf: options.warning -->
+                                </form>
+                            </div><!-- end ngIf: options.html -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="sl-btn btn-lg btn-primary" ng-click="ok()" bo-text="options.ok" ng-disabled="isDisabled()" disabled="disabled">OK</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+        </div>
+    </div>
+</div>

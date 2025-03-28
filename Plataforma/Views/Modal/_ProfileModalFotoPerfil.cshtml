@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/modules/css/certification-modal-intro");
+
+
+
+<div class="modal-backdrop in" modal-backdrop="" style="z-index: 1040;"></div>
+
+<div tabindex="-1" role="dialog" class="modal ng-isolate-scope filling-modal bottom-sheet" ng-style="{'z-index': 1050 + index*10, display: 'block'}" modal-window="" window-class="filling-modal bottom-sheet" index="0" style="z-index: 1050; display: block;">
+    <div class="modal-dialog" ng-class="{'modal-sm': size == 'sm', 'modal-lg': size == 'lg'}">
+        <div class="modal-content" modal-transclude="">
+            <filling-modal-component modal-type="fill-one" class="ng-scope ng-isolate-scope">
+                <div class="bottom-sheet__line"></div>
+                <button class="filling-modal__close" ng-click="$ctrl.close()">×</button>
+                <div class="filling-modal" ng-hide="$ctrl.loading">
+                    <h4 class="filling-modal__title" ng-hide="$ctrl.hideOthersComponents">
+                        <span ng-bind="::$ctrl.data.titlePart1" class="ng-binding">Perfis com maior preenchimento possuem</span>
+                        <span class="filling-modal__title--highlight ng-binding" ng-bind="::$ctrl.data.titlePart2">muito mais de chance de ter sucesso</span>
+                        <span ng-bind="::$ctrl.data.titlePart3" class="ng-binding">por aqui!</span>
+                    </h4>
+                    <!-- PORCENTAGEM -->
+                    <!-- ngIf: $ctrl.modalType === $ctrl.FILLING_MODAL.FILL_ALL -->
+                    <!-- SEJA VIP -->
+                    <!-- ngIf: $ctrl.modalType === $ctrl.FILLING_MODAL.FILLED_MAX -->
+                    <div class="filling-modal__description ng-binding" ng-bind-html="$ctrl.data.description" ng-hide="$ctrl.hideOthersComponents">Que tal preencher uma informação:</div>
+                    <!-- PREENCHER UM CAMPO -->
+                    <!-- ngIf: $ctrl.modalType === $ctrl.FILLING_MODAL.FILL_ONE --><div ng-if="$ctrl.modalType === $ctrl.FILLING_MODAL.FILL_ONE" class="filling-modal__fill-one ng-scope">
+                        <!-- ngIf: $ctrl.data.field.type === 'text' -->
+                        <!-- ngIf: $ctrl.data.field.type === 'select' -->
+                        <!-- ngIf: $ctrl.data.field.type === 'checkbox' -->
+                        <!-- ngIf: $ctrl.data.field.type === 'date' -->
+                        <!-- ngIf: $ctrl.data.field.type === 'textarea' -->
+                        <!-- ngIf: $ctrl.data.field.type === 'photo' --><filling-modal-photo ng-if="$ctrl.data.field.type === 'photo'" data="$ctrl.data" class="ng-scope ng-isolate-scope">
+                            <!-- ngIf: $ctrl.data.field.type === 'photo' --><div class="filling-modal filling-modal__photo ng-scope" ng-if="$ctrl.data.field.type === 'photo'">
+                                <div class="filling-modal__photo-img">
+                                    <img class="img-circle" src="/images/icon/no-avatar.svg" width="100" height="100">
+                                    <div class="nav-dropdown__file-upload file-upload">
+                                        <svg class="filling-modal__photo-icon">
+                                            <use xlink:href="assets/icons/navbar-refactored/navbar-refactored.svg?v=10#navbar-profile_photo"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <button class="filling-modal__btn filling-modal__btn--fill-one filling-modal__btn--avatar ng-binding" ng-bind="$ctrl.data.field.title" sl-profile-edit-avatar="" metric="filling-modal" sl-file-upload-select="file-upload-input">Alterar foto de perfil</button>
+                            </div><!-- end ngIf: $ctrl.data.field.type === 'photo' -->
+                        </filling-modal-photo><!-- end ngIf: $ctrl.data.field.type === 'photo' -->
+                        <!-- ngIf: $ctrl.data.field.type === 'location' -->
+                    </div><!-- end ngIf: $ctrl.modalType === $ctrl.FILLING_MODAL.FILL_ONE -->
+                    <button class="filling-modal__btn ng-binding filling-modal__btn--fill-one ng-hide" ng-class="'filling-modal__btn--' + $ctrl.modalType" ng-bind="$ctrl.data.buttonText" ng-hide="$ctrl.hideOthersComponents || $ctrl.data.field.type === 'photo'" ng-disabled="$ctrl.isDisabled()" ng-click="$ctrl.action()" disabled="disabled">Salvar informação</button>
+                    <!-- ngIf: $ctrl.data.notNowText -->
+                </div>
+                <div class="filling-modal__spinner spinner ng-hide" ng-show="$ctrl.loading" spinner="" data-size="14"><div class="one" style="width: 14px; height: 14px;"></div><div class="two" style="width: 14px; height: 14px;"></div><div class="three" style="width: 14px; height: 14px;"></div></div>
+            </filling-modal-component>
+        </div>
+    </div>
+</div>

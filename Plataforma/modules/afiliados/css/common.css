@@ -1,0 +1,1843 @@
+﻿html, body {
+    font-family: arial,helvetica,verdana,sans-serif !important;
+    color: #666
+}
+
+#container {
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 0 -59px;
+    width: 100%;
+    background-color: #FFF
+}
+
+    #container .main, #container #main {
+        position: relative;
+        height: 100%;
+        width: 960px;
+        margin: 0 auto;
+        padding: 20px 0;
+        display: table
+    }
+
+        #container .main .titleCommon, #container #main .titleCommon {
+            float: left;
+            margin: 15px 0 0;
+            font-size: 24px;
+            font-size: 1.5rem;
+            line-height: 25px;
+            font-family: 'Signika', sans-serif;
+            font-weight: 400;
+            color: #202122
+        }
+
+        #container .main .titleSpacer, #container #main .titleSpacer {
+            width: 100%;
+            padding-bottom: 15px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #e5e5e5
+        }
+
+        #container .main .green, #container #main .green {
+            color: #00a651;
+            background: none !important;
+            filter: none
+        }
+
+        #container .main .attention, #container #main .attention {
+            float: left;
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: #fff2f2
+        }
+
+            #container .main .attention .titleAttention, #container .main .attention .textAttention, #container #main .attention .titleAttention, #container #main .attention .textAttention {
+                float: left;
+                width: 100%;
+                color: #c00;
+                font-size: 13px;
+                font-size: .8125rem;
+                line-height: 1.25
+            }
+
+            #container .main .attention .titleAttention, #container #main .attention .titleAttention {
+                font-weight: bold;
+                margin-bottom: 10px
+            }
+
+    #container .navInside {
+        width: 100%;
+        background-color: #fbf1fa
+    }
+
+        #container .navInside .center .ulListItensNav {
+            float: left
+        }
+
+            #container .navInside .center .ulListItensNav .listItemNav {
+                float: left;
+                margin: 0 20px 0 0;
+                padding: 20px 0 17px;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                font-size: 15px;
+                font-size: .9375rem;
+                line-height: 18px;
+                font-weight: normal;
+                color: #202122;
+                border-bottom-width: 3px;
+                border-bottom-style: solid;
+                border-bottom-color: #fbf1fa;
+                cursor: pointer
+            }
+
+                #container .navInside .center .ulListItensNav .listItemNav .numberItensNav {
+                    color: #666;
+                    font-size: 12px;
+                    font-size: .75rem
+                }
+
+                #container .navInside .center .ulListItensNav .listItemNav:hover {
+                    border-bottom-color: #dd86d5
+                }
+
+            #container .navInside .center .ulListItensNav .select {
+                font-weight: bold;
+                border-bottom-color: #dd86d5
+            }
+
+    #container .push {
+        height: 50px;
+        clear: both
+    }
+
+.no-float {
+    float: none !important
+}
+
+.btn {
+    background-image: none;
+    background-position: 0 0 !important;
+    background: #202122;
+    background: -moz-linear-gradient(top, #202122 50%, #6f0566 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #202122), color-stop(100%, #6f0566));
+    background: -webkit-linear-gradient(top, #202122 50%, #6f0566 100%);
+    background: -o-linear-gradient(top, #202122 50%, #6f0566 100%);
+    background: -ms-linear-gradient(top, #202122 50%, #6f0566 100%);
+    background: linear-gradient(to bottom, #202122 50%, #6f0566 100%)
+}
+
+    .btn span {
+        border: none
+    }
+
+    .btn:hover {
+        background: #6f0566;
+        background: -moz-linear-gradient(top, #6f0566 0%, #932a8c 46%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6f0566), color-stop(46%, #932a8c));
+        background: -webkit-linear-gradient(top, #6f0566 0%, #932a8c 46%);
+        background: -o-linear-gradient(top, #6f0566 0%, #932a8c 46%);
+        background: -ms-linear-gradient(top, #6f0566 0%, #932a8c 46%);
+        background: linear-gradient(to bottom, #6f0566 0%, #932a8c 46%);
+        filter: none
+    }
+
+    .btn:active {
+        color: #FFF;
+        background: #6f0566;
+        background: -moz-linear-gradient(top, #6f0566 0%, #202122 51%, #aa009f 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6f0566), color-stop(51%, #202122), color-stop(100%, #aa009f));
+        background: -webkit-linear-gradient(top, #6f0566 0%, #202122 51%, #aa009f 100%);
+        background: -o-linear-gradient(top, #6f0566 0%, #202122 51%, #aa009f 100%);
+        background: -ms-linear-gradient(top, #6f0566 0%, #202122 51%, #aa009f 100%);
+        background: linear-gradient(to bottom, #6f0566 0%, #202122 51%, #aa009f 100%);
+        filter: none
+    }
+
+    .btn:visited {
+        color: #FFF
+    }
+
+.dfl {
+    background-image: none;
+    background-position: 0 0 !important;
+    border-color: #e0c1de;
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #fff 0%, #faedf9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #faedf9));
+    background: -webkit-linear-gradient(top, #fff 0%, #faedf9 100%);
+    background: -o-linear-gradient(top, #fff 0%, #faedf9 100%);
+    background: -ms-linear-gradient(top, #fff 0%, #faedf9 100%);
+    background: linear-gradient(to bottom, #fff 0%, #faedf9 100%)
+}
+
+    .dfl:hover {
+        border-color: #cdadca;
+        background: #faedf9;
+        background: -moz-linear-gradient(top, #faedf9 0%, #fff 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #faedf9), color-stop(100%, #fff));
+        background: -webkit-linear-gradient(top, #faedf9 0%, #fff 100%);
+        background: -o-linear-gradient(top, #faedf9 0%, #fff 100%);
+        background: -ms-linear-gradient(top, #faedf9 0%, #fff 100%);
+        background: linear-gradient(to bottom, #faedf9 0%, #fff 100%);
+        filter: none
+    }
+
+    .dfl:active {
+        color: #202122;
+        background: #f7d4f3;
+        background: -moz-linear-gradient(top, #f7d4f3 0%, #faedf9 51%, #fff 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7d4f3), color-stop(51%, #faedf9), color-stop(100%, #fff));
+        background: -webkit-linear-gradient(top, #f7d4f3 0%, #faedf9 51%, #fff 100%);
+        background: -o-linear-gradient(top, #f7d4f3 0%, #faedf9 51%, #fff 100%);
+        background: -ms-linear-gradient(top, #f7d4f3 0%, #faedf9 51%, #fff 100%);
+        background: linear-gradient(to bottom, #f7d4f3 0%, #faedf9 51%, #fff 100%);
+        filter: none
+    }
+
+    .dfl:visited {
+        color: #202122
+    }
+
+    .disable span, .dark span, .dfl span, .btn span {
+        height: 21px;
+        line-height: 20px !important
+    }
+
+.bigDisable span, .bigDark span, .bigDfl span, .big span {
+    height: 27px;
+    line-height: 27px !important
+}
+
+.bigFbDisable > span, .bigFbDark > span, .bigFbDfl > span, .bigFb > span {
+    height: 41px;
+    line-height: 41px !important
+}
+
+.drop {
+    position: relative;
+    height: 24px !important;
+    z-index: 1000
+}
+
+    .drop span {
+        background-image: url("../images/sprite-affiliates.png");
+        background-position: right -40px;
+        background-repeat: no-repeat;
+        padding-right: 22px;
+        height: 24px;
+        line-height: 23px !important
+    }
+
+    .drop .boxDrop {
+        z-index: 99999;
+        position: absolute;
+        top: 24px;
+        right: 0;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #b66ab0;
+        display: none
+    }
+
+        .drop .boxDrop .ulDrop {
+            padding: 5px 0;
+            background-color: #FFF !important
+        }
+
+            .drop .boxDrop .ulDrop .itemDrop {
+                white-space: nowrap;
+                text-align: left;
+                font-size: 12px;
+                font-size: .75rem;
+                line-height: 15px;
+                background-color: #FFF;
+                color: #202122
+            }
+
+                .drop .boxDrop .ulDrop .itemDrop .linkDrop {
+                    float: none;
+                    clear: both;
+                    width: 100%;
+                    padding: 5px 15px;
+                    display: block;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    overflow: hidden
+                }
+
+                .drop .boxDrop .ulDrop .itemDrop:hover {
+                    background-color: #202122 !important;
+                    color: #FFF !important
+                }
+
+                    .drop .boxDrop .ulDrop .itemDrop:hover .linkDrop {
+                        color: #FFF !important;
+                        text-decoration: none
+                    }
+
+            .drop .boxDrop .ulDrop .spacer {
+                height: 1px;
+                padding: 0 !important;
+                margin: 5px 15px;
+                background-color: #e5e5e5
+            }
+
+    .drop .boxScroll {
+        max-height: 200px;
+        overflow: scroll
+    }
+
+.dropLeft .boxDrop {
+    right: auto;
+    left: -1px
+}
+
+.dropSelect {
+    background-image: none !important;
+    color: #FFF !important
+}
+
+    .dropSelect .boxDrop {
+        display: block
+    }
+
+        .dropSelect .boxDrop .ulDrop {
+            display: block
+        }
+
+    .dropSelect span {
+        background-position: right -70px
+    }
+
+.pointHelp {
+    float: none;
+    clear: both;
+    margin: -1px 0 0 3px;
+    height: 12px;
+    width: 12px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    font-family: 'Signika', sans-serif !important;
+    font-weight: 300;
+    font-size: 10px;
+    font-size: .625rem;
+    line-height: 12px;
+    vertical-align: middle;
+    min-height: 16px
+}
+
+    .pointHelp.helpReport {
+        background: #202122;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        text-align: center;
+        color: white !important;
+        font-weight: 600;
+        line-height: 17px;
+        font-size: 11px
+    }
+
+#header {
+    position: relative;
+    z-index: 100;
+    height: 116px;
+    width: 100%;
+    -moz-box-shadow: 1px 1px 3px rgba(100,100,100,0.5);
+    -webkit-box-shadow: 1px 1px 3px rgba(100,100,100,0.5);
+    box-shadow: 1px 1px 3px rgba(100,100,100,0.5)
+}
+
+    #header .center {
+        height: auto
+    }
+
+    #header .backSL {
+        height: 30px;
+        background: #fbf1fa;
+        border-bottom: #e3c2e1 solid 1px
+    }
+
+        #header .backSL a {
+            color: #202122;
+            font-size: 12px;
+            font-family: 'Signika', sans-serif;
+            font-weight: bold;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            border-width: 0 0 1px 0;
+            border-style: solid;
+            border-color: transparent
+        }
+
+            #header .backSL a:hover {
+                text-decoration: none;
+                border-width: 0 0 1px 0;
+                border-style: solid;
+                border-color: #202122
+            }
+
+    #header .logo-header {
+        float: left
+    }
+
+        #header .logo-header h1 {
+            float: left;
+            height: 44px;
+            width: 286px;
+            margin: 26px 0 0;
+            text-indent: -1999px;
+            background-image: url("../img/kinkee-afiliados.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 0 0
+        }
+
+        #header .logo-header .es-es {
+            background-position: 0 -223px
+        }
+
+        #header .logo-header .en-us {
+            background-position: 0 -173px
+        }
+
+    #header .right-header {
+        position: relative;
+        float: right;
+        height: 45px;
+        margin: 26px 0 0
+    }
+
+        #header .right-header .label-login {
+            float: left;
+            margin-right: 5px;
+            line-height: 30px;
+            font-family: 'Signika', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            font-size: .875rem;
+            color: #202122
+        }
+
+        #header .right-header .input-login {
+            height: 22px !important;
+            margin-top: 1px
+        }
+
+        #header .right-header .btn {
+            margin: 3px 0 0 2px
+        }
+
+        #header .right-header .drop {
+            margin: 1px 0 0 2px !important
+        }
+
+        #header .right-header .forgotLink {
+            position: absolute;
+            top: 32px;
+            right: 78px;
+            font-size: 11px;
+            font-size: .6875rem
+        }
+
+        #header .right-header #submitLogin {
+            position: absolute;
+            top: 60px
+        }
+
+        #header .right-header .textCommission, #header .right-header .textBalance {
+            float: left;
+            line-height: 32px;
+            margin: 0 25px 0 0;
+            font-size: 14px;
+            font-size: .875rem;
+            font-family: 'Signika', sans-serif !important;
+            font-weight: 300;
+            color: #333
+        }
+
+            #header .right-header .textCommission strong, #header .right-header .textBalance strong {
+                font-weight: 400
+            }
+
+    #header .header-right-offline {
+        overflow: hidden
+    }
+
+    #header .msgErrorLogin {
+        position: absolute;
+        top: 15px;
+        right: -1px;
+        width: 46%;
+        display: none
+    }
+
+        #header .msgErrorLogin .message .mtext {
+            padding: 14px 0 14px 30px !important
+        }
+
+#nav {
+    position: relative;
+    z-index: 50;
+    height: 43px;
+    width: 100%;
+    background-color: #202122
+}
+
+    #nav .nav-ul {
+        float: left
+    }
+
+        #nav .nav-ul .nav-item {
+            float: left;
+            margin: 3px 25px 0 0
+        }
+
+            #nav .nav-ul .nav-item a {
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                font-size: 16px;
+                font-size: 1rem;
+                line-height: 37px;
+                color: #FFF;
+                font-family: 'Signika', sans-serif;
+                font-weight: 300
+            }
+
+                #nav .nav-ul .nav-item a:hover {
+                    text-decoration: none;
+                    border-bottom-width: 3px;
+                    border-bottom-style: solid;
+                    border-bottom-color: #dd86d5
+                }
+
+        #nav .nav-ul .active a {
+            font-weight: 600 !important;
+            border-bottom-width: 3px;
+            border-bottom-style: solid;
+            border-bottom-color: #dd86d5
+        }
+
+#footer {
+    position: relative;
+    z-index: 500;
+    width: 100%;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #e5e5e5
+}
+
+    #footer p {
+        float: left;
+        font-size: 11px;
+        font-size: .6875rem;
+        line-height: 58px
+    }
+
+    #footer ul {
+        float: right
+    }
+
+        #footer ul li {
+            float: left;
+            font-size: 11px;
+            font-size: .6875rem;
+            line-height: 58px;
+            margin-left: 15px
+        }
+
+        #footer ul .language {
+            margin: 10px 0;
+            line-height: 38px;
+            padding-right: 15px;
+            border-right-width: 1px;
+            border-right-color: #e5e5e5;
+            border-right-style: solid
+        }
+
+            #footer ul .language a {
+                float: none
+            }
+
+#contactUsAffiliates {
+    display: none;
+    padding: 20px 30px
+}
+
+    #contactUsAffiliates .subTitle {
+        float: left;
+        width: 100%;
+        font-family: 'Signika', sans-serif !important;
+        font-weight: 300;
+        font-size: 24px;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        color: #666
+    }
+
+    #contactUsAffiliates .title {
+        float: left;
+        width: 100%;
+        margin: 0 0 20px;
+        font-family: 'Signika', sans-serif !important;
+        font-weight: 300;
+        font-size: 34px;
+        font-size: 2.125rem;
+        line-height: 1.2;
+        color: #202122
+    }
+
+    #contactUsAffiliates #btnSign {
+        float: right;
+        margin-top: 20px
+    }
+
+    #contactUsAffiliates .inputName, #contactUsAffiliates .inputEmail, #contactUsAffiliates .textareaMessage {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 100%;
+        line-height: 30px;
+        font-size: 18px;
+        font-size: 1.125rem
+    }
+
+    #contactUsAffiliates .inputName, #contactUsAffiliates .inputEmail {
+        height: 36px;
+        margin-bottom: 10px
+    }
+
+    #contactUsAffiliates .textareaMessage {
+        height: 60px;
+        resize: none
+    }
+
+.home p {
+    font-size: 13px;
+    font-size: .8125rem
+}
+
+.home .text {
+    float: left;
+    padding: 0 0 0 20px
+}
+
+.topHome {
+    height: 306px !important;
+    background-image: url("../images/top-home.png");
+    background-position: 440px 20px;
+    background-repeat: no-repeat
+}
+
+    .topHome .titleHome, .topHome .textHome {
+        float: left;
+        width: 45%;
+        margin-right: 30%;
+        font-family: 'Signika', sans-serif;
+        font-weight: 300
+    }
+
+    .topHome .titleHome {
+        margin-top: 20px;
+        font-size: 54px;
+        font-size: 3.375rem;
+        line-height: 1;
+        color: #202122
+    }
+
+    .topHome .textHome {
+        margin-top: 15px;
+        font-size: 20px;
+        font-size: 1.25rem;
+        line-height: 1.25
+    }
+
+        .topHome .textHome span {
+            color: #47ad68
+        }
+
+    .topHome .btnTopHome {
+        margin: 15px 80% 0 0;
+        font-family: 'Signika', sans-serif !important;
+        font-weight: 400
+    }
+
+    .topHome.es-es {
+        background-image: url("../images/top-home-es.png")
+    }
+
+    .topHome.en-us {
+        background-image: url("../images/top-home-en.png")
+    }
+
+.titleItensHome {
+    float: left;
+    width: 100%;
+    margin: 40px 0 -10px;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 22px;
+    color: #333
+}
+
+.stepBystepHome {
+    width: 100%;
+    background-color: #fbf1fa
+}
+
+    .stepBystepHome .center {
+        padding: 20px 0
+    }
+
+.ulListItensHome {
+    float: left;
+    width: 100%;
+    margin: 0 0 30px
+}
+
+    .ulListItensHome .listItemHome {
+        float: left;
+        width: 33.3%;
+        padding: 0 20px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+        .ulListItensHome .listItemHome .titleItensHome {
+            margin: 20px 0 10px
+        }
+
+        .ulListItensHome .listItemHome .textItem {
+            line-height: 1.5
+        }
+
+    .ulListItensHome .last {
+        padding-right: 0 !important
+    }
+
+.itensStepByStep {
+    margin: 0 0 -20px
+}
+
+    .itensStepByStep .listItemHome {
+        width: 30.2%;
+        margin: 0 15px;
+        padding: 0 0 20px;
+        border-bottom-style: solid;
+        border-bottom-width: 3px;
+        border-bottom-color: #e3c2e1
+    }
+
+        .itensStepByStep .listItemHome .capitularNumber {
+            float: left;
+            width: 15%;
+            height: 100px;
+            font-size: 56px;
+            font-size: 3.5rem;
+            color: #c59bc1
+        }
+
+        .itensStepByStep .listItemHome .titleItem {
+            margin-bottom: 5px;
+            font-size: 26px;
+            font-size: 1.625rem;
+            line-height: 1.25;
+            color: #202122
+        }
+
+        .itensStepByStep .listItemHome .textItem {
+            font-size: 15px;
+            font-size: .9375rem;
+            line-height: 1.35
+        }
+
+            .itensStepByStep .listItemHome .textItem strong {
+                color: #47ad68
+            }
+
+#signInAffiliates {
+    display: none;
+    padding: 20px 30px
+}
+
+    #signInAffiliates .subTitle {
+        float: left;
+        width: 100%;
+        font-family: 'Signika', sans-serif !important;
+        font-weight: 300;
+        font-size: 24px;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        color: #666
+    }
+
+    #signInAffiliates .title {
+        float: left;
+        width: 100%;
+        margin: 0 0 20px;
+        font-family: 'Signika', sans-serif !important;
+        font-weight: 300;
+        font-size: 34px;
+        font-size: 2.125rem;
+        line-height: 1.2;
+        color: #202122
+    }
+
+    #signInAffiliates #btnSign {
+        float: right;
+        margin-top: 20px
+    }
+
+    #signInAffiliates .inputName, #signInAffiliates .inputEmail, #signInAffiliates .inputPassword {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 36px;
+        line-height: 30px;
+        font-size: 18px;
+        font-size: 1.125rem
+    }
+
+    #signInAffiliates .inputName {
+        width: 100%;
+        margin-bottom: 10px
+    }
+
+    #signInAffiliates .inputEmail {
+        width: 48.5%;
+        margin-right: 3%
+    }
+
+    #signInAffiliates .inputPassword {
+        width: 48.5%
+    }
+
+    #signInAffiliates .termsSignIn {
+        float: left;
+        width: 55%;
+        margin: 30px 0 0
+    }
+
+        #signInAffiliates .termsSignIn .filtercheck label {
+            line-height: 15px;
+            font-size: 12px;
+            font-size: .75rem
+        }
+
+        #signInAffiliates .termsSignIn .linkTerms {
+            margin: 0 0 0 3px;
+            line-height: 18px;
+            font-size: 12px;
+            font-size: .75rem
+        }
+
+#btnSend {
+    float: right;
+    margin-top: 20px
+}
+
+#msgSingUp .mtext {
+    max-width: 85% !important
+}
+
+.resumeReport {
+    float: left;
+    width: 48%
+}
+
+    .resumeReport .clicksReport, .resumeReport .confirmedReport, .resumeReport .signupsReport {
+        width: 17%
+    }
+
+    .resumeReport .subscriptionsReport, .resumeReport .referencesReport {
+        width: 13%
+    }
+
+.resumePayment {
+    float: right;
+    width: 48%
+}
+
+    .resumePayment .payment {
+        margin-top: 20px
+    }
+
+        .resumePayment .payment .type, .resumePayment .payment .balance, .resumePayment .payment .lastPayment {
+            width: 32%;
+            padding: 15px 10px
+        }
+
+        .resumePayment .payment .nextPayment {
+            width: 36%;
+            padding: 15px 10px
+        }
+
+        .resumePayment .payment .type, .resumePayment .payment .complementaryInfo {
+            float: left;
+            padding: 8px 10px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 11px !important;
+            font-size: .6875rem !important;
+            line-height: 14px;
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-top-color: #e5e5e5;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: #e5e5e5
+        }
+
+        .resumePayment .payment .complementaryInfo {
+            width: 68%;
+            height: 75px
+        }
+
+        .resumePayment .payment .type {
+            width: 32%;
+            height: 75px
+        }
+
+            .resumePayment .payment .type .title {
+                font-size: 15px !important;
+                font-size: .9375rem !important;
+                line-height: 23px;
+                height: 23px !important
+            }
+
+.linkResumeAll {
+    margin-left: 10px;
+    font-family: arial, helvetica, verdana, sans-serif !important;
+    font-size: 12px !important;
+    font-size: .75rem !important;
+    vertical-align: middle
+}
+
+.titleItensContent {
+    float: left;
+    width: 100%;
+    margin: 40px 0 10px;
+    font-family: 'Signika', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 22px;
+    color: #202122
+}
+
+.ulListItensContent {
+    float: left;
+    width: 100%;
+    margin: 0 0 30px
+}
+
+    .ulListItensContent .listItemContent {
+        float: left;
+        width: 33.3%;
+        padding: 0 15px 0 0;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+        .ulListItensContent .listItemContent .textItem {
+            font-size: 12px;
+            font-size: .75rem;
+            line-height: 1.5
+        }
+
+        .ulListItensContent .listItemContent a {
+            float: left;
+            width: 100%;
+            margin: 5px 0 0
+        }
+
+    .ulListItensContent .last {
+        padding-right: 0 !important
+    }
+
+#btnReportCSV {
+    position: absolute;
+    top: 35px;
+    right: 0
+}
+
+.payment {
+    float: left;
+    width: 100%;
+    margin: 10px 0 0;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #e5e5e5
+}
+
+    .payment .type, .payment .balance, .payment .nextPayment, .payment .lastPayment {
+        float: left;
+        padding: 15px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+        .payment .type .subTitle, .payment .balance .subTitle, .payment .nextPayment .subTitle, .payment .lastPayment .subTitle {
+            float: left;
+            width: 100%;
+            font-size: 12px;
+            font-size: .75rem;
+            font-weight: bold;
+            color: #333
+        }
+
+        .payment .type .title, .payment .balance .title, .payment .nextPayment .title, .payment .lastPayment .title {
+            float: left;
+            width: 100%;
+            height: 30px;
+            margin: 5px 0 0;
+            font-size: 22px;
+            font-size: 1.375rem;
+            line-height: 30px;
+            font-weight: normal;
+            color: #333
+        }
+
+            .payment .type .title .small, .payment .balance .title .small, .payment .nextPayment .title .small, .payment .lastPayment .title .small {
+                float: none;
+                clear: both;
+                margin: -1px 0 0 3px;
+                padding: 0 3px;
+                height: 17px;
+                font-family: 'Signika', sans-serif !important;
+                font-weight: 300;
+                font-size: 11px;
+                font-size: .6875rem;
+                line-height: 16px;
+                vertical-align: middle;
+                min-height: 12px
+            }
+
+            .payment .type .title .current, .payment .balance .title .current, .payment .nextPayment .title .current, .payment .lastPayment .title .current {
+                font-size: 12px !important;
+                font-size: .75rem !important
+            }
+
+        .payment .type .info, .payment .balance .info, .payment .nextPayment .info, .payment .lastPayment .info {
+            float: left;
+            width: 100%;
+            font-size: 12px;
+            font-size: .75rem;
+            font-weight: normal;
+            color: #333;
+            height: 13px
+        }
+
+    .payment .type {
+        width: 37.5%
+    }
+
+    .payment .balance, .payment .nextPayment, .payment .lastPayment {
+        width: 20.834%
+    }
+
+    .payment .complementaryInfo {
+        float: left;
+        width: 100%;
+        padding: 5px 15px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 12px;
+        font-size: .75rem;
+        line-height: 20px;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-top-color: #e5e5e5;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #e5e5e5
+    }
+
+.paymentGray {
+    background-color: #f5f5f5
+}
+
+.filters {
+    float: left;
+    width: 100%;
+    margin: 15px 0 0
+}
+
+    .filters .itemFilter {
+        float: left;
+        width: 15%
+    }
+
+        .filters .itemFilter .labelFilter {
+            float: left;
+            width: 100%;
+            margin: 0 0 5px;
+            font-size: 13px;
+            font-size: .8125rem;
+            line-height: 1;
+            color: #666
+        }
+
+        .filters .itemFilter .dateFilter {
+            width: 80%;
+            font-family: 'Signika', sans-serif !important;
+            font-weight: 400;
+            font-size: 14px;
+            font-size: .875rem;
+            color: #202122;
+            background-image: url("../images/sprite-affiliates.png");
+            background-position: right -99px;
+            background-repeat: no-repeat
+        }
+
+        .filters .itemFilter .inputFilter {
+            font-family: 'Signika', sans-serif !important;
+            font-weight: 400;
+            font-size: 14px;
+            font-size: .875rem;
+            color: #202122
+        }
+
+    .filters .btnFilter {
+        margin-top: 19px
+    }
+
+        .filters .btnFilter span {
+            font-family: 'Signika', sans-serif !important;
+            font-weight: 400;
+            font-size: 13px;
+            font-size: .8125rem
+        }
+
+.tableData {
+    float: left;
+    width: 100%;
+    margin: 20px 0 0;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #d3d3d3
+}
+
+    .tableData .itemTable {
+        float: left;
+        width: 100%;
+        height: 30px;
+        background-color: #FFF;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #e5e5e5;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+        .tableData .itemTable .item {
+            float: left;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 5px;
+            font-size: 12px;
+            font-size: .75rem;
+            line-height: 30px;
+            color: #333;
+            text-align: right
+        }
+
+        .tableData .itemTable .mainItem {
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: #d3d3d3;
+            text-align: left
+        }
+
+    .tableData .noItemTable {
+        height: 40px;
+        font-size: 12px;
+        font-size: .75rem;
+        font-weight: bold;
+        line-height: 40px;
+        text-align: center
+    }
+
+    .tableData .titleTable {
+        background-color: #e5e5e5
+    }
+
+        .tableData .titleTable .item {
+            font-size: 13px;
+            font-size: .8125rem;
+            font-weight: bold
+        }
+
+    .tableData .totalTable {
+        background-color: #f5f5f5
+    }
+
+        .tableData .totalTable .item {
+            font-weight: bold
+        }
+
+.tableNoMargin {
+    margin: 0 !important
+}
+
+.datePayment {
+    width: 13.8%
+}
+
+.signaturePayment, .referencesPayment, .balancePayment {
+    width: 18.5%
+}
+
+.situationPayment {
+    width: 30.65%
+}
+
+.dateReport {
+    width: 20.2%
+}
+
+.clicksReport, .signupsReport, .subscriptionsReport, .referencesReport {
+    width: 15%
+}
+
+.earningsReport {
+    width: 19.75%
+}
+
+.nameCommission {
+    width: 22.25%
+}
+
+.dateCommission, .signupsCommission, .subscriptionsCommission {
+    width: 18.5%
+}
+
+.incomeCommission {
+    width: 22.20%
+}
+
+.fancysl-loading {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    overflow: hidden;
+    z-index: 1104;
+    display: none
+}
+
+    .fancysl-loading div {
+        position: absolute;
+        height: 480px;
+        width: 40px;
+        left: 0;
+        top: 0;
+        background-image: url("../images/fancy_loading.png")
+    }
+
+.container_table {
+    position: relative;
+    float: left;
+    width: 100%
+}
+
+.banner .textInfoBanner {
+    float: left;
+    width: 100%;
+    margin: 20px 0 10px;
+    font-size: 15px;
+    font-size: .9375rem;
+    line-height: 1.4;
+    color: #333
+}
+
+.banner .ulListBanners {
+    float: left;
+    width: 100%
+}
+
+    .banner .ulListBanners .itemListBanners {
+        float: left;
+        width: 100%;
+        height: 200px;
+        padding: 30px 0;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #e5e5e5
+    }
+
+        .banner .ulListBanners .itemListBanners:last-child {
+            border-bottom: none
+        }
+
+        .banner .ulListBanners .itemListBanners .imgBanner {
+            float: left;
+            position: relative;
+            width: 260px;
+            height: 200px;
+            margin-right: 30px
+        }
+
+            .banner .ulListBanners .itemListBanners .imgBanner .hoverImgBanner {
+                display: none;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-image: url("../images/back_black.png");
+                background-repeat: repeat;
+                z-index: 1000;
+                cursor: pointer
+            }
+
+                .banner .ulListBanners .itemListBanners .imgBanner .hoverImgBanner .textHoverImg {
+                    position: absolute;
+                    height: 24px;
+                    width: 120px;
+                    padding: 0 0 0 22px;
+                    margin: -12px 0 0 -60px;
+                    left: 50%;
+                    top: 50%;
+                    background-image: url("../images/back_black.png");
+                    background-repeat: repeat;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    -moz-border-radius: 2px;
+                    -webkit-border-radius: 2px;
+                    border-radius: 2px;
+                    font-size: 11px;
+                    font-size: .6875rem;
+                    line-height: 24px;
+                    font-weight: bold;
+                    color: #FFF
+                }
+
+                    .banner .ulListBanners .itemListBanners .imgBanner .hoverImgBanner .textHoverImg .icoHover {
+                        position: absolute;
+                        height: 11px;
+                        width: 11px;
+                        top: 7px;
+                        left: 7px;
+                        background-image: url("../images/sprite-affiliates.png");
+                        background-repeat: no-repeat;
+                        background-position: -289px -135px
+                    }
+
+            .banner .ulListBanners .itemListBanners .imgBanner:hover .hoverImgBanner {
+                display: block
+            }
+
+        .banner .ulListBanners .itemListBanners .titleBanner {
+            float: left;
+            width: 65%;
+            font-size: 15px;
+            font-size: .9375rem;
+            line-height: 20px;
+            font-weight: bold;
+            color: #333
+        }
+
+        .banner .ulListBanners .itemListBanners .descriptionBanner {
+            float: left;
+            width: 65%;
+            font-size: 13px;
+            font-size: .8125rem;
+            line-height: 17px;
+            color: #666
+        }
+
+        .banner .ulListBanners .itemListBanners .ulInfoBanner {
+            float: left;
+            width: 270px;
+            margin-top: 10px
+        }
+
+            .banner .ulListBanners .itemListBanners .ulInfoBanner .itemInfoBanner {
+                float: left;
+                width: 50%;
+                font-size: 13px;
+                font-size: .8125rem;
+                line-height: 17px;
+                color: #666
+            }
+
+        .banner .ulListBanners .itemListBanners .copyHTML {
+            float: left;
+            width: 65%;
+            margin-top: 10px;
+            font-size: 13px;
+            font-size: .8125rem;
+            line-height: 17px;
+            font-weight: bold;
+            color: #202122
+        }
+
+        .banner .ulListBanners .itemListBanners .textareaBanner {
+            margin-top: 10px;
+            min-height: 50px;
+            min-width: 460px;
+            resize: none
+        }
+
+        .banner .ulListBanners .itemListBanners .radioSetting {
+            width: 20%;
+            margin-top: 10px;
+            float: right
+        }
+
+            .banner .ulListBanners .itemListBanners .radioSetting li {
+                width: 50% !important
+            }
+
+.commission .textInfoCommission {
+    float: left;
+    width: 100%;
+    margin: 20px 0 10px;
+    font-size: 15px;
+    font-size: .9375rem;
+    line-height: 1.4;
+    color: #333
+}
+
+.commission .howwork {
+    float: left;
+    width: 100%;
+    margin: 5px 0 20px;
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: left;
+    color: #202122
+}
+
+.commission .titleCommission {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #333
+}
+
+.commission .textCommission {
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 13px;
+    font-size: .8125rem;
+    line-height: 1.25
+}
+
+    .commission .textCommission strong {
+        color: #333
+    }
+
+.commission .tableData {
+    margin-top: 5px
+}
+
+.commission .bannersCommission {
+    float: left;
+    width: 100%;
+    margin-top: 10px
+}
+
+    .commission .bannersCommission .ulBannersCommission {
+        float: left;
+        height: 60px
+    }
+
+        .commission .bannersCommission .ulBannersCommission .itemBannnersCommission {
+            float: left;
+            width: 120px;
+            height: 60px;
+            margin-right: 10px;
+            background-color: #fbf1fa
+        }
+
+    .commission .bannersCommission .urlBannersCommission {
+        float: left;
+        height: 40px;
+        min-height: 40px;
+        margin: 8px 0 0 10px;
+        resize: none
+    }
+
+.commission .listItemHome {
+    border: none
+}
+
+.commission .titleItem {
+    font-size: 20px !important;
+    font-size: 1.25rem !important;
+    font-weight: normal
+}
+
+.commission .textItem {
+    font-size: 13px !important;
+    font-size: .8125rem !important
+}
+
+.commission .capitularNumber {
+    height: 90px !important
+}
+
+.report-table {
+    width: 100%;
+    margin-top: 20px;
+    float: left
+}
+
+    .report-table tbody.no-payments tr td {
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 15px;
+        border: 1px solid #e5e5e5;
+        background-color: #FEFEFE;
+        color: #666
+    }
+
+    .report-table tr {
+        border-bottom: 1px solid #d3d3d3
+    }
+
+    .report-table td, .report-table th {
+        color: #000;
+        font-size: 12px;
+        padding: 10px 5px
+    }
+
+        .report-table td:first-child, .report-table th:first-child {
+            border-right: 1px solid #d3d3d3;
+            width: 20%
+        }
+
+        .report-table td:not(:first-child), .report-table th:not(:first-child) {
+            text-align: right
+        }
+
+    .report-table thead tr {
+        background-color: #e5e5e5
+    }
+
+    .report-table thead th {
+        font-size: 13px;
+        font-weight: bold
+    }
+
+        .report-table thead th span {
+            color: red;
+            font-size: 11px
+        }
+
+    .report-table tfoot tr {
+        background-color: #f5f5f5
+    }
+
+        .report-table tfoot tr td {
+            font-weight: bold
+        }
+
+.helpPage .title {
+    margin: 10px 0 0;
+    font-family: 'Signika', sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 45px;
+    text-align: left;
+    color: #202122
+}
+
+.helpPage .subtitle {
+    font-family: 'Signika', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 22px;
+    text-align: left
+}
+
+.helpPage .titleHelp {
+    float: left;
+    margin: 25px 0 0;
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 30px;
+    color: #333;
+    text-align: left
+}
+
+.helpPage .text {
+    padding: 0;
+    margin: 10px 0 0;
+    text-align: left
+}
+
+.helpPage .faq {
+    float: left;
+    width: 104%;
+    margin: 0 0 0 -4%
+}
+
+    .helpPage .faq .itemFaq {
+        float: left;
+        width: 46%;
+        padding: 0 0 20px;
+        margin: 20px 0 0 4%;
+        text-align: left;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #d9d9d9
+    }
+
+        .helpPage .faq .itemFaq h2 {
+            font-size: 18px;
+            font-size: 1.125rem;
+            line-height: 30px
+        }
+
+        .helpPage .faq .itemFaq p {
+            font-size: 13px;
+            font-size: .8125rem;
+            line-height: 16px
+        }
+
+.helpPage .infoSpan {
+    float: left;
+    width: 100%;
+    margin: 20px 0 0;
+    text-align: right;
+    font-size: 11px;
+    font-size: .6875rem
+}
+
+.helpStepbyStep .textItem {
+    font-size: 13px !important;
+    font-size: .8125rem !important
+}
+
+    .helpStepbyStep .textItem a {
+        float: none !important;
+        clear: both
+    }
+
+.helpStepbyStep .capitularNumber {
+    height: 140px !important
+}
+
+.terms {
+    text-align: justify
+}
+
+    .terms h2 {
+        margin: 14px 0 20px;
+        font-size: 32px;
+        font-size: 2rem;
+        line-height: 40px
+    }
+
+    .terms h3 {
+        margin: 30px 0 5px;
+        font-size: 18px;
+        font-size: 1.125rem;
+        font-weight: bold;
+        line-height: 22px
+    }
+
+    .terms h4 {
+        margin: 15px 0 5px;
+        font-size: 15px;
+        font-size: .9375rem;
+        font-weight: bold;
+        line-height: 20px
+    }
+
+    .terms p {
+        margin: 0 0 15px;
+        font-size: 13px;
+        font-size: .8125rem;
+        line-height: 21px;
+        font-weight: normal
+    }
+
+    .terms span {
+        margin: 0 0 15px;
+        font-size: 11px;
+        font-size: .6875rem;
+        line-height: 18px;
+        font-weight: normal
+    }
+
+.settings .itemSetting {
+    float: left;
+    width: 100%;
+    padding: 30px 0 20px;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: #e5e5e5;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+    .settings .itemSetting .subtitleSettings {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 13px;
+        font-size: .8125rem;
+        font-weight: bold;
+        color: #333
+    }
+
+    .settings .itemSetting .radioSetting {
+        float: left;
+        margin: 15px 0 0
+    }
+
+        .settings .itemSetting .radioSetting .itemRadioSetting {
+            float: left;
+            width: 25%;
+            height: auto
+        }
+
+            .settings .itemSetting .radioSetting .itemRadioSetting .labelRadioSetting {
+                float: left;
+                font-size: 16px;
+                font-size: 1rem;
+                font-weight: normal;
+                color: #333
+            }
+
+                .settings .itemSetting .radioSetting .itemRadioSetting .labelRadioSetting span {
+                    font-size: 13px;
+                    font-size: .8125rem
+                }
+
+    .settings .itemSetting .itemFormSetting {
+        float: left;
+        width: 100%;
+        height: 28px;
+        margin: 15px 0 0
+    }
+
+        .settings .itemSetting .itemFormSetting .labelFormSetting {
+            float: left;
+            width: 100px;
+            font-size: 13px;
+            font-size: .8125rem;
+            line-height: 28px
+        }
+
+        .settings .itemSetting .itemFormSetting .inputFormSetting {
+            float: left;
+            width: 250px;
+            height: 24px;
+            margin-right: 10px
+        }
+
+        .settings .itemSetting .itemFormSetting .inputCPF {
+            width: 45px;
+            min-width: 45px
+        }
+
+        .settings .itemSetting .itemFormSetting .inputDigit {
+            width: 38px;
+            min-width: 38px
+        }
+
+        .settings .itemSetting .itemFormSetting .inputAccount {
+            width: 100px;
+            min-width: 100px
+        }
+
+        .settings .itemSetting .itemFormSetting .dropSetting {
+            width: 310px
+        }
+
+            .settings .itemSetting .itemFormSetting .dropSetting span {
+                font-size: 14px;
+                font-size: .875rem;
+                font-family: 'Signika', sans-serif !important;
+                font-weight: 300;
+                text-align: left
+            }
+
+            .settings .itemSetting .itemFormSetting .dropSetting .boxDrop {
+                width: 310px
+            }
+
+        .settings .itemSetting .itemFormSetting .infoFormSetting {
+            float: left;
+            width: 220px;
+            font-size: 11px;
+            font-size: .6875rem;
+            line-height: 14px;
+            color: #999
+        }
+
+    .settings .itemSetting .paypalSettings .labelFormSetting {
+        width: 145px
+    }
+
+.settings .last {
+    padding: 20px 0
+}
+
+.settings .btnSetting {
+    margin-top: 15px
+}
+
+    .settings .btnSetting span {
+        font-size: 14px;
+        font-size: .875rem;
+        font-family: 'Signika', sans-serif !important;
+        font-weight: 300
+    }
+
+.settings #settingSaving, .settings #settingPaypal, .settings #settingCurrent, .settings #settingPix {
+    display: none
+}
+
+.settings #ulSettingPayment {
+    width: 100%
+}

@@ -1,0 +1,272 @@
+﻿
+@{
+    ViewBag.Title = "Assinatura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/modules/css/assinatura.css" rel="stylesheet" />
+
+<style>
+    .sl-modal.sl-subscription-modal.injected .plans-list .plan h1, .sl-modal.sl-subscription-modal.injected .small-discount .plans-list .plan h1 {
+        font-size: 37px;
+    }
+</style>
+<div class="myaccount">
+
+    <div class="container-fluid myaccount-header">
+
+        <div class="container-flex">
+
+            <div class="row">
+
+                <div class="col-md-4 hidden-xs hidden-sm">
+
+                    <h2>Minha conta</h2>
+
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="myaccount-options dropdown">
+
+                        <button class="sl-btn btn-link myaccount-button-options js-click-menu">
+                            Assinatura<i></i>
+                        </button>
+
+                        <ul class="myaccount-nav dropdown-menu js-mostra-esconde-menu">
+
+                            <li class="">
+                                <a href="/MinhaConta/ConfiguracoesAvancadas/">
+                                    Configurações<i></i>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#">
+                                    Assinatura<i></i>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="/MinhaConta/Privacidade/">
+                                    Segurança e privacidade<i></i>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-flex" id="firstdata">
+
+        <div class="row ng-scope">
+
+
+            <div class="non-subscribers-main">
+
+                <div class="row">
+
+                    <div class=" col-md-5" id="divslidetwo">
+                        <!-- advantage -->
+                        <div class="advantage" ng-init="tableOpen = false;">
+
+                            @*<table cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th width="50%">Conta</th>
+                            <th width="25%" class="text-center">Free</th>
+                            <th width="25%" class="pink text-center">Verificada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Visibilidade</td>
+                            <td class="text-center">Pouca visita</td>
+                            <td class="pink text-center">Até 40% mais visitas</td>
+                        </tr>
+
+                        <tr>
+                            <td>Conta Gold</td>
+                            <td class="text-center">Sem desconto</td>
+                            <td class="pink text-center">Conta Gold Gratís</td>
+                        </tr>
+                </table>
+                <br />*@
+
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                @*<thead>
+                                    <tr>
+                                        <th width="50%">Conta</th>
+                                        <th width="25%" class="text-center">Free</th>
+                                        <th width="25%" class="text-center" style="color: #c49436;">Premium</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Amigos</td>
+                                        <td class="text-center">100</td>
+                                        <td class="pink text-center">1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mensagens para não amigos</td>
+                                        <td class="text-center">-</td>
+                                        <td class="pink text-center">Ilimitado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Atualizações de conta</td>
+                                        <td class="text-center">-</td>
+                                        <td class="pink text-center">Ilimitado</td>
+                                    </tr>*@
+
+
+
+                                    @*<tr class="see-more">
+                            <td>Visualizar vídeos</td>
+                            <td class="text-center">-</td>
+                            <td class="pink text-center"><span class="check"></span></td>
+                        </tr>*@
+
+                                </tbody>
+                                @*<tfoot>
+                        <tr>
+                            <td colspan="3">
+                                <a class="see-more" href="" ng-click="tableOpen = (tableOpen) ? false : true;">
+                                    <span ng-hide="tableOpen" class="">Abrir</span>
+                                    <span ng-show="tableOpen" class="ng-hide">Fechar</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tfoot>*@
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-7" id="divslideone">
+                        <div subscribe-injected="" remove-fix-screen="xl hd">
+                            <div class="sl-modal sl-subscription-modal  undefined injected ng-scope">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header ng-scope">
+                                            <button type="button" class="sl-close" data-dismiss="modal">×</button>
+
+                                            <h4 class="modal-title ng-binding large primary text-center">
+                                                Ops! Tivemos um erro ao processar sua assinatura.
+                                                <small class="ng-binding ng-scope">
+                                                    Confirme as informações e tente novamente.
+                                                </small>
+                                            </h4>
+                                        </div>
+
+                                        <div class="modal-body  no-padding">
+
+                                            <!-- Tabs -->
+                                            <ul class="nav nav-pills nav-justified visible-lg visible-md">
+                                                <!-- Dados do usuario -->
+                                                <li class="active">
+                                                    <a>
+                                                        Os erros mais comuns são: Não preenchimento de todos os campos. Dados errados. Cartão de crédito inválido. Falta de saldo. CEP não localizados. Etc. <i class="icon"></i>
+                                                    </a>
+                                                </li>
+
+                                                @*<li ng-class="{ active: $subscribe.isActiveTab('payment'), disabled: !$subscribe.subscribe.valid, 'tab-complete': $subscribe.payment.valid }" class="disabled">
+                                        <a ng-click="$subscribe.changeTabs($subscribe.TABS.PLANS, $subscribe.TABS.PAYMENT)">
+                                            Escolha a forma de pagamento                                <i class="icon"></i>
+                                        </a>
+                                    </li>*@
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+
+                                                <!-- Planos -->
+                                                <div class="tab-pane ng-fade">
+
+                                                    <div class="sl-subscription small-discount">
+
+                                                        <h3 class="hidden-md hidden-lg text-center choose-plan">Os erros mais comuns são: Não preenchimento de todos os campos. Dados errados. Cartão de crédito inválido. Falta de saldo. CEP não localizados. Etc.</h3>
+
+                                                        
+
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+
+                                            
+                                        </div>
+
+                                        
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7">
+
+                        <!-- Presentes enviados -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <div class="container-flex" id="process">
+
+    </div>
+
+
+
+
+
+
+
+    <div class="container-flex">
+
+        <div class="text-center" end-page=""><div class="endpage"><i></i><div ng-transclude=""></div></div></div>
+
+    </div>
+
+</div>
+
+<script>
+
+    $('.js-click-menu').click(function () {
+
+        $('.js-mostra-esconde-menu').css("display", "block");
+
+    });
+</script>
+
+
+<div class="fb-customerchat"
+     page_id="1105956872821807">
+</div>

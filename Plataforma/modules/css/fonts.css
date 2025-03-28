@@ -1,0 +1,190 @@
+﻿@font-face {
+            font-family: 'Signika Negative';
+            src: url('pulsar/Kinkee/font/signikanegative-light.eot');
+            src: url('pulsar/Kinkee/font/signikanegative-light.eot?#iefix') format('embedded-opentype'),url('pulsar/Kinkee/font/signikanegative-light.woff') format('woff'),url('pulsar/font/signikanegative-light.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Signika Negative';
+            src: url('pulsar/Kinkee/font/signikanegative-regular-webfont.eot');
+            src: url('pulsar/Kinkee/font/signikanegative-regular-webfont.eot?#iefix') format('embedded-opentype'),url('pulsar/Kinkee/font/signikanegative-regular-webfont.woff') format('woff'),url('pulsar/Kinkee/font/signikanegative-regular-webfont.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Signika Negative';
+            src: url('pulsar/Kinkee/font/signikanegative-semibold-webfont.eot');
+            src: url('pulsar/Kinkee/font/signikanegative-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('pulsar/Kinkee/font/signikanegative-semibold-webfont.woff') format('woff'),url('pulsar/Kinkee/font/signikanegative-semibold-webfont.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Antonio';
+            src: url('pulsar/Kinkee/font/Antonio-Bold.eot');
+            src: url('pulsar/Kinkee/font/Antonio-Bold.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/Antonio-Bold.woff') format('woff'), url('pulsar/Kinkee/font/Antonio-Bold.ttf') format('truetype'), url('pulsar/Kinkee/font/Antonio-Bold.svg#antoniobold') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('pulsar/Kinkee/font/sourcesanspro-bold-webfont.eot');
+            src: url('pulsar/Kinkee/font/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/sourcesanspro-bold-webfont.woff2') format('woff2'), url('pulsar/Kinkee/font/sourcesanspro-bold-webfont.woff') format('woff'), url('pulsar/Kinkee/font/sourcesanspro-bold-webfont.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('pulsar/Kinkee/font/sourcesanspro-light-webfont.eot');
+            src: url('pulsar/Kinkee/font/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/sourcesanspro-light-webfont.woff2') format('woff2'), url('pulsar/Kinkee/font/sourcesanspro-light-webfont.woff') format('woff'), url('pulsar/Kinkee/font/sourcesanspro-light-webfont.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('pulsar/Kinkee/font/sourcesanspro-regular-webfont.eot');
+            src: url('pulsar/Kinkee/font/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/sourcesanspro-regular-webfont.woff2') format('woff2'), url('pulsar/Kinkee/font/sourcesanspro-regular-webfont.woff') format('woff'), url('pulsar/Kinkee/font/sourcesanspro-regular-webfont.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Androgyne';
+            src: url('pulsar/Kinkee/font/AndrogyneMedium.eot');
+            src: url('pulsar/Kinkee/font/AndrogyneMedium.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/AndrogyneMedium.woff') format('woff'), url('pulsar/Kinkee/font/AndrogyneMedium.ttf') format('truetype'), url('pulsar/Kinkee/font/AndrogyneMedium.svg#androgyneregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Antonio';
+            src: url('pulsar/Kinkee/font/Antonio-Bold.eot');
+            src: url('pulsar/Kinkee/font/Antonio-Bold.eot?#iefix') format('embedded-opentype'), url('pulsar/Kinkee/font/Antonio-Bold.woff') format('woff'), url('pulsar/Kinkee/font/Antonio-Bold.ttf') format('truetype'), url('pulsar/Kinkee/font/Antonio-Bold.svg#antoniobold') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
+
+        h1.headline {
+            line-height: 20px;
+            padding: 60px 0 10px;
+            border-radius: 4px;
+        }
+
+            h1.headline small {
+                display: none;
+            }
+
+            h1.headline strong {
+                letter-spacing: 0;
+                line-height: 15px;
+            }
+
+                h1.headline strong em, h1.headline strong em + em, h1.headline strong span {
+                    font-style: normal;
+                    font-family: 'Source Sans Pro',sans-serif;
+                    font-size: 29px;
+                    line-height: 29px;
+                    letter-spacing: 0;
+                    background: #B8273B;
+                }
+
+                h1.headline strong span {
+                    padding: 0 4px;
+                    font-weight: 400;
+                }
+
+                h1.headline strong em {
+                    padding: 6px 4px 3px;
+                    font-weight: 900;
+                }
+
+                    h1.headline strong em + em {
+                        padding: 3px 4px 10px;
+                        font-weight: 900;
+                        display: block;
+                        margin: 0 auto;
+                        max-width: 120px;
+                    }
+
+        .home-header .home-header-signup-button .btn-signup {
+            margin-bottom: 65px;
+        }
+
+        @media (min-width:600px) {
+            h1.headline {
+                margin-top: 80px;
+                margin-bottom: 10px;
+                padding: 10px 0;
+            }
+
+                h1.headline strong span {
+                    padding: 14px 14px 2px 10px;
+                }
+
+                h1.headline strong em {
+                    padding: 4px 10px;
+                }
+
+                    h1.headline strong em, h1.headline strong em + em, h1.headline strong span {
+                        font-size: 29px;
+                        line-height: 28px;
+                    }
+
+                h1.headline strong {
+                    font-size: 28px;
+                }
+
+                    h1.headline strong em + em {
+                        max-width: 160px;
+                    }
+
+            .home-header .home-header-signup-button .btn-signup {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (min-width:992px) {
+            h1.headline {
+                margin-top: 90px;
+                margin-bottom: 160px;
+                padding: 0;
+            }
+
+                h1.headline strong span {
+                    padding: 14px 14px 2px 10px;
+                }
+
+                h1.headline strong em {
+                    padding: 9px 2px 14px 10px;
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+
+                    h1.headline strong em + em {
+                        padding: 9px 8px 14px 5px;
+                        position: relative;
+                        right: 5px;
+                        display: inline-block;
+                    }
+
+                h1.headline strong em, h1.headline strong span {
+                    font-size: 29px;
+                    line-height: 29px;
+                }
+
+            .home-header .home-header-signup-button .btn-signup {
+                margin-bottom: 25px;
+            }
+        }
+
+        .home-footer .keep-exploring {
+            display: none;
+        }

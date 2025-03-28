@@ -1,0 +1,893 @@
+﻿
+
+@{
+    ViewBag.Title = "Chat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<link href="~/modules/css/chat.css" rel="stylesheet" />*@
+@Styles.Render("~/chat/css")
+<div class="message-container message-list-mobile ng-scope connected">
+
+    @*@Html.Action("_ComplementoPartial", "Dating")*@
+    <!-- Header -->
+    <header class="container-fluid message-header">
+        <div class="container-flex">
+
+            <!-- List -->
+            <div class="message-list-header">
+                <h1 class="title">
+                    Mensagens
+                </h1>
+                <button class="btn-new-message" type="button"></button>
+            </div>
+
+            <!-- Chat -->
+            <div class="chat-header" user-id="" style="position: relative;">
+                <span class="back icon-back-page" transition-pages="message-list-mobile"></span>
+
+                <!-- User -->
+                <!-- SELECIONAR USUARIO-->
+                <span class="chat-header-login hide">
+                    <a target="_self" class="profile-thumb overlayContentCard" href="">
+                        <img class="thumb js-thumb-header" alt="" src="">
+                        <i class="status ng-scope js-status-on-user" style="display:none;"></i>
+                    </a>
+                    <div class="user">
+                        <a class="overlayContentCard" login="" target="_self" href="">
+                            <span class="js-name-header name ng-binding"></span>
+                        </a>
+                    </div>
+                </span>
+
+                <!-- No ser -->
+                <span class="no-content ng-hide">
+                    Nenhum usuário selecionado
+                </span>
+
+                <!-- Options -->
+                <ul class="options-header hide">
+                    <li settings-sidebar="message-settings js-message-settings-btn" id="js-message-settings-btn">
+                        <span class="icon-settings"></span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Settings Mobile -->
+            @*<div class="settings-header active">
+                        <span class="back icon-back-page" transition-pages="message-chat-mobile"></span>
+                        <span class="settings icon-settings"></span>
+                        <h3 class="title">Preferências da conversa</h3>
+                    </div>
+
+                <div class="upload-header active">
+                        <span class="back icon-back-page" ng-click="cancelUpload()"></span>
+                        <h3 class="title">Enviar fotos</h3>
+                    </div>*@
+        </div>
+    </header>
+
+
+    <div class="container-flex">
+        <div class="message-body">
+
+            <!-- List -->
+            <div class="message-list">
+                <a href="/MinhaConta/Assinatura/" style="text-decoration:none;">
+                    <div class="call-attention">
+                        <i class="icon-call-attention"></i>
+                        <div class="description">
+                            <div class="title">Seja Premium</div>
+                            <div class="subtitle">Tenha vantagens exclusivas</div>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="options js-options">
+                    <div class="search">
+                        <form name="searchForm" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+                            <button type="button" class="btn-back" search-back=""></button>
+                            <input class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" disabled="disabled" name="search" required="" search-input="" placeholder="Pesquisar Conversas" autocomplete="off" type="search">
+                            <i class="icon-search" new-message=""></i>
+                        </form>
+                    </div>
+
+                    @*<div class="actions ng-hide" ng-show="$messageList.editMode" ng-class="{'loading': processing}">
+                            <button type="button" class="sl-btn button-clean-actions" ng-click="cleanActions()">
+                                <i></i>
+                            </button>
+                            <div class="sl-svg-inline spinner" data-size="12" spinner=""><div class="one" style="width: 12px; height: 12px;"></div><div class="two" style="width: 12px; height: 12px;"></div><div class="three" style="width: 12px; height: 12px;"></div></div>
+                            <button type="button" class="sl-btn button-remove-item" ng-click="removeSelectedChat()" ng-disabled="!showActions()" disabled="disabled">
+                                <i></i>
+                                Excluir
+                            </button>
+                        </div>*@
+                </div>
+
+
+                <!-- Chat List -->
+                <div class="list active">
+                    <!-- List -->
+                    <div class="list-scroll" scroll-offset="150" chat-list="">
+                        @{
+                            if (ViewBag.ChatsRooms != null)
+                            {
+                                int i = 0;
+                                foreach (var chatRoom in ViewBag.ChatsRooms)
+                                {
+                                    const int SECOND = 1;
+                                    const int MINUTE = 60 * SECOND;
+                                    const int HOUR = 60 * MINUTE;
+                                    const int DAY = 24 * HOUR;
+                                    const int MONTH = 30 * DAY;
+
+                                    var ts = new TimeSpan(DateTime.UtcNow.Ticks - chatRoom.DateLastInteraction.Ticks);
+                                    double delta = Math.Abs(ts.TotalSeconds);
+
+                                    string textTime = "";
+
+                                    if (delta < 1 * MINUTE)
+                                    {
+                                        textTime = ts.Seconds == 1 ? "há 1 seg" : ts.Seconds + " segundos";
+                                    }
+                                    else if (delta < 2 * MINUTE)
+                                    {
+                                        textTime = "há 1 min";
+                                    }
+                                    else if (delta < 45 * MINUTE)
+                                    {
+                                        textTime = ts.Minutes + " minutos";
+                                    }
+                                    else if (delta < 90 * MINUTE)
+                                    {
+                                        textTime = "há 1 hora";
+                                    }
+                                    else if (delta < 24 * HOUR)
+                                    {
+                                        textTime = ts.Hours + " horas";
+                                    }
+                                    else if (delta < 48 * HOUR)
+                                    {
+                                        textTime = "há 1 dia";
+                                    }
+                                    else if (delta < 30 * DAY)
+                                    {
+                                        textTime = ts.Days + " dias";
+                                    }
+                                    else if (delta < 12 * MONTH)
+                                    {
+                                        int months = Convert.ToInt32(Math.Floor((double)ts.Days / 30));
+                                        textTime = months <= 1 ? "há 1 mês" : months + " meses";
+                                    }
+                                    else
+                                    {
+                                        int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
+                                        textTime = years <= 1 ? "há 1 ano" : years + " anos";
+                                    }
+
+                                    //USE checked
+                                    <div class="list-item ng-scope" id="@chatRoom.Id" user-id-report="@chatRoom.UserId">
+
+                                        <div class="avatar">
+                                            <div class="thumb">
+                                                <img class="thumb-image" src="@chatRoom.imagemPerfil" alt="@chatRoom.Usuario">
+
+
+                                                @*@if (userItem.Connections != null)
+                                                    {
+                                                        foreach (var conn in userItem.Connections)
+                                                        {
+                                                            if (conn.Connected)
+                                                            {
+                                                                //Se o usuário estiver online
+                                                                <i class="status ng-scope"></i>
+                                                            }
+                                                        }
+                                                    }*@
+
+                                            </div>
+                                        </div>
+
+                                        <div class="info">
+
+                                            <div class="user">
+                                                <div class="user-main">
+                                                    <span class="name" bo-bind="item.login"> @chatRoom.Usuario</span>
+
+                                                    <div class="preview-message">
+                                                        <span class="last-message ng-binding">
+                                                            @if (chatRoom.LastMessage != null)
+                                                            {
+                                                                if (chatRoom.LastMessage.Message_Body != null)
+                                                                {
+                                                                    if (chatRoom.LastMessage.Message_Body.Contains("<img"))
+                                                                    {
+                                                                        <p>IMAGEM</p>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.Raw(chatRoom.LastMessage.Message_Body);
+                                                                    }
+                                                                }
+                                                            }
+                                                        </span>
+                                                        @*<span class="last-message ng-binding">
+                                                            sdasasdasd
+                                                            </span>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="details">
+                                                <div class="details-main">
+                                                    <span class="week-day ng-binding">@textTime</span>
+                                                </div>
+
+                                                @if (chatRoom.LastMessage.SenderId == chatRoom.UserId && chatRoom.LastMessage.Message_Read == false)
+                                                {
+                                                    <!-- Não lidas -->
+                                                    <div class="details-main">
+                                                        <span class="badge unread ng-binding" style="display:block">Nova</span>
+                                                    </div>
+                                                }
+
+
+                                                @*<div class="details-main" style="display:block;">
+                                                        <label class="checkbox-item">
+                                                            <i ng-click="selectItem($event, item)"></i>
+                                                        </label>
+                                                    </div>*@
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    ++i;
+                                }
+                            }
+                        }
+
+
+                        @*<div class="list-item ng-scope active">
+
+                                <div class="avatar">
+                                    <div class="thumb">
+                                        <img class="thumb-image" bo-src="item.avatar" bo-alt="item.login" src="" alt="perfectpoison">
+                                        <i class="status ng-scope"></i>
+                                    </div>
+                                </div>
+
+                                <div class="info">
+
+                                    <div class="user">
+                                        <div class="user-main">
+                                            <span class="name" bo-bind="item.login">perfectpoison</span>
+
+                                            <div class="preview-message">
+                                                <span class="last-message ng-binding" >oi </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="details">
+                                        <!-- Time -->
+                                        <div class="details-main">
+                                            <span class="week-day ng-binding">2min</span>
+                                        </div>
+
+                                        <!-- Não lidas -->
+                                        <div class="details-main">
+                                            <span class="badge unread ng-binding ng-hide">0</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>*@
+
+                    </div>
+                    <!-- End List -->
+                    <!-- No item in list -->
+
+
+                    @{
+                        if (ViewBag.ChatsRooms != null)
+                        {
+                            if (ViewBag.ChatsRooms.Count == 0)
+                            {
+                                <div class="no-content ng-hide">
+                                    <div class="description">
+                                        Ainda não falou com ninguém?<br> Nós ajudamos você a encontrar algumas pessoas que podem ser interessantes!
+                                    </div>
+                                    <a href="/Friends/Find" class="sl-btn btn-lg btn-primary-inverse">Encontrar usuários</a>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="no-content ng-hide">
+                                <div class="description">
+                                    Ainda não falou com ninguém?<br> Nós ajudamos você a encontrar algumas pessoas que podem ser interessantes!
+                                </div>
+                                <a href="/Friends/Find" class="sl-btn btn-lg btn-primary-inverse">Encontrar usuários</a>
+                            </div>
+                        }
+                    }
+
+
+                    <!-- Loading -->
+                    @*<div class="loading-pagination animate-show">
+                            <div class="sl-svg-inline spinner" data-size="12" spinner="">
+                                <div class="one" style="width: 12px; height: 12px;"></div>
+                                <div class="two" style="width: 12px; height: 12px;"></div>
+                                <div class="three" style="width: 12px; height: 12px;"></div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+
+
+            <!-- Chat -->
+            <div class="message-chat">
+
+                <!-- Chat -->
+                <ul class="chat-list clearfix">
+
+                    @*<li>
+                            <img id="imgDisplay" src="../../Images/noimage.png" alt="your image" style="width: 100px; height: 100px" />
+                        </li>*@
+
+                </ul>
+
+                <!-- Input -->
+                <div class="new-message">
+
+
+
+
+
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+                    <script src="http://malsup.github.com/jquery.form.js"></script>
+
+                    <script>
+
+                        //PARA CONSULTA
+                        //https://cloudinary.com/visualweb/display/IMMC/Image+Upload+Using+Ajax
+                        //https://www.bestjquery.com/demo/jquery-crop-image-plugin/
+
+
+                        $(document).ready(function () {
+
+                            $('.chat-list').click(function () {
+                                $('.chat-upload-list').css('display', 'none');
+                                $('.message-chat .chat-list').css('height', 'calc(100% - 40px)');
+
+                                var output = document.getElementById('outputImg');
+                                output.src = "";
+                            });
+
+                            $("#chat-upload-input").change(function () {
+
+                                //const compress = new Compress();
+
+                                //compress.attach('#chat-upload-input', {
+                                //    size: 4,
+                                //    quality: .50,
+                                //    resize: true,
+                                //}).then((results) => {
+                                //    // Example mimes:
+                                //    // image/png, image/jpeg, image/jpg, image/gif, image/bmp, image/tiff, image/x-icon,  image/svg+xml, image/webp, image/xxx, image/png, image/jpeg, image/webp
+                                //    // If mime is not provided, it will default to image/jpeg
+                                //    const img1 = results[0]
+                                //    const base64str = img1.data
+                                //    const imgExt = img1.ext
+                                //    const file = Compress.convertBase64ToFile(base64str, imgExt)
+                                //    console.log('teste');
+                                //    console.log(file);
+                                //});
+
+
+                                $('.chat-upload-list').css('display', 'block');
+
+                                var output = document.getElementById('outputImg');
+
+
+                                var add_photo_url = "@Url.Action("UploadImage", "Dating")";
+                                var model = new FormData();
+                                model.append("File", $("#chat-upload-input").prop('files')[0]);
+
+                                //model.append("Name", "test");
+                                $.ajax({// and other parameter is set here
+                                    url: add_photo_url,
+                                        type: "POST",
+                                        data: model,
+                                        dataType: "json",
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false
+
+                                }).always(function (result) {
+                                        //console.log(result);
+                                        output.src = result.responseText;
+                                    });
+
+
+                                //output.src = URL.createObjectURL(event.target.files[0]);
+
+                                $('.message-chat .chat-list').css('height', 'calc(100% - 174px)');
+                            });
+                        });
+
+
+                    </script>
+
+
+                    <div id="#chat-upload-list" class="chat-upload-list ng-scope" style="display:none;">
+                        <div id="files" class="files" style="float:left;">
+                            <ul>
+                                <li class="add-photo">
+                                    <label for="chat-upload-input-more" class="sl-btn">
+                                        <input id="fileupload" class="fileupload-btn cloudinary-fileupload" data-cloudinary-field="image_id" type="file" name="image" multiple="" chat-upload-input="" accept="image/jpg,image/jpeg,image/gif,image/png">
+                                        <i></i>
+                                        Imagem
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul>
+                            <li class="ng-scope complete">
+                                <figure>
+                                    <button type="button" class="sl-close">×</button>
+
+                                    <img id="outputImg" style="max-width: 100%;" />
+
+                                    <span class="warning">
+                                        <i></i>
+                                    </span>
+                                    <div class="progress">
+                                        <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                            <span class="sr-only ng-binding">100% Complete</span>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <form id="form-send-chat" class="ng-pristine ng-valid">
+                        <textarea class="text ng-pristine ng-valid" disabled maxlength="524288" placeholder="Envie sua mensagem" auto-grow="" min="44" max="180" style="height: 60px; overflow: hidden;"></textarea>
+
+                        <div class="action-buttons">
+
+
+                            <label class="chat-upload-input">
+                                <input id="chat-upload-input" class="fileupload-btn cloudinary-fileupload" disabled data-cloudinary-field="image_id" type="file" name="files" accept="image/jpg,image/jpeg,image/gif,image/png">
+                            </label>
+
+                            <!-- Chat Send -->
+                            <input type="button" disabled class="sl-btn btn-default btn-send" value="Enviar">
+                        </div>
+                    </form>
+
+
+                    @*<div class="friend-message" style="top: -31px;">
+                            <img src="https://cdn01.sexlog.com.br/crop_60x60/data/c/perfectpoison_5_avatar.jpg">
+                            <span class="ng-binding">perfectpoison está escrevendo...</span>
+                        </div>*@
+
+                </div>
+
+            </div>
+
+
+            <!-- Options -->
+            <div class="message-settings ng-isolate-scope js-message-settings-body" id="messageSettingsBody">
+
+
+                <h4 class="js-btn-close-panel" style="float: left; cursor: pointer;">
+                    <span class="LocationInput-cross js-btn-close-panel" style="z-index: 900; margin-left:10px; cursor: pointer;font-size: 17px;">✖</span>
+                    Fechar Painel
+                </h4>
+
+
+                <ul class="actions">
+                    <li class="item">
+                        <button class="sl-btn btn-link js-btn-trash-conversation" type="button">
+                            <span class="before icon-trash"></span>
+                            <span class="text">
+                                Arquivar conversa
+                            </span>
+                        </button>
+
+                    </li>
+                    <li class="item">
+                        <button class="sl-btn btn-link js-denunciar-usuario" type="button">
+                            <span class="text">
+                                Denunciar este usuário
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+
+            </div>
+
+            @*<!-- Upload -->
+                <div class="message-upload" chat-upload="">
+
+                    <div class="message-upload-container">
+
+                        <form id="form-send-chat" class="ng-pristine ng-valid">
+                            <textarea class="text ng-pristine ng-valid" maxlength="1024" placeholder="Envie sua mensagem" auto-grow="" min="70" max="110" chat-send="$message.send()" ng-keydown="senderWriting($event)" ng-disabled="disableSend()" ng-model="$message.sender.body" style="height: 70px;"></textarea>
+                        </form>
+
+                        <!-- Chat Thumb Upload -->
+                        <div class="chat-upload-list" chat-upload-list="">
+                            <ul>
+                                <!-- ngRepeat: item in $message.sender.upload track by $index -->
+                                <!-- Add Photo -->
+                                <li class="add-photo">
+                                    <label for="chat-upload-input-more" class="sl-btn">
+                                        <input id="chat-upload-input-more" type="file" name="files" multiple="" chat-upload-input="" data-url="https://www.sexlog.com/upload" accept="image/jpg,image/jpeg,image/gif,image/png">
+                                        <i></i>
+                                        Imagem
+                                    </label>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="sl-btn btn-default" ng-click="cancelUpload()">Cancelar</button>
+                        <button type="button" class="sl-btn btn-primary" ng-click="sendUpload()" ng-disabled="disableSend() || !validUpload()">Enviar</button>
+                    </div>
+
+                </div>*@
+        </div>
+    </div>
+
+</div>
+
+<div id="panel-delete-conversation" style="display:none;">
+    <div class="modal-backdrop in" style="z-index: 1040;"></div>
+    <div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal modal-chat-delete" size="sm" index="0" style="z-index: 1050; display: block;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" modal-transclude="">
+                <div bindonce="" class="ng-scope">
+                    <div class="modal-header">
+                        <button type="button" class="sl-close js-close-delete-conversation">×</button>
+                        <h4 class="modal-title">Arquivar a conversa</h4>
+                    </div>
+                    <div class="modal-body">
+                        O arquivamento da conversa <strong>não</strong> excluirá em definitivo as mensagens trocadas, caso você ou a outra pessoa eviar mensagem, essa conversa voltará a ficar ativa e aparecer em sua lista. Deseja Arquivar a conversa?
+                    </div>
+                    <div class="modal-footer">
+                        <div class="actions">
+                            <button class="sl-btn btn-default js-close-delete-conversation" type="button">Cancelar</button>
+                            <button class="sl-btn btn-primary btn-process ng-isolate-scope normal js-confirm-delete-conversation" text="Excluir conversa">
+                                <span class="name-action ng-binding">Arquivar conversa</span>
+                                <div class="spinner" spinner="" data-color="white" data-size="10"><div class="one" style="background-color: rgb(255, 255, 255); width: 10px; height: 10px;"></div><div class="two" style="background-color: rgb(255, 255, 255); width: 10px; height: 10px;"></div><div class="three" style="background-color: rgb(255, 255, 255); width: 10px; height: 10px;"></div></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="panel-report-user" style="display:none;">
+    <div class="modal-backdrop in" style="z-index: 1040;"></div>
+    <div tabindex="-1" role="dialog" class="modal ng-isolate-scope sl-modal modal-chat-delete" size="sm" index="0" style="z-index: 1050; display: block;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div bindonce="" class="ng-scope">
+                    <div class="modal-header">
+                        <button type="button" class="sl-close js-close-report-user">×</button>
+                        <h4 class="modal-title">Ajude-nos a entender o que está acontecendo</h4>
+                    </div>
+                    <div class="modal-body">
+                        <strong>O que você gostaria de fazer?</strong>
+                        <br /><br />
+                        <select id="actionOptions" class="selectOptions">
+                            <option value="act0">--</option>
+                            <option value="act1">FOTOS INAPROPRIADAS</option>
+                            <option value="act2">PARECE SPAM</option>
+                            <option value="act3">MENSAGENS INAPROPRIADAS</option>
+                            <option value="act4">OUTRO</option>
+                        </select>
+                        <br /><br />
+
+                        <div id="actions">
+                            <div id="act1" class="actionsOptions" style="display:none;">
+                                <textarea class="selectOptions" id="txtDetails" style="height:100px;" placeholder="Diga-nos resumidamente o que aconteu"></textarea>
+                                <input type="checkbox" id="isSelectedBlock" /> BLOQUEAR PERFIL*<br />
+                                <p>
+                                    * Ao bloquear o perfil as conversas no chat, se houverem, serão Arquivadas Autoamáticamente.
+                                    Quando desbloquear para que as conversas apareçam novamente será preciso enviar uma nova mensagem a partir do Perfil do usuário.
+                                </p>
+                                @*<input type="checkbox" id="isAgeSelected" /> DEIXAR DE SEGUIR PERFIL*@
+                                @*<button class="sl-btn btn-default js-btn-cancel-edit-location">Cancelar</button>*@
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="actions">
+                            <button class="sl-btn btn-default js-close-report-user" type="button">Cancelar</button>
+                            <button class="sl-btn btn-primary btn-process ng-isolate-scope normal js-confirm-report-user" disabled="disabled" text="Enviar">
+                                <span class="name-action ng-binding">Enviar</span>
+                                <div class="spinner" spinner="" data-color="white" data-size="10"><div class="one" style="background-color: rgb(255, 255, 255); width: 10px; height: 10px;"></div><div class="two" style="background-color: rgb(255, 255, 255); width: 10px; height: 10px;"></div><div class="three" style="background-color: rgb(255, 255, 255); width: 10px; height: 10px;"></div></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <style>
+                    .selectOptions {
+                        width: 100%;
+                        height: 45px;
+                    }
+                </style>
+
+                <script>
+
+                    $('#actionOptions').change(function () {
+                        //Use $option (with the "$") to see that the variable is a jQuery object
+                        var $option = $(this).find('option:selected');
+                        //Added with the EDIT
+                        var value = $option.val();//to get content of "value" attrib
+                        var text = $option.text();//to get <option>Text</option> content
+
+                        //$('.actionsOptions').css('display', 'none');
+                        $('#act1').css('display', 'block');
+                        $('.js-confirm-report-user').removeAttr("disabled");
+                    });
+
+
+                    $('.js-denunciar-usuario').on("click", function (e) {
+
+                        $('#panel-report-user').css('display', 'block');
+                    });
+
+                    $('.js-close-report-user').on("click", function (e) {
+
+                        $('#panel-report-user').css('display', 'none');
+                    });
+
+                    $('.js-confirm-report-user').on("click", function (e) {
+                        $('.js-confirm-report-user').attr('disabled', true);
+
+                        var ReportedUser = $('.list-item.active').attr('user-id-report');
+                        var ReportedType = $("#actionOptions option:selected").text();
+                        var ReportDetails = $('#txtDetails').val();
+                        var blockUser = $('#isSelectedBlock').is(":checked");
+
+                        //alert(ReportedUser + ', ' + ReportedType + ', ' + ReportDetails + ', ' + blockUser);
+                        UserReport(ReportedUser, ReportedType, ReportDetails, blockUser);
+                        if (blockUser === true) {
+                            //alert(ReportedUser);
+                            ArquivarConversa(ReportedUser);
+                        }
+                    });
+
+                    function UserReport(ReportedUser, ReportedType, ReportDetails, blockUser) {
+                        $.ajax({
+                            url: "/Dating/AddUserReport",
+                            data: {
+                                'ReportedUser': ReportedUser,
+                                'ReportedType': ReportedType,
+                                'ReportDetails': ReportDetails,
+                                'blockUser': blockUser
+                            },
+
+                            type: 'POST',
+                            complete: function (jqXHR) {
+                                if (jqXHR.readyState === 4) {
+                                    location.reload();
+                                }
+                            },
+                            success: function () {
+
+                            },
+                            error: function () {
+                                //Notification();
+                            }
+                        });
+                    }
+
+
+                    function ArquivarConversa(idUsuarioSelecionado) {
+                        //alert('teste');
+
+                        $.ajax({
+                            url: "/Dating/ArquivarMensagem",
+                            data: {
+                                'idUsuarioSelecionado': idUsuarioSelecionado,
+                            },
+
+                            type: 'POST',
+                            complete: function (jqXHR) {
+                                if (jqXHR.readyState === 4) {
+                                    location.reload();
+                                }
+                            },
+                            success: function () {
+
+                            },
+                            error: function () {
+                                //Notification();
+                            }
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<!--Reference the SignalR library. -->
+<script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+<!--Reference the autogenerated SignalR hub script. -->
+<script src="signalr/hubs"></script>
+<script src="/signalr/signalr/hubs"></script>
+<script src="~/modules/js/Chat.js"></script>
+
+<!--Add script to update the page and send messages.-->
+<script type="text/javascript">
+    $(function () {
+        // Declare a proxy to reference the hub.
+        var chat = $.connection.chatHub;
+        // Create a function that the hub can call to broadcast messages.
+            chat.client.broadcastMessage = function (name, message, urlImage, id) {
+            // Html encode display name and message.
+            var encodedName = $('<div />').text(name).html();
+            var encodedMsg = $('<div />').text(message).html();
+            var encodedImg = $('<div />').text(urlImage).html();
+            var encodedIdUsuario = $('<div />').text(id).html();
+            // Add the message to the page.
+            $('.list-item#' + id).find('.preview-message').html(message);
+            var idUsuarioSelecionado = $('.chat-header').attr('user-id');
+
+
+            //var notifyPrincipal = parseInt($('#js-notify-mensagem').html());
+            //notifyPrincipal = notifyPrincipal + 1;
+            //$('#js-notify-mensagem').html(notify);
+            //$('#js-notify-mensagem').css('display', 'block');
+
+
+            //alert(idUsuarioSelecionado +"  "+encodedIdUsuario);
+
+            if (idUsuarioSelecionado == encodedIdUsuario)
+            {
+                $('.chat-list').append('<li class="group-message clearfix ng-scope"><ul class="other"><li class="clearfix ng-scope seen"><div class="container-message-text ng-scope"><div tabindex="0" class="container-message-sent ng-scope"><span class="message-text ng-binding">' + message + '</span><span class="message-icon-trash"></span></div><span class="message-time">17/11/16 02:42</span></div></li><li class="message-thumb"><img alt="perfectpoison" src=' + urlImage + ' class="js-img-perfil-circle"></li></ul></li>');
+            }
+            else {
+
+                var notify = parseInt($('.list-item#' + id).find('.badge.unread.ng-binding').html());
+
+                notify = notify + 1;
+                $('.list-item#' + id).find('.badge.unread.ng-binding').html(notify);
+                $('.list-item#' + id).find('.badge.unread.ng-binding').css('display','block');
+            }
+        };
+        // Get the user name and store it to prepend to messages.
+        //$('#displayname').val(prompt('Enter your name:', ''));
+        // Set initial focus to message input box.
+        $('.text.ng-pristine.ng-valid').focus();
+        // Start the connection.
+        $.connection.hub.start().done(function () {
+
+            $('.btn-send').click(function (e) {
+                var outputImg = $('#outputImg').attr('src');
+
+                if ($('.text.ng-pristine.ng-valid').val() === "" && outputImg.length < 10) {
+                    //alert('Please enter Username and Password.');
+                    return false;
+                }
+
+                enviarMensagem();
+
+                e.preventDefault();
+            });
+
+            $('.text.ng-pristine.ng-valid').keyup(function (event) {
+                if (event.which === 13 && !event.shiftKey) {
+
+                    if ($('.text.ng-pristine.ng-valid').val() === "" && outputImg.length < 10) {
+                        //alert('Please enter Username and Password.');
+                        return false;
+                    }
+
+                    enviarMensagem();
+
+                    var newText = $('.text.ng-pristine.ng-valid').val().replace(/^.*\n/g, "");
+                    $('.text.ng-pristine.ng-valid').val(newText);
+
+                    $('.text.ng-pristine.ng-valid').val("");
+                }
+
+                event.preventDefault();
+            });
+
+            //$(document).keypress(function (event) {
+            //    if (event.keyCode == 13) {
+            //        if ($('.text.ng-pristine.ng-valid').val() === "") {
+            //            //alert('Please enter Username and Password.');
+            //            return false;
+            //        }
+            //        enviarMensagem();
+
+            //        var newText = $('.text.ng-pristine.ng-valid').val().replace(/^.*\n/g, "");
+            //        $('.text.ng-pristine.ng-valid').val(newText);
+
+            //        $('.text.ng-pristine.ng-valid').val("");
+
+            //    }
+            //});
+
+            function enviarMensagem()
+            {
+                var outputImg = $('#outputImg').attr('src');
+                var message = $('.text.ng-pristine').val();
+                var urlImage = $('.img-circle').attr('src');
+                var name = $('.js-name-header').html();
+
+                if (outputImg != undefined) {
+                    if (outputImg != undefined) {
+                        message = '<img alt="" src=' + outputImg + ' style="width: 100%;"><br>' + message;
+                    }
+                }
+
+
+
+                chat.server.send('@HttpContext.Current.User.Identity.Name', name, message, urlImage);
+
+                if (outputImg != undefined) {
+                    if (outputImg.length > 0) {
+
+                        $('.chat-upload-list').css('display', 'none');
+                        $('.message-chat .chat-list').css('height', 'calc(100% - 40px)');
+
+                        var output = document.getElementById('outputImg');
+                        output.src = "";
+                    }
+                }
+
+
+                $('.chat-list').append('<li class="group-message clearfix me ng-scope"><ul class="me"><li class="clearfix ng-scope seen"><div class="container-message-text ng-scope"><div tabindex="0" class="container-message-sent ng-scope"><span class="message-text ng-binding">' + message + '</span></div><span class="message-time"></span></div></li><li class="message-thumb"><img alt="" class="js-img-perfil-circle"></li></ul></li>');
+
+
+                $('.text.ng-pristine').focus();
+                $('.text.ng-pristine').val('');
+                $('.text.ng-pristine.ng-valid').val("");
+                $('.text.ng-pristine').html('');
+                $('.text.ng-pristine').attr('value', null);
+                //$('ul').scrollTop($(".clearfix").last().offset().top);
+                $("html,body").animate({ scrollTop: $('ul.chat-list li:last').offset().top + 30 });
+            }
+
+            function DecodeHtml(str) {
+                return $('<div/>').html(str).text();
+            }
+        });
+
+        //$('.message-icon-trash').click(function (e) {
+
+        //    alert(this.attr('data-trash-id').val);
+
+        //    e.preventDefault();
+        //});
+
+
+
+    });
+</script>

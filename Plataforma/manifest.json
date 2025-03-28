@@ -1,0 +1,21 @@
+{
+  "name": "Kinkee Co",
+  "short_name": "Kinkee",
+  "theme_color": "#74358A",
+  "background_color": "#2a0044",
+  "description": "Sugar Baby & Sugar Daddy, Fan Club & Venda de Packs de fotos",
+  "start_url": "https://app.kinkee.co/",
+  "scope": "/app/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "lang": "Portuguese",
+  "icons": [
+    {
+      "src": "/modules/img/icone_app.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ],
+  "gcm_sender_id": "482941778795",
+  "gcm_sender_id_comment": "Do not change the GCM Sender ID"
+}
